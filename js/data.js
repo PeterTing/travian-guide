@@ -4,7 +4,7 @@ const TRIBES_DATA = {
     name: { zh: "羅馬", en: "Romans" },
     icon: "🏛️",
     archetype: { zh: "平衡型", en: "Balanced" },
-    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
+    difficulty: { zh: "★☆☆☆☆ 最適合新手", en: "★☆☆☆☆ Most beginner-friendly" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "羅馬是經典的平衡部族，擁有雙佇列建築隊伍的獨特優勢。其步兵防禦力最強，適合穩妥發展和防守。",
@@ -173,7 +173,7 @@ const TRIBES_DATA = {
     name: { zh: "高盧", en: "Gauls" },
     icon: "🛡️",
     archetype: { zh: "防禦型", en: "Defense" },
-    difficulty: { zh: "★★★☆☆ 進階玩家", en: "★★★☆☆ Intermediate" },
+    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "高盧以速度和防禦見長，擁有最快的騎兵和獨特的陷阱建築。他們的定居者是最便宜的，發展速度快。",
@@ -342,7 +342,7 @@ const TRIBES_DATA = {
     name: { zh: "條頓", en: "Teutons" },
     icon: "⚔️",
     archetype: { zh: "掠奪型", en: "Raiding" },
-    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
+    difficulty: { zh: "★★★☆☆ 經驗玩家", en: "★★★☆☆ Experienced players" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "條頓是掠奪大師，以最便宜、最快的訓練時間聞名。他們的商人運力最強，單位攜帶容量大。",
@@ -511,7 +511,7 @@ const TRIBES_DATA = {
     name: { zh: "埃及", en: "Egyptians" },
     icon: "🐪",
     archetype: { zh: "生產型", en: "Production" },
-    difficulty: { zh: "★★★☆☆ 進階玩家", en: "★★★☆☆ Intermediate" },
+    difficulty: { zh: "★★☆☆☆ 新手與老手皆宜", en: "★★☆☆☆ Beginners & experienced" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
       zh: "埃及是生產大師，擁有最便宜的單位訓練和英雄資源加成。他們的城牆最堅不可摧，水利工程特殊建築獨樹一幟。",
@@ -679,7 +679,7 @@ const TRIBES_DATA = {
     name: { zh: "匈奴", en: "Huns" },
     icon: "🏇",
     archetype: { zh: "騎兵型", en: "Cavalry" },
-    difficulty: { zh: "★★★★☆ 高級玩家", en: "★★★★☆ Advanced" },
+    difficulty: { zh: "★★★★☆ 經驗玩家推薦", en: "★★★★☆ Experienced players" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
       zh: "匈奴是純騎兵部族，擁有最快的騎兵和偵察兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
@@ -848,7 +848,7 @@ const TRIBES_DATA = {
     name: { zh: "維京", en: "Vikings" },
     icon: "⛵",
     archetype: { zh: "海洋型", en: "Naval" },
-    difficulty: { zh: "★★★★★ 專家級", en: "★★★★★ Expert" },
+    difficulty: { zh: "★★★☆☆ 攻擊型玩家", en: "★★★☆☆ Aggressive players" },
     servers: { zh: "特殊伺服器", en: "Special servers only" },
     description: {
       zh: "維京是獨特的海洋部族，擁有狂戰士的大規模傷害和瓦爾基里的低成本重騎兵。他們是唯一有船隊系統的部族。",

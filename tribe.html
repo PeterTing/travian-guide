@@ -853,7 +853,7 @@
         </div>
         <div class="merchant-row">
           <div class="merchant-label">${currentLang === 'zh' ? '推薦防禦比例' : 'Recommended Defense Ratio'}:</div>
-          <div class="merchant-value">${tribe.recommendedDefenseRatio || 'N/A'}</div>
+          <div class="merchant-value">${t(tribe.defenseRatio) || 'N/A'}</div>
         </div>
       `;
       document.getElementById('merchantInfo').innerHTML = merchantHtml;
