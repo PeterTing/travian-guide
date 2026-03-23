@@ -194,25 +194,53 @@
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
-        <header class="site-header" style="background: #1a0f0a; border-bottom: 2px solid #8b4513; padding: 1rem 2rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 1rem;">
-                <a href="index.html" style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #d4af37; text-decoration: none; font-weight: 700;">Travian Legends</a>
-                <nav style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
-                    <a href="index.html" data-zh="首頁" data-en="Home" style="color: #ccc; text-decoration: none;">首頁</a>
-                    <a href="guide.html" data-zh="開村攻略" data-en="Settlement" style="color: #ccc; text-decoration: none;">開村攻略</a>
-                    <a href="mechanics.html" data-zh="遊戲機制" data-en="Mechanics" style="color: #ccc; text-decoration: none;">遊戲機制</a>
-                    <a href="tools.html" data-zh="工具" data-en="Tools" style="color: #ccc; text-decoration: none;">工具</a>
-                    <a href="strategy.html" data-zh="策略指南" data-en="Strategy" style="color: #d4af37; text-decoration: none; font-weight: 600; border-bottom: 2px solid #d4af37;">策略指南</a>
-                </nav>
-                <button class="lang-toggle" onclick="toggleLanguage()" style="background: #8b4513; color: #d4af37; border: 1px solid #d4af37; padding: 0.4rem 1rem; cursor: pointer; border-radius: 4px;">EN / 繁中</button>
+    <div class="wrapper">
+        <header class="site-header">
+          <div class="header-content">
+            <a href="index.html" class="site-logo">Travian Legends</a>
+            <nav class="nav-main">
+              <li><a href="index.html" class="nav-link">
+                <span class="lang-text" data-zh="首頁" data-en="Home">首頁</span>
+              </a></li>
+              <li class="dropdown-trigger">
+                <a href="#" class="nav-link">
+                  <span class="lang-text" data-zh="部族" data-en="Tribes">部族</span>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a>
+                  <a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a>
+                  <a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a>
+                  <a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a>
+                  <a href="tribe.html?t=huns" class="lang-text" data-zh="匈奴人" data-en="Huns">匈奴人</a>
+                  <a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a>
+                </div>
+              </li>
+              <li><a href="guide.html" class="nav-link">
+                <span class="lang-text" data-zh="攻略" data-en="Guide">攻略</span>
+              </a></li>
+              <li><a href="mechanics.html" class="nav-link">
+                <span class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</span>
+              </a></li>
+              <li><a href="tools.html" class="nav-link">
+                <span class="lang-text" data-zh="工具" data-en="Tools">工具</span>
+              </a></li>
+              <li><a href="strategy.html" class="nav-link">
+                <span class="lang-text" data-zh="策略指南" data-en="Strategy">策略指南</span>
+              </a></li>
+            </nav>
+            <div class="header-controls">
+              <button class="lang-toggle" onclick="toggleLanguage()">繁中/EN</button>
+              <button class="mobile-menu-toggle" id="mobile-menu-btn" onclick="document.querySelector('.nav-main').classList.toggle('active')">☰</button>
             </div>
+          </div>
         </header>
 
-        <div style="text-align: center; padding: 2rem 1rem; background: linear-gradient(135deg, #1a0f0a, #2a1810); border-bottom: 1px solid #8b4513;">
-            <h1 style="color: #d4af37; font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 0.5rem;" data-zh="策略指南" data-en="Strategy Guide">策略指南</h1>
-            <p style="color: #999; font-size: 1.1rem;" data-zh="完整的發展路線、村莊定位、種族專精與後期系統" data-en="Complete development paths, village roles, tribe strategies & late-game systems">完整的發展路線、村莊定位、種族專精與後期系統</p>
-        </div>
+        <section class="hero-banner">
+          <div class="hero-content">
+            <h1 data-zh="策略指南" data-en="Strategy Guide">策略指南</h1>
+            <p class="hero-subtitle" data-zh="完整的發展路線、村莊定位、種族專精與後期系統" data-en="Complete development paths, village roles, tribe strategies & late-game systems">完整的發展路線、村莊定位、種族專精與後期系統</p>
+          </div>
+        </section>
 
         <main class="main-content">
             <div class="tabs-container" id="strategyTabs">
