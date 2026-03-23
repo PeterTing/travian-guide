@@ -53,7 +53,7 @@
     .tab-navigation {
       display: flex;
       gap: 1rem;
-      border-bottom: 2px solid #e0e0e0;
+      border-bottom: 2px solid #2a2d2a;
       margin-bottom: 2rem;
       overflow-x: auto;
     }
@@ -65,19 +65,19 @@
       cursor: pointer;
       font-size: 1rem;
       font-weight: 600;
-      color: #666;
+      color: var(--text-secondary);
       border-bottom: 3px solid transparent;
       transition: all 0.3s ease;
       white-space: nowrap;
     }
 
     .tab-button:hover {
-      color: #333;
+      color: #c9a83e;
     }
 
     .tab-button.active {
-      color: #8b5a00;
-      border-bottom-color: #8b5a00;
+      color: #c9a83e;
+      border-bottom-color: #c9a83e;
     }
 
     .tab-content {
@@ -89,15 +89,18 @@
     }
 
     .overview-description {
-      background: #f5f5f5;
+      background: #1a1d1b;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 2rem;
       line-height: 1.6;
+      border: 1px solid #2a2d2a;
     }
 
     .hero-passive {
-      background: #fff3cd;
+      background: #2a2518;
+      color: var(--text-primary);
       border-left: 4px solid #ffc107;
       padding: 1rem 1.5rem;
       border-radius: 4px;
@@ -106,19 +109,22 @@
     }
 
     .special-buildings {
-      background: #f9f9f9;
+      background: #1a1d1b;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 2rem;
+      border: 1px solid #2a2d2a;
     }
 
     .special-buildings h3 {
       margin-top: 0;
+      color: var(--text-primary);
     }
 
     .building-item {
       padding: 0.8rem 0;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #2a2d2a;
     }
 
     .building-item:last-child {
@@ -127,12 +133,12 @@
 
     .building-name {
       font-weight: 600;
-      color: #333;
+      color: #c9a83e;
     }
 
     .building-desc {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-secondary);
       margin-top: 0.3rem;
     }
 
@@ -146,14 +152,17 @@
     .strengths, .weaknesses {
       padding: 1.5rem;
       border-radius: 8px;
+      color: var(--text-primary);
     }
 
     .strengths {
-      background: #e8f5e9;
+      background: #1a2e1a;
+      border: 1px solid #2a5a2a;
     }
 
     .weaknesses {
-      background: #ffebee;
+      background: #2e1a1a;
+      border: 1px solid #5a2a2a;
     }
 
     .strengths h3, .weaknesses h3 {
@@ -168,7 +177,7 @@
 
     .item-list li {
       padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #2a2d2a;
     }
 
     .item-list li:last-child {
@@ -176,10 +185,12 @@
     }
 
     .merchant-info {
-      background: #ecf0f1;
+      background: #1e2124;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 2rem;
+      border: 1px solid #2a2d2a;
     }
 
     .merchant-row {
@@ -187,7 +198,7 @@
       grid-template-columns: auto 1fr;
       gap: 1rem;
       padding: 0.8rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #2a2d2a;
     }
 
     .merchant-row:last-child {
@@ -196,26 +207,27 @@
 
     .merchant-label {
       font-weight: 600;
-      color: #333;
+      color: #c9a83e;
     }
 
     .merchant-value {
-      color: #666;
+      color: var(--text-secondary);
     }
 
     .units-table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 2rem;
-      background: white;
+      background: #1a1d1b;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border: 1px solid #2a2d2a;
     }
 
     .units-table thead {
-      background: #2c3e50;
-      color: white;
+      background: rgba(201, 168, 62, 0.15);
+      color: #c9a83e;
     }
 
     .units-table th {
@@ -224,11 +236,12 @@
       font-weight: 600;
       cursor: pointer;
       user-select: none;
-      border-right: 1px solid #34495e;
+      border-right: 1px solid #2a2d2a;
+      color: #c9a83e;
     }
 
     .units-table th:hover {
-      background: #34495e;
+      background: rgba(201, 168, 62, 0.2);
     }
 
     .units-table th::after {
@@ -248,22 +261,23 @@
 
     .units-table td {
       padding: 1rem;
-      border-bottom: 1px solid #ecf0f1;
-      border-right: 1px solid #ecf0f1;
+      border-bottom: 1px solid #2a2d2a;
+      border-right: 1px solid #2a2d2a;
+      color: var(--text-secondary);
     }
 
     .units-table tr:hover {
-      background: #f8f9fa;
+      background: rgba(201, 168, 62, 0.05);
     }
 
     .unit-name {
       font-weight: 600;
-      color: #333;
+      color: #c9a83e;
     }
 
     .unit-type {
       font-size: 0.85rem;
-      color: #999;
+      color: var(--text-secondary);
       margin-top: 0.2rem;
     }
 
@@ -304,23 +318,27 @@
     }
 
     .guide-section {
-      background: #f9f9f9;
+      background: #1a1d1b;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 2rem;
+      border: 1px solid #2a2d2a;
     }
 
     .guide-section h3 {
       margin-top: 0;
-      color: #333;
+      color: #c9a83e;
     }
 
     .settler-cost {
-      background: white;
+      background: #1a1d1b;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 2rem;
-      border-left: 4px solid #8b5a00;
+      border-left: 4px solid #c9a83e;
+      border: 1px solid #2a2d2a;
     }
 
     .cost-breakdown {
@@ -336,19 +354,21 @@
 
     .cost-label {
       font-weight: 600;
-      color: #333;
+      color: #c9a83e;
     }
 
     .cost-value {
-      color: #666;
+      color: var(--text-secondary);
     }
 
     .timeline {
-      background: white;
-      border-left: 4px solid #8b5a00;
+      background: #1a1d1b;
+      color: var(--text-secondary);
+      border-left: 4px solid #c9a83e;
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 1.5rem;
+      border: 1px solid #2a2d2a;
     }
 
     .timeline-phase {
@@ -380,7 +400,7 @@
 
     .timeline-title {
       font-weight: 600;
-      color: #333;
+      color: #c9a83e;
       flex: 1;
     }
 
@@ -393,7 +413,7 @@
     .timeline-actions li {
       padding: 0.8rem 0 0.8rem 2rem;
       position: relative;
-      color: #666;
+      color: var(--text-secondary);
       line-height: 1.5;
     }
 
@@ -410,20 +430,22 @@
     }
 
     .strategy-box {
-      background: #f5f5f5;
+      background: #1a1d1b;
+      color: var(--text-secondary);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 1.5rem;
+      border: 1px solid #2a2d2a;
     }
 
     .strategy-box h3 {
       margin-top: 0;
-      color: #333;
+      color: #c9a83e;
     }
 
     .strategy-box p {
       margin: 0;
-      color: #666;
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -976,7 +998,7 @@
 
         return `
           <div style="margin-bottom: 2rem;">
-            <h4 style="color: #333; margin-top: 0;">${t(phase.name)}</h4>
+            <h4 style="color: var(--text-primary); margin-top: 0;">${t(phase.name)}</h4>
             ${stepsHtml}
           </div>
         `;
@@ -1003,7 +1025,7 @@
       const nav = document.getElementById('tribeNav');
       nav.innerHTML = `
         ${prevTribe ? `<a href="tribe.html?t=${prevTribe}">← ${t(TRIBES_DATA[prevTribe].name)}</a>` : '<div class="disabled">← Previous</div>'}
-        <span style="text-align: center; color: #666;">${t(TRIBES_DATA[currentTribe].name)}</span>
+        <span style="text-align: center; color: var(--text-secondary);">${t(TRIBES_DATA[currentTribe].name)}</span>
         ${nextTribe ? `<a href="tribe.html?t=${nextTribe}">${t(TRIBES_DATA[nextTribe].name)} →</a>` : '<div class="disabled">Next →</div>'}
       `;
     }
