@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外部工具 | External Tools - Travian Legends 攻略</title>
+  <meta name="description" content="Travian Legends 外部工具大全 | Complete guide to external tools for Travian Legends">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: var(--spacing-lg);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-md);
+      display: inline-block;
+    }
+
+    .tool-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-family: var(--font-serif);
+    }
+
+    .tool-title-zh {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .tool-url {
+      display: inline-block;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .tool-url a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+
+    .tool-url a:hover {
+      text-decoration: underline;
+    }
+
+    .tool-purpose {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .tool-purpose-label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .tool-purpose-text {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .tool-inputs {
+      background: var(--bg-secondary);
+      padding: var(--spacing-md);
+      border-radius: 6px;
+      margin-bottom: var(--spacing-md);
+      font-size: 0.9rem;
+    }
+
+    .tool-inputs strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .tool-inputs p {
+      margin: 0.3rem 0;
+      color: var(--text-secondary);
+    }
+
+    .tool-tips {
+      background: #f0f4f8;
+      padding: var(--spacing-md);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 4px;
+      margin-bottom: var(--spacing-md);
+      font-size: 0.9rem;
+    }
+
+    .tool-tips strong {
+      color: var(--accent-color);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .tool-tips p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .difficulty-badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .difficulty-beginner {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .difficulty-intermediate {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .difficulty-advanced {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .tools-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-xl) 0;
+      font-size: 0.95rem;
+    }
+
+    .tools-table thead {
+      background: var(--bg-secondary);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .tools-table th {
+      padding: var(--spacing-md);
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .tools-table td {
+      padding: var(--spacing-md);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .tools-table tbody tr:hover {
+      background: var(--bg-secondary);
+    }
+
+    .intro-section {
+      background: var(--bg-secondary);
+      padding: var(--spacing-lg);
+      border-radius: 8px;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .intro-section p {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .intro-section a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .intro-section a:hover {
+      text-decoration: underline;
+    }
+
+    .tools-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .tools-header h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .tools-header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <div class="header-content">
+        <a href="index.html" class="site-logo">Travian Legends</a>
+
+        <nav class="nav-main">
+          <li><a href="index.html" class="nav-link">
+            <span class="lang-text" data-zh="首頁" data-en="Home">首頁</span>
+          </a></li>
+          <li class="dropdown-trigger">
+            <a href="#" class="nav-link">
+              <span class="lang-text" data-zh="部族" data-en="Tribes">部族</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a>
+              <a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a>
+              <a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a>
+              <a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a>
+              <a href="tribe.html?t=huns" class="lang-text" data-zh="匈奴人" data-en="Huns">匈奴人</a>
+              <a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a>
+            </div>
+          </li>
+          <li><a href="guide.html" class="nav-link">
+            <span class="lang-text" data-zh="攻略" data-en="Guide">攻略</span>
+          </a></li>
+          <li><a href="mechanics.html" class="nav-link">
+            <span class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</span>
+          </a></li>
+          <li><a href="tools.html" class="nav-link">
+            <span class="lang-text" data-zh="工具" data-en="Tools">工具</span>
+          </a></li>
+        </nav>
+
+        <div class="header-controls">
+          <button class="lang-toggle active" data-lang="zh">繁中</button>
+          <button class="lang-toggle" data-lang="en">EN</button>
+          <button class="mobile-menu-toggle" id="mobile-menu-btn">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <div class="lang-content active" data-lang="zh">
+          <h1>外部工具</h1>
+          <p class="hero-subtitle">善用工具事半功倍</p>
+        </div>
+        <div class="lang-content" data-lang="en">
+          <h1>External Tools</h1>
+          <p class="hero-subtitle">Work smarter with the right tools</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- INTRO SECTION -->
+      <section class="intro-section">
+        <div class="lang-content active" data-lang="zh">
+          <h2>GetterTools.com 工具套件</h2>
+          <p>GetterTools.com 為 Travian Legends 玩家提供了 8 款專業免費工具，涵蓋從初期農場管理到後期戰術協調的所有需求。這些工具由資深 Travian 玩家開發，可以顯著提升您的遊戲效率和決策品質。無論您是新手還是老玩家，合理運用這些工具將大幅改善您的遊戲體驗。</p>
+          <p><strong>訪問工具站點：</strong><a href="https://www.gettertools.com" target="_blank">https://www.gettertools.com</a></p>
+        </div>
+        <div class="lang-content" data-lang="en">
+          <h2>GetterTools.com Toolkit</h2>
+          <p>GetterTools.com provides 8 professional free tools for Travian Legends players, covering everything from early-game farm management to late-game tactical coordination. Developed by experienced Travian players, these tools can significantly improve your gaming efficiency and decision-making quality. Whether you're a newcomer or a veteran, using these tools wisely will dramatically enhance your gameplay experience.</p>
+          <p><strong>Visit the tools website:</strong> <a href="https://www.gettertools.com" target="_blank">https://www.gettertools.com</a></p>
+        </div>
+      </section>
+
+      <!-- TOOLS GRID -->
+      <section class="tools-section">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="8 款核心工具" data-en="8 Essential Tools">8 款核心工具</span>
+        </h2>
+
+        <div class="tools-grid">
+          <!-- TOOL 1: Region Inactives -->
+          <div class="tool-card">
+            <div class="tool-icon">🔍</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Region Inactives" data-en="Region Inactives">Region Inactives</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">不活躍玩家搜尋器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Inactive Player Finder</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/2-Region-Inactives" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-beginner">★☆☆☆☆ <span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">搜尋指定範圍內的不活躍玩家（死羊），是建立農場清單的核心工具</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Find inactive players (dead sheep) within a specified radius — the core tool for building farm lists</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="中心座標" data-en="Center coordinates">中心座標</span></p>
+              <p>• <span class="lang-text" data-zh="搜尋半徑" data-en="Search radius">搜尋半徑</span> (默認 14)</p>
+              <p>• <span class="lang-text" data-zh="人口過濾" data-en="Population filter">人口過濾</span> (&lt;100)</p>
+              <p>• <span class="lang-text" data-zh="7 日成長過濾" data-en="7-day growth filter">7 日成長過濾</span> (≤0)</p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">建議每 6 小時掃描一次，新伺服器初期死羊較少，中期開始大量出現</p>
+              <p class="lang-content" data-lang="en">Scan every 6 hours. Early server has fewer inactives; they increase significantly mid-game</p>
+            </div>
+          </div>
+
+          <!-- TOOL 2: Path Calculator -->
+          <div class="tool-card">
+            <div class="tool-icon">🗺️</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Path Calculator" data-en="Path Calculator">Path Calculator</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">路徑計算器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Path Calculator</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/36-Path-calculator" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-beginner">★☆☆☆☆ <span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">計算部隊從 A 點到 B 點的精確行軍時間，支援競技場和英雄加速</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Calculate precise troop march time from point A to B, supports Tournament Square and hero speed bonuses</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="出發/目的地座標" data-en="Departure/destination coordinates">出發/目的地座標</span></p>
+              <p>• <span class="lang-text" data-zh="部隊類型" data-en="Troop type">部隊類型</span></p>
+              <p>• <span class="lang-text" data-zh="競技場等級" data-en="Tournament Square level">競技場等級</span></p>
+              <p>• <span class="lang-text" data-zh="英雄加速加成" data-en="Hero bonus">英雄加速加成</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">掠奪時計算來回時間決定最佳頻率，防禦時計算援軍到達時間</p>
+              <p class="lang-content" data-lang="en">Calculate round-trip time for optimal raid frequency; calculate reinforcement arrival for defense</p>
+            </div>
+          </div>
+
+          <!-- TOOL 3: Culture Points Calculator -->
+          <div class="tool-card">
+            <div class="tool-icon">🏛️</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Culture Points" data-en="Culture Points">Culture Points</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">文明點計算器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Culture Points Calculator</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/32-Culture-points" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-beginner">★☆☆☆☆ <span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">計算到達下一個開村門檻所需時間，規劃擴張時間線</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Calculate time to next village expansion threshold, plan your expansion timeline</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="當前文明點" data-en="Current CP">當前文明點</span></p>
+              <p>• <span class="lang-text" data-zh="日產量" data-en="Daily CP production">日產量</span></p>
+              <p>• <span class="lang-text" data-zh="目標村莊數" data-en="Target village count">目標村莊數</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">配合慶典和藝術品使用，可以精準預測何時能開下一村</p>
+              <p class="lang-content" data-lang="en">Combined with celebrations and artwork, precisely predict when you can settle your next village</p>
+            </div>
+          </div>
+
+          <!-- TOOL 4: Technology Calculator -->
+          <div class="tool-card">
+            <div class="tool-icon">⚔️</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Technology" data-en="Technology">Technology</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">科技計算器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Technology Calculator</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/33-Technology-calculator" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-intermediate">★★☆☆☆ <span class="lang-text" data-zh="中級" data-en="Intermediate">中級</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">分析 Smithy 升級效益，決定是該升級研究還是訓練更多兵</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Analyze Smithy upgrade efficiency — decide whether to upgrade research or train more troops</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="伺服器版本" data-en="Server version">伺服器版本</span></p>
+              <p>• <span class="lang-text" data-zh="部族" data-en="Tribe">部族</span></p>
+              <p>• <span class="lang-text" data-zh="當前研究等級" data-en="Current research levels">當前研究等級</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">兵少時優先訓練新兵（直接增加戰力），兵多時升級研究（百分比加成效果更好）</p>
+              <p class="lang-content" data-lang="en">With few troops, prioritize training (direct power increase). With many troops, upgrade research (percentage bonus scales better)</p>
+            </div>
+          </div>
+
+          <!-- TOOL 5: NPC Calculator -->
+          <div class="tool-card">
+            <div class="tool-icon">💰</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="NPC Calculator" data-en="NPC Calculator">NPC Calculator</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">NPC 交易計算器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">NPC Trading Calculator</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/34-NPC-calculator" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-intermediate">★★☆☆☆ <span class="lang-text" data-zh="中級" data-en="Intermediate">中級</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">最佳化 NPC 商人交易，計算資源分配方案（需要 Gold）</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Optimize NPC merchant trading, calculate optimal resource allocation (requires Gold)</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="當前資源" data-en="Current resources">當前資源</span> (木/黏/鐵/糧)</p>
+              <p>• <span class="lang-text" data-zh="部隊組成" data-en="Troop composition">部隊組成</span></p>
+              <p>• <span class="lang-text" data-zh="優化目標" data-en="Optimization target">優化目標</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">可選擇均分、依消耗率、依建築時間、最大支出等模式。沒有 Gold 就用市場交易替代</p>
+              <p class="lang-content" data-lang="en">Choose from equal distribution, consumption rate, building time, or max spend modes. Use marketplace trading if you don't have Gold</p>
+            </div>
+          </div>
+
+          <!-- TOOL 6: Interception Calculator -->
+          <div class="tool-card">
+            <div class="tool-icon">🎯</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Interception" data-en="Interception">Interception</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">攔截計算器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Interception Calculator</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/31-Interception-calculator" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-advanced">★★★☆☆ <span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">計算攔截敵方返回部隊的精確發兵時間，聯盟防禦協調必備</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Calculate precise timing to intercept returning enemy troops — essential for alliance defense coordination</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="攻擊者座標" data-en="Attacker coords">攻擊者座標</span></p>
+              <p>• <span class="lang-text" data-zh="防守者座標" data-en="Defender coords">防守者座標</span></p>
+              <p>• <span class="lang-text" data-zh="攔截者座標" data-en="Interceptor coords">攔截者座標</span></p>
+              <p>• <span class="lang-text" data-zh="部隊速度、攻擊到達時間" data-en="Troop speeds, attack arrival time">部隊速度、攻擊到達時間</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">進階防禦戰術，需要精確的時間控制和聯盟配合</p>
+              <p class="lang-content" data-lang="en">Advanced defensive tactic requiring precise timing and alliance coordination</p>
+            </div>
+          </div>
+
+          <!-- TOOL 7: Save Troops -->
+          <div class="tool-card">
+            <div class="tool-icon">🛡️</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Save Troops" data-en="Save Troops">Save Troops</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">保兵工具</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Save Troops Tool</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/35-Save-troops" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-advanced">★★★☆☆ <span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">尋找安全的部隊停放目標，大軍來襲時保護珍貴兵力</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Find safe parking targets for troops — protect valuable forces when under heavy attack</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="村莊座標" data-en="Village coordinates">村莊座標</span></p>
+              <p>• <span class="lang-text" data-zh="部隊速度" data-en="Troop speed">部隊速度</span></p>
+              <p>• <span class="lang-text" data-zh="期望停放時間" data-en="Desired parking duration">期望停放時間</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">離線前或偵測到大規模攻擊時使用，將部隊派往遠處安全村莊來回</p>
+              <p class="lang-content" data-lang="en">Use before going offline or when large attacks are detected — send troops on round trips to distant safe villages</p>
+            </div>
+          </div>
+
+          <!-- TOOL 8: Path-Speed-TS -->
+          <div class="tool-card">
+            <div class="tool-icon">🔴</div>
+            <h3 class="tool-title">
+              <span class="lang-text" data-zh="Path-Speed-TS" data-en="Path-Speed-TS">Path-Speed-TS</span>
+            </h3>
+            <div class="tool-title-zh lang-content active" data-lang="zh">來襲分析器</div>
+            <div class="tool-title-zh lang-content" data-lang="en">Incoming Attack Analyzer</div>
+
+            <div class="tool-url">
+              <a href="https://www.gettertools.com/en/37-Path-Speed-TS" target="_blank">
+                <span class="lang-text" data-zh="訪問工具" data-en="Visit Tool">訪問工具</span>
+              </a>
+            </div>
+
+            <div class="difficulty-badge difficulty-advanced">★★★☆☆ <span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></div>
+
+            <div class="tool-purpose">
+              <div class="tool-purpose-label"><span class="lang-text" data-zh="用途" data-en="Purpose">用途</span></div>
+              <div class="tool-purpose-text lang-content active" data-lang="zh">反推來襲攻擊者的兵種速度和競技場等級，評估威脅程度</div>
+              <div class="tool-purpose-text lang-content" data-lang="en">Reverse-engineer incoming attacker's troop speed and Tournament Square level to assess threat level</div>
+            </div>
+
+            <div class="tool-inputs">
+              <strong><span class="lang-text" data-zh="輸入參數" data-en="Input Parameters">輸入參數</span></strong>
+              <p>• <span class="lang-text" data-zh="攻擊者座標" data-en="Attacker coords">攻擊者座標</span></p>
+              <p>• <span class="lang-text" data-zh="防守者座標" data-en="Defender coords">防守者座標</span></p>
+              <p>• <span class="lang-text" data-zh="行軍時間" data-en="March time">行軍時間</span></p>
+            </div>
+
+            <div class="tool-tips">
+              <strong><span class="lang-text" data-zh="💡 建議" data-en="💡 Tips">💡 建議</span></strong>
+              <p class="lang-content active" data-lang="zh">速度快=騎兵（高威脅），速度慢=步兵/攻城器（可能是拆建築）。配合偵察使用效果更好</p>
+              <p class="lang-content" data-lang="en">Fast speed = cavalry (high threat), slow speed = infantry/siege (possible building destruction). Works best combined with scouting</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARISON TABLE -->
+      <section class="table-section" style="margin: var(--spacing-xxl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="工具對比表" data-en="Tools Comparison Table">工具對比表</span>
+        </h2>
+
+        <table class="tools-table">
+          <thead>
+            <tr>
+              <th><span class="lang-text" data-zh="工具名稱" data-en="Tool Name">工具名稱</span></th>
+              <th><span class="lang-text" data-zh="難度" data-en="Difficulty">難度</span></th>
+              <th><span class="lang-text" data-zh="最佳用途" data-en="Best For">最佳用途</span></th>
+              <th><span class="lang-text" data-zh="使用頻率" data-en="Frequency">使用頻率</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Region Inactives</td>
+              <td><span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></td>
+              <td><span class="lang-text" data-zh="搜尋農場目標" data-en="Finding farm targets">搜尋農場目標</span></td>
+              <td><span class="lang-text" data-zh="每 6 小時" data-en="Every 6 hours">每 6 小時</span></td>
+            </tr>
+            <tr>
+              <td>Path Calculator</td>
+              <td><span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></td>
+              <td><span class="lang-text" data-zh="計算行軍時間" data-en="Calculating march time">計算行軍時間</span></td>
+              <td><span class="lang-text" data-zh="非常頻繁" data-en="Very frequent">非常頻繁</span></td>
+            </tr>
+            <tr>
+              <td>Culture Points</td>
+              <td><span class="lang-text" data-zh="初級" data-en="Beginner">初級</span></td>
+              <td><span class="lang-text" data-zh="規劃擴張時間表" data-en="Planning expansion">規劃擴張時間表</span></td>
+              <td><span class="lang-text" data-zh="偶爾" data-en="Occasionally">偶爾</span></td>
+            </tr>
+            <tr>
+              <td>Technology Calculator</td>
+              <td><span class="lang-text" data-zh="中級" data-en="Intermediate">中級</span></td>
+              <td><span class="lang-text" data-zh="決定升級策略" data-en="Planning upgrades">決定升級策略</span></td>
+              <td><span class="lang-text" data-zh="中等" data-en="Moderate">中等</span></td>
+            </tr>
+            <tr>
+              <td>NPC Calculator</td>
+              <td><span class="lang-text" data-zh="中級" data-en="Intermediate">中級</span></td>
+              <td><span class="lang-text" data-zh="優化資源配置" data-en="Optimizing resources">優化資源配置</span></td>
+              <td><span class="lang-text" data-zh="有 Gold 時使用" data-en="When you have Gold">有 Gold 時使用</span></td>
+            </tr>
+            <tr>
+              <td>Interception Calculator</td>
+              <td><span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></td>
+              <td><span class="lang-text" data-zh="聯盟防禦協調" data-en="Alliance defense">聯盟防禦協調</span></td>
+              <td><span class="lang-text" data-zh="防禦戰時" data-en="During defense">防禦戰時</span></td>
+            </tr>
+            <tr>
+              <td>Save Troops</td>
+              <td><span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></td>
+              <td><span class="lang-text" data-zh="保護兵力" data-en="Protecting troops">保護兵力</span></td>
+              <td><span class="lang-text" data-zh="危急時刻" data-en="Critical moments">危急時刻</span></td>
+            </tr>
+            <tr>
+              <td>Path-Speed-TS</td>
+              <td><span class="lang-text" data-zh="進階" data-en="Advanced">進階</span></td>
+              <td><span class="lang-text" data-zh="評估敵方威脅" data-en="Threat assessment">評估敵方威脅</span></td>
+              <td><span class="lang-text" data-zh="遭到攻擊時" data-en="Under attack">遭到攻擊時</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- USAGE TIPS SECTION -->
+      <section class="tips-section" style="margin: var(--spacing-xxl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="使用建議" data-en="Usage Tips">使用建議</span>
+        </h2>
+
+        <div class="tip-box warning">
+          <strong>
+            <span class="lang-text" data-zh="📅 遊戲階段性工具策略" data-en="📅 Game Phase Tool Strategy">📅 遊戲階段性工具策略</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="初期（0-7 天）：專注使用 Region Inactives 和 Path Calculator，快速建立農場清單並掌握行軍時間。"
+              data-en="Early game (0-7 days): Focus on Region Inactives and Path Calculator, quickly establish farm lists and master march times.">
+              初期（0-7 天）：專注使用 Region Inactives 和 Path Calculator，快速建立農場清單並掌握行軍時間。
+            </span>
+          </p>
+          <p>
+            <span class="lang-text"
+              data-zh="中期（1-3 週）：加入 Culture Points Calculator 規劃擴張，Culture Points Calculator 決定升級策略。"
+              data-en="Mid-game (1-3 weeks): Add Culture Points Calculator for expansion planning, Technology Calculator for upgrade strategy.">
+              中期（1-3 週）：加入 Culture Points Calculator 規劃擴張，Culture Points Calculator 決定升級策略。
+            </span>
+          </p>
+          <p>
+            <span class="lang-text"
+              data-zh="後期（3+ 週）：善用攔截計算器進行聯盟防禦協調，使用保兵工具在危急時刻保護兵力，Path-Speed-TS 評估敵方威脅。"
+              data-en="Late game (3+ weeks): Leverage Interception Calculator for alliance defense, use Save Troops to protect forces in critical moments, and Path-Speed-TS to assess threats.">
+              後期（3+ 週）：善用攔截計算器進行聯盟防禦協調，使用保兵工具在危急時刻保護兵力，Path-Speed-TS 評估敵方威脅。
+            </span>
+          </p>
+        </div>
+
+        <div class="tip-box info">
+          <strong>
+            <span class="lang-text" data-zh="💡 進階技巧" data-en="💡 Advanced Tips">💡 進階技巧</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="記錄掃描結果：定期使用 Region Inactives 掃描，記錄新出現的不活躍村莊，建立個人的農場黑名單和優先目標清單。"
+              data-en="Keep scan records: Regularly scan with Region Inactives, track newly inactive villages, and maintain personal farm blacklist and priority targets.">
+              記錄掃描結果：定期使用 Region Inactives 掃描，記錄新出現的不活躍村莊，建立個人的農場黑名單和優先目標清單。
+            </span>
+          </p>
+          <p>
+            <span class="lang-text"
+              data-zh="精確時間控制：在參與聯盟戰爭時，充分利用 Path Calculator 和 Interception Calculator，與隊友協調精確的發兵時間。"
+              data-en="Precise timing: When participating in alliance warfare, fully utilize Path Calculator and Interception Calculator to coordinate precise dispatch times with teammates.">
+              精確時間控制：在參與聯盟戰爭時，充分利用 Path Calculator 和 Interception Calculator，與隊友協調精確的發兵時間。
+            </span>
+          </p>
+          <p>
+            <span class="lang-text"
+              data-zh="反推敵情：當受到攻擊時，立即使用 Path-Speed-TS 反推攻擊者信息，結合偵察結果評估威脅程度並制定防禦計畫。"
+              data-en="Reverse-engineer threats: When attacked, immediately use Path-Speed-TS to analyze attacker info, combine with scout reports to assess threat level and plan defense.">
+              反推敵情：當受到攻擊時，立即使用 Path-Speed-TS 反推攻擊者信息，結合偵察結果評估威脅程度並制定防禦計畫。
+            </span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="主要章節" data-en="Main Sections">主要章節</h4>
+          <ul>
+            <li><a href="index.html" class="lang-text" data-zh="首頁" data-en="Home">首頁</a></li>
+            <li><a href="guide.html" class="lang-text" data-zh="攻略" data-en="Guide">攻略</a></li>
+            <li><a href="mechanics.html" class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</a></li>
+            <li><a href="tools.html" class="lang-text" data-zh="工具" data-en="Tools">工具</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="部族指南" data-en="Tribe Guides">部族指南</h4>
+          <ul>
+            <li><a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a></li>
+            <li><a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a></li>
+            <li><a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a></li>
+            <li><a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a></li>
+            <li><a href="tribe.html?t=huns" class="lang-text" data-zh="匈奴人" data-en="Huns">匈奴人</a></li>
+            <li><a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="資源" data-en="Resources">資源</h4>
+          <ul>
+            <li><a href="index.html#tribe-overview-section" class="lang-text" data-zh="部族選擇指南" data-en="Tribe Selection">部族選擇指南</a></li>
+            <li><a href="index.html#quick-start-section" class="lang-text" data-zh="新手快速入門" data-en="Quick Start">新手快速入門</a></li>
+            <li><a href="tools.html" class="lang-text" data-zh="外部工具" data-en="External Tools">外部工具</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          <span class="lang-text"
+            data-zh="© 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。"
+            data-en="© 2024 Travian Legends Beginner Guide. This site is not affiliated with Travian Games. Travian is a trademark of its respective owners.">
+            © 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top">↑</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/app.js"></script>
+</body>
+</html>

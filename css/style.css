@@ -1176,6 +1176,62 @@ main {
   }
 }
 
+/* ===== STAT AND COST STYLING ===== */
+.stat-attack { color: #e74c3c; }
+.stat-defense { color: #3498db; }
+.stat-speed { color: #2ecc71; }
+.stat-resource { color: #f39c12; }
+
+.cost-display {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cost-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* ===== UNIT TYPE BADGES ===== */
+.unit-type {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.unit-type.infantry {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.unit-type.cavalry {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.unit-type.siege {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.unit-type.scout {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.unit-type.special {
+  background: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
 /* ===== PRINT STYLES ===== */
 @media print {
   .site-header,
