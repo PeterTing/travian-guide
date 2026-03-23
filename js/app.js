@@ -241,15 +241,9 @@
       const tribeCards = document.querySelectorAll('.tribe-card');
 
       tribeCards.forEach((card, index) => {
-        // Add staggered animation on load
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-          card.style.transition = 'all 0.5s ease-out';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, index * 100);
+        // Ensure cards are visible
+        card.style.opacity = '1';
+        card.style.transform = 'none';
 
         // Add hover effect
         card.addEventListener('mouseenter', () => {
@@ -337,28 +331,14 @@
   // ===== PAGE LOAD ANIMATIONS =====
   const PageAnimations = {
     init() {
-      // Add animation to hero banner
+      // Ensure hero banner and intro section are always visible
       const heroBanner = document.querySelector('.hero-banner');
       if (heroBanner) {
-        heroBanner.style.opacity = '0';
-        heroBanner.style.transform = 'translateY(-20px)';
-
-        setTimeout(() => {
-          heroBanner.style.transition = 'all 0.6s ease-out';
-          heroBanner.style.opacity = '1';
-          heroBanner.style.transform = 'translateY(0)';
-        }, 100);
+        heroBanner.style.opacity = '1';
       }
-
-      // Fade in intro section
       const introSection = document.querySelector('.intro-section');
       if (introSection) {
-        introSection.style.opacity = '0';
-
-        setTimeout(() => {
-          introSection.style.transition = 'opacity 0.8s ease-out';
-          introSection.style.opacity = '1';
-        }, 300);
+        introSection.style.opacity = '1';
       }
     }
   };
@@ -366,24 +346,10 @@
   // ===== SECTION INTERSECTION OBSERVER =====
   const SectionObserver = {
     init() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      // Observe all sections
+      // Ensure all sections are visible by default (no hidden content)
       document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'all 0.6s ease-out';
-        observer.observe(section);
+        section.style.opacity = '1';
+        section.style.transform = 'none';
       });
     }
   };
