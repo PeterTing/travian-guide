@@ -19,8 +19,8 @@ const SETTLEMENT_GUIDE = {
         zh: "小型慶典",
         en: "Small Celebration",
         details: {
-          zh: "每個村莊每天自動產生CP(基於建築數量)，上限500 CP/天(x1速)",
-          en: "Each village generates CP daily (based on building count), capped at 500 CP/day (x1 speed)"
+          zh: "每個村莊每天自動產生被動CP(基於建築數量和等級)。小慶典可額外獲得CP = 該村每日CP產出(上限500 CP/次，x1速)",
+          en: "Each village generates passive CP daily (based on building count and level). Small celebrations grant bonus CP = village daily CP output (capped at 500 CP/celebration, x1 speed)"
         },
         townHallRequirements: {
           zh: "城鎮廣場Lv1條件",
