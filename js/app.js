@@ -189,8 +189,19 @@
 
       dropdownTriggers.forEach(trigger => {
         const menu = trigger.querySelector('.dropdown-menu');
+        const triggerLink = trigger.querySelector('.nav-link');
 
-        if (menu) {
+        if (menu && triggerLink) {
+          // Toggle dropdown on click/touch (works on both desktop and mobile)
+          triggerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = menu.style.display === 'block';
+            // Close all other dropdowns first
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+            menu.style.display = isOpen ? 'none' : 'block';
+          });
+
           // Close dropdown when clicking outside
           document.addEventListener('click', (e) => {
             if (!trigger.contains(e.target)) {
@@ -204,13 +215,6 @@
             link.addEventListener('click', () => {
               menu.style.display = 'none';
             });
-          });
-
-          // Prevent closing when clicking inside dropdown (but allow links to close it above)
-          menu.addEventListener('click', (e) => {
-            if (!e.target.closest('a')) {
-              e.stopPropagation();
-            }
           });
         }
       });
