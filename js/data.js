@@ -676,13 +676,13 @@ const TRIBES_DATA = {
 
   huns: {
     id: "huns",
-    name: { zh: "匈奴", en: "Huns" },
+    name: { zh: "匈人", en: "Huns" },
     icon: "🏇",
     archetype: { zh: "騎兵型", en: "Cavalry" },
     difficulty: { zh: "★★★★☆ 經驗玩家推薦", en: "★★★★☆ Experienced players" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
-      zh: "匈奴是純騎兵部族，擁有最快的騎兵和偵兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
+      zh: "匈人是純騎兵部族，擁有最快的騎兵和偵兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
       en: "Huns are pure cavalry tribe with the fastest cavalry and scouts. They have 20-40% faster research but the most expensive settlers."
     },
     heroPassive: {

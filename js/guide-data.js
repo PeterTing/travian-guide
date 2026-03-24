@@ -560,7 +560,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5",
+                  zh: "村莊大樓升至Lv5",
                   en: "Main Building to Lv5"
                 },
                 {
@@ -811,7 +811,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5",
+                  zh: "村莊大樓升至Lv5",
                   en: "Main Building to Lv5"
                 },
                 {
@@ -823,7 +823,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Start raiding nearby oases (attack <50) and inactive player villages [bounty supplements resources]"
                 },
                 {
-                  zh: "倉庫Lv1-2、穀倉Lv1-2",
+                  zh: "倉庫Lv1-2、糧倉Lv1-2",
                   en: "Warehouse Lv1-2, Granary Lv1-2"
                 }
               ]
@@ -1062,7 +1062,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5",
+                  zh: "村莊大樓升至Lv5",
                   en: "Main Building to Lv5"
                 },
                 {
@@ -1087,7 +1087,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv8-10 ★★★",
+                  zh: "村莊大樓升至Lv8-10 ★★★",
                   en: "Main Building to Lv8-10 ★★★"
                 },
                 {
@@ -1262,7 +1262,7 @@ const SETTLEMENT_GUIDE = {
     },
 
     huns: {
-      name: { zh: "匈奴人", en: "Huns" },
+      name: { zh: "匈人", en: "Huns" },
       estimatedTime: { zh: "第6-8天", en: "Day 6-8" },
       speed: { zh: "中等(研究加速)", en: "Medium (research-accelerated)" },
       settlerCost: {
@@ -1313,7 +1313,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5",
+                  zh: "村莊大樓升至Lv5",
                   en: "Main Building to Lv5"
                 },
                 {
@@ -1325,7 +1325,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Steppe Lv1-3, train 3-5 Steppe Riders [speed 16, carry 110 = raiding tool]"
                 },
                 {
-                  zh: "倉庫Lv1-2、穀倉Lv1-2",
+                  zh: "倉庫Lv1-2、糧倉Lv1-2",
                   en: "Warehouse Lv1-2, Granary Lv1-2"
                 }
               ]
@@ -1334,7 +1334,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv8-10 ★★★",
+                  zh: "村莊大樓升至Lv8-10 ★★★",
                   en: "Main Building to Lv8-10 ★★★"
                 },
                 {
@@ -1361,7 +1361,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "24-36小時", en: "Hour 24-36" },
               actions: [
                 {
-                  zh: "學院升至Lv10 [匈奴人20-40% 研究加速啟動!]",
+                  zh: "學院升至Lv10 [匈人20-40% 研究加速啟動!]",
                   en: "Academy to Lv10 [Huns' 20-40% research boost active!]"
                 },
                 {
@@ -1552,7 +1552,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5",
+                  zh: "村莊大樓升至Lv5",
                   en: "Main Building to Lv5"
                 },
                 {
@@ -1573,7 +1573,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv8-10 ★★★",
+                  zh: "村莊大樓升至Lv8-10 ★★★",
                   en: "Main Building to Lv8-10 ★★★"
                 },
                 {
