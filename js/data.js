@@ -16,7 +16,7 @@ const TRIBES_DATA = {
     },
     specialBuildings: [
       { zh: "雙佇列建築隊伍", en: "Dual Building Queue" },
-      { zh: "馬匹飲水槽", en: "Horse Drinking Trough" },
+      { zh: "馬飲水槽", en: "Horse Drinking Trough" },
       { zh: "城牆（每級 +3% 防禦）", en: "City Wall (3% defense bonus per level)" }
     ],
     strengths: [
@@ -30,7 +30,7 @@ const TRIBES_DATA = {
     ],
     units: [
       {
-        name: { zh: "軍團兵", en: "Legionnaire" },
+        name: { zh: "古羅馬步兵", en: "Legionnaire" },
         type: "infantry",
         attack: 40,
         infantryDef: 35,
@@ -69,7 +69,7 @@ const TRIBES_DATA = {
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
-        name: { zh: "皇帝騎兵探路者", en: "Equites Legati" },
+        name: { zh: "公路騎士", en: "Equites Legati" },
         type: "scout",
         attack: 0,
         infantryDef: 20,
@@ -79,10 +79,10 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 140, clay: 160, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
-        name: { zh: "皇帝騎兵指揮官", en: "Equites Imperatoris" },
+        name: { zh: "帝國騎士", en: "Equites Imperatoris" },
         type: "cavalry",
         attack: 120,
         infantryDef: 65,
@@ -95,7 +95,7 @@ const TRIBES_DATA = {
         role: { zh: "均衡的重騎兵", en: "Balanced heavy cavalry" }
       },
       {
-        name: { zh: "皇帝騎兵凱撒", en: "Equites Caesaris" },
+        name: { zh: "將軍騎士", en: "Equites Caesaris" },
         type: "cavalry",
         attack: 180,
         infantryDef: 80,
@@ -121,7 +121,7 @@ const TRIBES_DATA = {
         role: { zh: "破壞城牆的攻城器", en: "Wall destruction siege unit" }
       },
       {
-        name: { zh: "火焰彈射器", en: "Fire Catapult" },
+        name: { zh: "火焰投石機", en: "Fire Catapult" },
         type: "siege",
         attack: 75,
         infantryDef: 60,
@@ -134,7 +134,7 @@ const TRIBES_DATA = {
         role: { zh: "遠程攻城器", en: "Long-range siege unit" }
       },
       {
-        name: { zh: "參議官", en: "Senator" },
+        name: { zh: "參議員", en: "Senator" },
         type: "special",
         attack: 50,
         infantryDef: 40,
@@ -147,7 +147,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -161,7 +161,7 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "70% 禁衛兵（Praetorian）/ 30% 軍團兵（Legionnaire）",
+      zh: "70% 禁衛兵（Praetorian）/ 30% 古羅馬步兵（Legionnaire）",
       en: "70% Praetorians / 30% Legionnaires"
     },
     merchantCapacity: 500,
@@ -184,14 +184,14 @@ const TRIBES_DATA = {
       en: "Hero gains +5 tiles/hour speed when mounted"
     },
     specialBuildings: [
-      { zh: "陷阱（捕捉來襲者）", en: "Trapper (catches attackers)" },
-      { zh: "地窖容量 1.5× 加成", en: "1.5× Cranny capacity" },
+      { zh: "獵人陷阱（捕捉來襲者）", en: "Trapper (catches attackers)" },
+      { zh: "秘密倉庫容量 1.5× 加成", en: "1.5× 秘密倉庫容量" },
       { zh: "柵欄（每級 +2.5% 防禦）", en: "Palisade (2.5% defense bonus per level)" }
     ],
     strengths: [
       { zh: "最快的騎兵單位（Theutates Thunder 速度 19）", en: "Fastest cavalry units (TT speed 19)" },
       { zh: "最便宜的定居者", en: "Cheapest settlers" },
-      { zh: "地窖容量 1.5×，陷阱捕捉襲擊者", en: "1.5× cranny capacity and trap buildings" }
+      { zh: "秘密倉庫容量 1.5×，陷阱捕捉襲擊者", en: "1.5× cranny capacity and trap buildings" }
     ],
     weaknesses: [
       { zh: "弱點步兵攻擊力（方陣兵攻擊 15）", en: "Weak attack infantry (Phalanx attack=15)" },
@@ -225,7 +225,7 @@ const TRIBES_DATA = {
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
-        name: { zh: "尋路者", en: "Pathfinder" },
+        name: { zh: "探路者", en: "Pathfinder" },
         type: "scout",
         attack: 0,
         infantryDef: 20,
@@ -235,10 +235,10 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
-        name: { zh: "突厥特雷斯雷鳴", en: "Theutates Thunder" },
+        name: { zh: "雷法師", en: "Theutates Thunder" },
         type: "cavalry",
         attack: 90,
         infantryDef: 25,
@@ -251,7 +251,7 @@ const TRIBES_DATA = {
         role: { zh: "最快的騎兵", en: "Fastest cavalry unit" }
       },
       {
-        name: { zh: "德魯伊騎手", en: "Druidrider" },
+        name: { zh: "德魯伊騎兵", en: "Druidrider" },
         type: "cavalry",
         attack: 45,
         infantryDef: 115,
@@ -264,7 +264,7 @@ const TRIBES_DATA = {
         role: { zh: "防禦型重騎兵", en: "Defensive heavy cavalry" }
       },
       {
-        name: { zh: "海度亞", en: "Haeduan" },
+        name: { zh: "海頓聖騎", en: "Haeduan" },
         type: "cavalry",
         attack: 140,
         infantryDef: 50,
@@ -316,7 +316,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -330,7 +330,7 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "70% 方陣兵（Phalanx）/ 30% 德魯伊騎手（Druidrider）",
+      zh: "70% 方陣兵（Phalanx）/ 30% 德魯伊騎兵（Druidrider）",
       en: "70% Phalanx / 30% Druidrider"
     },
     merchantCapacity: 750,
@@ -357,7 +357,7 @@ const TRIBES_DATA = {
       { zh: "土牆（每級 +2%，幾乎堅不可摧）", en: "Earth Wall (2% defense bonus per level, nearly indestructible)" }
     ],
     strengths: [
-      { zh: "最便宜、最快的訓練（棍棒揮舞者）", en: "Cheapest and fastest training (Clubswinger)" },
+      { zh: "最便宜、最快的訓練（棍棒兵）", en: "Cheapest and fastest training (Clubswinger)" },
       { zh: "最高的單位攜帶容量", en: "Highest unit carrying capacity" },
       { zh: "商人運力最強（1000）", en: "Strongest merchant capacity (1000)" }
     ],
@@ -368,7 +368,7 @@ const TRIBES_DATA = {
     ],
     units: [
       {
-        name: { zh: "棍棒揮舞者", en: "Clubswinger" },
+        name: { zh: "棍棒兵", en: "Clubswinger" },
         type: "infantry",
         attack: 40,
         infantryDef: 20,
@@ -381,7 +381,7 @@ const TRIBES_DATA = {
         role: { zh: "最便宜的基礎步兵", en: "Cheapest basic infantry" }
       },
       {
-        name: { zh: "槍兵", en: "Spearman" },
+        name: { zh: "矛兵", en: "Spearman" },
         type: "infantry",
         attack: 10,
         infantryDef: 35,
@@ -394,7 +394,7 @@ const TRIBES_DATA = {
         role: { zh: "防禦型步兵", en: "Defensive infantry unit" }
       },
       {
-        name: { zh: "戰斧手", en: "Axeman" },
+        name: { zh: "斧頭兵", en: "Axeman" },
         type: "infantry",
         attack: 60,
         infantryDef: 30,
@@ -407,7 +407,7 @@ const TRIBES_DATA = {
         role: { zh: "均衡的步兵", en: "Balanced infantry unit" }
       },
       {
-        name: { zh: "偵察兵", en: "Scout" },
+        name: { zh: "偵兵", en: "Scout" },
         type: "scout",
         attack: 0,
         infantryDef: 10,
@@ -420,7 +420,7 @@ const TRIBES_DATA = {
         role: { zh: "快速偵察", en: "Fast scout unit" }
       },
       {
-        name: { zh: "聖騎士", en: "Paladin" },
+        name: { zh: "俠客", en: "Paladin" },
         type: "cavalry",
         attack: 55,
         infantryDef: 100,
@@ -472,7 +472,7 @@ const TRIBES_DATA = {
         role: { zh: "遠程攻城器", en: "Long-range siege unit" }
       },
       {
-        name: { zh: "酋長", en: "Chief" },
+        name: { zh: "司令官", en: "Chief" },
         type: "special",
         attack: 40,
         infantryDef: 60,
@@ -485,7 +485,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -499,7 +499,7 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "75% 槍兵（Spearman）/ 25% 聖騎士（Paladin）",
+      zh: "75% 矛兵（Spearman）/ 25% 俠客（Paladin）",
       en: "75% Spearmen / 25% Paladins"
     },
     merchantCapacity: 1000,
@@ -514,7 +514,7 @@ const TRIBES_DATA = {
     difficulty: { zh: "★★☆☆☆ 新手與老手皆宜", en: "★★☆☆☆ Beginners & experienced" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
-      zh: "埃及是生產大師，擁有最便宜的單位訓練和英雄資源加成。他們的城牆最堅不可摧，水利工程特殊建築獨樹一幟。",
+      zh: "埃及是生產大師，擁有最便宜的單位訓練和英雄資源加成。他們的城牆最堅不可摧，水力磨坊特殊建築獨樹一幟。",
       en: "Egyptians are production masters with the cheapest unit training and hero resource bonuses. They have the most durable walls and unique waterworks buildings."
     },
     heroPassive: {
@@ -522,7 +522,7 @@ const TRIBES_DATA = {
       en: "+25% hero resource production"
     },
     specialBuildings: [
-      { zh: "水利工程（增強綠洲加成）", en: "Waterworks (enhances oasis bonus)" },
+      { zh: "水力磨坊（增強綠洲加成）", en: "Waterworks (enhances oasis bonus)" },
       { zh: "石牆（每級 +2.5%，最高耐久度）", en: "Stone Wall (2.5% defense bonus per level, HIGHEST durability)" }
     ],
     strengths: [
@@ -585,7 +585,7 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
         name: { zh: "安赫衛隊", en: "Anhur Guard" },
@@ -653,7 +653,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -682,7 +682,7 @@ const TRIBES_DATA = {
     difficulty: { zh: "★★★★☆ 經驗玩家推薦", en: "★★★★☆ Experienced players" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
-      zh: "匈奴是純騎兵部族，擁有最快的騎兵和偵察兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
+      zh: "匈奴是純騎兵部族，擁有最快的騎兵和偵兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
       en: "Huns are pure cavalry tribe with the fastest cavalry and scouts. They have 20-40% faster research but the most expensive settlers."
     },
     heroPassive: {
@@ -690,12 +690,12 @@ const TRIBES_DATA = {
       en: "+3 tiles/hour speed (mounted, cavalry-only armies)"
     },
     specialBuildings: [
-      { zh: "指揮中心（替代住宅/宮殿，3 個擴張槽）", en: "Command Center (replaces Residence/Palace, 3 expansion slots)" },
+      { zh: "司令部（替代居所/皇宮，3 個擴張槽）", en: "Command Center (replaces Residence/Palace, 3 expansion slots)" },
       { zh: "臨時城牆（每級 +1.5%，防禦力低）", en: "Makeshift Wall (1.5% defense bonus per level, low durability)" }
     ],
     strengths: [
       { zh: "最快的騎兵（草原騎手速度 16，攜帶 115）", en: "Fastest cavalry (Steppe Rider speed 16, carry 115)" },
-      { zh: "最快的偵察兵（斥候速度 19）", en: "Fastest scout (Spotter speed 19)" },
+      { zh: "最快的偵兵（斥候速度 19）", en: "Fastest scout (Spotter speed 19)" },
       { zh: "20-40% 快速研究加成", en: "20-40% faster research" }
     ],
     weaknesses: [
@@ -741,7 +741,7 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "最快的偵察兵", en: "Fastest scout unit" }
+        role: { zh: "最快的偵兵", en: "Fastest scout unit" }
       },
       {
         name: { zh: "草原騎手", en: "Steppe Rider" },
@@ -822,7 +822,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -910,7 +910,7 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
         name: { zh: "約姆斯維京戰士", en: "Jomsviking" },
@@ -978,7 +978,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊（-5% 忠誠疊加）", en: "Conquers enemy villages (stacks -5% loyalty)" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,

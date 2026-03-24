@@ -23,12 +23,12 @@ const SETTLEMENT_GUIDE = {
           en: "Each village generates passive CP daily (based on building count and level). Small celebrations grant bonus CP = village daily CP output (capped at 500 CP/celebration, x1 speed)"
         },
         townHallRequirements: {
-          zh: "城鎮廣場Lv1條件",
+          zh: "市政廳Lv1條件",
           en: "Town Hall Lv1 Requirements",
           items: [
-            { zh: "主堡壘Lv10", en: "Main Building Lv10" },
+            { zh: "村莊大樓Lv10", en: "Main Building Lv10" },
             { zh: "學院Lv10", en: "Academy Lv10" },
-            { zh: "沒有其他城鎮廣場", en: "No other Town Hall" }
+            { zh: "沒有其他市政廳", en: "No other Town Hall" }
           ]
         },
         celebrationCooldown: {
@@ -262,10 +262,10 @@ const SETTLEMENT_GUIDE = {
       estimatedTime: { zh: "第5-6天", en: "Day 5-6" },
       speed: { zh: "快速", en: "Fast" },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4600, 4200, 5800, 4400] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 57000 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 57000 }
       },
       keyAdvantage: {
         zh: "雙建築佇列 - 同時升級資源田和建築，加快前期發展",
@@ -276,11 +276,11 @@ const SETTLEMENT_GUIDE = {
         en: "All points to Fighting Strength (+100/pt), becomes strongest oasis farmer, rapidly accumulates resources"
       },
       celebrationPlan: {
-        zh: "在城鎮廣場Lv1後盡快開始，每24小時舉辦一次慶典，連續進行5場以達2000 CP",
+        zh: "在市政廳Lv1後盡快開始，每24小時舉辦一次慶典，連續進行5場以達2000 CP",
         en: "Start immediately after Town Hall Lv1, run celebration every 24 hours, continuous 5 celebrations for 2000 CP"
       },
       troopTraining: {
-        zh: "Day 1-2訓練5-10個軍團兵，用於護衛綠洲農業，無需大規模駐軍",
+        zh: "Day 1-2訓練5-10個古羅馬步兵，用於護衛綠洲農業，無需大規模駐軍",
         en: "Day 1-2 train 5-10 Legionnaires for oasis escort, no major garrison needed"
       },
       phases: [
@@ -300,7 +300,7 @@ const SETTLEMENT_GUIDE = {
                   en: "All resource fields to Lv2-3 (prioritize crop, ensure troop/hero upkeep)"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 },
                 {
@@ -313,7 +313,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "6-12小時", en: "Hour 6-12" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv5 [雙佇列: 同時升級穀田至Lv4]",
+                  zh: "村莊大樓升至Lv5 [雙佇列: 同時升級穀田至Lv4]",
                   en: "Main Building to Lv5 [DUAL QUEUE: upgrade crop to Lv4 simultaneously]"
                 },
                 {
@@ -321,11 +321,11 @@ const SETTLEMENT_GUIDE = {
                   en: "Other resource fields to Lv4"
                 },
                 {
-                  zh: "倉庫Lv3、穀倉Lv3",
+                  zh: "倉庫Lv3、糧倉Lv3",
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
-                  zh: "準備訓練5個軍團兵(共2300資源)",
+                  zh: "準備訓練5個古羅馬步兵(共2300資源)",
                   en: "Prepare to train 5 Legionnaires (2,300 resources total)"
                 }
               ]
@@ -334,7 +334,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv8-10 ★★★ [關鍵: 最高優先級]",
+                  zh: "村莊大樓升至Lv8-10 ★★★ [關鍵: 最高優先級]",
                   en: "Main Building to Lv8-10 ★★★ [CRITICAL: highest priority]"
                 },
                 {
@@ -342,11 +342,11 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv5-6"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv5",
+                  zh: "倉庫/糧倉升至Lv5",
                   en: "Warehouse/Granary to Lv5"
                 },
                 {
-                  zh: "兵營Lv1-3，訓練5個軍團兵",
+                  zh: "兵營Lv1-3，訓練5個古羅馬步兵",
                   en: "Barracks Lv1-3, train 5 Legionnaires"
                 },
                 {
@@ -382,11 +382,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "36-48小時", en: "Hour 36-48" },
               actions: [
                 {
-                  zh: "城鎮廣場Lv1 [需MB10 + Academy10] → 立即啟動第1場慶典!",
+                  zh: "市政廳Lv1 [需MB10 + Academy10] → 立即啟動第1場慶典!",
                   en: "Town Hall Lv1 [requires MB10 + Academy10] → START 1st celebration immediately!"
                 },
                 {
-                  zh: "官邸開始建築 [0/等級]",
+                  zh: "居所開始建築 [0/等級]",
                   en: "Residence starts building [0/level]"
                 },
                 {
@@ -394,7 +394,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv7-8"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv7",
+                  zh: "倉庫/糧倉升至Lv7",
                   en: "Warehouse/Granary to Lv7"
                 }
               ]
@@ -402,14 +402,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 官邸+CP推進", en: "Phase 3: Residence + CP Push" },
+          name: { zh: "階段3: 居所+CP推進", en: "Phase 3: Residence + CP Push" },
           timeRange: { zh: "第48-96小時", en: "Hour 48-96" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "官邸升至Lv10 [遊戲最耗時建築，預計36-48小時]",
+                  zh: "居所升至Lv10 [遊戲最耗時建築，預計36-48小時]",
                   en: "Residence to Lv10 [game's longest build, ~36-48 hours]"
                 },
                 {
@@ -421,11 +421,11 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv8-9"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv9-10",
+                  zh: "倉庫/糧倉升至Lv9-10",
                   en: "Warehouse/Granary to Lv9-10"
                 },
                 {
-                  zh: "英雄農業持續，庫存補充定居者訓練資源",
+                  zh: "英雄農業持續，庫存補充開拓者訓練資源",
                   en: "Hero farming continues, inventory supplements settler training resources"
                 }
               ]
@@ -434,11 +434,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-96小時", en: "Hour 72-96" },
               actions: [
                 {
-                  zh: "研究定居者科技 [學院內，需Academy Lv5+]",
+                  zh: "研究開拓者科技 [學院內，需Academy Lv5+]",
                   en: "Research Settler technology [in Academy, requires Academy Lv5+]"
                 },
                 {
-                  zh: "開始訓練3個定居者 [57,000資源: 木材19,000 + 黏土19,000 + 鐵礦19,000]",
+                  zh: "開始訓練3個開拓者 [57,000資源: 木材19,000 + 黏土19,000 + 鐵礦19,000]",
                   en: "Start training 3 Settlers [57,000 resources: 19k wood + 19k clay + 19k iron]"
                 },
                 {
@@ -469,7 +469,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Verify CP ≥ 2000"
                 },
                 {
-                  zh: "3個定居者訓練完成 [預計Hour 80-96完成]",
+                  zh: "3個開拓者訓練完成 [預計Hour 80-96完成]",
                   en: "3 Settlers training completed [expected by Hour 80-96]"
                 },
                 {
@@ -477,7 +477,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Select settlement: 15c or 9c village within 20 tiles [avoid player villages]"
                 },
                 {
-                  zh: "準備軍隊護衛 [5個軍團兵足夠，定居點通常無防守]",
+                  zh: "準備軍隊護衛 [5個古羅馬步兵足夠，定居點通常無防守]",
                   en: "Prepare escort army [5 Legionnaires sufficient, settlement usually undefended]"
                 }
               ]
@@ -486,7 +486,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "120-144小時", en: "Hour 120-144" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
@@ -494,7 +494,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Settlement complete → 2nd village established! [Day 5-6 completion]"
                 },
                 {
-                  zh: "新村莊起始: 建造資源田、倉庫、穀倉 [接續主村莊發展]",
+                  zh: "新村莊起始: 建造資源田、倉庫、糧倉 [接續主村莊發展]",
                   en: "New village startup: build resource fields, warehouse, granary [continue main village development]"
                 }
               ]
@@ -509,13 +509,13 @@ const SETTLEMENT_GUIDE = {
       estimatedTime: { zh: "第4-5天", en: "Day 4-5" },
       speed: { zh: "最快", en: "Fastest" },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4350, 3900, 5220, 3960] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 54300 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 54300 }
       },
       keyAdvantage: {
-        zh: "最便宜的定居者(54,300資源) + 定居者訓練速度快25% = 最快達成第2村莊",
+        zh: "最便宜的開拓者(54,300資源) + 開拓者訓練速度快25% = 最快達成第2村莊",
         en: "Cheapest settlers (54,300 resources) + 25% faster settler training = fastest 2nd village completion"
       },
       heroStrategy: {
@@ -547,7 +547,7 @@ const SETTLEMENT_GUIDE = {
                   en: "All resource fields to Lv2-3 [prioritize crop]"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 },
                 {
@@ -568,7 +568,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv4-5"
                 },
                 {
-                  zh: "倉庫Lv3、穀倉Lv3",
+                  zh: "倉庫Lv3、糧倉Lv3",
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
@@ -581,7 +581,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv10 ★★★",
+                  zh: "村莊大樓升至Lv10 ★★★",
                   en: "Main Building to Lv10 ★★★"
                 },
                 {
@@ -589,7 +589,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv6"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv5-6",
+                  zh: "倉庫/糧倉升至Lv5-6",
                   en: "Warehouse/Granary to Lv5-6"
                 },
                 {
@@ -597,7 +597,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Barracks Lv3, train 5-10 Phalanx"
                 },
                 {
-                  zh: "集結點Lv1 [方便軍隊調度]",
+                  zh: "聚集點Lv1 [方便軍隊調度]",
                   en: "Rally Point Lv1 [coordinates troop dispatch]"
                 },
                 {
@@ -609,7 +609,7 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段2: 學院+城鎮廣場", en: "Phase 2: Academy + Town Hall" },
+          name: { zh: "階段2: 學院+市政廳", en: "Phase 2: Academy + Town Hall" },
           timeRange: { zh: "第24-48小時", en: "Hour 24-48" },
           steps: [
             {
@@ -633,11 +633,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "36-48小時", en: "Hour 36-48" },
               actions: [
                 {
-                  zh: "城鎮廣場Lv1 → 啟動第1場慶典!",
+                  zh: "市政廳Lv1 → 啟動第1場慶典!",
                   en: "Town Hall Lv1 → START 1st celebration!"
                 },
                 {
-                  zh: "官邸開始建築",
+                  zh: "居所開始建築",
                   en: "Residence starts building"
                 },
                 {
@@ -645,7 +645,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv7"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv6-7",
+                  zh: "倉庫/糧倉升至Lv6-7",
                   en: "Warehouse/Granary to Lv6-7"
                 }
               ]
@@ -653,14 +653,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 官邸+定居者訓練", en: "Phase 3: Residence + Settler Training" },
+          name: { zh: "階段3: 居所+開拓者訓練", en: "Phase 3: Residence + Settler Training" },
           timeRange: { zh: "第48-96小時", en: "Hour 48-96" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "官邸升至Lv10 [預計36-48小時完成]",
+                  zh: "居所升至Lv10 [預計36-48小時完成]",
                   en: "Residence to Lv10 [~36-48 hours to complete]"
                 },
                 {
@@ -672,7 +672,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv8"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv8-9",
+                  zh: "倉庫/糧倉升至Lv8-9",
                   en: "Warehouse/Granary to Lv8-9"
                 },
                 {
@@ -685,11 +685,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-96小時", en: "Hour 72-96" },
               actions: [
                 {
-                  zh: "研究定居者科技",
+                  zh: "研究開拓者科技",
                   en: "Research Settler technology"
                 },
                 {
-                  zh: "開始訓練3個定居者 [54,300資源 - 最便宜! 訓練速度快25%加成]",
+                  zh: "開始訓練3個開拓者 [54,300資源 - 最便宜! 訓練速度快25%加成]",
                   en: "Start training 3 Settlers [54,300 resources - cheapest! 25% speed bonus]"
                 },
                 {
@@ -701,7 +701,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Hero inventory fills resource gaps"
                 },
                 {
-                  zh: "追蹤定居者完成時間 [應在Hour 80-88完成]",
+                  zh: "追蹤開拓者完成時間 [應在Hour 80-88完成]",
                   en: "Track settler completion [should finish by Hour 80-88]"
                 }
               ]
@@ -716,7 +716,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "96-110小時", en: "Hour 96-110" },
               actions: [
                 {
-                  zh: "3個定居者已訓練完成",
+                  zh: "3個開拓者已訓練完成",
                   en: "3 Settlers completed"
                 },
                 {
@@ -737,7 +737,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "110-120小時", en: "Hour 110-120" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
@@ -760,10 +760,10 @@ const SETTLEMENT_GUIDE = {
       estimatedTime: { zh: "第5-7天", en: "Day 5-7" },
       speed: { zh: "中等(受掠奪影響)", en: "Medium (raid-dependent)" },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4800, 4400, 6000, 4600] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 60000 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 60000 }
       },
       keyAdvantage: {
         zh: "最便宜的兵種(棍棒兵250資源) - 掠奪綠洲和不活躍玩家資助經濟發展",
@@ -774,7 +774,7 @@ const SETTLEMENT_GUIDE = {
         en: "Split between Fighting Strength (oasis clearing) and Resources (supplement raid shortfalls), lean toward combat"
       },
       celebrationPlan: {
-        zh: "同其他族，但因定居者昂貴，CP需求可能較高",
+        zh: "同其他族，但因開拓者昂貴，CP需求可能較高",
         en: "Same as others, but settler cost is highest - may need more CP buffer"
       },
       troopTraining: {
@@ -798,7 +798,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv2 [Teutons raid-focused, don't need high production]"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 },
                 {
@@ -832,7 +832,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "12-24小時", en: "Hour 12-24" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv7-8 [掠奪資源補充大量建築成本]",
+                  zh: "村莊大樓升至Lv7-8 [掠奪資源補充大量建築成本]",
                   en: "Main Building to Lv7-8 [raid income supplements building costs]"
                 },
                 {
@@ -840,7 +840,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv4-5 [background production, raids are primary]"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv5",
+                  zh: "倉庫/糧倉升至Lv5",
                   en: "Warehouse/Granary to Lv5"
                 },
                 {
@@ -863,7 +863,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "24-36小時", en: "Hour 24-36" },
               actions: [
                 {
-                  zh: "主堡壘升至Lv10 [掠奪資源支持]",
+                  zh: "村莊大樓升至Lv10 [掠奪資源支持]",
                   en: "Main Building to Lv10 [raid income supports]"
                 },
                 {
@@ -888,7 +888,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Academy to Lv10"
                 },
                 {
-                  zh: "城鎮廣場Lv1 → 啟動第1場慶典!",
+                  zh: "市政廳Lv1 → 啟動第1場慶典!",
                   en: "Town Hall Lv1 → START 1st celebration!"
                 },
                 {
@@ -900,14 +900,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 官邸+昂貴定居者", en: "Phase 3: Residence + Expensive Settlers" },
+          name: { zh: "階段3: 居所+昂貴開拓者", en: "Phase 3: Residence + Expensive Settlers" },
           timeRange: { zh: "第48-120小時", en: "Hour 48-120" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "官邸開始建築 [長期投資]",
+                  zh: "居所開始建築 [長期投資]",
                   en: "Residence starts building [long-term investment]"
                 },
                 {
@@ -919,11 +919,11 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv7-8"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv8-9 [存儲定居者資源]",
+                  zh: "倉庫/糧倉升至Lv8-9 [存儲開拓者資源]",
                   en: "Warehouse/Granary to Lv8-9 [store settler resources]"
                 },
                 {
-                  zh: "掠奪資源填補官邸建築缺口 [Hour 72預計完成]",
+                  zh: "掠奪資源填補居所建築缺口 [Hour 72預計完成]",
                   en: "Raid income fills residence building gap [Hour 72 estimated completion]"
                 }
               ]
@@ -932,11 +932,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-120小時", en: "Hour 72-120" },
               actions: [
                 {
-                  zh: "研究定居者科技",
+                  zh: "研究開拓者科技",
                   en: "Research Settler technology"
                 },
                 {
-                  zh: "開始訓練3個定居者 [60,000資源 - 最昂貴! 掠奪必須積極進行]",
+                  zh: "開始訓練3個開拓者 [60,000資源 - 最昂貴! 掠奪必須積極進行]",
                   en: "Start training 3 Settlers [60,000 resources - MOST expensive! raiding must be aggressive]"
                 },
                 {
@@ -944,11 +944,11 @@ const SETTLEMENT_GUIDE = {
                   en: "4th, 5th celebrations activated"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv10 [確保存儲60,000資源]",
+                  zh: "倉庫/糧倉升至Lv10 [確保存儲60,000資源]",
                   en: "Warehouse/Granary to Lv10 [ensure 60k storage]"
                 },
                 {
-                  zh: "英雄掠奪輸入: 預計Hour 110-120才能完成定居者訓練",
+                  zh: "英雄掠奪輸入: 預計Hour 110-120才能完成開拓者訓練",
                   en: "Hero raiding input critical: settlers expected Hour 110-120 completion"
                 },
                 {
@@ -967,7 +967,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "120-140小時", en: "Hour 120-140" },
               actions: [
                 {
-                  zh: "3個定居者訓練完成 [若掠奪充分，Hour 110-120完成]",
+                  zh: "3個開拓者訓練完成 [若掠奪充分，Hour 110-120完成]",
                   en: "3 Settlers training completed [if raiding sufficient, Hour 110-120]"
                 },
                 {
@@ -979,7 +979,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Select target village [15c or 9c within 20 tiles]"
                 },
                 {
-                  zh: "掠奪與定居者護衛部隊準備",
+                  zh: "掠奪與開拓者護衛部隊準備",
                   en: "Prepare raid and settler escort force"
                 }
               ]
@@ -988,7 +988,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "140-168小時", en: "Hour 140-168" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
@@ -1011,10 +1011,10 @@ const SETTLEMENT_GUIDE = {
       estimatedTime: { zh: "第5-6天", en: "Day 5-6" },
       speed: { zh: "快速(英雄驅動)", en: "Fast (hero-driven)" },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4600, 4200, 5800, 4400] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 57000 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 57000 }
       },
       keyAdvantage: {
         zh: "英雄+25% 資源採集被動(所有英雄行動都額外獲得25% 資源) + 最便宜兵種(奴隸民兵125資源)",
@@ -1049,7 +1049,7 @@ const SETTLEMENT_GUIDE = {
                   en: "All resource fields to Lv2-3 [balanced, Egyptians don't rely on specific resources]"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 },
                 {
@@ -1070,7 +1070,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv4-5"
                 },
                 {
-                  zh: "倉庫Lv3、穀倉Lv3",
+                  zh: "倉庫Lv3、糧倉Lv3",
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
@@ -1095,7 +1095,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv5-6"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv5-6",
+                  zh: "倉庫/糧倉升至Lv5-6",
                   en: "Warehouse/Granary to Lv5-6"
                 },
                 {
@@ -1111,7 +1111,7 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段2: 學院+城鎮廣場", en: "Phase 2: Academy + Town Hall" },
+          name: { zh: "階段2: 學院+市政廳", en: "Phase 2: Academy + Town Hall" },
           timeRange: { zh: "第24-48小時", en: "Hour 24-48" },
           steps: [
             {
@@ -1139,11 +1139,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "36-48小時", en: "Hour 36-48" },
               actions: [
                 {
-                  zh: "城鎮廣場Lv1 → 啟動第1場慶典!",
+                  zh: "市政廳Lv1 → 啟動第1場慶典!",
                   en: "Town Hall Lv1 → START 1st celebration!"
                 },
                 {
-                  zh: "官邸開始建築",
+                  zh: "居所開始建築",
                   en: "Residence starts building"
                 },
                 {
@@ -1151,7 +1151,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv7"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv7",
+                  zh: "倉庫/糧倉升至Lv7",
                   en: "Warehouse/Granary to Lv7"
                 }
               ]
@@ -1159,14 +1159,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 官邸+定居者訓練", en: "Phase 3: Residence + Settler Training" },
+          name: { zh: "階段3: 居所+開拓者訓練", en: "Phase 3: Residence + Settler Training" },
           timeRange: { zh: "第48-96小時", en: "Hour 48-96" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "官邸升至Lv10",
+                  zh: "居所升至Lv10",
                   en: "Residence to Lv10"
                 },
                 {
@@ -1178,7 +1178,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv8"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv8-9",
+                  zh: "倉庫/糧倉升至Lv8-9",
                   en: "Warehouse/Granary to Lv8-9"
                 },
                 {
@@ -1191,7 +1191,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-96小時", en: "Hour 72-96" },
               actions: [
                 {
-                  zh: "研究定居者科技",
+                  zh: "研究開拓者科技",
                   en: "Research Settler technology"
                 },
                 {
@@ -1222,7 +1222,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "96-120小時", en: "Hour 96-120" },
               actions: [
                 {
-                  zh: "3個定居者訓練完成",
+                  zh: "3個開拓者訓練完成",
                   en: "3 Settlers training completed"
                 },
                 {
@@ -1243,7 +1243,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "120-144小時", en: "Hour 120-144" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
@@ -1266,25 +1266,25 @@ const SETTLEMENT_GUIDE = {
       estimatedTime: { zh: "第6-8天", en: "Day 6-8" },
       speed: { zh: "中等(研究加速)", en: "Medium (research-accelerated)" },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4950, 4550, 6300, 4750] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 62700 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 62700 }
       },
       keyAdvantage: {
-        zh: "研究速度快20-40% + 指揮中心(3個擴張槽) vs 官邸(2個槽) = 前期軍事優勢",
+        zh: "研究速度快20-40% + 指揮中心(3個擴張槽) vs 居所(2個槽) = 前期軍事優勢",
         en: "20-40% faster research + Command Center (3 expansion slots) vs Residence (2) = early military advantage"
       },
       heroStrategy: {
-        zh: "分配戰鬥力(草原騎手掠奪) 和資源(補充昂貴定居者) - 傾向戰鬥力70% 資源30%",
+        zh: "分配戰鬥力(草原騎手掠奪) 和資源(補充昂貴開拓者) - 傾向戰鬥力70% 資源30%",
         en: "Split Fighting (Steppe Rider raids) and Resources (settler supplements) - 70% combat / 30% resources"
       },
       celebrationPlan: {
-        zh: "同其他族，但定居者最昂貴(62,700)，可能需要等待第6場慶典",
+        zh: "同其他族，但開拓者最昂貴(62,700)，可能需要等待第6場慶典",
         en: "Same timing, but settlers most expensive (62,700) - may need 6th celebration"
       },
       troopTraining: {
-        zh: "Day 1開始訓練草原騎手(速度16，負載110)，從Hour 12開始積極掠奪綠洲和不活躍玩家，資助定居者訓練",
+        zh: "Day 1開始訓練草原騎手(速度16，負載110)，從Hour 12開始積極掠奪綠洲和不活躍玩家，資助開拓者訓練",
         en: "Day 1 train Steppe Riders (speed 16, carry 110), Hour 12 start aggressive raiding to fund settlers"
       },
       phases: [
@@ -1304,7 +1304,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv2-3"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 }
               ]
@@ -1378,11 +1378,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "36-48小時", en: "Hour 36-48" },
               actions: [
                 {
-                  zh: "城鎮廣場Lv1 → 啟動第1場慶典!",
+                  zh: "市政廳Lv1 → 啟動第1場慶典!",
                   en: "Town Hall Lv1 → START 1st celebration!"
                 },
                 {
-                  zh: "指揮中心開始建築 [替代官邸，3個擴張槽 vs 2個]",
+                  zh: "指揮中心開始建築 [替代居所，3個擴張槽 vs 2個]",
                   en: "Command Center starts building [replaces Residence, 3 slots vs 2]"
                 },
                 {
@@ -1394,14 +1394,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 指揮中心+昂貴定居者", en: "Phase 3: Command Center + Expensive Settlers" },
+          name: { zh: "階段3: 指揮中心+昂貴開拓者", en: "Phase 3: Command Center + Expensive Settlers" },
           timeRange: { zh: "第48-120小時", en: "Hour 48-120" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "指揮中心升至Lv10 [與官邸同耗時，但提供3槽優勢]",
+                  zh: "指揮中心升至Lv10 [與居所同耗時，但提供3槽優勢]",
                   en: "Command Center to Lv10 [same duration as Residence, but 3-slot advantage]"
                 },
                 {
@@ -1409,7 +1409,7 @@ const SETTLEMENT_GUIDE = {
                   en: "2nd, 3rd celebrations underway"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv9-10 [儲備62,700資源]",
+                  zh: "倉庫/糧倉升至Lv9-10 [儲備62,700資源]",
                   en: "Warehouse/Granary to Lv9-10 [store 62,700 resources]"
                 },
                 {
@@ -1422,11 +1422,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-120小時", en: "Hour 72-120" },
               actions: [
                 {
-                  zh: "研究定居者科技 [20-40% 研究加速中]",
+                  zh: "研究開拓者科技 [20-40% 研究加速中]",
                   en: "Research Settler technology [20-40% speed boost active]"
                 },
                 {
-                  zh: "開始訓練3個定居者 [62,700資源 - 最昂貴! 掠奪必須充足]",
+                  zh: "開始訓練3個開拓者 [62,700資源 - 最昂貴! 掠奪必須充足]",
                   en: "Start training 3 Settlers [62,700 resources - MOST expensive! raiding critical]"
                 },
                 {
@@ -1434,11 +1434,11 @@ const SETTLEMENT_GUIDE = {
                   en: "4th, 5th, 6th celebrations activated [may need 6th for 2000+ CP]"
                 },
                 {
-                  zh: "草原騎手掠奪維持高強度 [預計Hour 110-130才能完成定居者]",
+                  zh: "草原騎手掠奪維持高強度 [預計Hour 110-130才能完成開拓者]",
                   en: "Steppe Rider raiding at high intensity [settlers expected Hour 110-130 completion]"
                 },
                 {
-                  zh: "英雄庫存補充定居者資源缺口",
+                  zh: "英雄庫存補充開拓者資源缺口",
                   en: "Hero inventory supplements settler resource gap"
                 }
               ]
@@ -1453,7 +1453,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "120-150小時", en: "Hour 120-150" },
               actions: [
                 {
-                  zh: "3個定居者訓練完成 [若掠奪充分]",
+                  zh: "3個開拓者訓練完成 [若掠奪充分]",
                   en: "3 Settlers training completed [if raiding sufficient]"
                 },
                 {
@@ -1474,7 +1474,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "150-192小時", en: "Hour 150-192" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
@@ -1501,10 +1501,10 @@ const SETTLEMENT_GUIDE = {
         en: "Only on special Legend servers (not all servers)"
       },
       settlerCost: {
-        zh: "定居者成本",
+        zh: "開拓者成本",
         en: "Settler Cost",
         per: { zh: "單位", en: "per unit", values: [4700, 4300, 5900, 4500] },
-        total3: { zh: "3個定居者", en: "3 settlers", value: 57600 }
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 57600 }
       },
       keyAdvantage: {
         zh: "狂戰士大傷害 + 瓦爾基麗2穀物重騎兵 + 海軍系統 = 獨特的海岸開發潛力",
@@ -1515,7 +1515,7 @@ const SETTLEMENT_GUIDE = {
         en: "Fighting Strength focus (oasis + raiding), hero -5% loyalty stacks with Jarl, strengthens raids"
       },
       celebrationPlan: {
-        zh: "同其他族，定居者成本適中，4-5場慶典達成",
+        zh: "同其他族，開拓者成本適中，4-5場慶典達成",
         en: "Same timing, moderate settler cost - 4-5 celebrations for 2000 CP"
       },
       troopTraining: {
@@ -1539,7 +1539,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv2-3"
                 },
                 {
-                  zh: "主堡壘升至Lv3",
+                  zh: "村莊大樓升至Lv3",
                   en: "Main Building to Lv3"
                 },
                 {
@@ -1560,7 +1560,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv4-5"
                 },
                 {
-                  zh: "倉庫Lv3、穀倉Lv3",
+                  zh: "倉庫Lv3、糧倉Lv3",
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
@@ -1581,7 +1581,7 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv6"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv5-6",
+                  zh: "倉庫/糧倉升至Lv5-6",
                   en: "Warehouse/Granary to Lv5-6"
                 },
                 {
@@ -1621,11 +1621,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "36-48小時", en: "Hour 36-48" },
               actions: [
                 {
-                  zh: "城鎮廣場Lv1 → 啟動第1場慶典!",
+                  zh: "市政廳Lv1 → 啟動第1場慶典!",
                   en: "Town Hall Lv1 → START 1st celebration!"
                 },
                 {
-                  zh: "官邸開始建築 [非港口，為了擴張槽]",
+                  zh: "居所開始建築 [非港口，為了擴張槽]",
                   en: "Residence starts building [for expansion slots, not Harbor]"
                 },
                 {
@@ -1637,14 +1637,14 @@ const SETTLEMENT_GUIDE = {
           ]
         },
         {
-          name: { zh: "階段3: 官邸+定居者訓練", en: "Phase 3: Residence + Settler Training" },
+          name: { zh: "階段3: 居所+開拓者訓練", en: "Phase 3: Residence + Settler Training" },
           timeRange: { zh: "第48-120小時", en: "Hour 48-120" },
           steps: [
             {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 {
-                  zh: "官邸升至Lv10",
+                  zh: "居所升至Lv10",
                   en: "Residence to Lv10"
                 },
                 {
@@ -1652,11 +1652,11 @@ const SETTLEMENT_GUIDE = {
                   en: "2nd, 3rd celebrations underway"
                 },
                 {
-                  zh: "倉庫/穀倉升至Lv9",
+                  zh: "倉庫/糧倉升至Lv9",
                   en: "Warehouse/Granary to Lv9"
                 },
                 {
-                  zh: "英雄農業持續，堡壘建築+掠奪資源支持定居者訓練",
+                  zh: "英雄農業持續，堡壘建築+掠奪資源支持開拓者訓練",
                   en: "Hero farming continues, building + raid income supports settler training"
                 }
               ]
@@ -1665,11 +1665,11 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "72-120小時", en: "Hour 72-120" },
               actions: [
                 {
-                  zh: "研究定居者科技",
+                  zh: "研究開拓者科技",
                   en: "Research Settler technology"
                 },
                 {
-                  zh: "開始訓練3個定居者 [57,600資源，略高於平均]",
+                  zh: "開始訓練3個開拓者 [57,600資源，略高於平均]",
                   en: "Start training 3 Settlers [57,600 resources, slightly above average]"
                 },
                 {
@@ -1677,7 +1677,7 @@ const SETTLEMENT_GUIDE = {
                   en: "4th, 5th celebrations activated"
                 },
                 {
-                  zh: "英雄庫存補充定居者資源",
+                  zh: "英雄庫存補充開拓者資源",
                   en: "Hero inventory supplements settler resources"
                 },
                 {
@@ -1696,7 +1696,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "120-140小時", en: "Hour 120-140" },
               actions: [
                 {
-                  zh: "3個定居者訓練完成",
+                  zh: "3個開拓者訓練完成",
                   en: "3 Settlers training completed"
                 },
                 {
@@ -1717,7 +1717,7 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "140-168小時", en: "Hour 140-168" },
               actions: [
                 {
-                  zh: "發送3個定居者至目標村莊",
+                  zh: "發送3個開拓者至目標村莊",
                   en: "Send 3 Settlers to target village"
                 },
                 {
