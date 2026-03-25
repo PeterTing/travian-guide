@@ -1623,10 +1623,23 @@
             </div>
 
             <!-- END TAB 7 -->
+
+            <!-- TAB 8: DATA ANALYSIS -->
+            <div id="sim-data" class="tab-content">
+                <h2 data-zh="📊 數據驅動策略分析" data-en="📊 Data-Driven Strategy Analysis">📊 數據驅動策略分析</h2>
+                <p data-zh="以下分析基於實際遊戲數據和真實遊戲環境計算。考量了綠洲動物競爭、英雄道具系統、冒險風險、新手保護機制等因素。" data-en="Analysis based on actual game data and realistic gameplay. Accounts for oasis competition, hero items, adventure risks, beginner protection, etc.">以下分析基於實際遊戲數據和真實遊戲環境計算。考量了綠洲動物競爭、英雄道具系統、冒險風險、新手保護機制等因素。</p>
+
+                <div id="simResults" style="margin-top: 1.5rem;">
+                    <p data-zh="載入中..." data-en="Loading...">載入中...</p>
+                </div>
+            </div>
+
+            <!-- END TAB 8 -->
         </main>
     </div>
 
     <!-- Note: app.js excluded to avoid TabManager conflict with strategy page's own tab system -->
+    <script src="js/simulation-data.js"></script>
     <script>
         function switchTab(event, tabName) {
             // Hide all tab contents
@@ -1660,6 +1673,132 @@
             header.classList.toggle('active');
             body.classList.toggle('active');
         }
+
+        // Render simulation data when tab is opened
+        function renderSimData() {
+            const container = document.getElementById('simResults');
+            if (!container || !window.SIMULATION_DATA) {
+                container.innerHTML = '<p style="color:#c9a83e;">數據載入失敗</p>';
+                return;
+            }
+            const d = SIMULATION_DATA;
+            let html = '';
+
+            // Section 1: Hero Point Strategy
+            if (d.heroPointStrategy) {
+                const h = d.heroPointStrategy;
+                html += `<div class="accordion-header" onclick="toggleAccordion(event)"><span>⚔️ 英雄技能點配置策略</span><span>▼</span></div>`;
+                html += `<div class="accordion-body"><div class="phase-box"><div class="phase-content">`;
+                if (h.conclusion) html += `<p style="color:#c9a83e;font-weight:600;">${h.conclusion}</p>`;
+                if (h.phases) {
+                    h.phases.forEach(p => {
+                        html += `<div style="margin:1rem 0;padding:1rem;background:rgba(139,69,19,0.15);border-left:3px solid #8b4513;border-radius:4px;">`;
+                        html += `<strong style="color:#d4af37;">${p.name || p.phase || ''}</strong>`;
+                        if (p.description) html += `<p>${p.description}</p>`;
+                        if (p.recommendation) html += `<p style="color:#2ecc71;">✓ ${p.recommendation}</p>`;
+                        if (p.details) html += `<p style="font-size:0.9em;opacity:0.8;">${p.details}</p>`;
+                        html += `</div>`;
+                    });
+                }
+                html += `</div></div></div>`;
+            }
+
+            // Section 2: Adventure Analysis
+            if (d.adventureROI) {
+                const a = d.adventureROI;
+                html += `<div class="accordion-header" onclick="toggleAccordion(event)"><span>🗺️ 冒險系統分析</span><span>▼</span></div>`;
+                html += `<div class="accordion-body"><div class="phase-box"><div class="phase-content">`;
+                if (a.conclusion) html += `<p style="color:#c9a83e;font-weight:600;">${a.conclusion}</p>`;
+                if (a.riskManagement) html += `<p>${a.riskManagement}</p>`;
+                if (a.recommendations) {
+                    a.recommendations.forEach(r => html += `<p>• ${r}</p>`);
+                }
+                html += `</div></div></div>`;
+            }
+
+            // Section 3: Troop Efficiency
+            if (d.troopEfficiency) {
+                html += `<div class="accordion-header" onclick="toggleAccordion(event)"><span>🛡️ 兵種效率排名</span><span>▼</span></div>`;
+                html += `<div class="accordion-body"><div class="phase-box"><div class="phase-content">`;
+                const t = d.troopEfficiency;
+                if (t.bestRaider) html += `<p><strong>最佳掠奪兵：</strong>${t.bestRaider}</p>`;
+                if (t.bestAttack) html += `<p><strong>最佳攻擊兵：</strong>${t.bestAttack}</p>`;
+                if (t.bestDefense) html += `<p><strong>最佳防禦兵：</strong>${t.bestDefense}</p>`;
+                if (t.bestBudget) html += `<p><strong>最便宜兵種：</strong>${t.bestBudget}</p>`;
+                if (t.rankings && Array.isArray(t.rankings)) {
+                    html += `<table style="width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.9em;">`;
+                    html += `<tr style="background:rgba(201,168,62,0.15);"><th style="padding:0.5rem;text-align:left;border-bottom:1px solid #8b4513;">兵種</th><th style="padding:0.5rem;text-align:center;">攻擊/成本</th><th style="padding:0.5rem;text-align:center;">防禦/成本</th><th style="padding:0.5rem;text-align:center;">掠奪效率</th></tr>`;
+                    t.rankings.forEach(r => {
+                        html += `<tr style="border-bottom:1px solid rgba(139,69,19,0.3);">`;
+                        html += `<td style="padding:0.4rem;">${r.name || r.unit || ''}</td>`;
+                        html += `<td style="padding:0.4rem;text-align:center;">${r.attackPerCost || '-'}</td>`;
+                        html += `<td style="padding:0.4rem;text-align:center;">${r.defPerCost || '-'}</td>`;
+                        html += `<td style="padding:0.4rem;text-align:center;">${r.raidEfficiency || '-'}</td>`;
+                        html += `</tr>`;
+                    });
+                    html += `</table>`;
+                }
+                html += `</div></div></div>`;
+            }
+
+            // Section 4: Building Priority
+            if (d.buildingPriority) {
+                html += `<div class="accordion-header" onclick="toggleAccordion(event)"><span>🏗️ 建築升級優先順序</span><span>▼</span></div>`;
+                html += `<div class="accordion-body"><div class="phase-box"><div class="phase-content">`;
+                const b = d.buildingPriority;
+                if (b.conclusion) html += `<p style="color:#c9a83e;font-weight:600;">${b.conclusion}</p>`;
+                if (b.scenarios) {
+                    b.scenarios.forEach(s => {
+                        html += `<div style="margin:1rem 0;padding:1rem;background:rgba(139,69,19,0.15);border-radius:4px;">`;
+                        html += `<strong style="color:#d4af37;">${s.name}</strong>`;
+                        if (s.priority && Array.isArray(s.priority)) {
+                            html += `<ol style="margin-top:0.5rem;">`;
+                            s.priority.forEach(p => html += `<li>${p}</li>`);
+                            html += `</ol>`;
+                        }
+                        html += `</div>`;
+                    });
+                }
+                html += `</div></div></div>`;
+            }
+
+            // Section 5: Phase Framework
+            if (d.phaseFramework) {
+                html += `<div class="accordion-header" onclick="toggleAccordion(event)"><span>📅 階段策略框架</span><span>▼</span></div>`;
+                html += `<div class="accordion-body"><div class="phase-box"><div class="phase-content">`;
+                const p = d.phaseFramework;
+                if (p.phases) {
+                    p.phases.forEach(phase => {
+                        html += `<div style="margin:1rem 0;padding:1rem;border-left:3px solid #d4af37;background:rgba(0,0,0,0.2);border-radius:4px;">`;
+                        html += `<strong style="color:#d4af37;font-size:1.1em;">${phase.name}</strong>`;
+                        if (phase.income) html += `<p>💰 預期收入：${phase.income}</p>`;
+                        if (phase.spending) html += `<p>💸 預期支出：${phase.spending}</p>`;
+                        if (phase.keyDecisions && Array.isArray(phase.keyDecisions)) {
+                            html += `<p style="margin-top:0.5rem;"><strong>關鍵決策：</strong></p><ul>`;
+                            phase.keyDecisions.forEach(d => html += `<li>${d}</li>`);
+                            html += `</ul>`;
+                        }
+                        html += `</div>`;
+                    });
+                }
+                html += `</div></div></div>`;
+            }
+
+            // Methodology note
+            html += `<div style="margin-top:2rem;padding:1rem;background:rgba(139,69,19,0.1);border:1px solid rgba(139,69,19,0.3);border-radius:8px;font-size:0.85em;opacity:0.8;">`;
+            html += `<strong style="color:#d4af37;">📋 方法論說明</strong><br>`;
+            html += `本分析考量：新手保護期（x1 速度 3 天）、綠洲動物競爭（多玩家搶奪）、英雄道具系統（智慧之書重置技能）、冒險風險管理（英雄死亡 24 小時復活）、文化點瓶頸分析。所有數據來源：kirilloid/travian 原始碼 + 官方 support.travian.com 文件。`;
+            html += `</div>`;
+
+            container.innerHTML = html || '<p>無數據</p>';
+        }
+
+        // Auto-render when sim-data tab is shown
+        const origSwitch = switchTab;
+        switchTab = function(event, tabName) {
+            origSwitch(event, tabName);
+            if (tabName === 'sim-data') renderSimData();
+        };
     </script>
 </body>
 </html>
