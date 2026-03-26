@@ -348,7 +348,7 @@
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
                 <strong><span class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">56,400</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">60,000</td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="正常" data-en="Normal">正常</span></td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">✗</td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="綜合強" data-en="Well-rounded">綜合強</span></td>
@@ -358,7 +358,7 @@
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
                 <strong><span class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">56,400</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">57,000</td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="正常" data-en="Normal">正常</span></td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">✗</td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="商人馬車多" data-en="More traders">商人馬車多</span></td>
@@ -368,11 +368,11 @@
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
                 <strong><span class="lang-text" data-zh="匈人" data-en="Huns">匈人</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">57,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">62,700</td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="正常" data-en="Normal">正常</span></td>
               <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">✗</td>
-              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="騎兵快速" data-en="Cavalry speed">騎兵快速</span></td>
-              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">Day 5-6</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="騎兵最快速" data-en="Fastest cavalry">騎兵最快速</span></td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">Day 6-7</td>
             </tr>
             <tr style="background-color: var(--color-bg-secondary);">
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
@@ -398,6 +398,258 @@
               新手最快開二村: 高盧人 (Day 4-5)。平衡選擇: 羅馬人(雙建築佇列優勢)。進攻傾向: 條頓人。資源農業: 埃及人。掠奪型: 維京人。
             </span>
           </p>
+        </div>
+      </section>
+
+      <!-- DETAILED SETTLER COST + CP TABLE -->
+      <section style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="精確定居者成本 &amp; CP 累積計算" data-en="Precise Settler Cost &amp; CP Accumulation">精確定居者成本 &amp; CP 累積計算</span>
+        </h2>
+
+        <h3 style="margin: var(--spacing-lg) 0 var(--spacing-md);">
+          <span class="lang-text" data-zh="定居者成本完整表（×3 共需）" data-en="Settler Cost Table (×3 Required)">定居者成本完整表（×3 共需）</span>
+        </h3>
+        <p style="margin-bottom: var(--spacing-md); color: var(--text-secondary);">
+          <span class="lang-text"
+            data-zh="來源：kirilloid/travian JSON 原始兵種數據。格式：木材 / 黏土 / 鐵礦 / 穀物。"
+            data-en="Source: kirilloid/travian JSON unit data. Format: Lumber / Clay / Iron / Crop.">
+            來源：kirilloid/travian JSON 原始兵種數據。格式：木材 / 黏土 / 鐵礦 / 穀物。
+          </span>
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-md) 0; font-size: 0.92em;">
+          <thead>
+            <tr style="background: #1a1d1b;">
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: left; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="部族" data-en="Tribe">部族</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="單隻成本（木/黏/鐵/穀）" data-en="Per unit (L/C/I/Cr)">單隻成本（木/黏/鐵/穀）</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="單隻合計" data-en="Unit Total">單隻合計</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="×3 合計" data-en="×3 Total">×3 合計</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="訓練加速" data-en="Train Bonus">訓練加速</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: #0d1a10;">
+              <td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><strong style="color: #6b8e4e;"><span class="lang-text" data-zh="高盧人★最便宜" data-en="Gauls★Cheapest">高盧人★最便宜</span></strong></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); font-family: monospace;">4,400 / 5,600 / 4,200 / 3,900</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">18,100</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><strong style="color: #6b8e4e;">54,300</strong></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">+25% 快</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><span class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</span></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); font-family: monospace;">4,600 / 4,200 / 5,800 / 4,400</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">19,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">57,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">-</td>
+            </tr>
+            <tr style="background: #1a1d1b;">
+              <td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><span class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</span></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); font-family: monospace;">4,560 / 5,890 / 4,370 / 4,180</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">19,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">57,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">-</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><span class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</span></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); font-family: monospace;">5,800 / 4,400 / 4,600 / 5,200</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">20,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">60,000</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">-</td>
+            </tr>
+            <tr style="background: #1a1d1b;">
+              <td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><span class="lang-text" data-zh="匈人★最貴" data-en="Huns★Most Expensive">匈人★最貴</span></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); font-family: monospace;">6,100 / 4,600 / 4,800 / 5,400</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">20,900</td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><strong style="color: var(--color-danger);">62,700</strong></td>
+              <td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin: var(--spacing-xl) 0 var(--spacing-md);">
+          <span class="lang-text" data-zh="CP 累積時間表（x1 速度，典型村莊）" data-en="CP Accumulation Table (x1 speed, typical village)">CP 累積時間表（x1 速度，典型村莊）</span>
+        </h3>
+        <p style="margin-bottom: var(--spacing-md); color: var(--text-secondary);">
+          <span class="lang-text"
+            data-zh="假設：Day 3 Town Hall Lv1 完成，每 24 小時慶典一次，村莊日產 CP ≈ 178（Academy/MB/Residence/Marketplace 各 Lv10 + 資源田均 Lv7 + 其他建築）。公式：總 CP = 被動 CP（天數 × 178）+ 慶典 CP（場數 × 當日 CP 產出）"
+            data-en="Assumes: TH Lv1 ready Day 3, celebration every 24h, village daily CP ≈ 178 (Academy/MB/Residence/Marketplace each Lv10 + avg Lv7 resource fields + other buildings). Formula: Total CP = Passive CP (days × 178) + Celebration CP (count × daily CP output)">
+            假設：Day 3 Town Hall Lv1 完成，每 24 小時慶典一次，村莊日產 CP ≈ 178（Academy/MB/Residence/Marketplace 各 Lv10 + 資源田均 Lv7 + 其他建築）。公式：總 CP = 被動 CP × 天數 + 慶典 CP × 場數
+          </span>
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-md) 0; font-size: 0.92em;">
+          <thead>
+            <tr style="background: #1a1d1b;">
+              <th style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><span class="lang-text" data-zh="天數" data-en="Day">天數</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="被動累積 CP" data-en="Passive CP">被動累積 CP</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="慶典次數" data-en="Celebrations">慶典次數</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="慶典 CP" data-en="Celebration CP">慶典 CP</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="總計" data-en="Total">總計</span></th>
+              <th style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><span class="lang-text" data-zh="狀態" data-en="Status">狀態</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);">Day 3</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~350</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~178</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~528</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: var(--color-danger);">✗</td></tr>
+            <tr style="background: #1a1d1b;"><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);">Day 4</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~530</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~356</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~886</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: var(--color-danger);">✗</td></tr>
+            <tr><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);">Day 5</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~710</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">3</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~534</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,244</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: var(--color-danger);">✗</td></tr>
+            <tr style="background: #1a1d1b;"><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);">Day 6</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~900</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">4</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~712</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,612</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: var(--color-danger);">✗</td></tr>
+            <tr><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);">Day 7</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,080</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">5</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~890</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,970</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: var(--color-crop);">△ 接近</td></tr>
+            <tr style="background: #0d1a10;"><td style="padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border);"><strong>Day 8</strong></td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,260</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">6</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">~1,068</td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border);"><strong style="color: #6b8e4e;">~2,328 ✓</strong></td><td style="padding: var(--spacing-sm) var(--spacing-md); text-align: center; border: 1px solid var(--color-border); color: #6b8e4e;"><strong>✓ 達成</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="color: var(--text-secondary); font-size: 0.88em; margin-top: var(--spacing-sm);">
+          <span class="lang-text"
+            data-zh="⚠️ 注意：慶典 CP = 村莊當日 CP 產出（非固定值）。高盧人 Day 4-5 因定居者訓練快，若提前累積 CP 可能 Day 6-7 開村。主動多建築可提高每日 CP 產出，縮短達成時間。"
+            data-en="⚠️ Note: Celebration CP = village's current daily CP output (not fixed). Gauls may settle Day 6-7 due to faster settler training. Building more structures increases daily CP output and shortens the timeline.">
+            ⚠️ 注意：慶典 CP = 村莊當日 CP 產出（非固定值）。高盧人 Day 4-5 因定居者訓練快，若提前累積 CP 可能 Day 6-7 開村。主動多建築可提高每日 CP 產出，縮短達成時間。
+          </span>
+        </p>
+      </section>
+
+      <!-- HOUR-BY-HOUR BUILD ORDER -->
+      <section style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="逐小時建築順序（高盧人 — 最速路徑）" data-en="Hour-by-Hour Build Order (Gauls — Fastest Path)">逐小時建築順序（高盧人 — 最速路徑）</span>
+        </h2>
+        <p style="margin-bottom: var(--spacing-lg); color: var(--text-secondary);">
+          <span class="lang-text"
+            data-zh="高盧人世界紀錄：76:41（約 3.2 天）。x1 速度伺服器，英雄點數全投資源。資源數字為每步所需。"
+            data-en="Gauls world record: 76:41 (~3.2 days). x1 speed server, hero points all in Resources. Resource numbers are per step required.">
+            高盧人世界紀錄：76:41（約 3.2 天）。x1 速度伺服器，英雄點數全投資源。
+          </span>
+        </p>
+
+        <div style="background: #1a1d1b; border: 1px solid #2a2d2a; border-radius: 8px; padding: var(--spacing-lg); margin: var(--spacing-md) 0;">
+          <h4 style="color: var(--color-gold); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="第一階段：Hour 0-24（基礎建設）" data-en="Phase 1: Hour 0-24 (Foundation)">第一階段：Hour 0-24（基礎建設）</span>
+          </h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+            <div>
+              <p><strong>Hour 0-2：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="完成新手任務（免費資源各 ~500）" data-en="Complete beginner quests (~500 each resource)">完成新手任務（免費資源各 ~500）</span></li>
+                <li><span class="lang-text" data-zh="所有資源田 → Lv2（優先穀田）" data-en="All resource fields → Lv2 (prioritize crop)">所有資源田 → Lv2（優先穀田）</span></li>
+                <li><span class="lang-text" data-zh="主府 → Lv3" data-en="Main Building → Lv3">主府 → Lv3</span></li>
+                <li><span class="lang-text" data-zh="英雄：點數全投資源採集" data-en="Hero: All points to Resource collection">英雄：點數全投資源採集</span></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Hour 2-12：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="主府 → Lv5" data-en="Main Building → Lv5">主府 → Lv5</span></li>
+                <li><span class="lang-text" data-zh="資源田 → Lv3-4（重點穀田 Lv4）" data-en="Resource fields → Lv3-4 (crop Lv4 priority)">資源田 → Lv3-4（重點穀田 Lv4）</span></li>
+                <li><span class="lang-text" data-zh="倉庫 Lv3、糧倉 Lv3" data-en="Warehouse Lv3, Granary Lv3">倉庫 Lv3、糧倉 Lv3</span></li>
+                <li><span class="lang-text" data-zh="地下室 Lv3（1.5× = 保護 450/種）" data-en="Cranny Lv3 (1.5× = protects 450/type)">地下室 Lv3（高盧 1.5× = 保護 450/種）</span></li>
+                <li><span class="lang-text" data-zh="英雄初次出征：清附近鐵/磚綠洲（Rats+Spiders）→ 獲 ~2,400 資源" data-en="Hero 1st raid: Clear nearby iron/clay oases (Rats+Spiders) → ~2,400 res">英雄初次出征：清鐵/磚綠洲 → ~2,400 資源</span></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <p><strong>Hour 12-24：</strong></p>
+            <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+              <li><span class="lang-text" data-zh="資源田 → Lv5" data-en="Resource fields → Lv5">資源田 → Lv5</span></li>
+              <li><span class="lang-text" data-zh="主府 → Lv7-8" data-en="Main Building → Lv7-8">主府 → Lv7-8</span></li>
+              <li><span class="lang-text" data-zh="倉庫 Lv5、糧倉 Lv5" data-en="Warehouse Lv5, Granary Lv5">倉庫 Lv5、糧倉 Lv5</span></li>
+              <li><span class="lang-text" data-zh="英雄每 2-3 小時巡迴清怪（穀物獎勵公式：穀消耗 × 40 = 各種資源獎勵）" data-en="Hero patrol every 2-3h (bounty formula: crop upkeep × 40 = each resource reward)">英雄每 2-3 小時循環清怪（每穀消耗 = 各 40 資源獎勵）</span></li>
+              <li><span class="lang-text" data-zh="Rally Point Lv1（若未蓋）" data-en="Rally Point Lv1 (if not yet built)">Rally Point Lv1（若未蓋）</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: #1a1d1b; border: 1px solid #2a2d2a; border-radius: 8px; padding: var(--spacing-lg); margin: var(--spacing-md) 0;">
+          <h4 style="color: var(--color-gold); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="第二階段：Hour 24-48（衝 MB10 + Academy）" data-en="Phase 2: Hour 24-48 (Rush MB10 + Academy)">第二階段：Hour 24-48（衝 MB10 + Academy）</span>
+          </h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+            <div>
+              <p><strong>Hour 24-36：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="★ 主府 → Lv10（最關鍵前置，解鎖 Academy）" data-en="★ Main Building → Lv10 (critical prerequisite, unlocks Academy)">★ 主府 → Lv10（最關鍵）</span></li>
+                <li><span class="lang-text" data-zh="資源田 → Lv6" data-en="Resource fields → Lv6">資源田 → Lv6</span></li>
+                <li><span class="lang-text" data-zh="倉庫 Lv6、糧倉 Lv6" data-en="Warehouse Lv6, Granary Lv6">倉庫 Lv6、糧倉 Lv6</span></li>
+                <li><span class="lang-text" data-zh="使館 Lv1（加入聯盟保護）" data-en="Embassy Lv1 (join alliance for protection)">使館 Lv1（加入聯盟）</span></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Hour 36-48：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="★ Academy → Lv1 並持續升到 Lv10" data-en="★ Academy → Lv1 then rush to Lv10">★ Academy → Lv1 → 持續升到 Lv10</span></li>
+                <li><span class="lang-text" data-zh="兵營 Lv1-3（訓練 5 Phalanx 護送英雄）" data-en="Barracks Lv1-3 (train 5 Phalanx to escort hero)">兵營 Lv1-3 → 訓練 5 Phalanx</span></li>
+                <li><span class="lang-text" data-zh="資源田 → Lv6-7" data-en="Resource fields → Lv6-7">資源田 → Lv6-7</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #1a1d1b; border: 1px solid #2a2d2a; border-radius: 8px; padding: var(--spacing-lg); margin: var(--spacing-md) 0;">
+          <h4 style="color: var(--color-gold); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="第三階段：Hour 48-72（Town Hall + Residence 開始）" data-en="Phase 3: Hour 48-72 (Town Hall + Residence Start)">第三階段：Hour 48-72（Town Hall + Residence）</span>
+          </h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+            <div>
+              <p><strong>Hour 48-60：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="Academy Lv10 完成 ✓" data-en="Academy Lv10 done ✓">Academy Lv10 完成 ✓</span></li>
+                <li><span class="lang-text" data-zh="★ 市政廳 → Lv1（需 MB10 + Academy10）→ 立即開第 1 場慶典！（~150-200 CP）" data-en="★ Town Hall → Lv1 (needs MB10 + Academy10) → immediately start 1st celebration! (~150-200 CP)">★ 市政廳 Lv1 → 立即辦第 1 場慶典（~150-200 CP）</span></li>
+                <li><span class="lang-text" data-zh="居所 → Lv1 → 開始升級" data-en="Residence → Lv1 → start upgrading">居所 → Lv1 → 開始升級</span></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Hour 60-72：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="居所 → Lv5-6" data-en="Residence → Lv5-6">居所 → Lv5-6</span></li>
+                <li><span class="lang-text" data-zh="資源田 → Lv7-8" data-en="Resource fields → Lv7-8">資源田 → Lv7-8</span></li>
+                <li><span class="lang-text" data-zh="倉庫 Lv7-8、糧倉 Lv7-8（Settler 單隻 18,100！需要足夠倉容）" data-en="Warehouse Lv7-8, Granary Lv7-8 (Settler costs 18,100 each! need capacity)">倉庫 Lv7-8、糧倉 Lv7-8（Settler 單隻 18,100！）</span></li>
+                <li><span class="lang-text" data-zh="第 2 場慶典（~200 CP，建築更多了）" data-en="2nd celebration (~200 CP, more buildings now)">第 2 場慶典（~200 CP）</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #1a1d1b; border: 1px solid #2a2d2a; border-radius: 8px; padding: var(--spacing-lg); margin: var(--spacing-md) 0;">
+          <h4 style="color: var(--color-gold); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="第四階段：Hour 72-120（Residence 10 + 訓練 Settlers）" data-en="Phase 4: Hour 72-120 (Residence Lv10 + Train Settlers)">第四階段：Hour 72-120（Residence Lv10 + Settlers）</span>
+          </h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+            <div>
+              <p><strong>Hour 72-96：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="★★★ 居所 → Lv10（解鎖 Settler 訓練）" data-en="★★★ Residence → Lv10 (unlocks Settler training)">★★★ 居所 → Lv10（解鎖 Settlers）</span></li>
+                <li><span class="lang-text" data-zh="第 3 場慶典" data-en="3rd celebration">第 3 場慶典</span></li>
+                <li><span class="lang-text" data-zh="倉庫 Lv9-10（容量 ≥ 18,000，Settler 用）" data-en="Warehouse Lv9-10 (capacity ≥ 18,000 for Settler)">倉庫 Lv9-10（容量 ≥ 18,000）</span></li>
+                <li><span class="lang-text" data-zh="資源田 → Lv8-9" data-en="Resource fields → Lv8-9">資源田 → Lv8-9</span></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Hour 96-120：</strong></p>
+              <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+                <li><span class="lang-text" data-zh="Academy 研究 Settler 技術" data-en="Academy research Settler tech">Academy 研究 Settler 技術</span></li>
+                <li><span class="lang-text" data-zh="訓練 Settler ×3（每隻 18,100，高盧快 25%，約 1.7 小時/隻）" data-en="Train Settler ×3 (18,100 each, Gauls 25% faster, ~1.7h each)">訓練 Settlers ×3（18,100×3 = 54,300，高盧 1.7 小時/隻）</span></li>
+                <li><span class="lang-text" data-zh="第 4-5 場慶典" data-en="4th-5th celebrations">第 4-5 場慶典</span></li>
+                <li><span class="lang-text" data-zh="持續英雄農業補充資源" data-en="Continue hero farming to supplement resources">英雄持續農綠洲補資源</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #0d1a10; border: 2px solid #6b8e4e; border-radius: 8px; padding: var(--spacing-lg); margin: var(--spacing-md) 0;">
+          <h4 style="color: #6b8e4e; margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="第五階段：Hour 120-144（開村！）" data-en="Phase 5: Hour 120-144 (Settle!)">第五階段：Hour 120-144（開村！）</span>
+          </h4>
+          <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+            <li><span class="lang-text" data-zh="確認 CP ≥ 2,000（被動 + 慶典累積）" data-en="Confirm CP ≥ 2,000 (passive + celebration total)">確認 CP ≥ 2,000 ✓</span></li>
+            <li><span class="lang-text" data-zh="選擇目標村莊：距離 ≤ 20 格、優先 15c 穀田、附近有 +50% 穀綠洲" data-en="Choose target: distance ≤ 20 tiles, prefer 15c crop field, nearby +50% crop oasis">選址：≤ 20 格、優先 15c、附近有穀綠洲</span></li>
+            <li><span class="lang-text" data-zh="發送 3 Settlers 開村 🎉" data-en="Send 3 Settlers to settle! 🎉">發送 3 Settlers 開村 🎉</span></li>
+          </ul>
+        </div>
+
+        <div class="tip-box info" style="margin: var(--spacing-lg) 0;">
+          <strong><span class="lang-text" data-zh="羅馬人時間線差異" data-en="Romans Timeline Differences">羅馬人時間線差異</span></strong>
+          <ul style="padding-left: 1.5rem; margin: var(--spacing-sm) 0;">
+            <li><span class="lang-text" data-zh="雙建築佇列：Day 1-2 可同時升資源田 + 主府，建設快 30-40%" data-en="Dual queue: Day 1-2 can upgrade resource fields + MB simultaneously, 30-40% faster building">雙建築佇列：Day 1-2 同時升資源田 + 主府，快 30-40%</span></li>
+            <li><span class="lang-text" data-zh="英雄戰力 +100/點（其他族 +80），綠洲清怪更強" data-en="Hero +100/pt combat (others +80), better oasis farming">英雄 +100/點（他族 +80），清怪更強</span></li>
+            <li><span class="lang-text" data-zh="Settler 慢 25%（每隻約 2.1 小時，3 隻需 6+ 小時），但建築優勢補回" data-en="Settlers 25% slower (~2.1h each, 3 take 6+h), but building lead compensates">Settler 慢 25%（每隻 ~2.1 小時），建築優勢補回</span></li>
+            <li><span class="lang-text" data-zh="預估開村：Day 5-6（比高盧慢 1-2 天，但英雄農業效率更高）" data-en="Estimated settlement: Day 5-6 (1-2 days slower than Gauls, but hero farming more efficient)">預估開村：Day 5-6</span></li>
+          </ul>
         </div>
       </section>
 

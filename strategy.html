@@ -253,6 +253,7 @@
                 <button class="tab-button" onclick="switchTab(event, 'resource-mgmt')" data-zh="資源管理" data-en="Resource Management">資源管理</button>
                 <button class="tab-button" onclick="switchTab(event, 'hostile-env')" data-zh="敵對生存" data-en="Hostile Environment">敵對生存</button>
                 <button class="tab-button" onclick="switchTab(event, 'late-game')" data-zh="後期系統" data-en="Late Game">後期系統</button>
+                <button class="tab-button" onclick="switchTab(event, 'multi-village')" data-zh="多村發展" data-en="Multi-Village">多村發展</button>
                 <button class="tab-button" onclick="switchTab(event, 'sim-data')" data-zh="📊 數據分析" data-en="📊 Data Analysis">📊 數據分析</button>
             </div>
 
@@ -1625,6 +1626,311 @@
             </div>
 
             <!-- END TAB 7 -->
+
+            <!-- TAB: MULTI-VILLAGE DEVELOPMENT -->
+            <div id="multi-village" class="tab-content">
+                <h2 data-zh="多村發展策略（Day 7-80+）" data-en="Multi-Village Development (Day 7-80+)">多村發展策略（Day 7-80+）</h2>
+                <p data-zh="開二村只是起點。掌握多村配置才是 Travian 中後期致勝關鍵。" data-en="Settling the 2nd village is just the beginning. Multi-village configuration is the key to mid/late-game success.">開二村只是起點。掌握多村配置才是 Travian 中後期致勝關鍵。</p>
+
+                <!-- FIRST VILLAGE ROLE -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="🏠 第一村（首都）的角色轉型" data-en="🏠 Capital (1st Village) Role Transition">🏠 第一村（首都）的角色轉型</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <p data-zh="第一村通常成為帳號首都，但其角色會隨時間轉變。" data-en="The 1st village typically becomes your account capital, but its role evolves over time.">第一村通常成為帳號首都，但其角色會隨時間轉變。</p>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="早期（Day 1-7）：全能基地" data-en="Early (Day 1-7): All-purpose Base">早期（Day 1-7）：全能基地</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="唯一的村莊，負責資源生產、軍事、CP 全部任務" data-en="Only village, handles all production, military, and CP tasks">唯一的村莊，負責資源、軍事、CP 全部任務</li>
+                                <li data-zh="英雄農業是主要資源來源（每日可獲 5,000-10,000+ 資源）" data-en="Hero farming is main resource source (5,000-10,000+ res/day)">英雄農業是主要資源來源（每日 5,000-10,000+ 資源）</li>
+                                <li data-zh="優先目標：MB10 → Academy10 → TH1 → Residence10 → Settlers" data-en="Priority: MB10 → Academy10 → TH1 → Residence10 → Settlers">優先：MB10 → Academy10 → TH1 → Residence10 → Settlers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="中期（Day 7-30）：資源樞紐 → 轉型" data-en="Mid (Day 7-30): Resource Hub → Transition">中期（Day 7-30）：資源樞紐 → 轉型</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="若首都是 15c（15 穀田），重心轉向升穀田（目標 Lv10+）" data-en="If capital is 15c, shift focus to upgrading crop fields (target Lv10+)">15c 首都：重點升穀田 → Lv10+</li>
+                                <li data-zh="Flour Mill Lv5 + Bakery Lv5 可增加 25% 穀物產量（首都專屬）" data-en="Flour Mill Lv5 + Bakery Lv5 adds 25% crop bonus (capital only)">Flour Mill Lv5 + Bakery Lv5 增加 25% 穀物（首都專屬）</li>
+                                <li data-zh="英雄府邸 → Lv10-20（佔領最多 3 個綠洲）" data-en="Hero Mansion → Lv10-20 (occupy up to 3 oases)">英雄府邸 → Lv10-20（佔領 3 個綠洲）</li>
+                                <li data-zh="若首都是普通村，可當攻擊村或防禦村" data-en="If non-15c capital, use as attack or defense village">非 15c 首都 → 可當攻擊或防禦村</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="後期（Day 40+）：供糧基地" data-en="Late (Day 40+): Crop Supply Base">後期（Day 40+）：供糧基地</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="15c 首都穀田全升 Lv18-20，供養全帳號部隊" data-en="15c capital crop fields all Lv18-20, supplying all account troops">穀田全 Lv18-20，供養全帳號部隊</li>
+                                <li data-zh="優先佔 3 個 +50% 穀綠洲（最多可提升 150% 穀物產量）" data-en="Occupy 3× +50% crop oases (up to 150% crop bonus)">佔 3 個 +50% 穀綠洲（+150% 穀物）</li>
+                                <li data-zh="Palace（宮殿）建在首都可移動首都至 15c 二村（強烈推薦）" data-en="Build Palace in capital; can relocate capital to 15c 2nd village (strongly recommended)">宮殿可重置首都至 15c 二村（強力推薦）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECOND VILLAGE -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="🏘️ 第二村：選址與建設順序" data-en="🏘️ 2nd Village: Site Selection & Build Order">🏘️ 第二村：選址與建設順序</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <p data-zh="第二村的選址決定了你的帳號中後期方向，是最重要的一個決策。" data-en="The 2nd village site determines your mid/late-game direction — the most important single decision.">第二村選址決定中後期帳號走向，最重要決策。</p>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="選址原則" data-en="Site Selection Principles">選址原則</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="★★★ 強烈推薦 15c（15 穀田）作為未來首都候選地" data-en="★★★ Highly recommend 15c (15 crop fields) as future capital candidate">★★★ 強烈推薦選 15c 作為未來首都</li>
+                                <li data-zh="距離首都 ≤ 20 格（無需 Tournament Square），資源路程最短" data-en="Within 20 tiles of capital (no Tournament Square needed), shortest resource travel">距離首都 ≤ 20 格（省去 Tournament Square）</li>
+                                <li data-zh="附近有 +50% 穀綠洲（合計可佔 3 個），大幅提升穀物產出" data-en="Nearby +50% crop oases (up to 3 total), massively boosts crop output">附近有 +50% 穀綠洲（最多 3 個）</li>
+                                <li data-zh="查看周圍玩家：避免強聯盟的核心區域，選相對安全位置" data-en="Check nearby players: avoid strong alliance core zones, pick safer locations">周圍玩家環境安全（避開強聯盟核心區）</li>
+                                <li data-zh="備選：4-4-4-6 或 3-4-5-6 良田型（若找不到 15c）" data-en="Alternative: 4-4-4-6 or 3-4-5-6 good field mix (if no 15c available)">備選：4-4-4-6 良田型（若無 15c）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="新村建設順序（Day 7-15）" data-en="New Village Build Order (Day 7-15)">新村建設順序（Day 7-15）</div>
+                        <div class="phase-content">
+                            <ol>
+                                <li data-zh="穀田 → Lv2（確保基本維持，剛開村穀物容易赤字）" data-en="Crop fields → Lv2 (ensure basic upkeep, new villages often crop-negative)">穀田 → Lv2（防止穀物赤字）</li>
+                                <li data-zh="主府 → Lv5（加速後續建設）" data-en="Main Building → Lv5 (speed up construction)">主府 → Lv5</li>
+                                <li data-zh="倉庫 → Lv5、糧倉 → Lv3" data-en="Warehouse → Lv5, Granary → Lv3">倉庫 → Lv5、糧倉 → Lv3</li>
+                                <li data-zh="所有資源田 → Lv3-5（均衡升級）" data-en="All resource fields → Lv3-5 (balanced upgrades)">資源田 → Lv3-5</li>
+                                <li data-zh="地下室 → Lv10（防止早期掠奪損失）" data-en="Cranny → Lv10 (prevent early raid losses)">地下室 → Lv10（防掠奪）</li>
+                                <li data-zh="市場 → Lv5（從首都接收資源補給）" data-en="Marketplace → Lv5 (receive resource supply from capital)">市場 → Lv5（接收首都補給）</li>
+                                <li data-zh="依村莊定位繼續發展（見下方各村類型）" data-en="Continue based on village role (see roles below)">依村莊定位繼續發展</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="15c 首都建設路線（Day 10-40）" data-en="15c Capital Build Route (Day 10-40)">15c 首都建設路線（Day 10-40）</div>
+                        <div class="phase-content">
+                            <ol>
+                                <li data-zh="所有 15 個穀田 → Lv6" data-en="All 15 crop fields → Lv6">所有穀田 → Lv6</li>
+                                <li data-zh="主府 → Lv10" data-en="Main Building → Lv10">主府 → Lv10</li>
+                                <li data-zh="糧倉 ×2 → Lv10（穀物存量需跟上產量）" data-en="Granary ×2 → Lv10 (storage must keep up with production)">糧倉 ×2 → Lv10</li>
+                                <li data-zh="穀田 → Lv7-8" data-en="Crop fields → Lv7-8">穀田 → Lv7-8</li>
+                                <li data-zh="Flour Mill → Lv5（+25% 穀物加成，首都專屬）" data-en="Flour Mill → Lv5 (+25% crop bonus, capital exclusive)">Flour Mill → Lv5（+25% 穀物）</li>
+                                <li data-zh="Bakery → Lv5（+25% 穀物加成，首都專屬）" data-en="Bakery → Lv5 (+25% crop bonus, capital exclusive)">Bakery → Lv5（+25% 穀物）</li>
+                                <li data-zh="穀田 → Lv10 → Lv15-20（長期目標）" data-en="Crop fields → Lv10 → Lv15-20 (long-term goal)">穀田 → Lv10 → Lv15-20（長期目標）</li>
+                                <li data-zh="英雄府邸 → Lv10-20（佔滿 3 個穀綠洲）" data-en="Hero Mansion → Lv10-20 (occupy all 3 crop oases)">英雄府邸 → Lv10-20（佔滿 3 個穀綠洲）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THIRD+ VILLAGE -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="🗺️ 第三村以後：擴張策略" data-en="🗺️ 3rd+ Village: Expansion Strategy">🗺️ 第三村以後：擴張策略</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <p data-zh="每新增一村都需消耗 2,000 CP（x1 速度），且 CP 需求隨村莊數量增加。" data-en="Each new village costs 2,000 CP (x1 speed), and CP requirements increase with village count.">每新增一村需 2,000 CP（x1 速度）。</p>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="擴張節奏建議" data-en="Expansion Pace Guide">擴張節奏建議</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="Day 7-10：第 2 村已開，繼續慶典積累 CP" data-en="Day 7-10: 2nd village settled, keep celebrating for CP">Day 7-10：二村開出，持續慶典積 CP</li>
+                                <li data-zh="Day 10-15：第 2 村基礎建設完成（倉庫/資源田/市場）" data-en="Day 10-15: 2nd village basics done (warehouse/fields/marketplace)">Day 10-15：二村基礎建設完成</li>
+                                <li data-zh="Day 20-25：CP 再達門檻，開第 3 村（通常 CP ≥ 6,000 解鎖）" data-en="Day 20-25: CP threshold met again, open 3rd village (usually CP ≥ 6,000 unlocked)">Day 20-25：開第 3 村（需 CP ≥ 6,000）</li>
+                                <li data-zh="Day 30-40：第 4-5 村，帳號開始成形" data-en="Day 30-40: 4th-5th villages, account shape forming">Day 30-40：第 4-5 村，帳號成形</li>
+                                <li data-zh="Day 40-60：各村角色分工完成，大規模產兵" data-en="Day 40-60: Village roles finalized, large-scale troop production">Day 40-60：各村分工完成，大規模產兵</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="村莊類型配置建議（5 村規模示例）" data-en="Village Type Configuration Example (5-village scale)">村莊類型配置建議（5 村規模示例）</div>
+                        <div class="phase-content">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <tr>
+                                        <th data-zh="村莊" data-en="Village">村莊</th>
+                                        <th data-zh="推薦田型" data-en="Field Type">推薦田型</th>
+                                        <th data-zh="角色" data-en="Role">角色</th>
+                                        <th data-zh="核心建築" data-en="Key Buildings">核心建築</th>
+                                    </tr>
+                                    <tr>
+                                        <td data-zh="V1（原首都）" data-en="V1 (Original Capital)">V1（原首都）</td>
+                                        <td>任意</td>
+                                        <td class="highlight-gold" data-zh="攻擊村" data-en="Attack Village">攻擊村</td>
+                                        <td data-zh="兵營/馬廄 Lv15-20、鍛造坊 Lv10+" data-en="Barracks/Stable Lv15-20, Smithy Lv10+">兵營/馬廄 Lv15-20、Smithy Lv10+</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-zh="V2（15c 新首都）" data-en="V2 (15c New Capital)">V2（15c 新首都）</td>
+                                        <td data-zh="15c ★" data-en="15c ★">15c ★</td>
+                                        <td class="highlight-gold" data-zh="穀物首都" data-en="Crop Capital">穀物首都</td>
+                                        <td data-zh="穀田 Lv18-20、Flour Mill、Bakery、英雄府邸 Lv20" data-en="Crop Lv18-20, Flour Mill, Bakery, Hero Mansion Lv20">穀田 Lv18-20、Flour Mill、英雄府邸 Lv20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>V3</td>
+                                        <td data-zh="4-4-4-6" data-en="4-4-4-6">4-4-4-6</td>
+                                        <td data-zh="資源村" data-en="Resource Village">資源村</td>
+                                        <td data-zh="資源田 Lv10、市場 Lv15-20" data-en="Fields Lv10, Marketplace Lv15-20">資源田 Lv10、市場 Lv15-20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>V4</td>
+                                        <td data-zh="任意" data-en="Any">任意</td>
+                                        <td data-zh="防禦村" data-en="Defense Village">防禦村</td>
+                                        <td data-zh="兵營 Lv15-20、城牆最高、Smithy" data-en="Barracks Lv15-20, Wall max, Smithy">兵營 Lv15-20、城牆最高</td>
+                                    </tr>
+                                    <tr>
+                                        <td>V5</td>
+                                        <td data-zh="任意" data-en="Any">任意</td>
+                                        <td data-zh="資源村" data-en="Resource Village">資源村</td>
+                                        <td data-zh="資源田 Lv10、市場 Lv15-20、Trade Route" data-en="Fields Lv10, Marketplace Lv15-20, Trade Routes">資源田 Lv10、市場 Lv15-20</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VILLAGE TYPE DETAILS -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="⚔️🛡️💰 三大村莊類型詳解" data-en="⚔️🛡️💰 Three Village Types Detail">⚔️🛡️💰 三大村莊類型詳解</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="⚔️ 攻擊村（Hammer Village）建築順序" data-en="⚔️ Attack Village (Hammer) Build Order">⚔️ 攻擊村建築順序</div>
+                        <div class="phase-content">
+                            <ol>
+                                <li>Barracks → Lv10（先練兵）</li>
+                                <li data-zh="Academy → 解鎖中高階兵種（劍士/督察騎兵/重騎兵）" data-en="Academy → unlock mid/high tier units (Swordsman/Druidrider/Heavy Cavalry)">Academy → 解鎖中高階兵種</li>
+                                <li>Smithy → Lv10（升級攻防數值）</li>
+                                <li data-zh="Stable → Lv10（騎兵攻擊）" data-en="Stable → Lv10 (cavalry attack)">Stable → Lv10</li>
+                                <li data-zh="Workshop → Lv5（Ram 攻城）" data-en="Workshop → Lv5 (Ram siege)">Workshop → Lv5（Ram）</li>
+                                <li>Barracks/Stable → Lv15-20</li>
+                                <li>Tournament Square → Lv10-20（遠程攻擊加速）</li>
+                                <li>Rally Point → Lv15-20</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="🛡️ 防禦村（Anvil Village）建築順序" data-en="🛡️ Defense Village (Anvil) Build Order">🛡️ 防禦村建築順序</div>
+                        <div class="phase-content">
+                            <ol>
+                                <li>Barracks → Lv15-20（持續產步防）</li>
+                                <li>Stable → Lv10-15（騎兵防禦）</li>
+                                <li>Smithy → Lv10-15（升級防禦屬性）</li>
+                                <li data-zh="城牆 → 最高等級（依種族：高盧 Palisade、羅馬 City Wall、條頓 Earth Wall）" data-en="Wall → max level (by tribe: Gaul Palisade, Roman City Wall, Teuton Earth Wall)">城牆 → 最高等級</li>
+                                <li data-zh="地下室 × 多個（保護資源不被掠奪）" data-en="Cranny × multiple (protect resources from raids)">地下室 × 多個</li>
+                                <li>Warehouse/Granary → 大容量</li>
+                                <li>Marketplace → Lv10+（接收增援資源）</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="💰 資源村建築順序" data-en="💰 Resource Village Build Order">💰 資源村建築順序</div>
+                        <div class="phase-content">
+                            <ol>
+                                <li data-zh="所有資源田 → Lv7（平均升）" data-en="All resource fields → Lv7 (evenly)">所有資源田 → Lv7</li>
+                                <li>Warehouse/Granary → Lv10</li>
+                                <li data-zh="Marketplace → Lv15-20（設定 Trade Route 自動輸出）" data-en="Marketplace → Lv15-20 (set Trade Route for auto-export)">Marketplace → Lv15-20（設定 Trade Route）</li>
+                                <li>資源田 → Lv10</li>
+                                <li data-zh="城牆 → 最高等級（基本保護，阻止小型掠奪）" data-en="Wall → max level (basic protection against small raids)">城牆 → 最高等級（防小型掠奪）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIMELINE -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="📅 中期時間表（Day 7-60）" data-en="📅 Mid-Game Timeline (Day 7-60)">📅 中期時間表（Day 7-60）</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <tr>
+                                <th data-zh="時間" data-en="Timeline">時間</th>
+                                <th data-zh="村莊數" data-en="Villages">村莊數</th>
+                                <th data-zh="目標" data-en="Goals">目標</th>
+                            </tr>
+                            <tr>
+                                <td>Day 7-10</td>
+                                <td>2 村</td>
+                                <td data-zh="開第 2 村；二村基礎建設；首都繼續升資源田 Lv7+" data-en="Open 2nd village; 2nd village basics; capital resource fields Lv7+">開二村；二村基礎建設；首都資源田 Lv7+</td>
+                            </tr>
+                            <tr>
+                                <td>Day 10-15</td>
+                                <td>2 村</td>
+                                <td data-zh="15c 二村穀田全升 Lv6；市場 Lv10 開始接收補給；Smithy 開始升級兵種" data-en="15c crop fields all Lv6; Market Lv10 receive supply; Smithy start upgrading troops">15c 穀田全 Lv6；市場 Lv10；Smithy 升兵種</td>
+                            </tr>
+                            <tr>
+                                <td>Day 15-20</td>
+                                <td>2 村</td>
+                                <td data-zh="15c 首都穀田 Lv8-10；Flour Mill + Bakery 建造；開始大量訓練主力兵種" data-en="15c crop Lv8-10; Build Flour Mill + Bakery; start mass training main troops">穀田 Lv8-10；Flour Mill + Bakery；大量訓練</td>
+                            </tr>
+                            <tr>
+                                <td>Day 20-25</td>
+                                <td>3 村</td>
+                                <td data-zh="CP 足夠開第 3 村；選資源村或防禦村；首都兵種持續升級" data-en="CP sufficient for 3rd village; choose resource or defense role; capital troop upgrades continue">開第 3 村；選資源/防禦；首都持續升兵種</td>
+                            </tr>
+                            <tr>
+                                <td>Day 25-30</td>
+                                <td>3 村</td>
+                                <td data-zh="Smithy 升到 Lv10；攻擊兵種升級 Lv5-10；持續掠奪或防禦準備" data-en="Smithy Lv10; attack troops upgrade Lv5-10; continue raiding or defense prep">Smithy Lv10；兵種升 Lv5-10；掠奪/防禦</td>
+                            </tr>
+                            <tr>
+                                <td>Day 30-40</td>
+                                <td>4-5 村</td>
+                                <td data-zh="開第 4-5 村；各村角色定位；帳號生產鏈成形" data-en="Open 4th-5th villages; village roles defined; account production chain forming">開第 4-5 村；各村定位；生產鏈成形</td>
+                            </tr>
+                            <tr>
+                                <td>Day 40-60</td>
+                                <td>5+ 村</td>
+                                <td data-zh="各村角色分工完成；Barracks/Stable Lv15-20；大規模產兵中" data-en="Village roles complete; Barracks/Stable Lv15-20; mass troop production">角色分工完成；Barracks/Stable Lv15-20；大規模產兵</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- LATE GAME WW PREP -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="🏆 後期目標與 WW 準備（Day 60+）" data-en="🏆 Late Game Goals &amp; WW Prep (Day 60+)">🏆 後期目標與 WW 準備（Day 60+）</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="Day 50-70：神器準備" data-en="Day 50-70: Artifact Preparation">Day 50-70：神器準備</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="攻擊型：Treasury → Lv10，大量攻擊部隊（500+），偵察 Natar 村" data-en="Offensive: Treasury → Lv10, massed attack troops (500+), scout Natar villages">攻擊型：Treasury Lv10，500+ 錘子部隊，偵察 Natar 村</li>
+                                <li data-zh="防禦型：Treasury → Lv10-20，全村持續產防禦兵，城牆全滿" data-en="Defensive: Treasury Lv10-20, all villages producing defense, walls maxed">防禦型：Treasury Lv10-20，全村產防禦兵，城牆全滿</li>
+                                <li data-zh="英雄裝備最佳化（攻擊/防禦向視帳號類型）" data-en="Optimize hero equipment (attack or defense focused by account type)">英雄裝備最佳化</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
+                        <div class="phase-title" data-zh="Day 80+：WW 衝刺" data-en="Day 80+: WW Sprint">Day 80+：WW 衝刺</div>
+                        <div class="phase-content">
+                            <ul>
+                                <li data-zh="WW 持有者：MB Lv20、倉庫 × 多個 Lv20、Treasury Lv20（存建築圖紙）" data-en="WW holder: MB Lv20, Warehouse ×multiple Lv20, Treasury Lv20 (store construction plans)">WW 持有者：MB Lv20、多倉庫 Lv20、Treasury Lv20（存圖紙）</li>
+                                <li data-zh="資源供應者：所有資源村 Marketplace Lv20，Trade Route 全指 WW 村，首都穀田 Lv18-20" data-en="Resource supplier: All resource villages Market Lv20, Trade Routes all point to WW, capital crop Lv18-20">資源供應：市場 Lv20，Trade Route 全指 WW，首都穀田 Lv18-20</li>
+                                <li data-zh="WW 防禦者：全力產防禦兵（50 萬+），增援 WW 村，駐守神器村，抵擋 Natar 攻擊" data-en="WW defender: Full defense production (500K+), reinforce WW, garrison artifact villages, repel Natar attacks">WW 防禦：50 萬+ 防禦兵，增援 WW，抵擋 Natar</li>
+                                <li data-zh="WW Lv90-100 每級需數千萬資源，需全聯盟 30+ 帳號持續供應" data-en="WW Lv90-100 needs tens of millions res per level, requires 30+ alliance accounts continuous supply">WW Lv90-100 每級需數千萬資源，需全聯盟持續供應</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END TAB: MULTI-VILLAGE -->
 
             <!-- TAB 8: DATA ANALYSIS -->
             <div id="sim-data" class="tab-content">
