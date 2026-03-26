@@ -363,7 +363,7 @@ const TRIBES_DATA = {
     ],
     weaknesses: [
       { zh: "防禦能力較弱", en: "Weak defense capabilities" },
-      { zh: "定居者成本最高", en: "Most expensive settlers" },
+      { zh: "無雙建築佇列（羅馬人獨有）", en: "No dual building queue (Roman exclusive)" },
       { zh: "城牆防禦加成較低（2%/級）", en: "Low wall defense bonus (2%/level)" }
     ],
     units: [
