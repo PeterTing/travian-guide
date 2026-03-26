@@ -56,6 +56,12 @@
       border-bottom: 2px solid #2a2d2a;
       margin-bottom: 2rem;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .tab-navigation::-webkit-scrollbar {
+      display: none;
     }
 
     .tab-button {
@@ -69,6 +75,7 @@
       border-bottom: 3px solid transparent;
       transition: all 0.3s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tab-button:hover {
