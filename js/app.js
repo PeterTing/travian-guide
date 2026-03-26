@@ -189,8 +189,19 @@
 
       dropdownTriggers.forEach(trigger => {
         const menu = trigger.querySelector('.dropdown-menu');
+        const triggerLink = trigger.querySelector('.nav-link');
 
-        if (menu) {
+        if (menu && triggerLink) {
+          // Toggle dropdown on click/touch (works on both desktop and mobile)
+          triggerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = menu.style.display === 'block';
+            // Close all other dropdowns first
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+            menu.style.display = isOpen ? 'none' : 'block';
+          });
+
           // Close dropdown when clicking outside
           document.addEventListener('click', (e) => {
             if (!trigger.contains(e.target)) {
@@ -198,9 +209,12 @@
             }
           });
 
-          // Prevent closing when clicking inside dropdown
-          menu.addEventListener('click', (e) => {
-            e.stopPropagation();
+          // Close dropdown when clicking a link inside it
+          const links = menu.querySelectorAll('a');
+          links.forEach(link => {
+            link.addEventListener('click', () => {
+              menu.style.display = 'none';
+            });
           });
         }
       });
@@ -231,15 +245,9 @@
       const tribeCards = document.querySelectorAll('.tribe-card');
 
       tribeCards.forEach((card, index) => {
-        // Add staggered animation on load
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-          card.style.transition = 'all 0.5s ease-out';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, index * 100);
+        // Ensure cards are visible
+        card.style.opacity = '1';
+        card.style.transform = 'none';
 
         // Add hover effect
         card.addEventListener('mouseenter', () => {
@@ -327,28 +335,14 @@
   // ===== PAGE LOAD ANIMATIONS =====
   const PageAnimations = {
     init() {
-      // Add animation to hero banner
+      // Ensure hero banner and intro section are always visible
       const heroBanner = document.querySelector('.hero-banner');
       if (heroBanner) {
-        heroBanner.style.opacity = '0';
-        heroBanner.style.transform = 'translateY(-20px)';
-
-        setTimeout(() => {
-          heroBanner.style.transition = 'all 0.6s ease-out';
-          heroBanner.style.opacity = '1';
-          heroBanner.style.transform = 'translateY(0)';
-        }, 100);
+        heroBanner.style.opacity = '1';
       }
-
-      // Fade in intro section
       const introSection = document.querySelector('.intro-section');
       if (introSection) {
-        introSection.style.opacity = '0';
-
-        setTimeout(() => {
-          introSection.style.transition = 'opacity 0.8s ease-out';
-          introSection.style.opacity = '1';
-        }, 300);
+        introSection.style.opacity = '1';
       }
     }
   };
@@ -356,24 +350,10 @@
   // ===== SECTION INTERSECTION OBSERVER =====
   const SectionObserver = {
     init() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      // Observe all sections
+      // Ensure all sections are visible by default (no hidden content)
       document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'all 0.6s ease-out';
-        observer.observe(section);
+        section.style.opacity = '1';
+        section.style.transform = 'none';
       });
     }
   };
@@ -397,6 +377,148 @@
 
         images.forEach(img => imageObserver.observe(img));
       }
+    }
+  };
+
+  // ===== SETTLEMENT GUIDE RENDERER =====
+  const SettlementGuideRenderer = {
+    tribeIcons: {
+      romans: '🛡️',
+      gauls: '🌲',
+      teutons: '⚡',
+      egyptians: '🐪',
+      huns: '🐴',
+      vikings: '⚔️'
+    },
+
+    init() {
+      // Only render if we're on guide.html and SETTLEMENT_GUIDE exists
+      if (typeof SETTLEMENT_GUIDE === 'undefined') return;
+
+      const tribesToRender = ['teutons', 'egyptians', 'huns', 'vikings'];
+      tribesToRender.forEach(tribe => {
+        this.renderTribeSection(tribe);
+      });
+    },
+
+    renderTribeSection(tribeId) {
+      const tribeData = SETTLEMENT_GUIDE.tribes[tribeId];
+      if (!tribeData) return;
+
+      const container = document.getElementById(`${tribeId}-section`);
+      if (!container) return;
+
+      const icon = this.tribeIcons[tribeId] || '⚔️';
+      const html = this.generateTribeHTML(tribeId, tribeData, icon);
+      container.innerHTML = html;
+    },
+
+    generateTribeHTML(tribeId, tribeData, icon) {
+      let html = `
+        <div style="margin: var(--spacing-xl) 0; padding: var(--spacing-xl); background: var(--color-bg-secondary); border-radius: 8px;">
+          <h3 style="border-bottom: 3px solid var(--color-primary); padding-bottom: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+            ${icon} <span class="lang-text" data-zh="${tribeData.name.zh}完整攻略 (${tribeData.estimatedTime.zh})" data-en="${tribeData.name.en} Complete Guide (${tribeData.estimatedTime.en})">${tribeData.name.zh}完整攻略 (${tribeData.estimatedTime.zh})</span>
+          </h3>
+
+          <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="🎯 核心優勢" data-en="🎯 Key Advantages">🎯 核心優勢</span>
+          </h4>
+          <p>
+            <span class="lang-text" data-zh="${tribeData.keyAdvantage.zh}" data-en="${tribeData.keyAdvantage.en}">
+              ${tribeData.keyAdvantage.zh}
+            </span>
+          </p>
+
+          <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="⚙️ 英雄配置策略" data-en="⚙️ Hero Strategy">⚙️ 英雄配置策略</span>
+          </h4>
+          <p>
+            <span class="lang-text" data-zh="${tribeData.heroStrategy.zh}" data-en="${tribeData.heroStrategy.en}">
+              ${tribeData.heroStrategy.zh}
+            </span>
+          </p>
+
+          <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="🎊 慶典計劃" data-en="🎊 Celebration Plan">🎊 慶典計劃</span>
+          </h4>
+          <p>
+            <span class="lang-text" data-zh="${tribeData.celebrationPlan.zh}" data-en="${tribeData.celebrationPlan.en}">
+              ${tribeData.celebrationPlan.zh}
+            </span>
+          </p>
+
+          <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="⚔️ 兵種訓練" data-en="⚔️ Troop Training">⚔️ 兵種訓練</span>
+          </h4>
+          <p>
+            <span class="lang-text" data-zh="${tribeData.troopTraining.zh}" data-en="${tribeData.troopTraining.en}">
+              ${tribeData.troopTraining.zh}
+            </span>
+          </p>
+      `;
+
+      // Render phases if they exist
+      if (tribeData.phases && tribeData.phases.length > 0) {
+        html += `<h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); color: var(--color-success);">
+          <strong><span class="lang-text" data-zh="📅 詳細時間線" data-en="📅 Detailed Timeline">📅 詳細時間線</span></strong>
+        </h4>`;
+
+        tribeData.phases.forEach(phase => {
+          html += this.generatePhaseHTML(phase);
+        });
+      }
+
+      html += `
+        </div>
+      `;
+
+      return html;
+    },
+
+    generatePhaseHTML(phase) {
+      let html = `
+        <div style="margin: var(--spacing-lg) 0; padding: var(--spacing-md); background: rgba(255,255,255,0.05); border-left: 4px solid var(--color-primary); border-radius: 4px;">
+          <h5 style="margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="${phase.name.zh}" data-en="${phase.name.en}">
+              ${phase.name.zh}
+            </span>
+            <span style="font-size: 0.85em; opacity: 0.8;">
+              (<span class="lang-text" data-zh="${phase.timeRange.zh}" data-en="${phase.timeRange.en}">${phase.timeRange.zh}</span>)
+            </span>
+          </h5>
+      `;
+
+      if (phase.steps && phase.steps.length > 0) {
+        phase.steps.forEach(step => {
+          html += `
+            <div style="margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-md); border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <p style="margin-bottom: var(--spacing-sm); font-weight: 600;">
+                <span class="lang-text" data-zh="${step.time.zh}" data-en="${step.time.en}">
+                  ${step.time.zh}
+                </span>:
+              </p>
+              <ul style="margin: var(--spacing-sm) 0; padding-left: 2em;">
+          `;
+
+          if (step.actions && step.actions.length > 0) {
+            step.actions.forEach(action => {
+              html += `
+                <li><span class="lang-text" data-zh="${action.zh}" data-en="${action.en}">
+                  ${action.zh}
+                </span></li>
+              `;
+            });
+          }
+
+          html += `
+              </ul>
+            </div>
+          `;
+        });
+      }
+
+      html += `</div>`;
+      return html;
     }
   };
 
@@ -427,6 +549,7 @@
     PageAnimations.init();
     SectionObserver.init();
     PerformanceOptimizer.init();
+    SettlementGuideRenderer.init();
 
     console.log('App initialized successfully!');
 

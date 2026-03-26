@@ -4,7 +4,7 @@ const TRIBES_DATA = {
     name: { zh: "羅馬", en: "Romans" },
     icon: "🏛️",
     archetype: { zh: "平衡型", en: "Balanced" },
-    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
+    difficulty: { zh: "★☆☆☆☆ 最適合新手", en: "★☆☆☆☆ Most beginner-friendly" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "羅馬是經典的平衡部族，擁有雙佇列建築隊伍的獨特優勢。其步兵防禦力最強，適合穩妥發展和防守。",
@@ -16,7 +16,7 @@ const TRIBES_DATA = {
     },
     specialBuildings: [
       { zh: "雙佇列建築隊伍", en: "Dual Building Queue" },
-      { zh: "馬匹飲水槽", en: "Horse Drinking Trough" },
+      { zh: "馬飲水槽", en: "Horse Drinking Trough" },
       { zh: "城牆（每級 +3% 防禦）", en: "City Wall (3% defense bonus per level)" }
     ],
     strengths: [
@@ -30,7 +30,7 @@ const TRIBES_DATA = {
     ],
     units: [
       {
-        name: { zh: "軍團兵", en: "Legionnaire" },
+        name: { zh: "古羅馬步兵", en: "Legionnaire" },
         type: "infantry",
         attack: 40,
         infantryDef: 35,
@@ -69,7 +69,7 @@ const TRIBES_DATA = {
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
-        name: { zh: "皇帝騎兵探路者", en: "Equites Legati" },
+        name: { zh: "公路騎士", en: "Equites Legati" },
         type: "scout",
         attack: 0,
         infantryDef: 20,
@@ -79,10 +79,10 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 140, clay: 160, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
-        name: { zh: "皇帝騎兵指揮官", en: "Equites Imperatoris" },
+        name: { zh: "帝國騎士", en: "Equites Imperatoris" },
         type: "cavalry",
         attack: 120,
         infantryDef: 65,
@@ -95,7 +95,7 @@ const TRIBES_DATA = {
         role: { zh: "均衡的重騎兵", en: "Balanced heavy cavalry" }
       },
       {
-        name: { zh: "皇帝騎兵凱撒", en: "Equites Caesaris" },
+        name: { zh: "將軍騎士", en: "Equites Caesaris" },
         type: "cavalry",
         attack: 180,
         infantryDef: 80,
@@ -121,7 +121,7 @@ const TRIBES_DATA = {
         role: { zh: "破壞城牆的攻城器", en: "Wall destruction siege unit" }
       },
       {
-        name: { zh: "火焰彈射器", en: "Fire Catapult" },
+        name: { zh: "火焰投石機", en: "Fire Catapult" },
         type: "siege",
         attack: 75,
         infantryDef: 60,
@@ -134,7 +134,7 @@ const TRIBES_DATA = {
         role: { zh: "遠程攻城器", en: "Long-range siege unit" }
       },
       {
-        name: { zh: "參議官", en: "Senator" },
+        name: { zh: "參議員", en: "Senator" },
         type: "special",
         attack: 50,
         infantryDef: 40,
@@ -147,7 +147,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -161,8 +161,8 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "70% 禁衛兵（Praetorian）/ 30% 皇帝騎兵凱撒（Equites Caesaris）",
-      en: "70% Praetorians / 30% Equites Caesaris"
+      zh: "70% 禁衛兵（Praetorian）/ 30% 古羅馬步兵（Legionnaire）",
+      en: "70% Praetorians / 30% Legionnaires"
     },
     merchantCapacity: 500,
     merchantSpeed: 16
@@ -173,7 +173,7 @@ const TRIBES_DATA = {
     name: { zh: "高盧", en: "Gauls" },
     icon: "🛡️",
     archetype: { zh: "防禦型", en: "Defense" },
-    difficulty: { zh: "★★★☆☆ 進階玩家", en: "★★★☆☆ Intermediate" },
+    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "高盧以速度和防禦見長，擁有最快的騎兵和獨特的陷阱建築。他們的定居者是最便宜的，發展速度快。",
@@ -184,14 +184,14 @@ const TRIBES_DATA = {
       en: "Hero gains +5 tiles/hour speed when mounted"
     },
     specialBuildings: [
-      { zh: "陷阱（捕捉來襲者）", en: "Trapper (catches attackers)" },
-      { zh: "地窖容量 1.5× 加成", en: "1.5× Cranny capacity" },
+      { zh: "獵人陷阱（捕捉來襲者）", en: "Trapper (catches attackers)" },
+      { zh: "秘密倉庫容量 1.5× 加成", en: "1.5× 秘密倉庫容量" },
       { zh: "柵欄（每級 +2.5% 防禦）", en: "Palisade (2.5% defense bonus per level)" }
     ],
     strengths: [
       { zh: "最快的騎兵單位（Theutates Thunder 速度 19）", en: "Fastest cavalry units (TT speed 19)" },
       { zh: "最便宜的定居者", en: "Cheapest settlers" },
-      { zh: "地窖容量 1.5×，陷阱捕捉襲擊者", en: "1.5× cranny capacity and trap buildings" }
+      { zh: "秘密倉庫容量 1.5×，陷阱捕捉襲擊者", en: "1.5× cranny capacity and trap buildings" }
     ],
     weaknesses: [
       { zh: "弱點步兵攻擊力（方陣兵攻擊 15）", en: "Weak attack infantry (Phalanx attack=15)" },
@@ -225,7 +225,7 @@ const TRIBES_DATA = {
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
-        name: { zh: "尋路者", en: "Pathfinder" },
+        name: { zh: "探路者", en: "Pathfinder" },
         type: "scout",
         attack: 0,
         infantryDef: 20,
@@ -235,10 +235,10 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
-        name: { zh: "突厥特雷斯雷鳴", en: "Theutates Thunder" },
+        name: { zh: "雷法師", en: "Theutates Thunder" },
         type: "cavalry",
         attack: 90,
         infantryDef: 25,
@@ -251,7 +251,7 @@ const TRIBES_DATA = {
         role: { zh: "最快的騎兵", en: "Fastest cavalry unit" }
       },
       {
-        name: { zh: "德魯伊騎手", en: "Druidrider" },
+        name: { zh: "德魯伊騎兵", en: "Druidrider" },
         type: "cavalry",
         attack: 45,
         infantryDef: 115,
@@ -264,10 +264,10 @@ const TRIBES_DATA = {
         role: { zh: "防禦型重騎兵", en: "Defensive heavy cavalry" }
       },
       {
-        name: { zh: "海度亞", en: "Haeduan" },
+        name: { zh: "海頓聖騎", en: "Haeduan" },
         type: "cavalry",
         attack: 140,
-        infantryDef: 60,
+        infantryDef: 50,
         cavalryDef: 165,
         speed: 13,
         carry: 65,
@@ -306,8 +306,8 @@ const TRIBES_DATA = {
         name: { zh: "族長", en: "Chieftain" },
         type: "special",
         attack: 40,
-        infantryDef: 60,
-        cavalryDef: 40,
+        infantryDef: 50,
+        cavalryDef: 50,
         speed: 5,
         carry: 0,
         upkeep: 4,
@@ -316,7 +316,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -330,7 +330,7 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "70% 方陣兵（Phalanx）/ 30% 德魯伊騎手（Druidrider）",
+      zh: "70% 方陣兵（Phalanx）/ 30% 德魯伊騎兵（Druidrider）",
       en: "70% Phalanx / 30% Druidrider"
     },
     merchantCapacity: 750,
@@ -342,7 +342,7 @@ const TRIBES_DATA = {
     name: { zh: "條頓", en: "Teutons" },
     icon: "⚔️",
     archetype: { zh: "掠奪型", en: "Raiding" },
-    difficulty: { zh: "★★☆☆☆ 適合新手", en: "★★☆☆☆ Beginner-friendly" },
+    difficulty: { zh: "★★★☆☆ 經驗玩家", en: "★★★☆☆ Experienced players" },
     servers: { zh: "所有伺服器", en: "All servers" },
     description: {
       zh: "條頓是掠奪大師，以最便宜、最快的訓練時間聞名。他們的商人運力最強，單位攜帶容量大。",
@@ -357,18 +357,18 @@ const TRIBES_DATA = {
       { zh: "土牆（每級 +2%，幾乎堅不可摧）", en: "Earth Wall (2% defense bonus per level, nearly indestructible)" }
     ],
     strengths: [
-      { zh: "最便宜、最快的訓練（棍棒揮舞者）", en: "Cheapest and fastest training (Clubswinger)" },
+      { zh: "最便宜、最快的訓練（棍棒兵）", en: "Cheapest and fastest training (Clubswinger)" },
       { zh: "最高的單位攜帶容量", en: "Highest unit carrying capacity" },
       { zh: "商人運力最強（1000）", en: "Strongest merchant capacity (1000)" }
     ],
     weaknesses: [
       { zh: "防禦能力較弱", en: "Weak defense capabilities" },
       { zh: "定居者成本最高", en: "Most expensive settlers" },
-      { zh: "城牆防禦加成最低", en: "Lowest wall defense bonus" }
+      { zh: "城牆防禦加成較低（2%/級）", en: "Low wall defense bonus (2%/level)" }
     ],
     units: [
       {
-        name: { zh: "棍棒揮舞者", en: "Clubswinger" },
+        name: { zh: "棍棒兵", en: "Clubswinger" },
         type: "infantry",
         attack: 40,
         infantryDef: 20,
@@ -381,7 +381,7 @@ const TRIBES_DATA = {
         role: { zh: "最便宜的基礎步兵", en: "Cheapest basic infantry" }
       },
       {
-        name: { zh: "槍兵", en: "Spearman" },
+        name: { zh: "矛兵", en: "Spearman" },
         type: "infantry",
         attack: 10,
         infantryDef: 35,
@@ -394,7 +394,7 @@ const TRIBES_DATA = {
         role: { zh: "防禦型步兵", en: "Defensive infantry unit" }
       },
       {
-        name: { zh: "戰斧手", en: "Axeman" },
+        name: { zh: "斧頭兵", en: "Axeman" },
         type: "infantry",
         attack: 60,
         infantryDef: 30,
@@ -407,7 +407,7 @@ const TRIBES_DATA = {
         role: { zh: "均衡的步兵", en: "Balanced infantry unit" }
       },
       {
-        name: { zh: "偵察兵", en: "Scout" },
+        name: { zh: "偵兵", en: "Scout" },
         type: "scout",
         attack: 0,
         infantryDef: 10,
@@ -420,7 +420,7 @@ const TRIBES_DATA = {
         role: { zh: "快速偵察", en: "Fast scout unit" }
       },
       {
-        name: { zh: "聖騎士", en: "Paladin" },
+        name: { zh: "俠客", en: "Paladin" },
         type: "cavalry",
         attack: 55,
         infantryDef: 100,
@@ -472,7 +472,7 @@ const TRIBES_DATA = {
         role: { zh: "遠程攻城器", en: "Long-range siege unit" }
       },
       {
-        name: { zh: "酋長", en: "Chief" },
+        name: { zh: "司令官", en: "Chief" },
         type: "special",
         attack: 40,
         infantryDef: 60,
@@ -485,7 +485,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -499,7 +499,7 @@ const TRIBES_DATA = {
       }
     ],
     defenseRatio: {
-      zh: "75% 槍兵（Spearman）/ 25% 聖騎士（Paladin）",
+      zh: "75% 矛兵（Spearman）/ 25% 俠客（Paladin）",
       en: "75% Spearmen / 25% Paladins"
     },
     merchantCapacity: 1000,
@@ -511,10 +511,10 @@ const TRIBES_DATA = {
     name: { zh: "埃及", en: "Egyptians" },
     icon: "🐪",
     archetype: { zh: "生產型", en: "Production" },
-    difficulty: { zh: "★★★☆☆ 進階玩家", en: "★★★☆☆ Intermediate" },
+    difficulty: { zh: "★★☆☆☆ 新手與老手皆宜", en: "★★☆☆☆ Beginners & experienced" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
-      zh: "埃及是生產大師，擁有最便宜的單位訓練和英雄資源加成。他們的城牆最堅不可摧，水利工程特殊建築獨樹一幟。",
+      zh: "埃及是生產大師，擁有最便宜的單位訓練和英雄資源加成。他們的城牆最堅不可摧，水力磨坊特殊建築獨樹一幟。",
       en: "Egyptians are production masters with the cheapest unit training and hero resource bonuses. They have the most durable walls and unique waterworks buildings."
     },
     heroPassive: {
@@ -522,7 +522,7 @@ const TRIBES_DATA = {
       en: "+25% hero resource production"
     },
     specialBuildings: [
-      { zh: "水利工程（增強綠洲加成）", en: "Waterworks (enhances oasis bonus)" },
+      { zh: "水力磨坊（增強綠洲加成）", en: "Waterworks (enhances oasis bonus)" },
       { zh: "石牆（每級 +2.5%，最高耐久度）", en: "Stone Wall (2.5% defense bonus per level, HIGHEST durability)" }
     ],
     strengths: [
@@ -540,38 +540,38 @@ const TRIBES_DATA = {
         type: "infantry",
         attack: 10,
         infantryDef: 30,
-        cavalryDef: 15,
-        speed: 6,
+        cavalryDef: 20,
+        speed: 7,
         carry: 15,
         upkeep: 1,
-        cost: { wood: 45, clay: 30, iron: 10, crop: 40 },
+        cost: { wood: 45, clay: 60, iron: 30, crop: 15 },
         trainTime: 530,
         role: { zh: "最便宜的單位", en: "Cheapest unit" }
       },
       {
         name: { zh: "灰燼衛士", en: "Ash Warden" },
         type: "infantry",
-        attack: 15,
-        infantryDef: 65,
-        cavalryDef: 50,
+        attack: 30,
+        infantryDef: 55,
+        cavalryDef: 40,
         speed: 6,
-        carry: 25,
+        carry: 50,
         upkeep: 1,
         cost: { wood: 115, clay: 100, iron: 145, crop: 60 },
-        trainTime: 1360,
+        trainTime: 1320,
         role: { zh: "防禦型步兵", en: "Defensive infantry unit" }
       },
       {
         name: { zh: "彎刀戰士", en: "Khopesh Warrior" },
         type: "infantry",
         attack: 65,
-        infantryDef: 30,
-        cavalryDef: 10,
+        infantryDef: 50,
+        cavalryDef: 20,
         speed: 7,
-        carry: 40,
+        carry: 45,
         upkeep: 1,
         cost: { wood: 170, clay: 180, iron: 220, crop: 80 },
-        trainTime: 1680,
+        trainTime: 1440,
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
@@ -585,7 +585,7 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
         name: { zh: "安赫衛隊", en: "Anhur Guard" },
@@ -594,23 +594,23 @@ const TRIBES_DATA = {
         infantryDef: 110,
         cavalryDef: 50,
         speed: 15,
-        carry: 40,
+        carry: 50,
         upkeep: 2,
-        cost: { wood: 360, clay: 390, iron: 320, crop: 140 },
-        trainTime: 2480,
+        cost: { wood: 360, clay: 330, iron: 280, crop: 120 },
+        trainTime: 2560,
         role: { zh: "防禦型騎兵", en: "Defensive cavalry unit" }
       },
       {
         name: { zh: "雷沙戰車", en: "Resheph Chariot" },
         type: "cavalry",
         attack: 110,
-        infantryDef: 50,
-        cavalryDef: 60,
-        speed: 14,
-        carry: 80,
+        infantryDef: 120,
+        cavalryDef: 150,
+        speed: 10,
+        carry: 70,
         upkeep: 3,
-        cost: { wood: 450, clay: 560, iron: 610, crop: 170 },
-        trainTime: 3280,
+        cost: { wood: 450, clay: 560, iron: 610, crop: 180 },
+        trainTime: 3240,
         role: { zh: "均衡的重騎兵", en: "Balanced heavy cavalry" }
       },
       {
@@ -618,12 +618,12 @@ const TRIBES_DATA = {
         type: "siege",
         attack: 55,
         infantryDef: 30,
-        cavalryDef: 85,
+        cavalryDef: 95,
         speed: 4,
         carry: 0,
         upkeep: 3,
-        cost: { wood: 850, clay: 400, iron: 450, crop: 75 },
-        trainTime: 4600,
+        cost: { wood: 995, clay: 575, iron: 340, crop: 80 },
+        trainTime: 4800,
         role: { zh: "破壞城牆的攻城器", en: "Wall destruction siege unit" }
       },
       {
@@ -635,7 +635,7 @@ const TRIBES_DATA = {
         speed: 3,
         carry: 0,
         upkeep: 6,
-        cost: { wood: 920, clay: 1280, iron: 620, crop: 80 },
+        cost: { wood: 980, clay: 1510, iron: 660, crop: 100 },
         trainTime: 9000,
         role: { zh: "遠程攻城器", en: "Long-range siege unit" }
       },
@@ -643,17 +643,17 @@ const TRIBES_DATA = {
         name: { zh: "諾馬克", en: "Nomarch" },
         type: "special",
         attack: 40,
-        infantryDef: 60,
-        cavalryDef: 40,
-        speed: 5,
+        infantryDef: 50,
+        cavalryDef: 50,
+        speed: 4,
         carry: 0,
         upkeep: 4,
-        cost: { wood: 32000, clay: 42000, iron: 30000, crop: 36500 },
+        cost: { wood: 34000, clay: 50000, iron: 34000, crop: 42000 },
         trainTime: 90700,
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -676,13 +676,13 @@ const TRIBES_DATA = {
 
   huns: {
     id: "huns",
-    name: { zh: "匈奴", en: "Huns" },
+    name: { zh: "匈人", en: "Huns" },
     icon: "🏇",
     archetype: { zh: "騎兵型", en: "Cavalry" },
-    difficulty: { zh: "★★★★☆ 高級玩家", en: "★★★★☆ Advanced" },
+    difficulty: { zh: "★★★★☆ 經驗玩家推薦", en: "★★★★☆ Experienced players" },
     servers: { zh: "5部族伺服器", en: "5-tribe servers only" },
     description: {
-      zh: "匈奴是純騎兵部族，擁有最快的騎兵和偵察兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
+      zh: "匈人是純騎兵部族，擁有最快的騎兵和偵兵。他們有 20-40% 快速研究加成，但定居者成本最高。",
       en: "Huns are pure cavalry tribe with the fastest cavalry and scouts. They have 20-40% faster research but the most expensive settlers."
     },
     heroPassive: {
@@ -690,12 +690,12 @@ const TRIBES_DATA = {
       en: "+3 tiles/hour speed (mounted, cavalry-only armies)"
     },
     specialBuildings: [
-      { zh: "指揮中心（替代住宅/宮殿，3 個擴張槽）", en: "Command Center (replaces Residence/Palace, 3 expansion slots)" },
+      { zh: "司令部（替代居所/皇宮，3 個擴張槽）", en: "Command Center (replaces Residence/Palace, 3 expansion slots)" },
       { zh: "臨時城牆（每級 +1.5%，防禦力低）", en: "Makeshift Wall (1.5% defense bonus per level, low durability)" }
     ],
     strengths: [
-      { zh: "最快的騎兵（草原騎手速度 16，攜帶 110）", en: "Fastest cavalry (Steppe Rider speed 16, carry 110)" },
-      { zh: "最快的偵察兵（斥候速度 19）", en: "Fastest scout (Spotter speed 19)" },
+      { zh: "最快的騎兵（草原騎手速度 16，攜帶 115）", en: "Fastest cavalry (Steppe Rider speed 16, carry 115)" },
+      { zh: "最快的偵兵（斥候速度 19）", en: "Fastest scout (Spotter speed 19)" },
       { zh: "20-40% 快速研究加成", en: "20-40% faster research" }
     ],
     weaknesses: [
@@ -713,8 +713,8 @@ const TRIBES_DATA = {
         speed: 6,
         carry: 50,
         upkeep: 1,
-        cost: { wood: 130, clay: 80, iron: 70, crop: 50 },
-        trainTime: 1020,
+        cost: { wood: 130, clay: 80, iron: 40, crop: 40 },
+        trainTime: 810,
         role: { zh: "均衡的步兵", en: "Balanced infantry unit" }
       },
       {
@@ -726,8 +726,8 @@ const TRIBES_DATA = {
         speed: 6,
         carry: 30,
         upkeep: 1,
-        cost: { wood: 140, clay: 110, iron: 160, crop: 60 },
-        trainTime: 1320,
+        cost: { wood: 140, clay: 110, iron: 60, crop: 60 },
+        trainTime: 1120,
         role: { zh: "高攻擊力步兵", en: "High attack infantry" }
       },
       {
@@ -738,48 +738,48 @@ const TRIBES_DATA = {
         cavalryDef: 10,
         speed: 19,
         carry: 0,
-        upkeep: 1,
-        cost: { wood: 160, clay: 100, iron: 50, crop: 50 },
-        trainTime: 1120,
-        role: { zh: "最快的偵察兵", en: "Fastest scout unit" }
+        upkeep: 2,
+        cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
+        trainTime: 1360,
+        role: { zh: "最快的偵兵", en: "Fastest scout unit" }
       },
       {
         name: { zh: "草原騎手", en: "Steppe Rider" },
         type: "cavalry",
-        attack: 100,
-        infantryDef: 20,
-        cavalryDef: 25,
+        attack: 120,
+        infantryDef: 30,
+        cavalryDef: 15,
         speed: 16,
-        carry: 110,
+        carry: 115,
         upkeep: 2,
-        cost: { wood: 140, clay: 160, iron: 80, crop: 40 },
-        trainTime: 810,
+        cost: { wood: 290, clay: 370, iron: 190, crop: 45 },
+        trainTime: 2400,
         role: { zh: "最快的騎兵", en: "Fastest cavalry unit" }
       },
       {
         name: { zh: "箭手", en: "Marksman" },
         type: "cavalry",
-        attack: 60,
-        infantryDef: 90,
-        cavalryDef: 60,
-        speed: 15,
-        carry: 50,
+        attack: 115,
+        infantryDef: 80,
+        cavalryDef: 70,
+        speed: 16,
+        carry: 105,
         upkeep: 2,
-        cost: { wood: 290, clay: 370, iron: 290, crop: 130 },
-        trainTime: 2240,
+        cost: { wood: 320, clay: 350, iron: 330, crop: 50 },
+        trainTime: 2480,
         role: { zh: "防禦型騎兵", en: "Defensive cavalry unit" }
       },
       {
         name: { zh: "掠奪者", en: "Marauder" },
         type: "cavalry",
-        attack: 160,
+        attack: 180,
         infantryDef: 60,
-        cavalryDef: 80,
-        speed: 12,
+        cavalryDef: 40,
+        speed: 14,
         carry: 80,
         upkeep: 3,
-        cost: { wood: 460, clay: 540, iron: 600, crop: 160 },
-        trainTime: 3200,
+        cost: { wood: 450, clay: 560, iron: 610, crop: 140 },
+        trainTime: 2990,
         role: { zh: "高攻擊力騎兵", en: "High attack cavalry" }
       },
       {
@@ -822,7 +822,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊", en: "Conquers enemy villages" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
@@ -848,7 +848,7 @@ const TRIBES_DATA = {
     name: { zh: "維京", en: "Vikings" },
     icon: "⛵",
     archetype: { zh: "海洋型", en: "Naval" },
-    difficulty: { zh: "★★★★★ 專家級", en: "★★★★★ Expert" },
+    difficulty: { zh: "★★★☆☆ 攻擊型玩家", en: "★★★☆☆ Aggressive players" },
     servers: { zh: "特殊伺服器", en: "Special servers only" },
     description: {
       zh: "維京是獨特的海洋部族，擁有狂戰士的大規模傷害和瓦爾基里的低成本重騎兵。他們是唯一有船隊系統的部族。",
@@ -910,7 +910,7 @@ const TRIBES_DATA = {
         upkeep: 2,
         cost: { wood: 170, clay: 150, iron: 20, crop: 40 },
         trainTime: 1360,
-        role: { zh: "高速偵察兵", en: "Fast scout unit" }
+        role: { zh: "高速偵兵", en: "Fast scout unit" }
       },
       {
         name: { zh: "約姆斯維京戰士", en: "Jomsviking" },
@@ -978,7 +978,7 @@ const TRIBES_DATA = {
         role: { zh: "佔領敵方村莊（-5% 忠誠疊加）", en: "Conquers enemy villages (stacks -5% loyalty)" }
       },
       {
-        name: { zh: "移民", en: "Settler" },
+        name: { zh: "開拓者", en: "Settler" },
         type: "special",
         attack: 0,
         infantryDef: 0,
