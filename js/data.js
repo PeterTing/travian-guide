@@ -526,7 +526,7 @@ const TRIBES_DATA = {
       { zh: "石牆（每級 +2.5%，最高耐久度）", en: "Stone Wall (2.5% defense bonus per level, HIGHEST durability)" }
     ],
     strengths: [
-      { zh: "最便宜的單位（奴隸民兵 125 資源）", en: "Cheapest units (Slave Militia 125 resources)" },
+      { zh: "最便宜的單位（奴隸民兵 150 資源）", en: "Cheapest units (Slave Militia 150 resources)" },
       { zh: "最快的訓練時間", en: "Fastest training times" },
       { zh: "英雄資源 +25%，城牆最堅不可摧", en: "Hero resource boost and indestructible walls" }
     ],

@@ -572,8 +572,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
-                  zh: "準備訓練5-10個方陣兵(速度24，步兵防禦最強)",
-                  en: "Prepare to train 5-10 Phalanx (speed 24, strongest infantry defense)"
+                  zh: "準備訓練5-10個方陣兵(速度7，步兵防禦最強)",
+                  en: "Prepare to train 5-10 Phalanx (speed 7, strongest infantry defense)"
                 }
               ]
             },
@@ -775,7 +775,7 @@ const SETTLEMENT_GUIDE = {
       },
       celebrationPlan: {
         zh: "同其他族，但因開拓者昂貴，CP需求可能較高",
-        en: "Same as others, but settler cost is highest - may need more CP buffer"
+        en: "Same as others, but settler cost is high (60,000 total, 2nd most expensive after Huns 62,700)"
       },
       troopTraining: {
         zh: "Day 1開始積極訓練棍棒兵(速度7，負載60)，從Hour 12開始掠奪綠洲和不活躍玩家補充資源",
@@ -1017,8 +1017,8 @@ const SETTLEMENT_GUIDE = {
         total3: { zh: "3個開拓者", en: "3 settlers", value: 57000 }
       },
       keyAdvantage: {
-        zh: "英雄+25% 資源採集被動(所有英雄行動都額外獲得25% 資源) + 最便宜兵種(奴隸民兵125資源)",
-        en: "Hero +25% resource production passive (all hero actions get 25% bonus) + cheapest unit (Slave Militia 125 resources)"
+        zh: "英雄+25% 資源採集被動(所有英雄行動都額外獲得25% 資源) + 最便宜兵種(奴隸民兵150資源)",
+        en: "Hero +25% resource production passive (all hero actions get 25% bonus) + cheapest unit (Slave Militia 150 resources)"
       },
       heroStrategy: {
         zh: "所有點數投入資源(最多+500資源/點總額) - 埃及英雄被動乘以1.25，成為最強經濟引擎",
@@ -1029,8 +1029,8 @@ const SETTLEMENT_GUIDE = {
         en: "Same timing, hero resource bonus accelerates CP building upgrades, faster celebrations"
       },
       troopTraining: {
-        zh: "大量訓練奴隸民兵(125資源/個，訓練時間530ms最快)護衛英雄，Day 2開始大規模清理綠洲",
-        en: "Mass train Slave Militia (125 res/each, 530ms fastest) escort hero, Day 2 massive oasis farming"
+        zh: "大量訓練奴隸民兵(150資源/個，訓練時間530ms最快)護衛英雄，Day 2開始大規模清理綠洲",
+        en: "Mass train Slave Militia (150 res/each, 530ms fastest) escort hero, Day 2 massive oasis farming"
       },
       phases: [
         {
@@ -1074,8 +1074,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Warehouse Lv3, Granary Lv3"
                 },
                 {
-                  zh: "兵營Lv1，訓練10個奴隸民兵 [僅需1,250資源!] - 極便宜護衛兵",
-                  en: "Barracks Lv1, train 10 Slave Militia [only 1,250 resources!] - ultra-cheap escort"
+                  zh: "兵營Lv1，訓練10個奴隸民兵 [僅需1,500資源!] - 極便宜護衛兵",
+                  en: "Barracks Lv1, train 10 Slave Militia [only 1,500 resources!] - ultra-cheap escort"
                 },
                 {
                   zh: "英雄資源被動已啟用 [+25% 資源採集]",
@@ -1122,8 +1122,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Academy to Lv10"
                 },
                 {
-                  zh: "訓練10個奴隸民兵 [另1,250資源，總計20個守衛]",
-                  en: "Train 10 more Slave Militia [another 1,250 resources, total 20 escorts]"
+                  zh: "訓練10個奴隸民兵 [另1,500資源，總計20個守衛]",
+                  en: "Train 10 more Slave Militia [another 1,500 resources, total 20 escorts]"
                 },
                 {
                   zh: "英雄積極農業 [+25% 被動資源正全力運作]",
@@ -1284,8 +1284,8 @@ const SETTLEMENT_GUIDE = {
         en: "Same timing, but settlers most expensive (62,700) - may need 6th celebration"
       },
       troopTraining: {
-        zh: "Day 1開始訓練草原騎手(速度16，負載110)，從Hour 12開始積極掠奪綠洲和不活躍玩家，資助開拓者訓練",
-        en: "Day 1 train Steppe Riders (speed 16, carry 110), Hour 12 start aggressive raiding to fund settlers"
+        zh: "Day 1開始訓練草原騎手(速度16，負載115)，從Hour 12開始積極掠奪綠洲和不活躍玩家，資助開拓者訓練",
+        en: "Day 1 train Steppe Riders (speed 16, carry 115), Hour 12 start aggressive raiding to fund settlers"
       },
       phases: [
         {
@@ -1321,8 +1321,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Resource fields to Lv4"
                 },
                 {
-                  zh: "馬廄Lv1-3，訓練3-5個草原騎手 [速度16，負載110 = 掠奪利器]",
-                  en: "Steppe Lv1-3, train 3-5 Steppe Riders [speed 16, carry 110 = raiding tool]"
+                  zh: "馬廄Lv1-3，訓練3-5個草原騎手 [速度16，負載115 = 掠奪利器]",
+                  en: "Steppe Lv1-3, train 3-5 Steppe Riders [speed 16, carry 115 = raiding tool]"
                 },
                 {
                   zh: "倉庫Lv1-2、糧倉Lv1-2",
