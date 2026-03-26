@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travian Legends 新手攻略 | Beginner's Guide</title>
+  <meta name="description" content="Travian Legends 完整新手攻略 | Complete beginner's guide to Travian Legends">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>section,div,.tribe-card,.intro-section,.hero-banner{opacity:1!important;transform:none!important;}</style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <div class="header-content">
+        <a href="index.html" class="site-logo">Travian Legends</a>
+
+        <nav class="nav-main">
+          <ul>
+            <li><a href="index.html" class="nav-link">
+              <span class="lang-text" data-zh="首頁" data-en="Home">首頁</span>
+            </a></li>
+            <li class="dropdown-trigger">
+              <a href="#" class="nav-link">
+                <span class="lang-text" data-zh="部族" data-en="Tribes">部族</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a>
+                <a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a>
+                <a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a>
+                <a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a>
+                <a href="tribe.html?t=huns" class="lang-text" data-zh="匈人" data-en="Huns">匈人</a>
+                <a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a>
+              </div>
+            </li>
+            <li><a href="guide.html" class="nav-link">
+              <span class="lang-text" data-zh="攻略" data-en="Guide">攻略</span>
+            </a></li>
+            <li><a href="mechanics.html" class="nav-link">
+              <span class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</span>
+            </a></li>
+            <li><a href="tools.html" class="nav-link">
+              <span class="lang-text" data-zh="工具" data-en="Tools">工具</span>
+            </a></li>
+            <li><a href="strategy.html" class="nav-link">
+              <span class="lang-text" data-zh="策略指南" data-en="Strategy">策略指南</span>
+            </a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="lang-toggle active" data-lang="zh">繁中</button>
+          <button class="lang-toggle" data-lang="en">EN</button>
+          <button class="mobile-menu-toggle" id="mobile-menu-btn">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <div class="lang-content active" data-lang="zh">
+          <h1>Travian Legends 完全攻略</h1>
+          <p class="hero-subtitle">新手須知 · 部族選擇 · 建築順序 · 戰鬥策略</p>
+        </div>
+        <div class="lang-content" data-lang="en">
+          <h1>Travian Legends Complete Guide</h1>
+          <p class="hero-subtitle">Beginner's Guide · Tribe Selection · Build Order · Combat Strategy</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- INTRO SECTION -->
+      <section class="intro-section">
+        <div class="lang-content active" data-lang="zh">
+          <h2>歡迎來到 Travian Legends</h2>
+          <p>Travian Legends 是一款經典的網頁策略遊戲，結合了帝國建設、資源管理和實時戰鬥的元素。此攻略將幫助新手快速上手，了解六個獨特部族的特點，掌握建築優先順序，並制定有效的防禦和進攻策略。無論您是策略遊戲的資深玩家還是初學者，這份攻略都為您提供了進入 Travian 世界所需的所有基礎知識。</p>
+        </div>
+        <div class="lang-content" data-lang="en">
+          <h2>Welcome to Travian Legends</h2>
+          <p>Travian Legends is a classic web-based strategy game combining empire building, resource management, and real-time combat. This guide will help new players get started quickly, understand the characteristics of six unique tribes, master building priorities, and develop effective defense and attack strategies. Whether you're a seasoned strategy game player or a beginner, this guide provides all the foundational knowledge you need to enter the Travian world.</p>
+        </div>
+      </section>
+
+      <!-- TRIBE OVERVIEW SECTION -->
+      <section class="tribe-overview-section">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="部族總覽" data-en="Tribes Overview">部族總覽</span>
+        </h2>
+
+        <div class="tribe-grid">
+          <!-- ROMANS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">🛡️</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="平衡型" data-en="Balanced">平衡型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="羅馬人以均衡著稱，其步兵和騎兵都很優秀。提供快速建築和防禦單位加成。適合想要各方面發展的玩家。"
+                data-en="Romans are known for balance, with excellent infantry and cavalry. They provide fast construction and defense unit bonuses. Ideal for players who want well-rounded development.">
+                羅馬人以均衡著稱，其步兵和騎兵都很優秀。提供快速建築和防禦單位加成。適合想要各方面發展的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=romans" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+
+          <!-- GAULS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">🌲</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="防禦型" data-en="Defense">防禦型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="高盧人擁有全遊戲最強的防禦。其騎兵防禦力驚人，能抵禦大規模進攻。適合喜歡堅守防禦的玩家。"
+                data-en="Gauls have the game's strongest defense. Their cavalry has amazing defensive power to withstand large-scale attacks. Perfect for players who love defensive positions.">
+                高盧人擁有全遊戲最強的防禦。其騎兵防禦力驚人，能抵禦大規模進攻。適合喜歡堅守防禦的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=gauls" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+
+          <!-- TEUTONS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">⚡</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="進攻型" data-en="Offense">進攻型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="條頓人以低成本兵種和超強掠奪能力著稱。Clubswinger 訓練最快且最便宜，可快速組建大軍進行掠奪。適合喜歡侵略性玩法的玩家。"
+                data-en="Teutons are known for cheap, fast-training troops and exceptional raiding ability. Clubswingers are the cheapest and fastest to train, enabling large-scale raids early on. Perfect for aggressive players.">
+                條頓人以低成本兵種和超強掠奪能力著稱。Clubswinger 訓練最快且最便宜，可快速組建大軍進行掠奪。適合喜歡侵略性玩法的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=teutons" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+
+          <!-- EGYPTIANS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">🐪</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="商人型" data-en="Merchant">商人型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="埃及人擁有最強的商業能力和資源轉運優勢。馬車容量大，商人多。適合喜歡交易和掠奪資源的玩家。"
+                data-en="Egyptians have the strongest commercial abilities and resource transfer advantages. Large cart capacity and more merchants. Great for trading and resource raiding.">
+                埃及人擁有最強的商業能力和資源轉運優勢。馬車容量大，商人多。適合喜歡交易和掠奪資源的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=egyptians" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+
+          <!-- HUNS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">🐴</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="匈人" data-en="Huns">匈人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="騎兵型" data-en="Cavalry">騎兵型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="匈人以騎兵為特色，擁有遊戲最快的進攻騎兵。資源消耗低，訓練快速。適合喜歡騎兵戰術的玩家。"
+                data-en="Huns specialize in cavalry, with the game's fastest attack cavalry. Low resource consumption and fast training. Perfect for cavalry-focused tactics.">
+                匈人以騎兵為特色，擁有遊戲最快的進攻騎兵。資源消耗低，訓練快速。適合喜歡騎兵戰術的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=huns" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+
+          <!-- VIKINGS -->
+          <div class="tribe-card">
+            <span class="tribe-icon">⚔️</span>
+            <h3 class="tribe-name">
+              <span class="lang-text" data-zh="維京人" data-en="Vikings">維京人</span>
+            </h3>
+            <div class="tribe-archetype">
+              <span class="lang-text" data-zh="海盜型" data-en="Raider">海盜型</span>
+            </div>
+            <p class="tribe-description">
+              <span class="lang-text"
+                data-zh="維京人擅長大規模掠奪，擁有超高的掠奪能力和強力的艦隊。資源獲取效率最高。適合想要掠奪資源的玩家。"
+                data-en="Vikings excel at large-scale raids with unmatched plundering ability and powerful fleets. Highest resource acquisition efficiency. Perfect for plundering-focused players.">
+                維京人擅長大規模掠奪，擁有超高的掠奪能力和強力的艦隊。資源獲取效率最高。適合想要掠奪資源的玩家。
+              </span>
+            </p>
+            <a href="tribe.html?t=vikings" class="btn-primary">
+              <span class="lang-text" data-zh="查看詳情" data-en="View Details">查看詳情</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK START GUIDE SECTION -->
+      <section class="quick-start-section">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="新手快速入門" data-en="Quick Start Guide">新手快速入門</span>
+        </h2>
+
+        <div class="quick-start-cards">
+          <!-- WHAT IS TRAVIAN -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="什麼是 Travian Legends？" data-en="What is Travian Legends?">什麼是 Travian Legends？</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="Travian Legends 是一款實時策略遊戲，玩家管理村莊、徵兵、交易資源和與其他玩家交戰。遊戲沒有等級上限，可以一直發展下去。"
+                data-en="Travian Legends is a real-time strategy game where players manage villages, recruit troops, trade resources, and battle other players. There's no level cap; you can continue developing indefinitely.">
+                Travian Legends 是一款實時策略遊戲，玩家管理村莊、徵兵、交易資源和與其他玩家交戰。遊戲沒有等級上限，可以一直發展下去。
+              </span>
+            </p>
+          </div>
+
+          <!-- HOW TO CHOOSE TRIBE -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="如何選擇部族" data-en="How to Choose a Tribe">如何選擇部族</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="根據您的遊戲風格選擇：喜歡均衡發展選羅馬人；喜歡防禦選高盧人；喜歡進攻掠奪選條頓人；喜歡交易選埃及人。"
+                data-en="Choose based on your playstyle: Romans for balanced development, Gauls for defense, Teutons for offense and raiding, Egyptians for trading."
+              >
+                根據您的遊戲風格選擇：喜歡均衡發展選羅馬人；喜歡防禦選高盧人；喜歡進攻掠奪選條頓人；喜歡交易選埃及人。
+              </span>
+            </p>
+          </div>
+
+          <!-- RESOURCE MANAGEMENT -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="資源管理基礎" data-en="Resource Management Basics">資源管理基礎</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="遊戲有四種資源：木材、黏土、鐵礦和糧食。需要通過田地生產和掠奪獲得。合理分配農場田地和儲存倉庫是關鍵。"
+                data-en="The game has four resources: wood, clay, iron, and crop. Obtain them through field production and raiding. Proper farm allocation and warehouse storage is key.">
+                遊戲有四種資源：木材、黏土、鐵礦和糧食。需要通過田地生產和掠奪獲得。合理分配農場田地和儲存倉庫是關鍵。
+              </span>
+            </p>
+          </div>
+
+          <!-- BEGINNER PROTECTION -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="新手保護期" data-en="Beginner Protection">新手保護期</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="新玩家在開始時受到保護，不會被其他玩家攻擊。利用這段時間建造基礎設施、訓練兵隊和積累資源。保護期通常持續 72 小時或直到建造第二個村莊。"
+                data-en="New players are protected from attacks at the start. Use this time to build infrastructure, train troops, and accumulate resources. Protection typically lasts 72 hours or until you build a second village.">
+                新玩家在開始時受到保護，不會被其他玩家攻擊。利用這段時間建造基礎設施、訓練兵隊和積累資源。保護期通常持續 72 小時或直到建造第二個村莊。
+              </span>
+            </p>
+          </div>
+
+          <!-- BUILD ORDER -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="優先建造順序" data-en="Build Priority Order">優先建造順序</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="先升級資源田地到足夠水平，然後建造存儲設施。接著建造軍事建築（軍營、馬廄）。同時升級主府和倉庫以提高存儲容量。"
+                data-en="First upgrade resource fields to sufficient levels, then build storage facilities. Next, construct military buildings (barracks, stables). Simultaneously upgrade your residence and warehouse for storage capacity.">
+                先升級資源田地到足夠水平，然後建造存儲設施。接著建造軍事建築（軍營、馬廄）。同時升級主府和倉庫以提高存儲容量。
+              </span>
+            </p>
+          </div>
+
+          <!-- COMBAT BASICS -->
+          <div class="quick-start-card">
+            <h4>
+              <span class="lang-text" data-zh="戰鬥基礎知識" data-en="Combat Basics">戰鬥基礎知識</span>
+            </h4>
+            <p>
+              <span class="lang-text"
+                data-zh="每個單位都有不同的進攻和防禦數值。了解克制關係很重要。始終部署防禦兵隊，優先進攻入侵者。學會判斷何時進攻和何時防禦。"
+                data-en="Each unit has different attack and defense values. Understanding counter relationships is important. Always deploy defensive troops and prioritize defending against invaders. Learn when to attack and when to defend.">
+                每個單位都有不同的進攻和防禦數值。了解克制關係很重要。始終部署防禦兵隊，優先進攻入侵者。學會判斷何時進攻和何時防禦。
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIP BOX -->
+      <section class="tips-section" style="margin: var(--spacing-xxl) 0;">
+        <div class="tip-box warning">
+          <strong>
+            <span class="lang-text" data-zh="⚠️ 重要建議" data-en="⚠️ Important Tips">⚠️ 重要建議</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="不要在沒有防禦的情況下存儲太多資源。定期檢查攻擊日誌。加入一個活躍的聯盟以獲取幫助和保護。定期登錄以收集資源和管理村莊。"
+              data-en="Don't store too many resources without defense. Check your attack log regularly. Join an active alliance for help and protection. Log in regularly to collect resources and manage your village.">
+              不要在沒有防禦的情況下存儲太多資源。定期檢查攻擊日誌。加入一個活躍的聯盟以獲取幫助和保護。定期登錄以收集資源和管理村莊。
+            </span>
+          </p>
+        </div>
+
+        <div class="tip-box info">
+          <strong>
+            <span class="lang-text" data-zh="💡 初期攻略" data-en="💡 Early Game Strategy">💡 初期攻略</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="前七天專注於發展農田和建造倉庫。不要急著宣戰，收集足夠的資源以支持軍隊維護。與附近的玩家建立友好關係以避免被攻擊。"
+              data-en="Focus on developing farms and building warehouses for the first seven days. Don't rush into war; gather enough resources to support troop maintenance. Build friendly relationships with nearby players to avoid attacks.">
+              前七天專注於發展農田和建造倉庫。不要急著宣戰，收集足夠的資源以支持軍隊維護。與附近的玩家建立友好關係以避免被攻擊。
+            </span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="主要章節" data-en="Main Sections">主要章節</h4>
+          <ul>
+            <li><a href="index.html" class="lang-text" data-zh="首頁" data-en="Home">首頁</a></li>
+            <li><a href="guide.html" class="lang-text" data-zh="攻略" data-en="Guide">攻略</a></li>
+            <li><a href="mechanics.html" class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</a></li>
+            <li><a href="tools.html" class="lang-text" data-zh="工具" data-en="Tools">工具</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="部族指南" data-en="Tribe Guides">部族指南</h4>
+          <ul>
+            <li><a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a></li>
+            <li><a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a></li>
+            <li><a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a></li>
+            <li><a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a></li>
+            <li><a href="tribe.html?t=huns" class="lang-text" data-zh="匈人" data-en="Huns">匈人</a></li>
+            <li><a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="資源" data-en="Resources">資源</h4>
+          <ul>
+            <li><a href="index.html#tribe-overview-section" class="lang-text" data-zh="部族選擇指南" data-en="Tribe Selection">部族選擇指南</a></li>
+            <li><a href="index.html#quick-start-section" class="lang-text" data-zh="新手快速入門" data-en="Quick Start">新手快速入門</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          <span class="lang-text"
+            data-zh="© 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。"
+            data-en="© 2024 Travian Legends Beginner Guide. This site is not affiliated with Travian Games. Travian is a trademark of its respective owners.">
+            © 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top">↑</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/app.js?v=1774283536"></script>
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遊戲機制 | Game Mechanics</title>
+  <meta name="description" content="Travian Legends 完整遊戲機制參考 | Complete game mechanics reference">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>section,div,.tribe-card,.intro-section,.hero-banner{opacity:1!important;transform:none!important;}</style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <div class="header-content">
+        <a href="index.html" class="site-logo">Travian Legends</a>
+
+        <nav class="nav-main">
+          <ul>
+            <li><a href="index.html" class="nav-link">
+              <span class="lang-text" data-zh="首頁" data-en="Home">首頁</span>
+            </a></li>
+            <li class="dropdown-trigger">
+              <a href="#" class="nav-link">
+                <span class="lang-text" data-zh="部族" data-en="Tribes">部族</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a>
+                <a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a>
+                <a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a>
+                <a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a>
+                <a href="tribe.html?t=huns" class="lang-text" data-zh="匈人" data-en="Huns">匈人</a>
+                <a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a>
+              </div>
+            </li>
+            <li><a href="guide.html" class="nav-link">
+              <span class="lang-text" data-zh="攻略" data-en="Guide">攻略</span>
+            </a></li>
+            <li><a href="mechanics.html" class="nav-link">
+              <span class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</span>
+            </a></li>
+            <li><a href="tools.html" class="nav-link">
+              <span class="lang-text" data-zh="工具" data-en="Tools">工具</span>
+            </a></li>
+            <li><a href="strategy.html" class="nav-link">
+              <span class="lang-text" data-zh="策略指南" data-en="Strategy">策略指南</span>
+            </a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="lang-toggle active" data-lang="zh">繁中</button>
+          <button class="lang-toggle" data-lang="en">EN</button>
+          <button class="mobile-menu-toggle" id="mobile-menu-btn">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <div class="lang-content active" data-lang="zh">
+          <h1>遊戲機制完全參考</h1>
+          <p class="hero-subtitle">戰鬥系統 · 建築系統 · 資源系統 · 英雄系統 · 擴張系統</p>
+        </div>
+        <div class="lang-content" data-lang="en">
+          <h1>Complete Game Mechanics Reference</h1>
+          <p class="hero-subtitle">Battle System · Building System · Resource System · Hero System · Expansion System</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- BATTLE SYSTEM -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="戰鬥系統" data-en="Battle System">戰鬥系統</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="傷害計算公式" data-en="Damage Calculation Formula">傷害計算公式</span>
+        </h3>
+        <p style="font-size: 1.1em; background: var(--color-bg-secondary); padding: var(--spacing-lg); border-radius: 8px; font-family: monospace;">
+          <span class="lang-text"
+            data-zh="傷害 = (敗方攻擊力 / 勝方防禦力)^1.5 × 100%"
+            data-en="Damage = (loser_attack_power / winner_defense_power)^1.5 × 100%">
+            傷害 = (敗方攻擊力 / 勝方防禦力)^1.5 × 100%
+          </span>
+        </p>
+        <p>
+          <span class="lang-text"
+            data-zh="這個公式決定每一方在戰鬥中造成的傷害。敗方(進攻或防禦端)的攻擊力越高，造成的傷害越多。勝方(防禦或進攻端)的防禦力越高，受到的傷害越少。指數1.5使得防禦力差異產生顯著影響。"
+            data-en="This formula determines damage each side inflicts in battle. Higher loser attack power = more damage dealt. Higher winner defense = less damage taken. The 1.5 exponent makes defense differences highly significant.">
+            這個公式決定每一方在戰鬥中造成的傷害。敗方(進攻或防禦端)的攻擊力越高，造成的傷害越多。勝方(防禦或進攻端)的防禦力越高，受到的傷害越少。指數1.5使得防禦力差異產生顯著影響。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="騎兵百分比影響" data-en="Cavalry Percentage Impact">騎兵百分比影響</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="防禦方如果有騎兵，騎兵防禦力會降低。騎兵百分比(騎兵/全兵)越高，防禦力損失越大。純步兵防禦最佳，混合兵種時需要考慮騎兵劣勢。"
+            data-en="If defender has cavalry, cavalry defense is lower than infantry. Higher cavalry percentage = greater defense loss. Pure infantry defense is best; mixed units must account for cavalry weakness.">
+            防禦方如果有騎兵，騎兵防禦力會降低。騎兵百分比(騎兵/全兵)越高，防禦力損失越大。純步兵防禦最佳，混合兵種時需要考慮騎兵劣勢。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="牆壁防禦加成 (按部族分類)" data-en="Wall Defense Bonus (by Tribe)">牆壁防禦加成 (按部族分類)</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="牆壁類型" data-en="Wall Type">牆壁類型</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="防禦加成 / 等級" data-en="Defense Bonus / Level">防禦加成 / 等級</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="說明" data-en="Notes">說明</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="城牆 (羅馬人)" data-en="City Wall (Romans)">城牆 (羅馬人)</span>
+              </td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">3% / Lv</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="標準城牆，最常見" data-en="Standard wall, most common">標準城牆，最常見</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="柵欄 (高盧人)" data-en="Palisade (Gauls)">柵欄 (高盧人)</span>
+              </td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2.5% / Lv</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="木質防禦，低等級時較弱" data-en="Wooden defense, weaker at low levels">木質防禦，低等級時較弱</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="土牆 (條頓人)" data-en="Earth Wall (Teutons)">土牆 (條頓人)</span>
+              </td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2% / Lv</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="土質防禦，防禦力一般" data-en="Earth defense, average">土質防禦，防禦力一般</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="石牆 (埃及人)" data-en="Stone Wall (Egyptians)">石牆 (埃及人)</span>
+              </td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2.5% / Lv</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="石質防禦，耐久性好" data-en="Stone defense, durable">石質防禦，耐久性好</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="臨時防禦/擋牆 (匈人)" data-en="Makeshift/Barricade (Huns)">臨時防禦/擋牆 (匈人)</span>
+              </td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1.5% / Lv</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="臨時防禦，防禦力最低" data-en="Temporary defense, lowest">臨時防禦，防禦力最低</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="居所/宮殿防禦加成" data-en="Residence/Palace Defense Bonus">居所/宮殿防禦加成</span>
+        </h3>
+        <p style="font-size: 1.1em; background: var(--color-bg-secondary); padding: var(--spacing-lg); border-radius: 8px; font-family: monospace;">
+          <span class="lang-text"
+            data-zh="防禦力 = 2 × 等級²"
+            data-en="Defense = 2 × level²">
+            防禦力 = 2 × 等級²
+          </span>
+        </p>
+        <p>
+          <span class="lang-text"
+            data-zh="居所Lv1 = 2防禦、Lv5 = 50防禦、Lv10 = 200防禦。宮殿(國王系統)提供更多防禦(每級別不同)。"
+            data-en="Residence Lv1 = 2 defense, Lv5 = 50 defense, Lv10 = 200 defense. Palace (King system) provides more defense (varies per level).">
+            居所Lv1 = 2防禦、Lv5 = 50防禦、Lv10 = 200防禦。宮殿(國王系統)提供更多防禦(每級別不同)。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="偵察機制" data-en="Scout Mechanics">偵察機制</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="偵兵(Scout)可提前查看敵方村莊的兵力部署。每支偵察隊會暴露給被偵察方，被偵察方可設伏攻擊。偵察成功需要至少1名偵兵存活返回。"
+            data-en="Scouts can preview enemy village troop deployments in advance. Each scout group is exposed to the target, who can set a trap. Successful scout requires at least 1 to return alive.">
+            偵兵(Scout)可提前查看敵方村莊的兵力部署。每支偵察隊會暴露給被偵察方，被偵察方可設伏攻擊。偵察成功需要至少1名偵兵存活返回。
+          </span>
+        </p>
+      </section>
+
+      <!-- BUILDING SYSTEM -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="建築系統" data-en="Building System">建築系統</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="資源田地分佈" data-en="Resource Field Distribution">資源田地分佈</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="每個村莊總共18塊田地，分佈方式取決於部族和村莊初始配置。常見分佈有三種："
+            data-en="Each village has 18 total field tiles, distributed based on tribe and initial configuration. Three common distributions:">
+            每個村莊總共18塊田地，分佈方式取決於部族和村莊初始配置。常見分佈有三種：
+          </span>
+        </p>
+        <ul style="margin: var(--spacing-md) 0; padding-left: 2em;">
+          <li><strong>4-4-4-6型:</strong> <span class="lang-text" data-zh="木材4、黏土4、鐵礦4、穀物6 - 平衡型" data-en="Wood 4, Clay 4, Iron 4, Crop 6 - Balanced">木材4、黏土4、鐵礦4、穀物6 - 平衡型</span></li>
+          <li><strong>3-3-3-9型:</strong> <span class="lang-text" data-zh="木材3、黏土3、鐵礦3、穀物9 - 穀物多" data-en="Wood 3, Clay 3, Iron 3, Crop 9 - Crop-heavy">木材3、黏土3、鐵礦3、穀物9 - 穀物多</span></li>
+          <li><strong>1-1-1-15型:</strong> <span class="lang-text" data-zh="木材1、黏土1、鐵礦1、穀物15 - 極度穀物多" data-en="Wood 1, Clay 1, Iron 1, Crop 15 - Extreme crop focus">木材1、黏土1、鐵礦1、穀物15 - 極度穀物多</span></li>
+        </ul>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="建築時間公式" data-en="Building Time Formula">建築時間公式</span>
+        </h3>
+        <p style="font-size: 1.1em; background: var(--color-bg-secondary); padding: var(--spacing-lg); border-radius: 8px; font-family: monospace;">
+          <span class="lang-text"
+            data-zh="建築時間 = 基礎時間 / (1 + 主府等級)"
+            data-en="Building time = Base time / (1 + Main Building level)">
+            建築時間 = 基礎時間 / (1 + 主府等級)
+          </span>
+        </p>
+        <p>
+          <span class="lang-text"
+            data-zh="主府等級越高，建築速度越快。例如：主府Lv20可使所有建築速度翻倍。"
+            data-en="Higher Main Building level = faster construction. E.g., Main Lv20 doubles all building speed.">
+            主府等級越高，建築速度越快。例如：主府Lv20可使所有建築速度翻倍。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="羅馬人雙建築佇列" data-en="Roman Dual Building Queue">羅馬人雙建築佇列</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="羅馬人獨有：可同時升級一個資源田和一個建築。這給予羅馬人巨大的發展優勢，特別是在早期可以快速升級資源田同時建設其他建築。"
+            data-en="Roman exclusive: Can upgrade a resource field AND a building simultaneously. Massive development advantage, especially early game for rapid resource field + building progression.">
+            羅馬人獨有：可同時升級一個資源田和一個建築。這給予羅馬人巨大的發展優勢，特別是在早期可以快速升級資源田同時建設其他建築。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="建築優先級 (Tier系統)" data-en="Building Priority (Tier System)">建築優先級 (Tier系統)</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="優先級" data-en="Tier">優先級</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="建築/目標" data-en="Building/Goal">建築/目標</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="說明" data-en="Reason">說明</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong>Tier 1</strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="資源田 Lv5-7、倉庫/糧倉 Lv3-5" data-en="Resource fields Lv5-7, Warehouse/Granary Lv3-5">資源田 Lv5-7、倉庫/糧倉 Lv3-5</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="基礎生產和存儲" data-en="Foundation production & storage">基礎生產和存儲</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong>Tier 2</strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="主府 Lv10+、學院 Lv10、市政廳 Lv1" data-en="Main Building Lv10+, Academy Lv10, Town Hall Lv1">主府 Lv10+、學院 Lv10、市政廳 Lv1</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="開啟二村和慶典" data-en="Enable 2nd village & celebrations">開啟二村和慶典</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong>Tier 3</strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="居所 Lv10、軍事建築(兵營/馬廄)" data-en="Residence Lv10, Military buildings (Barracks/Stables)">居所 Lv10、軍事建築(兵營/馬廄)</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="收納定居者、訓練兵隊" data-en="House settlers, train troops">收納定居者、訓練兵隊</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong>Tier 4</strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="牆壁、防禦建築、工坊" data-en="Walls, defense buildings, workshops">牆壁、防禦建築、工坊</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="防禦加成、特殊功能" data-en="Defense bonuses, special functions">防禦加成、特殊功能</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- RESOURCE SYSTEM -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="資源系統" data-en="Resource System">資源系統</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="四種資源類型" data-en="Four Resource Types">四種資源類型</span>
+        </h3>
+        <ul style="margin: var(--spacing-md) 0; padding-left: 2em;">
+          <li><strong><span class="lang-text" data-zh="木材" data-en="Wood">木材</span>:</strong> <span class="lang-text" data-zh="建築和兵隊的基礎資源" data-en="Primary building & troop resource">建築和兵隊的基礎資源</span></li>
+          <li><strong><span class="lang-text" data-zh="黏土" data-en="Clay">黏土</span>:</strong> <span class="lang-text" data-zh="建築主要成分，防禦建築需求高" data-en="Main building component, high demand for defensive structures">建築主要成分，防禦建築需求高</span></li>
+          <li><strong><span class="lang-text" data-zh="鐵礦" data-en="Iron">鐵礦</span>:</strong> <span class="lang-text" data-zh="兵隊裝甲和工具的必須品" data-en="Essential for troop armor and tools">兵隊裝甲和工具的必須品</span></li>
+          <li><strong><span class="lang-text" data-zh="穀物" data-en="Crop">穀物</span>:</strong> <span class="lang-text" data-zh="🔴 特殊：用於兵隊維持費(Upkeep)。穀物不足會自動解散兵隊！" data-en="🔴 SPECIAL: Used for troop upkeep. Insufficient crop auto-dismisses troops!">🔴 特殊：用於兵隊維持費(Upkeep)。穀物不足會自動解散兵隊！</span></li>
+        </ul>
+
+        <div class="tip-box warning" style="margin: var(--spacing-lg) 0;">
+          <strong>
+            <span class="lang-text" data-zh="⚠️ 穀物機制" data-en="⚠️ Crop Mechanism">⚠️ 穀物機制</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="穀物是唯一每小時消耗的資源(用於兵隊維持)。如果穀物用完，兵隊會自動被解散以節省消耗。這意味著維持一支大軍隊需要充足的穀物生產能力。"
+              data-en="Crop is the only resource consumed hourly (for troop upkeep). If crop runs out, troops auto-dismiss to stop consumption. Maintaining a large army requires sufficient crop production.">
+              穀物是唯一每小時消耗的資源(用於兵隊維持)。如果穀物用完，兵隊會自動被解散以節省消耗。這意味著維持一支大軍隊需要充足的穀物生產能力。
+            </span>
+          </p>
+        </div>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="綠洲加成" data-en="Oasis Bonuses">綠洲加成</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="村莊20格內的綠洲可提供資源加成(+25%)。每個綠洲只能被一個玩家佔據。特定綠洲可能提供特定資源加成或防禦加成。"
+            data-en="Oases within 20 tiles of village provide resource bonuses (+25%). Each oasis can only be held by one player. Specific oases may provide specific resource or defense bonuses.">
+            村莊20格內的綠洲可提供資源加成(+25%)。每個綠洲只能被一個玩家佔據。特定綠洲可能提供特定資源加成或防禦加成。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="市場和商人" data-en="Marketplace & Merchants">市場和商人</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="市場允許玩家自由交易資源。玩家也可以設置NPC商人進行自動交易(需要市場Lv5+)。商人交易費用通常1-10%取決於服務器設定。"
+            data-en="Marketplace allows free player-to-player resource trading. Players can set up NPC traders for automated trading (requires Marketplace Lv5+). Trader fee typically 1-10% depending on server.">
+            市場允許玩家自由交易資源。玩家也可以設置NPC商人進行自動交易(需要市場Lv5+)。商人交易費用通常1-10%取決於服務器設定。
+          </span>
+        </p>
+      </section>
+
+      <!-- HERO SYSTEM -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="英雄系統" data-en="Hero System">英雄系統</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="四大屬性" data-en="Four Attributes">四大屬性</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="屬性" data-en="Attribute">屬性</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="效果" data-en="Effect">效果</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="說明" data-en="Notes">說明</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="戰鬥力" data-en="Fighting Strength">戰鬥力</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+100 <span class="lang-text" data-zh="攻擊力/點" data-en="attack/pt">攻擊力/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="英雄在綠洲清理中的直接傷害" data-en="Hero damage in oasis battles">英雄在綠洲清理中的直接傷害</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="進攻加成" data-en="Offense Bonus">進攻加成</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="兵隊攻擊/點" data-en="troop attack/pt">兵隊攻擊/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="提高所有兵隊的進攻力" data-en="Increases all troop attack">提高所有兵隊的進攻力</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="防禦加成" data-en="Defense Bonus">防禦加成</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="兵隊防禦/點" data-en="troop defense/pt">兵隊防禦/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="提高所有兵隊的防禦力" data-en="Increases all troop defense">提高所有兵隊的防禦力</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="資源採集" data-en="Resources">資源採集</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+100 <span class="lang-text" data-zh="資源/點" data-en="resources/pt">資源/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="或+10/點/小時 單一資源(可在冒險或交易時使用)" data-en="Or +10/pt/hr single resource (usable in adventures/trades)">或+10/點/小時 單一資源(可在冒險或交易時使用)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="冒險系統" data-en="Adventure System">冒險系統</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="英雄可參與冒險獲得經驗和物品。冒險成功率取決於英雄等級和冒險難度。高等級英雄有更高成功率和更好獎勵。"
+            data-en="Hero can undertake adventures for experience and items. Success rate depends on hero level vs adventure difficulty. Higher-level heroes have better success rate and rewards.">
+            英雄可參與冒險獲得經驗和物品。冒險成功率取決於英雄等級和冒險難度。高等級英雄有更高成功率和更好獎勵。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="裝備系統" data-en="Equipment System">裝備系統</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="英雄可裝備武器、盔甲和飾品。不同裝備提供不同屬性加成(攻擊、防禦、資源等)。裝備可以通過冒險獲得或向其他玩家購買。"
+            data-en="Hero can equip weapons, armor, and accessories. Different equipment provides different attribute bonuses (attack, defense, resources, etc). Equipment obtained via adventures or purchased from other players.">
+            英雄可裝備武器、盔甲和飾品。不同裝備提供不同屬性加成(攻擊、防禦、資源等)。裝備可以通過冒險獲得或向其他玩家購買。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="英雄資源生產" data-en="Hero Resource Production">英雄資源生產</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="英雄在每個村莊每小時可生產資源。基礎生產為3/小時每種資源/點(或10/小時單一資源/點取決於屬性分配)。"
+            data-en="Hero produces resources each hour in a village. Base production 3/hr each resource/pt (or 10/hr single resource/pt depending on attribute allocation).">
+            英雄在每個村莊每小時可生產資源。基礎生產為3/小時每種資源/點(或10/小時單一資源/點取決於屬性分配)。
+          </span>
+        </p>
+      </section>
+
+      <!-- EXPANSION SYSTEM -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="擴張系統" data-en="Expansion System">擴張系統</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="文化點數需求表" data-en="CP Requirements Table">文化點數需求表</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="村莊序" data-en="Village #">村莊序</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="所需CP" data-en="CP Required">所需CP</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="累積CP" data-en="Cumulative CP">累積CP</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1st (起始)</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">-</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">0</td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2nd</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">2,000</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">3rd</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">3,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">5,000</td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">4th</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">8,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">13,000</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">5th</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">11,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">24,000</td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">6th+</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">+11,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">遞增</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="居所 vs 宮殿 vs 司令部" data-en="Residence vs Palace vs Command Center">居所 vs 宮殿 vs 司令部</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="建築類型" data-en="Building Type">建築類型</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="用途" data-en="Purpose">用途</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="限制" data-en="Limitation">限制</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="居所" data-en="Residence">居所</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="首座村莊、收納定居者、啟動定居" data-en="First village, house settlers, enable settling">首座村莊、收納定居者、啟動定居</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="每個帳戶只能1個居所" data-en="Only 1 per account">每個帳戶只能1個居所</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="宮殿" data-en="Palace">宮殿</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="成為國王、統治聯盟、更多CP加成" data-en="Become king, rule alliance, more CP bonuses">成為國王、統領聯盟、更多CP加成</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="需國王系統啟用、需居所Lv20+升級" data-en="King system required, upgrade from Res Lv20+">需國王系統啟用、需居所Lv20+升級</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="司令部" data-en="Command Center">司令部</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="征服村莊、軍事指揮點" data-en="Conquer villages, military command hub">征服村莊、軍事指揮點</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="只能於非居所村莊建造" data-en="Only buildable in non-residence villages">只能於非居所村莊建造</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="定居 vs 征服" data-en="Settling vs Conquering">定居 vs 征服</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="定居：向空地派遣定居者建立新村莊，定居點自動產出初始資源。征服：率領軍隊攻佔敵方村莊，需要派遣一個特殊單位(貴族/司令官)，被征服村莊會失去該玩家，新主人納入該村莊。"
+            data-en="Settling: Send settlers to empty land to build new village, settlement auto-produces starting resources. Conquering: Lead troops to capture enemy village, requires special unit (Noble/Chief), conquered village changes ownership.">
+            定居：向空地派遣定居者建立新村莊，定居點自動產出初始資源。征服：率領軍隊攻佔敵方村莊，需要派遣一個特殊單位(貴族/司令官)，被征服村莊會失去該玩家，新主人納入該村莊。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="參議員/司令官忠誠度" data-en="Senator/Chief Loyalty Reduction">參議員/司令官忠誠度</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="用參議員或司令官長期征服村莊時，每一波攻擊降低村莊忠誠度20-30%。忠誠度降至0時村莊易主。前期征服不需參議員，但後期忠誠度機制對防守方不利。"
+            data-en="Using Senator or Chief for conquest gradually reduces village loyalty by 20-30% per wave. When loyalty reaches 0, village changes owners. Early game conquest doesn't need loyalty, but late game mechanics favor attacker.">
+            用參議員或司令官長期征服村莊時，每一波攻擊降低村莊忠誠度20-30%。忠誠度降至0時村莊易主。前期征服不需參議員，但後期忠誠度機制對防守方不利。
+          </span>
+        </p>
+      </section>
+
+      <!-- CRANNY AND PROTECTION -->
+      <section class="mechanics-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="秘密倉庫和新手保護" data-en="Cranny and Protection">秘密倉庫和新手保護</span>
+        </h2>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="秘密倉庫容量表" data-en="Cranny Capacity Table">秘密倉庫容量表</span>
+        </h3>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="等級" data-en="Level">等級</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="容量" data-en="Capacity">容量</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="高盧人(1.5×)" data-en="Gauls (1.5×)">高盧人(1.5×)</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="說明" data-en="Notes">說明</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">100</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">150</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="初期保護" data-en="Early protection">初期保護</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">5</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">300</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">450</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);"></td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">10</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">600</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">900</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);"></td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">10 (MAX)</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1,000</td>
+              <td style="padding: var(--spacing-md); text-align: center; border: 1px solid var(--color-border);">1,500</td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="滿級容量" data-en="Max capacity">滿級容量</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="秘密倉庫機制" data-en="Cranny Mechanism">秘密倉庫機制</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="秘密倉庫保護 <strong>每種資源分開計算</strong>，不是總資源。例如：秘密倉庫Lv1保護木材100 + 黏土100 + 鐵礦100 + 穀物100，四個位置各100，不是總共100。攻擊者掠奪時會先取走非秘密倉庫資源，超過秘密倉庫容量才進入。"
+            data-en="Cranny protection <strong>calculated per resource type</strong>, not total. E.g., Cranny Lv1 protects Wood 100 + Clay 100 + Iron 100 + Crop 100. Attackers take non-cranny resources first, only enter cranny if excess.">
+            秘密倉庫保護 <strong>每種資源分開計算</strong>，不是總資源。例如：秘密倉庫Lv1保護木材100 + 黏土100 + 鐵礦100 + 穀物100，四個位置各100，不是總共100。攻擊者掠奪時會先取走非秘密倉庫資源，超過秘密倉庫容量才進入。
+          </span>
+        </p>
+
+        <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <span class="lang-text" data-zh="新手保護機制" data-en="Beginner Protection">新手保護機制</span>
+        </h3>
+        <p>
+          <span class="lang-text"
+            data-zh="新玩家在開始時受到保護，通常持續約5天(x1速服務器)。保護期間不會被其他玩家攻擊。保護期結束的觸發條件是：時間達到(通常更優先)、建造第二個村莊、或玩家主動解除保護。一旦解除保護，無法再次啟動。"
+            data-en="New players protected from attacks for ~5 days (x1 speed). Protection ends when: time expires (usually priority), 2nd village built, or player opts out. Once removed, cannot be reactivated.">
+            新玩家在開始時受到保護，通常持續約5天(x1速服務器)。保護期間不會被其他玩家攻擊。保護期結束的觸發條件是：時間達到(通常更優先)、建造第二個村莊、或玩家主動解除保護。一旦解除保護，無法再次啟動。
+          </span>
+        </p>
+
+        <div class="tip-box info" style="margin: var(--spacing-lg) 0;">
+          <strong>
+            <span class="lang-text" data-zh="💡 新手保護策略" data-en="💡 Beginner Protection Strategy">💡 新手保護策略</span>
+          </strong>
+          <p>
+            <span class="lang-text"
+              data-zh="利用新手保護期快速發展資源和兵力。當即將失去保護時，務必升級秘密倉庫和訓練防禦兵隊。不要在保護期結束前儲存太多資源，可能被掠奪。"
+              data-en="Use protection period to rapidly develop resources and troops. Before protection ends, upgrade cranny and train defensive troops. Don't store excessive resources near protection end, risk being raided.">
+              利用新手保護期快速發展資源和兵力。當即將失去保護時，務必升級秘密倉庫和訓練防禦兵隊。不要在保護期結束前儲存太多資源，可能被掠奪。
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <!-- FINAL TIPS -->
+      <section class="final-tips-section" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="快速查找表" data-en="Quick Reference">快速查找表</span>
+        </h2>
+
+        <div class="tip-box warning" style="margin: var(--spacing-lg) 0;">
+          <strong>
+            <span class="lang-text" data-zh="⚠️ 常見新手錯誤" data-en="⚠️ Common Beginner Mistakes">⚠️ 常見新手錯誤</span>
+          </strong>
+          <ul style="margin: var(--spacing-md) 0; padding-left: 2em;">
+            <li><span class="lang-text" data-zh="穀物不足導致兵隊自動解散 - 務必維持充足穀物產出" data-en="Insufficient crop auto-dismisses troops - maintain adequate crop">穀物不足導致兵隊自動解散 - 務必維持充足穀物產出</span></li>
+            <li><span class="lang-text" data-zh="忽視防禦建築 - 牆壁和防禦兵隊對抵禦攻擊至關重要" data-en="Ignoring defense buildings - walls and troops critical to raid defense">忽視防禦建築 - 牆壁和防禦兵隊對抵禦攻擊至關重要</span></li>
+            <li><span class="lang-text" data-zh="遺忘升級秘密倉庫 - 在保護期結束前未升級秘密倉庫會損失大量資源" data-en="Forgetting to upgrade cranny - massive resource loss if not upgraded before protection ends">遺忘升級秘密倉庫 - 在保護期結束前未升級秘密倉庫會損失大量資源</span></li>
+            <li><span class="lang-text" data-zh="主府等級過低 - 主府決定建築速度，應優先升級至Lv10+" data-en="Low Main Building level - determines build speed, should prioritize to Lv10+">主府等級過低 - 主府決定建築速度，應優先升級至Lv10+</span></li>
+          </ul>
+        </div>
+
+        <div class="tip-box info" style="margin: var(--spacing-lg) 0;">
+          <strong>
+            <span class="lang-text" data-zh="💡 高效發展建議" data-en="💡 Efficient Development Tips">💡 高效發展建議</span>
+          </strong>
+          <ul style="margin: var(--spacing-md) 0; padding-left: 2em;">
+            <li><span class="lang-text" data-zh="優先升級主府、資源田、倉庫至合理等級再做軍事展開" data-en="Prioritize Main, resource fields, storage to reasonable levels before military expansion">優先升級主府、資源田、倉庫至合理等級再做軍事展開</span></li>
+            <li><span class="lang-text" data-zh="英雄農業在Day 1開始就很有效 - 清理弱綠洲補充資源" data-en="Hero farming effective from Day 1 - clear weak oases to supplement resources">英雄農業在Day 1開始就很有效 - 清理弱綠洲補充資源</span></li>
+            <li><span class="lang-text" data-zh="定期檢查攻擊日誌 - 了解周邊玩家實力和威脅等級" data-en="Regularly check attack log - understand neighbor power and threat level">定期檢查攻擊日誌 - 了解周邊玩家實力和威脅等級</span></li>
+            <li><span class="lang-text" data-zh="加入活躍聯盟 - 獲得幫助、保護和交易機會" data-en="Join active alliance - get help, protection, trading opportunities">加入活躍聯盟 - 獲得幫助、保護和交易機會</span></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="關於本站" data-en="About This Site">關於本站</h4>
+          <ul>
+            <li><a href="guide.html" class="lang-text" data-zh="開二村攻略" data-en="2nd Village Guide">開二村攻略</a></li>
+            <li><a href="mechanics.html" class="lang-text" data-zh="遊戲機制" data-en="Game Mechanics">遊戲機制</a></li>
+            <li><a href="#" class="lang-text" data-zh="建築列表" data-en="Building List">建築列表</a></li>
+            <li><a href="#" class="lang-text" data-zh="單位數據" data-en="Unit Data">單位數據</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="遊戲資源" data-en="Game Resources">遊戲資源</h4>
+          <ul>
+            <li><a href="#" class="lang-text" data-zh="官方網站" data-en="Official Site">官方網站</a></li>
+            <li><a href="#" class="lang-text" data-zh="社區論壇" data-en="Community Forum">社區論壇</a></li>
+            <li><a href="#" class="lang-text" data-zh="遊戲規則" data-en="Game Rules">遊戲規則</a></li>
+            <li><a href="#" class="lang-text" data-zh="服務器狀態" data-en="Server Status">服務器狀態</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="快速鏈接" data-en="Quick Links">快速鏈接</h4>
+          <ul>
+            <li><a href="#" class="lang-text" data-zh="戰術指南" data-en="Strategy Guide">戰術指南</a></li>
+            <li><a href="#" class="lang-text" data-zh="聯盟指南" data-en="Alliance Guide">聯盟指南</a></li>
+            <li><a href="#" class="lang-text" data-zh="常見問題" data-en="FAQ">常見問題</a></li>
+            <li><a href="#" class="lang-text" data-zh="聯繫我們" data-en="Contact Us">聯繫我們</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="社交媒體" data-en="Social Media">社交媒體</h4>
+          <ul>
+            <li><a href="#" class="lang-text" data-zh="Discord 社群" data-en="Discord Community">Discord 社群</a></li>
+            <li><a href="#" class="lang-text" data-zh="Reddit 討論" data-en="Reddit Discussion">Reddit 討論</a></li>
+            <li><a href="#" class="lang-text" data-zh="Wiki 百科" data-en="Wiki Encyclopedia">Wiki 百科</a></li>
+            <li><a href="#" class="lang-text" data-zh="玩家頻道" data-en="Player Channels">玩家頻道</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          <span class="lang-text"
+            data-zh="© 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。"
+            data-en="© 2024 Travian Legends Beginner Guide. This site is not affiliated with Travian Games. Travian is a trademark of its respective owners.">
+            © 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top">↑</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js?v=1774283536"></script>
+  <script src="js/app.js?v=1774283536"></script>
+</body>
+</html>
