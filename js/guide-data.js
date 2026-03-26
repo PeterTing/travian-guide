@@ -511,7 +511,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4350, 3900, 5220, 3960] },
+        per: { zh: "單位", en: "per unit", values: [4400, 5600, 4200, 3900] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 54300 }
       },
       keyAdvantage: {
@@ -762,7 +762,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4800, 4400, 6000, 4600] },
+        per: { zh: "單位", en: "per unit", values: [5800, 4400, 4600, 5200] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 60000 }
       },
       keyAdvantage: {
@@ -1013,7 +1013,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4600, 4200, 5800, 4400] },
+        per: { zh: "單位", en: "per unit", values: [4560, 5890, 4370, 4180] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 57000 }
       },
       keyAdvantage: {
@@ -1268,7 +1268,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4950, 4550, 6300, 4750] },
+        per: { zh: "單位", en: "per unit", values: [6100, 4600, 4800, 5400] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 62700 }
       },
       keyAdvantage: {

@@ -231,7 +231,8 @@
               </ul>
             </nav>
             <div class="header-controls">
-              <button class="lang-toggle" onclick="toggleLanguage()">繁中/EN</button>
+              <button class="lang-toggle active" data-lang="zh" onclick="setLanguage('zh')">繁中</button>
+              <button class="lang-toggle" data-lang="en" onclick="setLanguage('en')">EN</button>
               <button class="mobile-menu-toggle" id="mobile-menu-btn" onclick="document.querySelector('.nav-main').classList.toggle('active')">☰</button>
             </div>
           </div>
@@ -601,7 +602,7 @@
                             <tr>
                                 <td data-zh="集會廣場 (競技場)" data-en="Tournament Square">集會廣場 (Tournament Square)</td>
                                 <td class="highlight-gold">Lv20</td>
-                                <td data-zh="訓練加速，-25% 訓練時間 每 level（Lv20）" data-en="Training speed, -25% training time per level (Lv20)">訓練加速，-25% 訓練時間 per level（Lv20）</td>
+                                <td data-zh="行軍加速：超過 20 格距離時生效，每級 +10%（Lv20 = +200% 行軍速度）" data-en="March speed boost: activates for distances over 20 tiles, +10% per level (Lv20 = +200% march speed)">行軍加速：超過 20 格距離生效，每級 +10%（Lv20 = +200%）</td>
                             </tr>
                             <tr>
                                 <td data-zh="羅盤 (聚集點)" data-en="Rally Point">羅盤 (Rally Point)</td>
@@ -817,7 +818,7 @@
                             <ul>
                                 <li data-zh="隊列 A：兵營 → 馬廄（訓練 古羅馬步兵）" data-en="Queue A: Barracks → Stable (train Legionnaire)">隊列 A：Barracks → Stable（訓練 Legionnaire）</li>
                                 <li data-zh="隊列 B：田地 → 市場 → 秘密倉庫" data-en="Queue B: Fields → Marketplace → Cranny">隊列 B：田地 → Marketplace → Cranny</li>
-                                <li data-zh="古羅馬步兵 是多面手，可攻可守，成本低 (460 res 每單位)" data-en="Legionnaire is versatile (attack & defense), cheap (460 res/unit)">Legionnaire 是多面手，可攻可守，成本低 (460 res 每單位)</li>
+                                <li data-zh="古羅馬步兵 是多面手，可攻可守，成本低 (400 res 每單位：木120+土100+鐵150+糧30)" data-en="Legionnaire is versatile (attack & defense), cheap (400 res/unit: 120w+100c+150i+30g)">Legionnaire 是多面手，可攻可守，成本低 (400 res 每單位)</li>
                             </ul>
                         </div>
                     </div>
@@ -838,7 +839,7 @@
                                 <li data-zh="古羅馬步兵 大規模掠奪（快速 + 便宜）" data-en="Legionnaire mass raiding (fast + cheap)">Legionnaire 大規模掠奪（快速 + 便宜）</li>
                                 <li data-zh="禁衛兵 駐防堡壘（防禦最強）" data-en="Praetorian garrison fortresses (strongest defense)">Praetorian 駐防堡壘（防禦最強）</li>
                                 <li data-zh="雙隊列優勢：同時進行攻擊與經濟發展，不互相衝突" data-en="Dual queue advantage: Attack and economy develop simultaneously, no conflicts">雙隊列優勢：同時進行攻擊與經濟發展，不互相衝突</li>
-                                <li data-zh="城牆：絕對防禦（City 城牆 +3%/Lv，Lv20 時 +60% 防禦）" data-en="Wall: Superior defense (City Wall +3%/Lv, +60% at Lv20)">城牆：絕對防禦（City Wall +3%/Lv，Lv20 時 +60% 防禦）</li>
+                                <li data-zh="城牆：絕對防禦（City 城牆 +3%/Lv，Lv20 時 ~+81% 防禦加成）" data-en="Wall: Superior defense (City Wall +3%/Lv, ~+81% defense bonus at Lv20)">城牆：絕對防禦（City Wall +3%/Lv，Lv20 時 ~+81% 防禦加成）</li>
                             </ul>
                         </div>
                     </div>
@@ -856,7 +857,7 @@
                         <div class="phase-content">
                             <ul>
                                 <li data-zh="秘密倉庫 優先（Lv10+），1.5x 容量 = 15K 資源存放" data-en="Cranny priority (Lv10+), 1.5x capacity = 15K resource storage">Cranny 優先（Lv10+），1.5x 容量 = 15K 資源存放</li>
-                                <li data-zh="兵營 → Phalanx（防禦多面手，360 res）" data-en="Barracks → Phalanx (defense all-rounder, 360 res)">Barracks → Phalanx（防禦多面手，360 res）</li>
+                                <li data-zh="兵營 → Phalanx（防禦多面手，315 res：木100+土130+鐵55+糧30）" data-en="Barracks → Phalanx (defense all-rounder, 315 res: 100w+130c+55i+30g)">Barracks → Phalanx（防禦多面手，315 res）</li>
                                 <li data-zh="市場 早期建立" data-en="Early Marketplace">Marketplace 早期建立</li>
                             </ul>
                         </div>
@@ -876,7 +877,7 @@
                         <div class="phase-content">
                             <ul>
                                 <li data-zh="最強防禦：Phalanx 規模化、獵人陷阱、秘密倉庫 防線" data-en="Strongest defense: Phalanx scaling, Trapper, Cranny defense line">最強防禦：Phalanx 規模化、Trapper、Cranny 防線</li>
-                                <li data-zh="探路者 快速偵察（速度 19），領先所有種族" data-en="Pathfinder fast scouting (speed 19), fastest of all tribes">Pathfinder 快速偵察（速度 19），領先所有種族</li>
+                                <li data-zh="探路者 快速偵察（速度 17），高盧特有高速斥候" data-en="Pathfinder fast scouting (speed 17), Gaul's unique high-speed scout">Pathfinder 快速偵察（速度 17），高盧特有高速斥候</li>
                                 <li data-zh="最便宜 開拓者（×3 = 54,300 資源），快速開村擴張" data-en="Cheapest Settlers (×3 = 54,300 resources), rapid village expansion">最便宜 Settler（×3 = 54,300 資源），快速開村擴張</li>
                                 <li data-zh="Teutoburg Forest 偵察速度加倍（+50% move speed）" data-en="Teutoburg Forest scout speed doubled (+50% move speed)">Teutoburg Forest 偵察速度加倍（+50% move speed）</li>
                             </ul>
@@ -970,7 +971,7 @@
                     <span class="accordion-icon">▼</span>
                 </div>
                 <div class="accordion-body">
-                    <p data-zh="核心優勢：司令部（3 隊列）、草原騎手 超快、探路者 超快（速度 19）、20-40% 研究加速、無牆弱點。" data-en="Core advantage: Command Center (3 queues), Steppe Rider ultra-fast, Pathfinder fast (speed 19), 20-40% research boost, no wall weakness.">核心優勢：Command Center（3 隊列）、Steppe Rider 超快、Pathfinder 超快（速度 19）、20-40% 研究加速、無牆弱點。</p>
+                    <p data-zh="核心優勢：司令部（3 隊列）、草原騎手 超快、匈人斥候 超快（速度 19）、20-40% 研究加速、無牆弱點。" data-en="Core advantage: Command Center (3 queues), Steppe Rider ultra-fast, Hun Scout ultra-fast (speed 19), 20-40% research boost, no wall weakness.">核心優勢：Command Center（3 隊列）、Steppe Rider 超快、Hun Scout 超快（速度 19）、20-40% 研究加速、無牆弱點。</p>
                     <div class="phase-box">
                         <div class="phase-title" data-zh="開局策略（第1天-7）" data-en="Early Game (Day 1-7)">開局策略（Day 1-7）</div>
                         <div class="phase-content">
@@ -987,7 +988,7 @@
                             <ul>
                                 <li data-zh="草原騎手 規模化（速度 18，快速掠奪 + 快速撤退）" data-en="Scale Steppe Riders (speed 18, fast raid + retreat)">Steppe Rider 規模化（速度 18，快速掠奪 + 快速撤退）</li>
                                 <li data-zh="建造 司令部（3 隊列訓練 = 3 倍產量）" data-en="Build Command Center (3 training queues = 3x output)">建造 Command Center（3 隊列訓練 = 3 倍產量）</li>
-                                <li data-zh="探路者 偵察（速度 19，無對手）" data-en="Pathfinder scouting (speed 19, unmatched)">Pathfinder 偵察（速度 19，無對手）</li>
+                                <li data-zh="匈人斥候 偵察（速度 19，無對手）" data-en="Hun Scout scouting (speed 19, unmatched)">Hun Scout 偵察（速度 19，無對手）</li>
                                 <li data-zh="研究加速：優先 Cavalry 研究、馬廄 升級速度" data-en="Research boost: Cavalry and Stable upgrade speed">研究加速：優先 Cavalry 研究、Stable 升級速度</li>
                             </ul>
                         </div>
@@ -1169,7 +1170,7 @@
                     <div class="phase-content">
                         <ol>
                             <li data-zh="兵營/馬廄 → Lv20（訓練隊列無限）" data-en="Barracks/Stable → Lv20 (unlimited queue)">Barracks/Stable → Lv20（訓練隊列無限）</li>
-                            <li data-zh="競技場 → Lv20（-25% 訓練時間）" data-en="Tournament Square → Lv20 (-25% training time)">Tournament Square → Lv20（-25% 訓練時間）</li>
+                            <li data-zh="競技場 → Lv20（遠程行軍加速，超過 20 格生效，Lv20 = +200%）" data-en="Tournament Square → Lv20 (long-distance march speed, activates over 20 tiles, Lv20 = +200%)">Tournament Square → Lv20（遠程行軍加速 +200%，超過 20 格生效）</li>
                             <li data-zh="聚集點 → Lv20（無限支援隊伍）" data-en="Rally Point → Lv20 (unlimited support squads)">Rally Point → Lv20（無限支援隊伍）</li>
                             <li data-zh="鍛造坊 → Lv20（+2% 攻擊 每 level）" data-en="Smithy → Lv20 (+2% attack per level)">Smithy → Lv20（+2% 攻擊 per level）</li>
                             <li data-zh="糧食田 → Lv15-18（支援軍隊進食）" data-en="Crop Fields → Lv15-18 (feed troops)">糧食田 → Lv15-18（支援軍隊進食）</li>
@@ -1656,7 +1657,7 @@
                         <div class="phase-content">
                             <ul>
                                 <li data-zh="若首都是 15c（15 穀田），重心轉向升穀田（目標 Lv10+）" data-en="If capital is 15c, shift focus to upgrading crop fields (target Lv10+)">15c 首都：重點升穀田 → Lv10+</li>
-                                <li data-zh="Flour Mill Lv5 + Bakery Lv5 可增加 25% 穀物產量（首都專屬）" data-en="Flour Mill Lv5 + Bakery Lv5 adds 25% crop bonus (capital only)">Flour Mill Lv5 + Bakery Lv5 增加 25% 穀物（首都專屬）</li>
+                                <li data-zh="Flour Mill Lv5 + Bakery Lv5 合計增加 50% 穀物產量（各 +25%，首都專屬）" data-en="Flour Mill Lv5 + Bakery Lv5 adds 50% total crop bonus (+25% each, capital only)">Flour Mill Lv5 + Bakery Lv5 合計增加 50% 穀物（各 +25%，首都專屬）</li>
                                 <li data-zh="英雄府邸 → Lv10-20（佔領最多 3 個綠洲）" data-en="Hero Mansion → Lv10-20 (occupy up to 3 oases)">英雄府邸 → Lv10-20（佔領 3 個綠洲）</li>
                                 <li data-zh="若首都是普通村，可當攻擊村或防禦村" data-en="If non-15c capital, use as attack or defense village">非 15c 首都 → 可當攻擊或防禦村</li>
                             </ul>
@@ -1688,10 +1689,11 @@
                         <div class="phase-content">
                             <ul>
                                 <li data-zh="★★★ 強烈推薦 15c（15 穀田）作為未來首都候選地" data-en="★★★ Highly recommend 15c (15 crop fields) as future capital candidate">★★★ 強烈推薦選 15c 作為未來首都</li>
+                                <li data-zh="★★ 次選 9c（9 穀田）：穀物比例高，發展潛力強，適合軍事型首都" data-en="★★ Alternative: 9c (9 crop fields) - high crop ratio, strong growth potential, ideal for military capital">★★ 次選 9c：穀物比例高，適合軍事型首都</li>
                                 <li data-zh="距離首都 ≤ 20 格（無需 Tournament Square），資源路程最短" data-en="Within 20 tiles of capital (no Tournament Square needed), shortest resource travel">距離首都 ≤ 20 格（省去 Tournament Square）</li>
                                 <li data-zh="附近有 +50% 穀綠洲（合計可佔 3 個），大幅提升穀物產出" data-en="Nearby +50% crop oases (up to 3 total), massively boosts crop output">附近有 +50% 穀綠洲（最多 3 個）</li>
                                 <li data-zh="查看周圍玩家：避免強聯盟的核心區域，選相對安全位置" data-en="Check nearby players: avoid strong alliance core zones, pick safer locations">周圍玩家環境安全（避開強聯盟核心區）</li>
-                                <li data-zh="備選：4-4-4-6 或 3-4-5-6 良田型（若找不到 15c）" data-en="Alternative: 4-4-4-6 or 3-4-5-6 good field mix (if no 15c available)">備選：4-4-4-6 良田型（若無 15c）</li>
+                                <li data-zh="備選：4-4-4-6 或 3-4-5-6 良田型（若找不到 15c 或 9c）" data-en="Alternative: 4-4-4-6 or 3-4-5-6 good field mix (if no 15c or 9c available)">備選：4-4-4-6 良田型（若無 15c 或 9c）</li>
                             </ul>
                         </div>
                     </div>
@@ -1737,12 +1739,31 @@
                     <p data-zh="每新增一村都需消耗 2,000 CP（x1 速度），且 CP 需求隨村莊數量增加。" data-en="Each new village costs 2,000 CP (x1 speed), and CP requirements increase with village count.">每新增一村需 2,000 CP（x1 速度）。</p>
 
                     <div class="phase-box">
+                        <div class="phase-title" data-zh="文化點（CP）門檻對照表" data-en="Culture Points (CP) Threshold Table">文化點（CP）門檻對照表</div>
+                        <div class="phase-content">
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <tr>
+                                        <th data-zh="目標村莊數" data-en="Target Villages">目標村莊數</th>
+                                        <th data-zh="需要累積 CP" data-en="Required Total CP">需要累積 CP</th>
+                                    </tr>
+                                    <tr><td data-zh="第 2 村" data-en="2nd village">第 2 村</td><td class="highlight-gold">2,000</td></tr>
+                                    <tr><td data-zh="第 3 村" data-en="3rd village">第 3 村</td><td class="highlight-gold">5,000</td></tr>
+                                    <tr><td data-zh="第 4 村" data-en="4th village">第 4 村</td><td class="highlight-gold">13,000</td></tr>
+                                    <tr><td data-zh="第 5 村" data-en="5th village">第 5 村</td><td class="highlight-gold">24,000</td></tr>
+                                    <tr><td data-zh="第 6 村" data-en="6th village">第 6 村</td><td class="highlight-gold">37,000</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-box">
                         <div class="phase-title" data-zh="擴張節奏建議" data-en="Expansion Pace Guide">擴張節奏建議</div>
                         <div class="phase-content">
                             <ul>
                                 <li data-zh="Day 7-10：第 2 村已開，繼續慶典積累 CP" data-en="Day 7-10: 2nd village settled, keep celebrating for CP">Day 7-10：二村開出，持續慶典積 CP</li>
                                 <li data-zh="Day 10-15：第 2 村基礎建設完成（倉庫/資源田/市場）" data-en="Day 10-15: 2nd village basics done (warehouse/fields/marketplace)">Day 10-15：二村基礎建設完成</li>
-                                <li data-zh="Day 20-25：CP 再達門檻，開第 3 村（通常 CP ≥ 6,000 解鎖）" data-en="Day 20-25: CP threshold met again, open 3rd village (usually CP ≥ 6,000 unlocked)">Day 20-25：開第 3 村（需 CP ≥ 6,000）</li>
+                                <li data-zh="Day 20-25：CP 再達門檻，開第 3 村（需 CP ≥ 5,000 解鎖）" data-en="Day 20-25: CP threshold met again, open 3rd village (requires CP ≥ 5,000)">Day 20-25：開第 3 村（需 CP ≥ 5,000）</li>
                                 <li data-zh="Day 30-40：第 4-5 村，帳號開始成形" data-en="Day 30-40: 4th-5th villages, account shape forming">Day 30-40：第 4-5 村，帳號成形</li>
                                 <li data-zh="Day 40-60：各村角色分工完成，大規模產兵" data-en="Day 40-60: Village roles finalized, large-scale troop production">Day 40-60：各村分工完成，大規模產兵</li>
                             </ul>
@@ -1949,6 +1970,34 @@
     <!-- Note: app.js excluded to avoid TabManager conflict with strategy page's own tab system -->
     <script src="js/simulation-data.js"></script>
     <script>
+        // Language switcher
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                if (el.hasAttribute('data-zh') && el.hasAttribute('data-en')) {
+                    el.textContent = lang === 'zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                }
+            });
+            document.querySelectorAll('.lang-toggle').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            localStorage.setItem('travianLang', lang);
+        }
+
+        // Back to top
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        // Init language
+        (function() {
+            const saved = localStorage.getItem('travianLang') || 'zh';
+            if (saved !== 'zh') setLanguage(saved);
+        })();
+
         function switchTab(event, tabName) {
             // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
@@ -2108,5 +2157,50 @@
             if (tabName === 'sim-data') renderSimData();
         };
     </script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="主要章節" data-en="Main Sections">主要章節</h4>
+          <ul>
+            <li><a href="index.html" class="lang-text" data-zh="首頁" data-en="Home">首頁</a></li>
+            <li><a href="guide.html" class="lang-text" data-zh="攻略" data-en="Guide">攻略</a></li>
+            <li><a href="mechanics.html" class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</a></li>
+            <li><a href="tools.html" class="lang-text" data-zh="工具" data-en="Tools">工具</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="部族指南" data-en="Tribe Guides">部族指南</h4>
+          <ul>
+            <li><a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a></li>
+            <li><a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a></li>
+            <li><a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a></li>
+            <li><a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a></li>
+            <li><a href="tribe.html?t=huns" class="lang-text" data-zh="匈人" data-en="Huns">匈人</a></li>
+            <li><a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="資源" data-en="Resources">資源</h4>
+          <ul>
+            <li><a href="strategy.html" class="lang-text" data-zh="策略指南" data-en="Strategy Guide">策略指南</a></li>
+            <li><a href="index.html#tribe-overview-section" class="lang-text" data-zh="部族選擇指南" data-en="Tribe Selection">部族選擇指南</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          <span class="lang-text"
+            data-zh="© 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。"
+            data-en="© 2024 Travian Legends Beginner Guide. This site is not affiliated with Travian Games. Travian is a trademark of its respective owners.">
+            © 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top">↑</button>
 </body>
 </html>
