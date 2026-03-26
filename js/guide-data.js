@@ -1833,6 +1833,128 @@ const SETTLEMENT_GUIDE = {
         zh: "<ul><li><strong>瓦爾基里（Valkyrie）超值重騎兵：</strong>僅2糧草維持費的重騎兵，攻擊130、步防55、騎防120，是全遊戲最划算的重騎兵，中後期大量訓練瓦爾基里是維京的核心戰術。</li><li><strong>狂戰士（Berserker）保證擊殺機制：</strong>每個狂戰士保證至少擊殺1個敵方單位，在面對大量弱兵種時，少量狂戰士就能造成毀滅性破壞。</li><li><strong>掠奪船速度24：</strong>維京特有的海上掠奪工具，速度遠超任何陸地騎兵，在沿海地圖上可以快速掠奪大片區域，是獨特的海戰擴張路線。</li><li><strong>特殊伺服器限制：</strong>維京只在特定傳奇伺服器開放，這讓維京玩家群體更小，在可用的伺服器上，維京往往能形成非常獨特的戰術體系。</li></ul>",
         en: "<ul><li><strong>Valkyrie — exceptional value heavy cavalry:</strong> Only 2 crop upkeep, attack 130, infantry def 55, cavalry def 120 — the most cost-efficient heavy cavalry in the game; mass-training Valkyries in mid-to-late game is Vikings' core tactic.</li><li><strong>Berserker guaranteed kill mechanic:</strong> Each Berserker guarantees at least 1 enemy kill; against large numbers of weak troops, a few Berserkers cause devastating destruction.</li><li><strong>Raid Ship speed 24:</strong> Vikings' exclusive naval raiding tool — far faster than any land cavalry; on coastal maps, can quickly raid vast areas, offering a unique naval expansion route.</li><li><strong>Special server restriction:</strong> Vikings only available on specific Legend servers, making the Viking player base smaller; on available servers, Vikings often form a very unique tactical system.</li></ul>"
       }
+    },
+
+    spartans: {
+      name: { zh: "斯巴達人", en: "Spartans" },
+      estimatedTime: { zh: "第6-7天（特殊伺服器）", en: "Day 6-7 (special servers only)" },
+      speed: { zh: "中速（精兵路線）", en: "Medium (elite troop focus)" },
+      availability: {
+        zh: "僅在特定傳奇伺服器開放",
+        en: "Only on special Legend servers"
+      },
+      settlerCost: {
+        zh: "開拓者成本",
+        en: "Settler Cost",
+        per: { zh: "單位", en: "per unit", values: [4600, 4200, 4800, 4400] },
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 54000 }
+      },
+      keyAdvantage: {
+        zh: "全遊戲最高每穀戰力 + Asclepeion 回收 60% 陣亡部隊 + 英雄武器 +50% = 最強精兵效率",
+        en: "Highest combat per crop in game + Asclepeion 60% troop recovery + hero weapon +50% = ultimate elite efficiency"
+      },
+      heroStrategy: {
+        zh: "投入戰鬥力，英雄武器效果 +50% 且覆蓋全部斯巴達兵種，清洲和防守都大幅強化",
+        en: "Invest in Fighting Strength; hero weapon +50% bonus covers all Spartan units, greatly boosting oasis clearing and defense"
+      },
+      celebrationPlan: {
+        zh: "同其他族，開拓者成本適中，需6-8場慶典達成2000 CP",
+        en: "Same timing as others, moderate settler cost — 6-8 celebrations needed for 2000 CP"
+      },
+      troopTraining: {
+        zh: "Day 1-2訓練5-10個哨兵（Sentinel）護衛英雄；Day 3後訓練重裝步兵（Hoplite）清洲",
+        en: "Day 1-2 train 5-10 Sentinels to escort hero; Day 3+ train Hoplites for oasis clearing"
+      },
+      phases: [
+        {
+          name: { zh: "階段1: 基礎建設", en: "Phase 1: Foundation" },
+          timeRange: { zh: "第0-24小時", en: "Hour 0-24" },
+          steps: [
+            {
+              time: { zh: "0-6小時", en: "Hour 0-6" },
+              actions: [
+                { zh: "完成新手任務取得免費資源", en: "Complete beginner quests for free resources" },
+                { zh: "資源田升至Lv2-3", en: "Resource fields to Lv2-3" },
+                { zh: "村莊大樓升至Lv3", en: "Main Building to Lv3" },
+                { zh: "斯巴達城牆Lv1 [城牆耐久度低，優先升城牆]", en: "Spartan Wall Lv1 [low durability wall, prioritize upgrading]" }
+              ]
+            },
+            {
+              time: { zh: "6-12小時", en: "Hour 6-12" },
+              actions: [
+                { zh: "村莊大樓升至Lv5", en: "Main Building to Lv5" },
+                { zh: "資源田升至Lv4-5", en: "Resource fields to Lv4-5" },
+                { zh: "倉庫Lv3、糧倉Lv3", en: "Warehouse Lv3, Granary Lv3" },
+                { zh: "兵營Lv1-3，訓練5-10個哨兵（Sentinel）[防守護衛]", en: "Barracks Lv1-3, train 5-10 Sentinels [defense escort]" }
+              ]
+            },
+            {
+              time: { zh: "12-24小時", en: "Hour 12-24" },
+              actions: [
+                { zh: "村莊大樓升至Lv8-10 ★★★", en: "Main Building to Lv8-10 ★★★" },
+                { zh: "資源田升至Lv6", en: "Resource fields to Lv6" },
+                { zh: "倉庫/糧倉升至Lv5-6", en: "Warehouse/Granary to Lv5-6" },
+                { zh: "英雄+哨兵清理弱綠洲 [英雄武器+50%加成生效]", en: "Hero + Sentinels clear weak oases [hero weapon +50% bonus active]" }
+              ]
+            }
+          ]
+        },
+        {
+          name: { zh: "階段2: 軍事發展", en: "Phase 2: Military Development" },
+          timeRange: { zh: "第24-72小時", en: "Hour 24-72" },
+          steps: [
+            {
+              time: { zh: "24-48小時", en: "Hour 24-48" },
+              actions: [
+                { zh: "學院Lv10 → 研究重裝步兵（Hoplite）", en: "Academy Lv10 → Research Hoplite" },
+                { zh: "市政廳Lv1 → 開始慶典積CP", en: "Town Hall Lv1 → Begin celebrations for CP" },
+                { zh: "訓練重裝步兵（Hoplite）清洲 [均衡攻防，清洲主力]", en: "Train Hoplites for oasis clearing [balanced stats, main oasis clearer]" },
+                { zh: "開始建造 Asclepeion [核心特色建築，越早越好]", en: "Start building Asclepeion [core unique building, build ASAP]" }
+              ]
+            },
+            {
+              time: { zh: "48-72小時", en: "Hour 48-72" },
+              actions: [
+                { zh: "居所Lv1開始建設", en: "Begin Residence Lv1" },
+                { zh: "馬廄建設 → 研究希望騎士（Elpida Rider）[步防150，強力防守]", en: "Build Stable → Research Elpida Rider [infantry def 150, strong defense]" },
+                { zh: "訓練盾衛（Shieldsman）[步防104，防禦核心]", en: "Train Shieldsmen [infantry def 104, defensive core]" },
+                { zh: "升級城牆至Lv5+ [彌補城牆耐久不足]", en: "Upgrade Wall to Lv5+ [compensate for low wall durability]" }
+              ]
+            }
+          ]
+        },
+        {
+          name: { zh: "階段3: 開拓第二村", en: "Phase 3: Second Village" },
+          timeRange: { zh: "第72小時+", en: "Hour 72+" },
+          steps: [
+            {
+              time: { zh: "72-144小時", en: "Hour 72-144" },
+              actions: [
+                { zh: "繼續慶典直到CP達2000", en: "Continue celebrations until CP reaches 2000" },
+                { zh: "居所升至Lv10 → 訓練3個開拓者", en: "Residence to Lv10 → Train 3 Settlers" },
+                { zh: "訓練科林斯碎甲騎（Corinthian Crusher）[攻擊243，頂級重騎]", en: "Train Corinthian Crushers [attack 243, top-tier heavy cavalry]" },
+                { zh: "派出開拓者建立第二村 ★★★", en: "Send Settlers to establish second village ★★★" }
+              ]
+            }
+          ]
+        }
+      ],
+      earlyGameTips: {
+        zh: "<ul><li><strong>Day 1：</strong>資源田升Lv2-3 → 村莊大樓Lv3 → 訓練哨兵（Sentinel，步防52）作為初期護衛</li><li><strong>Day 1-2：</strong>村莊大樓Lv10 → 學院Lv10 → 研究重裝步兵（Hoplite）清洲 → 盡早建造 Asclepeion（核心特色）</li><li><strong>Day 2-3：</strong>市政廳Lv1 → 慶典積CP → 居所開始建造 → 馬廄研究希望騎士</li><li><strong>Day 3-5：</strong>訓練盾衛（Shieldsman）和希望騎士（Elpida Rider）作為防守主力</li><li><strong>Day 6-7：</strong>居所Lv10 + CP達2,000 → 派出開拓者</li></ul>",
+        en: "<ul><li><strong>Day 1:</strong> Resource fields to Lv2-3 → Main Building Lv3 → Train Sentinels (infantry def 52) as initial escorts</li><li><strong>Day 1-2:</strong> Main Building Lv10 → Academy Lv10 → Research Hoplite for oasis clearing → Build Asclepeion ASAP (core unique building)</li><li><strong>Day 2-3:</strong> Town Hall Lv1 → Celebrations for CP → Begin Residence → Stable to research Elpida Rider</li><li><strong>Day 3-5:</strong> Train Shieldsmen and Elpida Riders as defensive core</li><li><strong>Day 6-7:</strong> Residence Lv10 + CP hits 2,000 → Send settlers</li></ul>"
+      },
+      oasisTips: {
+        zh: "<ul><li><strong>英雄升點：</strong>斯巴達英雄武器效果+50%且強化所有斯巴達兵種，建議優先投戰鬥力，最大化清洲效率。</li><li><strong>Hoplite清洲：</strong>重裝步兵攻擊63.9、步防46.6，均衡的清洲主力，配合英雄可高效清除中等難度綠洲。</li><li><strong>護衛選擇：</strong>哨兵（Sentinel）步防52.4，適合護衛英雄；盾衛（Shieldsman）步防104，適合較難的綠洲。</li><li><strong>Asclepeion 回收：</strong>清洲受傷的兵種可通過 Asclepeion 回收，大幅降低兵力損耗成本。</li></ul>",
+        en: "<ul><li><strong>Hero stat allocation:</strong> Spartan hero weapon +50% covers all Spartan units; invest in Fighting Strength to maximize oasis clearing efficiency.</li><li><strong>Hoplite oasis clearing:</strong> Attack 63.9, infantry def 46.6 — well-rounded oasis clearer; with hero bonus, efficiently clears medium-difficulty oases.</li><li><strong>Escort choice:</strong> Sentinel (infantry def 52.4) ideal for hero escort; Shieldsman (infantry def 104) for harder oases.</li><li><strong>Asclepeion recovery:</strong> Troops lost during oasis clearing can be partially recovered via Asclepeion, significantly reducing attrition costs.</li></ul>"
+      },
+      mistakesTips: {
+        zh: "<ul><li><strong>錯誤1：忽視 Asclepeion 建造時機</strong> — Asclepeion 是斯巴達最核心的特色建築，越早建造越早獲益，拖延建造等於放棄了60%部隊回收的巨大優勢。</li><li><strong>錯誤2：急於訓練昂貴兵種</strong> — 斯巴達兵種訓練成本普遍偏高，前期資源有限時不要急著訓練科林斯碎甲騎，應先確保基礎建設完成。</li><li><strong>錯誤3：忽視城牆升級</strong> — 斯巴達城牆耐久度僅2，相對較弱，需要更積極地升級城牆等級以提升防禦加成。</li><li><strong>錯誤4：不善用英雄武器加成</strong> — 英雄武器效果+50%且覆蓋全部斯巴達兵種，應盡早裝備高品質武器，大幅提升整體戰力。</li><li><strong>錯誤5：在非特殊伺服器選斯巴達</strong> — 斯巴達只在特定伺服器可用，選擇伺服器前必須確認可用性。</li></ul>",
+        en: "<ul><li><strong>Mistake 1: Delaying Asclepeion construction</strong> — Asclepeion is Spartans' most critical unique building; build it ASAP to start recovering fallen troops. Delaying means forfeiting the massive 60% recovery advantage.</li><li><strong>Mistake 2: Rushing expensive troops</strong> — Spartan unit training costs are high across the board; don't rush Corinthian Crushers when resources are limited early game — finish core infrastructure first.</li><li><strong>Mistake 3: Neglecting wall upgrades</strong> — Spartan Wall durability is only 2, relatively weak; actively upgrade wall levels to increase the defense bonus.</li><li><strong>Mistake 4: Underutilizing hero weapon bonus</strong> — Hero weapon +50% applies to all Spartan units; equip high-quality weapons early to dramatically boost overall combat power.</li><li><strong>Mistake 5: Picking Spartans on non-special servers</strong> — Spartans are only available on specific servers; verify availability before selecting.</li></ul>"
+      },
+      tribeTips: {
+        zh: "<ul><li><strong>Asclepeion — 最強復活機制：</strong>最多恢復60%陣亡部隊，是全遊戲唯一能大規模回收戰損的特殊建築。配合昂貴的斯巴達精兵，投資一次訓練，長期都能保持高效戰力。</li><li><strong>科林斯碎甲騎（Corinthian Crusher）頂級重騎：</strong>攻擊243.3、步防111、騎防105，是全遊戲攻擊力最強的重騎兵之一，3穀草的維持費相比戰力性價比極高。</li><li><strong>每穀消耗戰力最高：</strong>斯巴達兵種雖貴，但每消耗1穀草所提供的攻防戰力是所有部族中最高的，適合以少勝多的精兵戰術。</li><li><strong>英雄武器覆蓋全族兵種：</strong>其他部族英雄武器只強化英雄本身，斯巴達的英雄武器效果+50%且同時強化所有斯巴達兵種，是獨特的全軍加成機制。</li></ul>",
+        en: "<ul><li><strong>Asclepeion — strongest revival mechanic:</strong> Recovers up to 60% of fallen troops — the only building in the game that large-scale recovers battle losses. Combined with expensive Spartan elites, one training investment sustains long-term combat efficiency.</li><li><strong>Corinthian Crusher — top-tier heavy cavalry:</strong> Attack 243.3, infantry def 111, cavalry def 105 — one of the strongest heavy cavalry units in the game; 3-crop upkeep delivers exceptional combat value.</li><li><strong>Highest combat power per crop:</strong> Spartan troops are expensive but deliver the highest attack/defense per crop consumed of any tribe — ideal for elite quality-over-quantity tactics.</li><li><strong>Hero weapon covers entire army:</strong> Unlike other tribes where hero weapons only boost the hero, Spartan hero weapons grant +50% and apply to all Spartan units simultaneously — a unique whole-army buff mechanic.</li></ul>"
+      }
     }
   }
 };

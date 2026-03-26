@@ -1022,6 +1022,176 @@ const TRIBES_DATA = {
         role: { zh: "維京獨有速度 24/小時", en: "Vikings exclusive speed 24/hr" }
       }
     }
+  },
+
+  spartans: {
+    id: "spartans",
+    name: { zh: "斯巴達人", en: "Spartans" },
+    icon: "🏛️",
+    archetype: { zh: "軍事型", en: "Military" },
+    difficulty: { zh: "★★★★☆ 進階玩家", en: "★★★★☆ Advanced players" },
+    servers: { zh: "特殊伺服器", en: "Special servers only" },
+    description: {
+      zh: "斯巴達人兵種昂貴但每穀消耗戰力最高，Asclepeion 可恢復最多 60% 陣亡部隊，英雄武器效果 +50% 且可強化斯巴達兵種。適合追求精兵強將的進階玩家。",
+      en: "Spartan troops are expensive but deliver the highest combat power per crop. Asclepeion recovers up to 60% of fallen troops, and hero weapons grant +50% bonus and also boost Spartan units. Ideal for advanced players seeking elite military efficiency."
+    },
+    heroPassive: {
+      zh: "英雄武器效果 +50%，且武器同時強化斯巴達兵種戰力",
+      en: "+50% hero weapon bonus, weapons also boost Spartan unit combat strength"
+    },
+    specialBuildings: [
+      { zh: "Asclepeion（最多恢復 60% 陣亡部隊）", en: "Asclepeion (recovers up to 60% of fallen troops)" },
+      { zh: "斯巴達城牆（耐久度 2，與高盧人相同）", en: "Spartan Wall (durability 2, same as Gauls)" }
+    ],
+    strengths: [
+      { zh: "每穀消耗戰力最高（精兵效率全遊戲第一）", en: "Highest combat power per crop consumed (top troop efficiency)" },
+      { zh: "Asclepeion 可回收最多 60% 陣亡部隊，大幅降低兵力損失", en: "Asclepeion recovers up to 60% fallen troops, drastically reducing losses" },
+      { zh: "英雄武器 +50% 強化，且武器效果覆蓋全部斯巴達兵種", en: "Hero weapon +50% bonus, with weapon effects applying to all Spartan units" },
+      { zh: "Elpida Rider 防禦力極強（步防 150.7 / 騎防 116.2）", en: "Elpida Rider exceptional defense (infantry 150.7 / cavalry 116.2)" }
+    ],
+    weaknesses: [
+      { zh: "兵種訓練成本昂貴，前期資源壓力大", en: "Expensive troop training costs, heavy early-game resource pressure" },
+      { zh: "城牆防禦加成較低（耐久度 2）", en: "Low wall defense bonus (durability 2)" },
+      { zh: "特殊伺服器限制，並非所有伺服器可選", en: "Limited to special servers, not available on all servers" }
+    ],
+    units: [
+      {
+        name: { zh: "重裝步兵", en: "Hoplite" },
+        type: "infantry",
+        attack: 63.9,
+        infantryDef: 46.6,
+        cavalryDef: 40.9,
+        speed: 6,
+        carry: 40,
+        upkeep: 1,
+        cost: { wood: 130, clay: 105, iron: 110, crop: 65 },
+        trainTime: 1400,
+        role: { zh: "均衡基礎步兵", en: "Balanced basic infantry" }
+      },
+      {
+        name: { zh: "哨兵", en: "Sentinel" },
+        type: "infantry",
+        attack: 6.4,
+        infantryDef: 52.4,
+        cavalryDef: 31.7,
+        speed: 9,
+        carry: 0,
+        upkeep: 1,
+        cost: { wood: 160, clay: 110, iron: 25, crop: 45 },
+        trainTime: 1200,
+        role: { zh: "防禦型步兵 / 護衛英雄", en: "Defensive infantry / hero escort" }
+      },
+      {
+        name: { zh: "盾衛", en: "Shieldsman" },
+        type: "infantry",
+        attack: 52.4,
+        infantryDef: 104.1,
+        cavalryDef: 58.1,
+        speed: 8,
+        carry: 35,
+        upkeep: 1,
+        cost: { wood: 210, clay: 260, iron: 190, crop: 90 },
+        trainTime: 1800,
+        role: { zh: "重型防禦步兵", en: "Heavy defensive infantry" }
+      },
+      {
+        name: { zh: "雙鋼獸人", en: "Twinsteel Therion" },
+        type: "infantry",
+        attack: 109.8,
+        infantryDef: 69.6,
+        cavalryDef: 52.4,
+        speed: 6,
+        carry: 50,
+        upkeep: 1,
+        cost: { wood: 390, clay: 360, iron: 420, crop: 130 },
+        trainTime: 2400,
+        role: { zh: "精英重裝攻擊步兵", en: "Elite heavy attack infantry" }
+      },
+      {
+        name: { zh: "希望騎士", en: "Elpida Rider" },
+        type: "cavalry",
+        attack: 76.0,
+        infantryDef: 150.7,
+        cavalryDef: 116.2,
+        speed: 16,
+        carry: 45,
+        upkeep: 2,
+        cost: { wood: 560, clay: 520, iron: 340, crop: 170 },
+        trainTime: 3200,
+        role: { zh: "超強防禦騎兵", en: "Exceptional defensive cavalry" }
+      },
+      {
+        name: { zh: "科林斯碎甲騎", en: "Corinthian Crusher" },
+        type: "cavalry",
+        attack: 243.3,
+        infantryDef: 111.1,
+        cavalryDef: 105.3,
+        speed: 9,
+        carry: 70,
+        upkeep: 3,
+        cost: { wood: 920, clay: 870, iron: 780, crop: 260 },
+        trainTime: 5000,
+        role: { zh: "精英重騎兵（超高攻擊）", en: "Elite heavy cavalry (extreme attack power)" }
+      },
+      {
+        name: { zh: "斯巴達攻城槌", en: "Spartan Ram" },
+        type: "siege",
+        attack: 65,
+        infantryDef: 35,
+        cavalryDef: 30,
+        speed: 4,
+        carry: 0,
+        upkeep: 3,
+        cost: { wood: 950, clay: 400, iron: 480, crop: 80 },
+        trainTime: 4800,
+        role: { zh: "破壞城牆的攻城器", en: "Wall destruction siege unit" }
+      },
+      {
+        name: { zh: "斯巴達投石機", en: "Spartan Catapult" },
+        type: "siege",
+        attack: 75,
+        infantryDef: 60,
+        cavalryDef: 10,
+        speed: 3,
+        carry: 0,
+        upkeep: 6,
+        cost: { wood: 960, clay: 1380, iron: 640, crop: 90 },
+        trainTime: 9200,
+        role: { zh: "遠程攻城器", en: "Long-range siege unit" }
+      },
+      {
+        name: { zh: "督政官", en: "Ephor" },
+        type: "special",
+        attack: 30,
+        infantryDef: 40,
+        cavalryDef: 20,
+        speed: 5,
+        carry: 0,
+        upkeep: 4,
+        cost: { wood: 30500, clay: 27200, iron: 45000, crop: 37500 },
+        trainTime: 90700,
+        role: { zh: "佔領敵方村莊（每次降忠誠 20-25%）", en: "Conquers enemy villages (reduces loyalty 20-25% per use)" }
+      },
+      {
+        name: { zh: "開拓者", en: "Settler" },
+        type: "special",
+        attack: 0,
+        infantryDef: 0,
+        cavalryDef: 0,
+        speed: 5,
+        carry: 3000,
+        upkeep: 1,
+        cost: { wood: 4600, clay: 4200, iron: 4800, crop: 4400 },
+        trainTime: 90700,
+        role: { zh: "建立新村莊", en: "Establishes new villages" }
+      }
+    ],
+    defenseRatio: {
+      zh: "60% 盾衛（Shieldsman）/ 40% 希望騎士（Elpida Rider）",
+      en: "60% Shieldsmen / 40% Elpida Riders"
+    },
+    merchantCapacity: 500,
+    merchantSpeed: 14
   }
 };
 
