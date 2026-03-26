@@ -438,8 +438,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Research Settler technology [in Academy, requires Academy Lv5+]"
                 },
                 {
-                  zh: "開始訓練3個開拓者 [57,000資源: 木材19,000 + 黏土19,000 + 鐵礦19,000]",
-                  en: "Start training 3 Settlers [57,000 resources: 19k wood + 19k clay + 19k iron]"
+                  zh: "開始訓練3個開拓者 [57,000資源: 木材13,800 + 黏土12,600 + 鐵礦17,400 + 穀物13,200]",
+                  en: "Start training 3 Settlers [57,000 resources: 13,800 wood + 12,600 clay + 17,400 iron + 13,200 crop]"
                 },
                 {
                   zh: "第4、5場慶典啟動",
@@ -511,7 +511,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4350, 3900, 5220, 3960] },
+        per: { zh: "單位", en: "per unit", values: [4400, 5600, 4200, 3900] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 54300 }
       },
       keyAdvantage: {
@@ -762,7 +762,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4800, 4400, 6000, 4600] },
+        per: { zh: "單位", en: "per unit", values: [5800, 4400, 4600, 5200] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 60000 }
       },
       keyAdvantage: {
@@ -778,8 +778,8 @@ const SETTLEMENT_GUIDE = {
         en: "Same as others, but settler cost is highest - may need more CP buffer"
       },
       troopTraining: {
-        zh: "Day 1開始積極訓練棍棒兵(速度18，負載100)，從Hour 12開始掠奪綠洲和不活躍玩家補充資源",
-        en: "Day 1 aggressively train Clubswingers (speed 18, carry 100), start raiding from Hour 12 to supplement resources"
+        zh: "Day 1開始積極訓練棍棒兵(速度7，負載60)，從Hour 12開始掠奪綠洲和不活躍玩家補充資源",
+        en: "Day 1 aggressively train Clubswingers (speed 7, carry 60), start raiding from Hour 12 to supplement resources"
       },
       phases: [
         {
@@ -952,8 +952,8 @@ const SETTLEMENT_GUIDE = {
                   en: "Hero raiding input critical: settlers expected Hour 110-120 completion"
                 },
                 {
-                  zh: "掠奪不活躍玩家和綠洲(速度18棍棒兵,負載100) [必須維持掠奪節奏]",
-                  en: "Raid inactive players and oases (speed 18, carry 100) [must maintain raid pace]"
+                  zh: "掠奪不活躍玩家和綠洲(棍棒兵速度7,負載60) [必須維持掠奪節奏]",
+                  en: "Raid inactive players and oases (Clubswinger speed 7, carry 60) [must maintain raid pace]"
                 }
               ]
             }
@@ -1013,7 +1013,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4600, 4200, 5800, 4400] },
+        per: { zh: "單位", en: "per unit", values: [4560, 5890, 4370, 4180] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 57000 }
       },
       keyAdvantage: {
@@ -1268,7 +1268,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4950, 4550, 6300, 4750] },
+        per: { zh: "單位", en: "per unit", values: [6100, 4600, 4800, 5400] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 62700 }
       },
       keyAdvantage: {
@@ -1503,7 +1503,7 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4700, 4300, 5900, 4500] },
+        per: { zh: "單位", en: "per unit", values: [5200, 5000, 4800, 4200] },
         total3: { zh: "3個開拓者", en: "3 settlers", value: 57600 }
       },
       keyAdvantage: {
@@ -1515,8 +1515,8 @@ const SETTLEMENT_GUIDE = {
         en: "Fighting Strength focus (oasis + raiding), hero -5% loyalty stacks with Jarl, strengthens raids"
       },
       celebrationPlan: {
-        zh: "同其他族，開拓者成本適中，4-5場慶典達成",
-        en: "Same timing, moderate settler cost - 4-5 celebrations for 2000 CP"
+        zh: "同其他族，開拓者成本適中，需6-8場慶典達成2000 CP",
+        en: "Same timing, moderate settler cost - 6-8 celebrations needed for 2000 CP"
       },
       troopTraining: {
         zh: "Day 1-2訓練5-10個盾女(防守+掠奪混用)；Day 3後備選女狂戰士(快速掠奪)",
