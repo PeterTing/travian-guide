@@ -677,6 +677,54 @@
       <!-- TRIBE NAVIGATION -->
       <div class="tribe-nav" id="tribeNav"></div>
     </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="主要章節" data-en="Main Sections">主要章節</h4>
+          <ul>
+            <li><a href="index.html" class="lang-text" data-zh="首頁" data-en="Home">首頁</a></li>
+            <li><a href="guide.html" class="lang-text" data-zh="攻略" data-en="Guide">攻略</a></li>
+            <li><a href="mechanics.html" class="lang-text" data-zh="遊戲機制" data-en="Mechanics">遊戲機制</a></li>
+            <li><a href="tools.html" class="lang-text" data-zh="工具" data-en="Tools">工具</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="部族指南" data-en="Tribe Guides">部族指南</h4>
+          <ul>
+            <li><a href="tribe.html?t=romans" class="lang-text" data-zh="羅馬人" data-en="Romans">羅馬人</a></li>
+            <li><a href="tribe.html?t=gauls" class="lang-text" data-zh="高盧人" data-en="Gauls">高盧人</a></li>
+            <li><a href="tribe.html?t=teutons" class="lang-text" data-zh="條頓人" data-en="Teutons">條頓人</a></li>
+            <li><a href="tribe.html?t=egyptians" class="lang-text" data-zh="埃及人" data-en="Egyptians">埃及人</a></li>
+            <li><a href="tribe.html?t=huns" class="lang-text" data-zh="匈人" data-en="Huns">匈人</a></li>
+            <li><a href="tribe.html?t=vikings" class="lang-text" data-zh="維京人" data-en="Vikings">維京人</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="lang-text" data-zh="資源" data-en="Resources">資源</h4>
+          <ul>
+            <li><a href="strategy.html" class="lang-text" data-zh="策略指南" data-en="Strategy Guide">策略指南</a></li>
+            <li><a href="index.html#tribe-overview-section" class="lang-text" data-zh="部族選擇指南" data-en="Tribe Selection">部族選擇指南</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          <span class="lang-text"
+            data-zh="© 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。"
+            data-en="© 2024 Travian Legends Beginner Guide. This site is not affiliated with Travian Games. Travian is a trademark of its respective owners.">
+            © 2024 Travian Legends 新手攻略。此站點不隸屬於 Travian Games。Travian 是其各自所有人的商標。
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="back-to-top">↑</button>
   </div>
 
   <script src="js/data.js?v=1774283536"></script>
@@ -1044,6 +1092,13 @@
 
     // Initialize on load
     document.addEventListener('DOMContentLoaded', init);
+
+    // Back to top
+    const _btn = document.getElementById('back-to-top');
+    if (_btn) {
+      window.addEventListener('scroll', () => _btn.classList.toggle('show', window.scrollY > 300));
+      _btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
   </script>
 </body>
 </html>
