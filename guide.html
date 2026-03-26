@@ -936,6 +936,392 @@
           </ul>
         </div>
       </section>
+
+      <!-- ======================================================
+           逐步建築模擬器 — Gaul 3P Hero Farming
+           數據來源：
+             ✅ = 遊戲內確認 (cost-reference.md)
+             📐 = 公式推算 base×1.28^(n-1)（建築適用）
+             推算 = 以確認 Lv8/Lv9 值反推（資源田用 ~1.669 倍率）
+           慶典 CP = 村莊當日日產 CP（上限 500/次，x1 速度）
+      ====================================================== -->
+      <section id="build-simulator" style="margin: var(--spacing-xl) 0;">
+        <h2 class="section-header">
+          <span class="lang-text" data-zh="逐步建築模擬器 — Gaul 3P Hero Farming" data-en="Step-by-Step Build Simulator — Gaul 3P Hero Farming">逐步建築模擬器 — Gaul 3P Hero Farming</span>
+        </h2>
+
+        <div class="tip-box info" style="margin: var(--spacing-md) 0;">
+          <strong>📊 模擬說明</strong>
+          <p style="margin-top:0.5em;">
+            對標 T4.6「3-3P-Sim」分頁格式。追蹤每步的建築成本、任務獎勵、資源餘額、CP 日產、人口。<br>
+            <strong>餘額</strong> = 初始 3000 + 累積獎勵 - 累積建築成本。<strong>負值</strong>表示需等待生產或英雄農場補充。<br>
+            <span style="color:#f39c12;">● 標記 = 關鍵里程碑</span>　<span style="color:#e74c3c;">■ 負餘額</span> = 需農場/等待　<span style="color:#27ae60;">▲ 任務獎勵</span>
+          </p>
+        </div>
+
+        <!-- Phase toggle buttons -->
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:var(--spacing-md) 0;" id="phase-toggles">
+          <button onclick="togglePhase(1)" id="ph-btn-1" class="phase-btn active-phase">Phase 1: 新手任務</button>
+          <button onclick="togglePhase(2)" id="ph-btn-2" class="phase-btn active-phase">Phase 2: 全田 Lv2</button>
+          <button onclick="togglePhase(3)" id="ph-btn-3" class="phase-btn active-phase">Phase 3: 核心建築</button>
+          <button onclick="togglePhase(4)" id="ph-btn-4" class="phase-btn active-phase">Phase 4: 全田 Lv3</button>
+          <button onclick="togglePhase(5)" id="ph-btn-5" class="phase-btn active-phase">Phase 5: MB10 + Academy</button>
+          <button onclick="togglePhase(6)" id="ph-btn-6" class="phase-btn active-phase">Phase 6: TH + Residence 10</button>
+          <button onclick="togglePhase(7)" id="ph-btn-7" class="phase-btn active-phase">Phase 7: Settlers</button>
+        </div>
+
+        <!-- The simulation table -->
+        <div style="overflow-x:auto; margin: var(--spacing-md) 0;">
+          <table id="sim-table" style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:860px;">
+            <thead>
+              <tr style="background:#3d2008;color:#f5deb3;">
+                <th style="padding:0.5rem 0.4rem;text-align:center;border:1px solid #6b3410;white-space:nowrap;">#</th>
+                <th style="padding:0.5rem 0.4rem;text-align:left;border:1px solid #6b3410;">建築 / 動作</th>
+                <th style="padding:0.5rem 0.4rem;text-align:center;border:1px solid #6b3410;">Lv</th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;">成本<br><small style="opacity:0.7;">W+C+I+Cr</small></th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;color:#27ae60;">獎勵</th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;">餘額</th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;">CP/天</th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;">累積CP/天</th>
+                <th style="padding:0.5rem 0.4rem;text-align:right;border:1px solid #6b3410;">人口</th>
+                <th style="padding:0.5rem 0.4rem;text-align:left;border:1px solid #6b3410;">備註</th>
+              </tr>
+            </thead>
+            <tbody id="sim-tbody">
+            </tbody>
+          </table>
+        </div>
+
+        <!-- CP Timeline summary -->
+        <div style="margin:var(--spacing-lg) 0;">
+          <h3 style="color:var(--color-primary);margin-bottom:var(--spacing-md);">CP 累積時間線估算（x1 速度）</h3>
+          <div class="tip-box info">
+            <p>慶典 CP = 村莊當日 CP 日產（上限 500/次）。下表假設 Town Hall Lv1 從 Day 3 開始，每 24 小時一次慶典。</p>
+          </div>
+          <div style="overflow-x:auto;margin-top:var(--spacing-md);">
+            <table style="border-collapse:collapse;font-size:0.9rem;min-width:600px;">
+              <thead>
+                <tr style="background:#3d2008;color:#f5deb3;">
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;">時間點</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">CP/天</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">被動累積</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">慶典次數</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">慶典 CP</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;color:#f39c12;">總累積 CP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 1 開始</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~18</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">18</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">0</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">0</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">18</td></tr>
+                <tr style="background:#1a0f0a;"><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 2 末</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~35</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~70</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">0</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">0</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">~70</td></tr>
+                <tr><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 3 — TH Lv1 ★ 第1次慶典</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~55</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~165</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">1</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~55</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#f39c12;">~220</td></tr>
+                <tr style="background:#1a0f0a;"><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 4 — 第2次慶典</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~80</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~320</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">2</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~135</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#f39c12;">~455</td></tr>
+                <tr><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 5 — 第3次慶典</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~110</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~550</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">3</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~245</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#f39c12;">~795</td></tr>
+                <tr style="background:#1a0f0a;"><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 6 — 第4次慶典</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~140</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~840</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">4</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~385</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#f39c12;">~1,225</td></tr>
+                <tr><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 7 — 第5次慶典</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~160</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~1,120</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">5</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~545</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#f39c12;">~1,665</td></tr>
+                <tr style="background:#1a0f0a;"><td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Day 8 — 第6次慶典 🎉 達標！</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~175</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~1,400</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">6</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">~720</td><td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#27ae60;">~2,120 ✅</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.8rem;opacity:0.7;margin-top:0.5rem;">* CP/天隨建築完成逐步增加，非固定值。慶典 CP = 慶典時刻的 CP/天。若建築更快，Day 6-7 即可達 2000 CP。</p>
+        </div>
+
+        <!-- Settler cost comparison -->
+        <div style="margin:var(--spacing-lg) 0;">
+          <h3 style="color:var(--color-primary);margin-bottom:var(--spacing-md);">定居者 ×3 成本比較（各族）</h3>
+          <div style="overflow-x:auto;">
+            <table style="border-collapse:collapse;font-size:0.9rem;min-width:500px;">
+              <thead>
+                <tr style="background:#3d2008;color:#f5deb3;">
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;">種族</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">單隻成本</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;text-align:right;">×3 總成本</th>
+                  <th style="padding:0.5rem 0.8rem;border:1px solid #6b3410;">優勢</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:#1a2a0a;">
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;color:#27ae60;font-weight:bold;">🥇 高盧 Gauls</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">4,400W+5,600C+4,200I+3,900Cr = <strong>18,100</strong></td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;color:#27ae60;">54,300 ✅</td>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">最便宜 + 訓練快 25%</td>
+                </tr>
+                <tr>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">🥈 羅馬 Romans</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">4,600W+4,200C+5,800I+4,400Cr = 19,000</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">57,000 ✅</td>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">雙佇列加速建設</td>
+                </tr>
+                <tr style="background:#1a0f0a;">
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">🥈 埃及 Egyptians</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">4,560W+5,890C+4,370I+4,180Cr = 19,000</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">57,000</td>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Waterworks 資源加成</td>
+                </tr>
+                <tr>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">條頓 Teutons</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">5,800W+4,400C+4,600I+5,200Cr = 20,000</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">60,000</td>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">Cranny 掠奪省錢</td>
+                </tr>
+                <tr style="background:#1a0f0a;">
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">匈人 Huns</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;">6,100W+4,600C+4,800I+5,400Cr = 20,900</td>
+                  <td style="text-align:right;padding:0.4rem 0.8rem;border:1px solid #3d2817;font-weight:bold;">62,700</td>
+                  <td style="padding:0.4rem 0.8rem;border:1px solid #3d2817;">最快騎兵速度</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.8rem;opacity:0.7;margin-top:0.5rem;">* 所有成本數據來自 cost-reference.md ✅ 確認值</p>
+        </div>
+
+        <!-- Multi-village development summary -->
+        <div style="margin:var(--spacing-lg) 0;">
+          <h3 style="color:var(--color-primary);margin-bottom:var(--spacing-md);">多村發展路線概覽</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+            <div style="background:#1a2a0a;border:1px solid #3a6a1a;border-radius:6px;padding:1rem;">
+              <div style="font-weight:bold;color:#7dbd3a;margin-bottom:0.5rem;">🏠 第一村（起步村）</div>
+              <ul style="margin:0;padding-left:1.2em;font-size:0.85rem;color:#ccc;">
+                <li>衝 MB10 + Academy10</li>
+                <li>Town Hall → 慶典刷 CP</li>
+                <li>Residence Lv10 + Settlers</li>
+                <li>英雄農場支撐所有資源</li>
+                <li>資源田衝到 Lv3-4</li>
+              </ul>
+            </div>
+            <div style="background:#0a1a2a;border:1px solid #1a5a8a;border-radius:6px;padding:1rem;">
+              <div style="font-weight:bold;color:#3a9dbd;margin-bottom:0.5rem;">🏘️ 第二村（首都候選）</div>
+              <ul style="margin:0;padding-left:1.2em;font-size:0.85rem;color:#ccc;">
+                <li>優先選 15c（15 穀田）</li>
+                <li>未來首都 = 養大軍穀倉</li>
+                <li>資源田衝 Lv10+</li>
+                <li>Flour Mill + Bakery（+25%穀）</li>
+                <li>佔 3 個 +50% 穀綠洲</li>
+              </ul>
+            </div>
+            <div style="background:#2a1a0a;border:1px solid #8a4a1a;border-radius:6px;padding:1rem;">
+              <div style="font-weight:bold;color:#bd7d3a;margin-bottom:0.5rem;">⚔️ 第三村（攻擊/防禦）</div>
+              <ul style="margin:0;padding-left:1.2em;font-size:0.85rem;color:#ccc;">
+                <li>Day 20-25 開啟</li>
+                <li>攻擊村：Barracks/Stable 衝高</li>
+                <li>防禦村：Wall + 大量防禦兵</li>
+                <li>靠近聯盟或目標區域</li>
+                <li>首都供應資源</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <style>
+        .phase-btn {
+          padding: 0.4rem 0.8rem;
+          background: #2a1810;
+          border: 1px solid #8b4513;
+          color: #d4af37;
+          cursor: pointer;
+          font-size: 0.85rem;
+          border-radius: 4px;
+          transition: all 0.2s;
+        }
+        .phase-btn:hover { background: #3d2817; }
+        .phase-btn.active-phase { background: #8b4513; color: #fff; }
+        .phase-btn.hidden-phase { background: #1a0f0a; color: #666; border-color: #444; }
+        .sim-row { transition: opacity 0.2s; }
+        .sim-milestone { background: #2a1808 !important; border-left: 3px solid #f39c12; }
+        .sim-negative { color: #e74c3c !important; }
+        .sim-positive { color: #27ae60 !important; }
+      </style>
+
+      <script>
+      (function() {
+        // ─── BUILD ORDER DATA ────────────────────────────────────────────────
+        // cost: [W, C, I, Cr]  (total resources = sum of all 4)
+        // quest: bonus resources received (total, all types)
+        // cpD: CP/day delta from this step
+        // pop: population delta
+        // phase: 1-7
+        // milestone: highlight flag
+        // note: data source annotation
+        //
+        // Resource field costs (推算 from ✅ Lv8/Lv9 confirmed values):
+        //   Woodcutter  factor ~1.669: Lv2=[67,167,84,100], Lv3=[112,279,140,167]
+        //   Clay Pit    factor ~1.284: Lv2=[103,51,103,64],  Lv3=[132,66,132,83]   (📐)
+        //   Iron Mine   factor ~1.669: Lv2=[167,134,50,100], Lv3=[280,225,85,165]  (✅ Lv3)
+        //   Cropland    factor ~1.669: Lv2=[117,150,117,33], Lv3=[195,250,195,55]  (✅ Lv3)
+        //
+        // Village building costs: base × 1.28^(n-1), generally reliable for buildings.
+
+        const steps = [
+          // ── PHASE 1: 新手任務 ──
+          { step:1,  phase:1, name:"Main Building",     lv:"1",    cost:190,  quest:600,  cpD:2,  pop:2,  note:"📐" },
+          { step:2,  phase:1, name:"Woodcutter ×1",     lv:"1→2",  cost:418,  quest:600,  cpD:1,  pop:1,  note:"推算" },
+          { step:3,  phase:1, name:"Cropland ×1",       lv:"1→2",  cost:415,  quest:600,  cpD:1,  pop:1,  note:"推算" },
+          { step:4,  phase:1, name:"Rally Point",       lv:"1",    cost:400,  quest:600,  cpD:1,  pop:2,  note:"✅" },
+          { step:5,  phase:1, name:"Clay Pit ×1",       lv:"1→2",  cost:321,  quest:0,    cpD:1,  pop:1,  note:"📐" },
+          { step:6,  phase:1, name:"Iron Mine ×1",      lv:"1→2",  cost:451,  quest:0,    cpD:1,  pop:1,  note:"推算" },
+          { step:7,  phase:1, name:"Granary",           lv:"1",    cost:270,  quest:0,    cpD:1,  pop:2,  note:"📐" },
+          { step:8,  phase:1, name:"Warehouse",         lv:"1",    cost:420,  quest:0,    cpD:1,  pop:2,  note:"📐" },
+
+          // ── PHASE 2: 全田 Lv2 ──
+          // Woodcutter ×3 @ Lv2 cost [67,167,84,100]=418 → 3×418=1254
+          { step:9,  phase:2, name:"Woodcutter ×3",    lv:"1→2",  cost:1254, quest:0,    cpD:3,  pop:3,  note:"推算" },
+          // Cropland ×5 @ Lv2 cost [117,150,117,33]=417 → 5×417=2085
+          { step:10, phase:2, name:"Cropland ×5",      lv:"1→2",  cost:2085, quest:0,    cpD:5,  pop:5,  note:"推算" },
+          // Clay Pit ×3 @ Lv2 cost [103,51,103,64]=321 → 3×321=963
+          { step:11, phase:2, name:"Clay Pit ×3",      lv:"1→2",  cost:963,  quest:0,    cpD:3,  pop:3,  note:"📐" },
+          // Iron Mine ×3 @ Lv2 cost [167,134,50,100]=451 → 3×451=1353
+          { step:12, phase:2, name:"Iron Mine ×3",     lv:"1→2",  cost:1353, quest:0,    cpD:3,  pop:3,  note:"推算" },
+
+          // ── PHASE 3: 核心建築 ──
+          { step:13, phase:3, name:"Main Building",    lv:"2",    cost:320,  quest:0,    cpD:1,  pop:1,  note:"✅" },
+          { step:14, phase:3, name:"Main Building",    lv:"3",    cost:405,  quest:0,    cpD:1,  pop:1,  note:"📐" },
+          // Granary Lv1→2→3: [100,130,90,25]=345 + [130,165,115,30]=440 = 785
+          { step:15, phase:3, name:"Granary",          lv:"2+3",  cost:785,  quest:0,    cpD:2,  pop:4,  note:"📐" },
+          // Marketplace Lv1: [80,70,120,70]=340
+          { step:16, phase:3, name:"Marketplace",      lv:"1",    cost:340,  quest:0,    cpD:3,  pop:2,  note:"📐" },
+          // Embassy Lv1 (推算): [180,130,80,40]=430
+          { step:17, phase:3, name:"Embassy",          lv:"1",    cost:430,  quest:0,    cpD:5,  pop:2,  note:"推算" },
+          // Cranny Lv1: [40,50,30,10]=130
+          { step:18, phase:3, name:"Cranny",           lv:"1",    cost:130,  quest:0,    cpD:1,  pop:1,  note:"📐" },
+          // Palisade (Gaul wall) Lv1 (推算): [60,80,30,20]=190
+          { step:19, phase:3, name:"Palisade (高盧牆)", lv:"1",   cost:190,  quest:0,    cpD:1,  pop:2,  note:"推算" },
+          // Barracks Lv1: [210,140,260,120]=730
+          { step:20, phase:3, name:"Barracks → 訓練 3 Phalanx", lv:"1", cost:730, quest:0, cpD:2, pop:2, note:"📐 ← 訓練 3 Phalanx 開始農場" },
+          // Warehouse Lv1→2→3: [165,205,115,50]+[210,260,150,65]=1220
+          { step:21, phase:3, name:"Warehouse",        lv:"2+3",  cost:1220, quest:0,    cpD:2,  pop:4,  note:"📐 倉容→2300" },
+          // Marketplace Lv2+3: [102,90,154,90]+[131,115,197,115]=994
+          { step:22, phase:3, name:"Marketplace",      lv:"2+3",  cost:994,  quest:0,    cpD:2,  pop:2,  note:"📐" },
+
+          // ── PHASE 4: 全田 Lv3 ──
+          // Woodcutter ×4 Lv2→3 cost [112,279,140,167]=698 → 4×698=2792
+          { step:23, phase:4, name:"Woodcutter ×4",   lv:"2→3",  cost:2792, quest:0,    cpD:4,  pop:4,  note:"推算" },
+          // Cropland ×6 Lv2→3 cost [195,250,195,55]=695 → 6×695=4170  ✅ Lv3 confirmed
+          { step:24, phase:4, name:"Cropland ×6",     lv:"2→3",  cost:4170, quest:0,    cpD:6,  pop:6,  note:"✅ Lv3" },
+          // Clay Pit ×4 Lv2→3 cost [130,65,130,80]=405 → 4×405=1620  📐
+          { step:25, phase:4, name:"Clay Pit ×4",     lv:"2→3",  cost:1620, quest:0,    cpD:4,  pop:4,  note:"📐" },
+          // Iron Mine ×4 Lv2→3 cost [280,225,85,165]=755 → 4×755=3020  ✅ Lv3 confirmed
+          { step:26, phase:4, name:"Iron Mine ×4",    lv:"2→3",  cost:3020, quest:0,    cpD:4,  pop:4,  note:"✅ Lv3" },
+
+          // ── PHASE 5: MB10 + Academy10 ──
+          // MB Lv3→5: [215,115,130,65]525 + [275,150,170,80]675 = 1200
+          { step:27, phase:5, name:"Main Building",   lv:"4+5",  cost:1200, quest:0,    cpD:2,  pop:2,  note:"📐" },
+          // MB Lv5→10: 855+1100+1410+1800+2305=7470
+          { step:28, phase:5, name:"Main Building",   lv:"6→10", cost:7470, quest:0,    cpD:5,  pop:5,  note:"📐 建築加速大幅提升" },
+          // Academy Lv1: [220,160,90,40]=510
+          { step:29, phase:5, name:"Academy",         lv:"1",    cost:510,  quest:0,    cpD:4,  pop:2,  note:"📐" },
+          // Academy Lv2→5: 653+836+1070+1370=3929
+          { step:30, phase:5, name:"Academy",         lv:"2→5",  cost:3929, quest:0,    cpD:8,  pop:4,  note:"📐" },
+          // Academy Lv6→10: 1754+2245+2874+3679+4710=15262
+          { step:31, phase:5, name:"Academy",         lv:"6→10", cost:15262,quest:0,    cpD:18, pop:5,  note:"📐 TH 解鎖前置條件" },
+
+          // ── PHASE 6: Town Hall + Residence 10 ──
+          // TH Lv1 (推算，需 MB10+Academy10): [1250,1110,760,250]=3370
+          { step:32, phase:6, name:"🎉 Town Hall",     lv:"1",    cost:3370, quest:0,    cpD:10, pop:3,  note:"推算 ★ 立刻開第1次慶典！", milestone:true },
+          // Residence Lv1→5: 1570+2010+2573+3293+4215=13661
+          { step:33, phase:6, name:"Residence",       lv:"1→5",  cost:13661,quest:0,    cpD:8,  pop:10, note:"📐 ✅Lv4,5 已確認" },
+          // Residence Lv6→10: 5395+6906+8840+11315+14483=46939
+          { step:34, phase:6, name:"⭐ Residence",     lv:"6→10", cost:46939,quest:0,    cpD:7,  pop:10, note:"📐 ✅Lv8 已確認 ★★★ Settlers 解鎖！", milestone:true },
+
+          // ── PHASE 7: Train Settlers ──
+          // Gaul Settlers ×3: 3×[4400,5600,4200,3900]=3×18100=54300
+          { step:35, phase:7, name:"🚀 訓練 3× Settlers", lv:"—", cost:54300,quest:0,  cpD:0,  pop:3,  note:"✅ 成本已確認 ★★ 派出開二村！", milestone:true },
+        ];
+
+        // Starting population: 18 resource fields at Lv1 = 18 pop
+        const START_RESOURCES = 3000;
+        const START_POP = 18; // 18 fields at Lv1
+        const START_CP_PER_DAY = 9; // 18 fields × ~0.5 CP each
+
+        // Compute running values
+        let balance = START_RESOURCES;
+        let cumCP = START_CP_PER_DAY;
+        let cumPop = START_POP;
+
+        const phaseVisible = { 1:true, 2:true, 3:true, 4:true, 5:true, 6:true, 7:true };
+        const phaseNames = {
+          1:"Phase 1: 新手任務", 2:"Phase 2: 全田 Lv2", 3:"Phase 3: 核心建築",
+          4:"Phase 4: 全田 Lv3", 5:"Phase 5: MB10 + Academy",
+          6:"Phase 6: TH + Residence 10", 7:"Phase 7: Settlers"
+        };
+        const phaseColors = {
+          1:"#1a2010", 2:"#101a20", 3:"#1a1010",
+          4:"#0a1510", 5:"#15100a", 6:"#150a15", 7:"#0a150a"
+        };
+
+        let lastPhase = 0;
+
+        function renderTable() {
+          const tbody = document.getElementById('sim-tbody');
+          if (!tbody) return;
+          let html = '';
+          let runBalance = START_RESOURCES;
+          let runCP = START_CP_PER_DAY;
+          let runPop = START_POP;
+
+          steps.forEach(s => {
+            if (lastPhase !== s.phase) {
+              lastPhase = s.phase;
+              // Phase header row
+              const display = phaseVisible[s.phase] ? '' : 'display:none';
+              html += `<tr class="sim-phase-hdr ph-${s.phase}" style="${display};background:#3d1a0a;">
+                <td colspan="10" style="padding:0.4rem 0.8rem;font-weight:bold;color:#f39c12;border:1px solid #6b3410;font-size:0.9rem;">
+                  ▶ ${phaseNames[s.phase]}
+                </td>
+              </tr>`;
+            }
+
+            runBalance += (s.quest || 0) - s.cost;
+            runCP += s.cpD;
+            runPop += s.pop;
+
+            const balClass = runBalance < 0 ? 'sim-negative' : 'sim-positive';
+            const balSign = runBalance >= 0 ? '+' : '';
+            const rowBg = s.milestone ? '#2a1808' : (phaseColors[s.phase] || '#100a05');
+            const borderLeft = s.milestone ? 'border-left:3px solid #f39c12;' : '';
+            const display = phaseVisible[s.phase] ? '' : 'display:none';
+
+            html += `<tr class="sim-row ph-${s.phase}" style="${display}background:${rowBg};${borderLeft}">
+              <td style="padding:0.35rem 0.4rem;text-align:center;border:1px solid #2d1a08;color:#888;">${s.step}</td>
+              <td style="padding:0.35rem 0.4rem;border:1px solid #2d1a08;color:#f5deb3;">${s.name}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:center;border:1px solid #2d1a08;color:#aaa;">${s.lv}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;color:#e8c490;">${s.cost.toLocaleString()}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;color:#27ae60;">${s.quest > 0 ? '+'+s.quest.toLocaleString() : '—'}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;font-weight:bold;" class="${balClass}">${balSign}${runBalance.toLocaleString()}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;color:#9bd;font-size:0.8rem;">+${s.cpD}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;color:#7bc;font-weight:bold;">${runCP}</td>
+              <td style="padding:0.35rem 0.4rem;text-align:right;border:1px solid #2d1a08;color:#aaa;">${runPop}</td>
+              <td style="padding:0.35rem 0.4rem;border:1px solid #2d1a08;color:#888;font-size:0.78rem;">${s.note || ''}</td>
+            </tr>`;
+          });
+          tbody.innerHTML = html;
+          lastPhase = 0; // reset for next render
+        }
+
+        function togglePhase(ph) {
+          phaseVisible[ph] = !phaseVisible[ph];
+          const btn = document.getElementById('ph-btn-' + ph);
+          if (btn) {
+            btn.classList.toggle('active-phase', phaseVisible[ph]);
+            btn.classList.toggle('hidden-phase', !phaseVisible[ph]);
+          }
+          document.querySelectorAll('.ph-' + ph).forEach(el => {
+            el.style.display = phaseVisible[ph] ? '' : 'none';
+          });
+        }
+
+        window.togglePhase = togglePhase;
+
+        // Render on load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', renderTable);
+        } else {
+          renderTable();
+        }
+      })();
+      </script>
+
     </main>
 
     <!-- FOOTER -->

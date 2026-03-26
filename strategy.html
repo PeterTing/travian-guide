@@ -1929,6 +1929,137 @@
                     </div>
                 </div>
 
+
+                <!-- VILLAGE BUILD TEMPLATES -->
+                <div class="accordion-header" onclick="toggleAccordion(event)">
+                    <span data-zh="🏗️ 各類型村莊建設模板" data-en="🏗️ Village Build Templates by Role">🏗️ 各類型村莊建設模板</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-body">
+                    <p data-zh="每個村莊都應有明確的角色定位。以下是各角色的標準建設順序與目標建築等級。" data-en="Each village should have a clear role. Below are standard build orders and target building levels for each role.">每個村莊都應有明確的角色定位。以下是各角色的標準建設順序與目標建築等級。</p>
+
+                    <!-- 攻擊村 -->
+                    <div class="phase-box" style="border-left-color:#e74c3c;">
+                        <div class="phase-title" style="color:#e74c3c;" data-zh="⚔️ 攻擊村（錘子村）— Hammer Village" data-en="⚔️ Hammer Village">⚔️ 攻擊村（錘子村）— Hammer Village</div>
+                        <div class="phase-content">
+                            <p data-zh="目標：極速產出大量特定攻擊兵種，用於征服或支援同盟攻擊。糧食消耗巨大。" data-en="Goal: Maximum production of specific offensive troops. High crop consumption.">目標：極速產出大量特定攻擊兵種。</p>
+                            <div class="table-wrapper">
+                                <table class="data-table" style="min-width:400px;">
+                                    <thead><tr><th data-zh="建築" data-en="Building">建築</th><th data-zh="目標等級" data-en="Target Level">目標 Lv</th><th data-zh="優先度" data-en="Priority">優先度</th></tr></thead>
+                                    <tbody>
+                                        <tr><td data-zh="Main Building" data-en="Main Building">Main Building</td><td>Lv15-20</td><td class="highlight-gold" data-zh="★★★ 最優先" data-en="★★★ Top">★★★ 最優先</td></tr>
+                                        <tr><td data-zh="Barracks / Stable" data-en="Barracks / Stable">Barracks / Stable</td><td>Lv20</td><td class="highlight-gold" data-zh="★★★ 核心" data-en="★★★ Core">★★★ 核心</td></tr>
+                                        <tr><td data-zh="Cropland（所有）" data-en="Cropland (all)">Cropland（全部）</td><td>Lv10-15</td><td class="highlight-gold">★★★</td></tr>
+                                        <tr><td>Granary × 多個</td><td>Lv20</td><td>★★★</td></tr>
+                                        <tr><td>Smithy</td><td>Lv20</td><td>★★ 升兵種攻擊</td></tr>
+                                        <tr><td>Academy</td><td>Lv15+</td><td>★★</td></tr>
+                                        <tr><td>Warehouse</td><td>Lv15-20</td><td>★★</td></tr>
+                                        <tr><td data-zh="牆（Wall）" data-en="Wall">牆（Wall）</td><td>Lv1-5</td><td data-zh="★ 可跳過" data-en="★ Skip OK">★ 可跳過</td></tr>
+                                        <tr><td data-zh="Marketplace" data-en="Marketplace">Marketplace</td><td>Lv10</td><td>★ 接收補給</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul style="margin-top:0.5rem;">
+                                <li data-zh="Gaul 推薦：Haeduan 或 Swordsman 大量訓練" data-en="Gaul: Mass train Haeduan or Swordsman">Gaul 推薦：Haeduan 或 Swordsman</li>
+                                <li data-zh="Roman 推薦：EI（騎兵錘）或 Legionnaire（步兵錘）" data-en="Roman: EI (cavalry hammer) or Legionnaire (infantry hammer)">Roman 推薦：EI 或 Imperian</li>
+                                <li data-zh="Teuton 推薦：TK（騎兵）或 Axeman（步兵）" data-en="Teuton: TK (cavalry) or Axeman (infantry)">Teuton 推薦：TK 或 Axeman</li>
+                                <li data-zh="完全不需要防禦兵 — 攻擊村犧牲防守換取最大兵力" data-en="No defense troops needed — sacrifice defense for maximum army size">完全不需要防禦兵，空間全給攻擊兵</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 防禦村 -->
+                    <div class="phase-box" style="border-left-color:#3498db;">
+                        <div class="phase-title" style="color:#3498db;" data-zh="🛡️ 防禦村 — Defense Village" data-en="🛡️ Defense Village">🛡️ 防禦村 — Defense Village</div>
+                        <div class="phase-content">
+                            <p data-zh="目標：持續輸出高防禦值兵種，支援聯盟防禦需求。Wall 是防禦村最重要的建築。" data-en="Goal: Continuous output of high-defense troops. Wall is the most critical building.">目標：持續輸出高防禦值兵種，Wall 是最重要建築。</p>
+                            <div class="table-wrapper">
+                                <table class="data-table" style="min-width:400px;">
+                                    <thead><tr><th>建築</th><th>目標 Lv</th><th>優先度</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Wall（城牆）</td><td>Lv20</td><td class="highlight-gold">★★★ 最優先</td></tr>
+                                        <tr><td>Barracks / Stable</td><td>Lv15-20</td><td class="highlight-gold">★★★</td></tr>
+                                        <tr><td>Main Building</td><td>Lv15-20</td><td>★★★</td></tr>
+                                        <tr><td>Cropland（全部）</td><td>Lv10-15</td><td>★★★</td></tr>
+                                        <tr><td>Granary × 多個</td><td>Lv20</td><td>★★★</td></tr>
+                                        <tr><td>Smithy</td><td>Lv15+</td><td>★★ 升防禦</td></tr>
+                                        <tr><td>Trapper（高盧限定）</td><td>Lv10-20</td><td>★★ 被動陷阱防禦</td></tr>
+                                        <tr><td>Hero Mansion</td><td>Lv10+</td><td>★★ 佔防禦加成綠洲</td></tr>
+                                        <tr><td>Marketplace</td><td>Lv10</td><td>★ 接收補給</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul style="margin-top:0.5rem;">
+                                <li data-zh="Gaul 推薦：Phalanx（步防）+ Druidrider（騎防）比例 2:1" data-en="Gaul: Phalanx (infantry def) + Druidrider (cavalry def) ratio 2:1">Gaul：Phalanx + Druidrider 比例 2:1</li>
+                                <li data-zh="Roman 推薦：Praetorian（高步防）+ Legionnaire（均衡）" data-en="Roman: Praetorian (high inf def) + Legionnaire (balanced)">Roman：Praetorian 為主</li>
+                                <li data-zh="Teuton 推薦：Spearfighter + Paladin" data-en="Teuton: Spearfighter + Paladin">Teuton：Spearfighter + Paladin</li>
+                                <li data-zh="Wall Lv20 可提升防禦效果 30%，絕不可省略" data-en="Wall Lv20 boosts defense by 30%, never skip it">Wall Lv20 提升防禦效果 30%，絕對不能省</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 資源村 -->
+                    <div class="phase-box" style="border-left-color:#27ae60;">
+                        <div class="phase-title" style="color:#27ae60;" data-zh="⛏️ 資源村 — Economy / Feeder Village" data-en="⛏️ Economy / Feeder Village">⛏️ 資源村 — Economy / Feeder Village</div>
+                        <div class="phase-content">
+                            <p data-zh="目標：最大化資源產出，供應其他村莊。幾乎不需要軍事建築。" data-en="Goal: Maximize resource production. Almost no military buildings needed.">目標：最大化資源產出，供應其他村莊。</p>
+                            <div class="table-wrapper">
+                                <table class="data-table" style="min-width:400px;">
+                                    <thead><tr><th>建築</th><th>目標 Lv</th><th>優先度</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>所有資源田（4 種）</td><td>Lv10-15</td><td class="highlight-gold">★★★ 最優先</td></tr>
+                                        <tr><td>Main Building</td><td>Lv10-15</td><td>★★★ 加速建設</td></tr>
+                                        <tr><td>Marketplace</td><td>Lv15-20</td><td class="highlight-gold">★★★ 輸出資源</td></tr>
+                                        <tr><td>Warehouse × 多個</td><td>Lv20</td><td>★★★ 儲存木/磚/鐵</td></tr>
+                                        <tr><td>Granary × 多個</td><td>Lv20</td><td>★★★ 儲存穀物</td></tr>
+                                        <tr><td>Cranny</td><td>Lv1-5</td><td>★★ 防掠奪（小）</td></tr>
+                                        <tr><td>Barracks</td><td>Lv1</td><td>★ 解鎖 Cranny 快點</td></tr>
+                                        <tr><td data-zh="軍事建築（其他）" data-en="Military (others)">軍事建築（其他）</td><td data-zh="不建" data-en="Skip">不建</td><td>— 純資源村不需要</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul style="margin-top:0.5rem;">
+                                <li data-zh="首都資源村：Flour Mill Lv5 + Bakery Lv5 可增加 25% 穀物產量" data-en="Capital resource village: Flour Mill Lv5 + Bakery Lv5 adds 25% crop bonus">首都才能建 Flour Mill / Bakery（+25% 穀物）</li>
+                                <li data-zh="Marketplace Lv20 每波商隊可運 2000+ 資源，快速補充盟友" data-en="Marketplace Lv20 allows 2000+ resources per merchant, fast ally supply">Marketplace Lv20 = 每波商隊 2000+ 資源</li>
+                                <li data-zh="需要有足夠的 Cranny 防止資源被掠奪（至少 Lv5）" data-en="Need enough Cranny to prevent raids (at least Lv5)">Cranny 至少 Lv5，防止滿倉被搶</li>
+                                <li data-zh="Trade Route（付費功能）自動輸送資源到指定村莊" data-en="Trade Route (Gold feature) auto-sends resources to target villages">Trade Route 可自動輸送資源（Gold 功能）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 15c 首都 -->
+                    <div class="phase-box" style="border-left-color:#f39c12;">
+                        <div class="phase-title" style="color:#f39c12;" data-zh="🌾 15c 穀倉首都 — 15-Crop Capital" data-en="🌾 15-Crop Capital">🌾 15c 穀倉首都 — 15-Crop Capital</div>
+                        <div class="phase-content">
+                            <p data-zh="最高效率的大軍補給站。15c 首都可升資源田到 Lv20，且可加蓋 Flour Mill + Bakery。" data-en="The most efficient supply base for large armies. 15c capital can upgrade fields to Lv20 and build Flour Mill + Bakery.">最高效率的大軍補給站。15c 首都可升資源田到 Lv20，加建 Flour Mill + Bakery。</p>
+                            <div class="table-wrapper">
+                                <table class="data-table" style="min-width:420px;">
+                                    <thead><tr><th>建築</th><th>目標 Lv</th><th>備註</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>穀田 Cropland ×15</td><td>Lv18-20</td><td class="highlight-gold">★★★ 核心目標</td></tr>
+                                        <tr><td>Flour Mill（麵粉廠）</td><td>Lv5-10</td><td class="highlight-gold">★★★ 首都限定，+5-10% 穀物</td></tr>
+                                        <tr><td>Bakery（麵包坊）</td><td>Lv5-10</td><td class="highlight-gold">★★★ 首都限定，+5-10% 穀物</td></tr>
+                                        <tr><td>Hero Mansion（英雄府邸）</td><td>Lv20</td><td>★★★ 佔 3 個 +50% 穀綠洲</td></tr>
+                                        <tr><td>木材/磚/鐵田 ×3</td><td>Lv10</td><td>★ 夠用即可，穀田優先</td></tr>
+                                        <tr><td>Granary × 多個</td><td>Lv20</td><td>★★★ 15c 穀物產量巨大</td></tr>
+                                        <tr><td>Main Building</td><td>Lv15-20</td><td>★★ 加速田地升級</td></tr>
+                                        <tr><td>Palace（宮殿）</td><td>Lv10-20</td><td>★★ 擴張槽位（可遷移首都）</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="highlight-warning" style="margin-top:0.8rem;">
+                                <strong>💡 15c 遷都策略：</strong> 若起始村不是 15c，可在開二村後把 Palace 建在 15c 二村，再拆一村的 Palace，即可遷移首都到 15c 村。首都資源田可升到 Lv20（其他村最高 Lv10）。
+                            </div>
+                            <ul style="margin-top:0.5rem;">
+                                <li data-zh="3 個 +50% 穀綠洲 + Lv18-20 穀田 + Flour Mill + Bakery = 帳號最高穀物產量" data-en="3× +50% crop oases + Lv18-20 crop fields + Flour Mill + Bakery = account max crop">3 個 +50% 穀綠洲 × Lv20 穀田 × Flour Mill × Bakery = 帳號最大穀物產能</li>
+                                <li data-zh="15c 每日穀物產量可達 50,000-200,000+（視等級、綠洲、速度乘數）" data-en="15c daily crop production can reach 50,000-200,000+ (depends on level, oases, speed)">15c 日產穀物 50,000-200,000+（視田等級與速度）</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END: village build templates accordion -->
+
             </div>
             <!-- END TAB: MULTI-VILLAGE -->
 
