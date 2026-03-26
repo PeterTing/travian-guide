@@ -443,10 +443,19 @@
       color: #c9a83e;
     }
 
-    .strategy-box p {
+    .strategy-box p, .strategy-content {
       margin: 0;
       color: var(--text-secondary);
       line-height: 1.6;
+    }
+
+    .strategy-content ul {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+    }
+
+    .strategy-content li {
+      margin-bottom: 0.4rem;
     }
 
     .tribe-nav {
@@ -595,24 +604,26 @@
 
       <!-- UNITS TAB -->
       <div class="tab-content" id="tabUnits">
-        <table class="units-table" id="unitsTable">
-          <thead>
-            <tr>
-              <th class="lang-text" data-zh="兵種名稱" data-en="Name">兵種名稱</th>
-              <th class="lang-text" data-zh="類型" data-en="Type">類型</th>
-              <th class="lang-text" data-zh="攻擊" data-en="Attack">攻擊</th>
-              <th class="lang-text" data-zh="步防" data-en="Inf.Def">步防</th>
-              <th class="lang-text" data-zh="騎防" data-en="Cav.Def">騎防</th>
-              <th class="lang-text" data-zh="速度" data-en="Speed">速度</th>
-              <th class="lang-text" data-zh="運載" data-en="Carry">運載</th>
-              <th class="lang-text" data-zh="維持費" data-en="Upkeep">維持費</th>
-              <th class="lang-text" data-zh="成本(木/黏/鐵/麥)" data-en="Cost(W/C/I/Cr)">成本(木/黏/鐵/麥)</th>
-              <th class="lang-text" data-zh="訓練時間" data-en="Train Time">訓練時間</th>
-              <th class="lang-text" data-zh="角色" data-en="Role">角色</th>
-            </tr>
-          </thead>
-          <tbody id="unitsTableBody"></tbody>
-        </table>
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+          <table class="units-table" id="unitsTable">
+            <thead>
+              <tr>
+                <th class="lang-text" data-zh="兵種名稱" data-en="Name">兵種名稱</th>
+                <th class="lang-text" data-zh="類型" data-en="Type">類型</th>
+                <th class="lang-text" data-zh="攻擊" data-en="Attack">攻擊</th>
+                <th class="lang-text" data-zh="步防" data-en="Inf.Def">步防</th>
+                <th class="lang-text" data-zh="騎防" data-en="Cav.Def">騎防</th>
+                <th class="lang-text" data-zh="速度" data-en="Speed">速度</th>
+                <th class="lang-text" data-zh="運載" data-en="Carry">運載</th>
+                <th class="lang-text" data-zh="維持費" data-en="Upkeep">維持費</th>
+                <th class="lang-text" data-zh="成本(木/黏/鐵/麥)" data-en="Cost(W/C/I/Cr)">成本(木/黏/鐵/麥)</th>
+                <th class="lang-text" data-zh="訓練時間" data-en="Train Time">訓練時間</th>
+                <th class="lang-text" data-zh="角色" data-en="Role">角色</th>
+              </tr>
+            </thead>
+            <tbody id="unitsTableBody"></tbody>
+          </table>
+        </div>
       </div>
 
       <!-- SETTLEMENT GUIDE TAB -->
@@ -655,22 +666,22 @@
       <div class="tab-content" id="tabStrategy">
         <div class="strategy-box">
           <h3 class="lang-text" data-zh="早期優先順序" data-en="Early Game Priorities">早期優先順序</h3>
-          <p id="earlyGameTips"></p>
+          <div class="strategy-content" id="earlyGameTips"></div>
         </div>
 
         <div class="strategy-box">
           <h3 class="lang-text" data-zh="綠洲農業策略" data-en="Oasis Farming">綠洲農業策略</h3>
-          <p id="oasisTips"></p>
+          <div class="strategy-content" id="oasisTips"></div>
         </div>
 
         <div class="strategy-box">
           <h3 class="lang-text" data-zh="常見錯誤" data-en="Common Mistakes">常見錯誤</h3>
-          <p id="mistakesTips"></p>
+          <div class="strategy-content" id="mistakesTips"></div>
         </div>
 
         <div class="strategy-box">
           <h3 class="lang-text" data-zh="部族特色建議" data-en="Tribe-Specific Tips">部族特色建議</h3>
-          <p id="tribeTips"></p>
+          <div class="strategy-content" id="tribeTips"></div>
         </div>
       </div>
 
@@ -1062,10 +1073,10 @@
     function renderStrategyTab() {
       const guide = SETTLEMENT_GUIDE.tribes[currentTribe];
 
-      document.getElementById('earlyGameTips').textContent = guide.earlyGameTips ? t(guide.earlyGameTips) : 'Focus on stabilizing resource production and defensive troop training.';
-      document.getElementById('oasisTips').textContent = guide.oasisTips ? t(guide.oasisTips) : 'Use hero + cavalry for efficient oasis farming.';
-      document.getElementById('mistakesTips').textContent = guide.mistakesTips ? t(guide.mistakesTips) : 'Avoid overextending troop training early and maintain troop upkeep.';
-      document.getElementById('tribeTips').textContent = guide.tribeTips ? t(guide.tribeTips) : t(TRIBES_DATA[currentTribe].strengths[0]);
+      document.getElementById('earlyGameTips').innerHTML = guide.earlyGameTips ? t(guide.earlyGameTips) : (currentLang === 'zh' ? '穩定資源產出，優先升級村莊大樓和資源田。' : 'Stabilize resource production and upgrade Main Building and resource fields first.');
+      document.getElementById('oasisTips').innerHTML = guide.oasisTips ? t(guide.oasisTips) : (currentLang === 'zh' ? '英雄搭配低階兵種清理綠洲，販賣戰利品補充資源。' : 'Use hero with low-tier troops to clear oases, sell bounty to supplement resources.');
+      document.getElementById('mistakesTips').innerHTML = guide.mistakesTips ? t(guide.mistakesTips) : (currentLang === 'zh' ? '避免早期過度訓練兵種，維持足夠的糧草維持費。' : 'Avoid overtraining troops early, maintain sufficient crop upkeep.');
+      document.getElementById('tribeTips').innerHTML = guide.tribeTips ? t(guide.tribeTips) : t(TRIBES_DATA[currentTribe].strengths[0]);
     }
 
     function renderTribeNav() {
