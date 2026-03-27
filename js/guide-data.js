@@ -1846,8 +1846,8 @@ const SETTLEMENT_GUIDE = {
       settlerCost: {
         zh: "開拓者成本",
         en: "Settler Cost",
-        per: { zh: "單位", en: "per unit", values: [4600, 4200, 4800, 4400] },
-        total3: { zh: "3個開拓者", en: "3 settlers", value: 54000 }
+        per: { zh: "單位", en: "per unit", values: [5115, 5580, 6045, 3255] },
+        total3: { zh: "3個開拓者", en: "3 settlers", value: 59985 }
       },
       keyAdvantage: {
         zh: "全遊戲最高每穀戰力 + Asclepeion 回收 60% 陣亡部隊 + 英雄武器 +50% = 最強精兵效率",
@@ -1916,8 +1916,8 @@ const SETTLEMENT_GUIDE = {
               time: { zh: "48-72小時", en: "Hour 48-72" },
               actions: [
                 { zh: "居所Lv1開始建設", en: "Begin Residence Lv1" },
-                { zh: "馬廄建設 → 研究希望騎士（Elpida Rider）[步防150，強力防守]", en: "Build Stable → Research Elpida Rider [infantry def 150, strong defense]" },
-                { zh: "訓練盾衛（Shieldsman）[步防104，防禦核心]", en: "Train Shieldsmen [infantry def 104, defensive core]" },
+                { zh: "馬廄建設 → 研究希望騎士（Elpida Rider）[步防120，強力防守]", en: "Build Stable → Research Elpida Rider [infantry def 120, strong defense]" },
+                { zh: "訓練盾衛（Shieldsman）[步防85，防禦核心]", en: "Train Shieldsmen [infantry def 85, defensive core]" },
                 { zh: "升級城牆至Lv5+ [彌補城牆耐久不足]", en: "Upgrade Wall to Lv5+ [compensate for low wall durability]" }
               ]
             }
@@ -1932,7 +1932,7 @@ const SETTLEMENT_GUIDE = {
               actions: [
                 { zh: "繼續慶典直到CP達2000", en: "Continue celebrations until CP reaches 2000" },
                 { zh: "居所升至Lv10 → 訓練3個開拓者", en: "Residence to Lv10 → Train 3 Settlers" },
-                { zh: "訓練科林斯碎甲騎（Corinthian Crusher）[攻擊243，頂級重騎]", en: "Train Corinthian Crushers [attack 243, top-tier heavy cavalry]" },
+                { zh: "訓練科林斯碎甲騎（Corinthian Crusher）[攻擊195，頂級重騎]", en: "Train Corinthian Crushers [attack 195, top-tier heavy cavalry]" },
                 { zh: "派出開拓者建立第二村 ★★★", en: "Send Settlers to establish second village ★★★" }
               ]
             }
@@ -1940,20 +1940,20 @@ const SETTLEMENT_GUIDE = {
         }
       ],
       earlyGameTips: {
-        zh: "<ul><li><strong>Day 1：</strong>資源田升Lv2-3 → 村莊大樓Lv3 → 訓練哨兵（Sentinel，步防52）作為初期護衛</li><li><strong>Day 1-2：</strong>村莊大樓Lv10 → 學院Lv10 → 研究重裝步兵（Hoplite）清洲 → 盡早建造 Asclepeion（核心特色）</li><li><strong>Day 2-3：</strong>市政廳Lv1 → 慶典積CP → 居所開始建造 → 馬廄研究希望騎士</li><li><strong>Day 3-5：</strong>訓練盾衛（Shieldsman）和希望騎士（Elpida Rider）作為防守主力</li><li><strong>Day 6-7：</strong>居所Lv10 + CP達2,000 → 派出開拓者</li></ul>",
-        en: "<ul><li><strong>Day 1:</strong> Resource fields to Lv2-3 → Main Building Lv3 → Train Sentinels (infantry def 52) as initial escorts</li><li><strong>Day 1-2:</strong> Main Building Lv10 → Academy Lv10 → Research Hoplite for oasis clearing → Build Asclepeion ASAP (core unique building)</li><li><strong>Day 2-3:</strong> Town Hall Lv1 → Celebrations for CP → Begin Residence → Stable to research Elpida Rider</li><li><strong>Day 3-5:</strong> Train Shieldsmen and Elpida Riders as defensive core</li><li><strong>Day 6-7:</strong> Residence Lv10 + CP hits 2,000 → Send settlers</li></ul>"
+        zh: "<ul><li><strong>Day 1：</strong>資源田升Lv2-3 → 村莊大樓Lv3 → 訓練哨兵（Sentinel，步防40）作為初期護衛</li><li><strong>Day 1-2：</strong>村莊大樓Lv10 → 學院Lv10 → 研究重裝步兵（Hoplite）清洲 → 盡早建造 Asclepeion（核心特色）</li><li><strong>Day 2-3：</strong>市政廳Lv1 → 慶典積CP → 居所開始建造 → 馬廄研究希望騎士</li><li><strong>Day 3-5：</strong>訓練盾衛（Shieldsman）和希望騎士（Elpida Rider）作為防守主力</li><li><strong>Day 6-7：</strong>居所Lv10 + CP達2,000 → 派出開拓者</li></ul>",
+        en: "<ul><li><strong>Day 1:</strong> Resource fields to Lv2-3 → Main Building Lv3 → Train Sentinels (infantry def 40) as initial escorts</li><li><strong>Day 1-2:</strong> Main Building Lv10 → Academy Lv10 → Research Hoplite for oasis clearing → Build Asclepeion ASAP (core unique building)</li><li><strong>Day 2-3:</strong> Town Hall Lv1 → Celebrations for CP → Begin Residence → Stable to research Elpida Rider</li><li><strong>Day 3-5:</strong> Train Shieldsmen and Elpida Riders as defensive core</li><li><strong>Day 6-7:</strong> Residence Lv10 + CP hits 2,000 → Send settlers</li></ul>"
       },
       oasisTips: {
-        zh: "<ul><li><strong>英雄升點：</strong>斯巴達英雄武器效果+50%且強化所有斯巴達兵種，建議優先投戰鬥力，最大化清洲效率。</li><li><strong>Hoplite清洲：</strong>重裝步兵攻擊63.9、步防46.6，均衡的清洲主力，配合英雄可高效清除中等難度綠洲。</li><li><strong>護衛選擇：</strong>哨兵（Sentinel）步防52.4，適合護衛英雄；盾衛（Shieldsman）步防104，適合較難的綠洲。</li><li><strong>Asclepeion 回收：</strong>清洲受傷的兵種可通過 Asclepeion 回收，大幅降低兵力損耗成本。</li></ul>",
-        en: "<ul><li><strong>Hero stat allocation:</strong> Spartan hero weapon +50% covers all Spartan units; invest in Fighting Strength to maximize oasis clearing efficiency.</li><li><strong>Hoplite oasis clearing:</strong> Attack 63.9, infantry def 46.6 — well-rounded oasis clearer; with hero bonus, efficiently clears medium-difficulty oases.</li><li><strong>Escort choice:</strong> Sentinel (infantry def 52.4) ideal for hero escort; Shieldsman (infantry def 104) for harder oases.</li><li><strong>Asclepeion recovery:</strong> Troops lost during oasis clearing can be partially recovered via Asclepeion, significantly reducing attrition costs.</li></ul>"
+        zh: "<ul><li><strong>英雄升點：</strong>斯巴達英雄武器效果+50%且強化所有斯巴達兵種，建議優先投戰鬥力，最大化清洲效率。</li><li><strong>Hoplite清洲：</strong>重裝步兵攻擊50、步防35，均衡的清洲主力，配合英雄可高效清除中等難度綠洲。</li><li><strong>護衛選擇：</strong>哨兵（Sentinel）步防40，適合護衛英雄；盾衛（Shieldsman）步防85，適合較難的綠洲。</li><li><strong>Asclepeion 回收：</strong>清洲受傷的兵種可通過 Asclepeion 回收，大幅降低兵力損耗成本。</li></ul>",
+        en: "<ul><li><strong>Hero stat allocation:</strong> Spartan hero weapon +50% covers all Spartan units; invest in Fighting Strength to maximize oasis clearing efficiency.</li><li><strong>Hoplite oasis clearing:</strong> Attack 50, infantry def 35 — well-rounded oasis clearer; with hero bonus, efficiently clears medium-difficulty oases.</li><li><strong>Escort choice:</strong> Sentinel (infantry def 40) ideal for hero escort; Shieldsman (infantry def 85) for harder oases.</li><li><strong>Asclepeion recovery:</strong> Troops lost during oasis clearing can be partially recovered via Asclepeion, significantly reducing attrition costs.</li></ul>"
       },
       mistakesTips: {
         zh: "<ul><li><strong>錯誤1：忽視 Asclepeion 建造時機</strong> — Asclepeion 是斯巴達最核心的特色建築，越早建造越早獲益，拖延建造等於放棄了60%部隊回收的巨大優勢。</li><li><strong>錯誤2：急於訓練昂貴兵種</strong> — 斯巴達兵種訓練成本普遍偏高，前期資源有限時不要急著訓練科林斯碎甲騎，應先確保基礎建設完成。</li><li><strong>錯誤3：忽視城牆升級</strong> — 斯巴達城牆耐久度僅2，相對較弱，需要更積極地升級城牆等級以提升防禦加成。</li><li><strong>錯誤4：不善用英雄武器加成</strong> — 英雄武器效果+50%且覆蓋全部斯巴達兵種，應盡早裝備高品質武器，大幅提升整體戰力。</li><li><strong>錯誤5：在非特殊伺服器選斯巴達</strong> — 斯巴達只在特定伺服器可用，選擇伺服器前必須確認可用性。</li></ul>",
         en: "<ul><li><strong>Mistake 1: Delaying Asclepeion construction</strong> — Asclepeion is Spartans' most critical unique building; build it ASAP to start recovering fallen troops. Delaying means forfeiting the massive 60% recovery advantage.</li><li><strong>Mistake 2: Rushing expensive troops</strong> — Spartan unit training costs are high across the board; don't rush Corinthian Crushers when resources are limited early game — finish core infrastructure first.</li><li><strong>Mistake 3: Neglecting wall upgrades</strong> — Spartan Wall durability is only 2, relatively weak; actively upgrade wall levels to increase the defense bonus.</li><li><strong>Mistake 4: Underutilizing hero weapon bonus</strong> — Hero weapon +50% applies to all Spartan units; equip high-quality weapons early to dramatically boost overall combat power.</li><li><strong>Mistake 5: Picking Spartans on non-special servers</strong> — Spartans are only available on specific servers; verify availability before selecting.</li></ul>"
       },
       tribeTips: {
-        zh: "<ul><li><strong>Asclepeion — 最強復活機制：</strong>最多恢復60%陣亡部隊，是全遊戲唯一能大規模回收戰損的特殊建築。配合昂貴的斯巴達精兵，投資一次訓練，長期都能保持高效戰力。</li><li><strong>科林斯碎甲騎（Corinthian Crusher）頂級重騎：</strong>攻擊243.3、步防111、騎防105，是全遊戲攻擊力最強的重騎兵之一，3穀草的維持費相比戰力性價比極高。</li><li><strong>每穀消耗戰力最高：</strong>斯巴達兵種雖貴，但每消耗1穀草所提供的攻防戰力是所有部族中最高的，適合以少勝多的精兵戰術。</li><li><strong>英雄武器覆蓋全族兵種：</strong>其他部族英雄武器只強化英雄本身，斯巴達的英雄武器效果+50%且同時強化所有斯巴達兵種，是獨特的全軍加成機制。</li></ul>",
-        en: "<ul><li><strong>Asclepeion — strongest revival mechanic:</strong> Recovers up to 60% of fallen troops — the only building in the game that large-scale recovers battle losses. Combined with expensive Spartan elites, one training investment sustains long-term combat efficiency.</li><li><strong>Corinthian Crusher — top-tier heavy cavalry:</strong> Attack 243.3, infantry def 111, cavalry def 105 — one of the strongest heavy cavalry units in the game; 3-crop upkeep delivers exceptional combat value.</li><li><strong>Highest combat power per crop:</strong> Spartan troops are expensive but deliver the highest attack/defense per crop consumed of any tribe — ideal for elite quality-over-quantity tactics.</li><li><strong>Hero weapon covers entire army:</strong> Unlike other tribes where hero weapons only boost the hero, Spartan hero weapons grant +50% and apply to all Spartan units simultaneously — a unique whole-army buff mechanic.</li></ul>"
+        zh: "<ul><li><strong>Asclepeion — 最強復活機制：</strong>最多恢復60%陣亡部隊，是全遊戲唯一能大規模回收戰損的特殊建築。配合昂貴的斯巴達精兵，投資一次訓練，長期都能保持高效戰力。</li><li><strong>科林斯碎甲騎（Corinthian Crusher）頂級重騎：</strong>攻擊195、步防80、騎防75，是全遊戲攻擊力最強的重騎兵之一，3穀草的維持費相比戰力性價比極高。</li><li><strong>每穀消耗戰力最高：</strong>斯巴達兵種雖貴，但每消耗1穀草所提供的攻防戰力是所有部族中最高的，適合以少勝多的精兵戰術。</li><li><strong>英雄武器覆蓋全族兵種：</strong>其他部族英雄武器只強化英雄本身，斯巴達的英雄武器效果+50%且同時強化所有斯巴達兵種，是獨特的全軍加成機制。</li></ul>",
+        en: "<ul><li><strong>Asclepeion — strongest revival mechanic:</strong> Recovers up to 60% of fallen troops — the only building in the game that large-scale recovers battle losses. Combined with expensive Spartan elites, one training investment sustains long-term combat efficiency.</li><li><strong>Corinthian Crusher — top-tier heavy cavalry:</strong> Attack 195, infantry def 80, cavalry def 75 — one of the strongest heavy cavalry units in the game; 3-crop upkeep delivers exceptional combat value.</li><li><strong>Highest combat power per crop:</strong> Spartan troops are expensive but deliver the highest attack/defense per crop consumed of any tribe — ideal for elite quality-over-quantity tactics.</li><li><strong>Hero weapon covers entire army:</strong> Unlike other tribes where hero weapons only boost the hero, Spartan hero weapons grant +50% and apply to all Spartan units simultaneously — a unique whole-army buff mechanic.</li></ul>"
       }
     }
   }
