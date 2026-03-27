@@ -1148,10 +1148,22 @@ main li, .content li, .guide-content li {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    position: relative;
   }
 
   .tab-buttons::-webkit-scrollbar {
     display: none;
+  }
+
+  .tab-buttons::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(to right, transparent, var(--bg-dark));
+    pointer-events: none;
   }
 
   .tab-button {

@@ -91,7 +91,11 @@
       // Close menu when clicking nav links
       const navLinks = document.querySelectorAll('.nav-main a');
       navLinks.forEach(link => {
-        link.addEventListener('click', () => this.closeMenu());
+        link.addEventListener('click', () => {
+          if (!link.closest('.dropdown-trigger')) {
+            this.closeMenu();
+          }
+        });
       });
 
       // Close menu when clicking outside
