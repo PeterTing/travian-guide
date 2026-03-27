@@ -954,3 +954,4 @@ const SIMULATION_DATA = {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = SIMULATION_DATA;
 }
+window.SIMULATION_DATA = SIMULATION_DATA;
