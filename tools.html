@@ -629,7 +629,81 @@
             </div>
           </div>
         </div>
-        <div class="calc-panel" data-calc="cp"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <!-- ===== CALCULATOR 3: Passive CP ===== -->
+        <div class="calc-panel" data-calc="cp">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="被動 CP 計算器" data-en="Passive CP Calculator">被動 CP 計算器</span></h3>
+          <p class="lang-content active" data-lang="zh">文化點（Culture Points）是唯一不會被偷走的「資源」，用於開新村。被動 CP = 村內建築等級的 CP 產出總和，公式 CP(L) = round(base × 1.2^L)。Lumi 強烈建議每個村至少做到 MB20 / 市場20 / 學院20 / 大使館20 / 市政廳10（約 529 CP/天，不計其他建築）。慶典會補一半以上的 CP；此計算只看被動部分。</p>
+          <p class="lang-content" data-lang="en">Culture Points are the one "resource" that can't be stolen, and they gate village expansion. Passive CP = sum of each building's CP output, where CP(L) = round(base × 1.2^L). Lumi strongly recommends at least MB20 / Market20 / Academy20 / Embassy20 / Town Hall 10 in every village (~529 CP/day before other buildings). Celebrations add the rest; this calculator only counts passive CP.</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="建築等級" data-en="Building levels">建築等級</span></h4>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0;"><span class="lang-text" data-zh="設 0 代表未建。Lumi 推薦預設已套用。" data-en="Set 0 for not built. Lumi preset is applied by default.">設 0 代表未建。Lumi 推薦預設已套用。</span></p>
+
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Main Building</label><input type="number" id="cp-mb" min="0" max="20" value="20"></div>
+                <div class="calc-field"><label>Marketplace</label><input type="number" id="cp-mk" min="0" max="20" value="20"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Embassy</label><input type="number" id="cp-em" min="0" max="20" value="20"></div>
+                <div class="calc-field"><label>Academy</label><input type="number" id="cp-ac" min="0" max="20" value="20"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Town Hall</label><input type="number" id="cp-th" min="0" max="20" value="10"></div>
+                <div class="calc-field"><label>Residence</label><input type="number" id="cp-re" min="0" max="20" value="10"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Cranny</label><input type="number" id="cp-cr" min="0" max="10" value="1"></div>
+                <div class="calc-field"><label>Warehouse (avg)</label><input type="number" id="cp-wh" min="0" max="20" value="10"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Granary (avg)</label><input type="number" id="cp-gr" min="0" max="20" value="10"></div>
+                <div class="calc-field"><label>Smithy / Armoury</label><input type="number" id="cp-sm" min="0" max="20" value="0"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Barracks</label><input type="number" id="cp-ba" min="0" max="20" value="0"></div>
+                <div class="calc-field"><label>Stable</label><input type="number" id="cp-st" min="0" max="20" value="0"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Tournament Sq.</label><input type="number" id="cp-ts" min="0" max="20" value="0"></div>
+                <div class="calc-field"><label>Hospital / Hero Mansion</label><input type="number" id="cp-hm" min="0" max="20" value="0"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Trade Office</label><input type="number" id="cp-to" min="0" max="20" value="0"></div>
+                <div class="calc-field"><label>Palace / Treasury</label><input type="number" id="cp-pl" min="0" max="20" value="0"></div>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; margin-top: var(--spacing-md);">
+                <button id="cp-preset-lumi" class="calc-tab-btn" style="flex:1;font-size:0.8rem;"><span class="lang-text" data-zh="Lumi 推薦 (529/天)" data-en="Lumi preset (529/d)">Lumi 推薦 (529/天)</span></button>
+                <button id="cp-preset-min" class="calc-tab-btn" style="flex:1;font-size:0.8rem;"><span class="lang-text" data-zh="最小開村" data-en="Bare-minimum">最小開村</span></button>
+                <button id="cp-preset-zero" class="calc-tab-btn" style="flex:1;font-size:0.8rem;"><span class="lang-text" data-zh="清空" data-en="Clear">清空</span></button>
+              </div>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="每日被動 CP" data-en="Passive CP per day">每日被動 CP</span></h4>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="CP Zero-build (0 建築)" data-en="Zero-build baseline">CP Zero-build (0 建築)</span></span><span class="value">+2 / day</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="所有輸入建築合計" data-en="Sum of all inputs">所有輸入建築合計</span></span><span class="value" id="cp-out-sub">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="總計（含 +2 基礎）" data-en="Total (incl. +2 baseline)">總計（含 +2 基礎）</span></span><span class="value highlight" id="cp-out-total">—</span></div>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="開村門檻預估" data-en="Expansion thresholds">開村門檻預估</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>Village #</th><th>CP req.</th><th><span class="lang-text" data-zh="天數" data-en="Days">天數</span></th><th><span class="lang-text" data-zh="含每日 1 次大慶典" data-en="+1 Great Celeb/day">含每日 1 次大慶典</span></th></tr></thead>
+                <tbody id="cp-out-sched"></tbody>
+              </table>
+
+              <p class="calc-note">
+                <span class="lang-text" data-zh="備註：以此村單獨計算 (CP 是帳號全局總和，多村加起來才準)。大慶典需要市政廳 Lv 10，持續 60h 給 2000 CP (1x) — 這裡假設每 24 小時觸發一次。" data-en="Note: single-village estimate (CP is global — sum across all villages for truth). Great Celebration needs Town Hall Lv 10, runs 60h and gives 2000 CP on 1x — assumed once per 24h here.">備註：以此村單獨計算 (CP 是帳號全局總和，多村加起來才準)。大慶典需要市政廳 Lv 10，持續 60h 給 2000 CP (1x) — 這裡假設每 24 小時觸發一次。</span>
+              </p>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="每建築 CP 貢獻（由大到小）" data-en="CP per building (top contributors)">每建築 CP 貢獻（由大到小）</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>Building</th><th>Level</th><th>CP / day</th></tr></thead>
+                <tbody id="cp-out-breakdown"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <div class="calc-panel" data-calc="cap-order"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="traderoute"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="farm"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
@@ -1614,6 +1688,99 @@
           }, 50);
         });
       });
+
+      calc();
+    })();
+
+    // ===== CALC 3: Passive CP =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+
+      // UI field → building key map
+      var FIELD_MAP = [
+        { id: 'cp-mb', key: 'mainBuilding',     label: 'Main Building' },
+        { id: 'cp-mk', key: 'marketplace',      label: 'Marketplace' },
+        { id: 'cp-em', key: 'embassy',          label: 'Embassy' },
+        { id: 'cp-ac', key: 'academy',          label: 'Academy' },
+        { id: 'cp-th', key: 'townHall',         label: 'Town Hall' },
+        { id: 'cp-re', key: 'residence',        label: 'Residence' },
+        { id: 'cp-cr', key: 'cranny',           label: 'Cranny' },
+        { id: 'cp-wh', key: 'warehouse',        label: 'Warehouse' },
+        { id: 'cp-gr', key: 'granary',          label: 'Granary' },
+        { id: 'cp-sm', key: 'smithy',           label: 'Smithy / Armoury' },
+        { id: 'cp-ba', key: 'barracks',         label: 'Barracks' },
+        { id: 'cp-st', key: 'stable',           label: 'Stable' },
+        { id: 'cp-ts', key: 'tournamentSquare', label: 'Tournament Square' },
+        { id: 'cp-hm', key: 'heroMansion',      label: "Hero's Mansion" },
+        { id: 'cp-to', key: 'tradeOffice',      label: 'Trade Office' },
+        { id: 'cp-pl', key: 'palace',           label: 'Palace / Treasury' }
+      ];
+
+      var PRESETS = {
+        lumi: { 'cp-mb': 20, 'cp-mk': 20, 'cp-em': 20, 'cp-ac': 20, 'cp-th': 10,
+                'cp-re': 10, 'cp-cr': 1, 'cp-wh': 10, 'cp-gr': 10,
+                'cp-sm': 0, 'cp-ba': 0, 'cp-st': 0, 'cp-ts': 0, 'cp-hm': 0,
+                'cp-to': 0, 'cp-pl': 0 },
+        min:  { 'cp-mb': 5, 'cp-mk': 3, 'cp-em': 3, 'cp-ac': 10, 'cp-th': 1,
+                'cp-re': 10, 'cp-cr': 1, 'cp-wh': 3, 'cp-gr': 3,
+                'cp-sm': 0, 'cp-ba': 0, 'cp-st': 0, 'cp-ts': 0, 'cp-hm': 0,
+                'cp-to': 0, 'cp-pl': 0 },
+        zero: { }
+      };
+
+      function applyPreset(name) {
+        FIELD_MAP.forEach(function (f) {
+          var el = document.getElementById(f.id);
+          if (name === 'zero') { el.value = 0; return; }
+          var p = PRESETS[name];
+          el.value = p[f.id] != null ? p[f.id] : 0;
+        });
+        calc();
+      }
+
+      function calc() {
+        var perBuilding = [];
+        var total = 0;
+        FIELD_MAP.forEach(function (f) {
+          var lv = parseInt(document.getElementById(f.id).value, 10) || 0;
+          var cp = T.cpAtLevel(f.key, lv);
+          if (lv > 0 && cp > 0) {
+            perBuilding.push({ label: f.label, level: lv, cp: cp });
+            total += cp;
+          }
+        });
+
+        document.getElementById('cp-out-sub').textContent = '+' + total + ' / day';
+        document.getElementById('cp-out-total').textContent = (total + 2) + ' / day';
+
+        // Breakdown table sorted by CP desc
+        perBuilding.sort(function (a, b) { return b.cp - a.cp; });
+        var bh = perBuilding.map(function (b) {
+          return '<tr><td>' + b.label + '</td><td>Lv ' + b.level + '</td><td>' + b.cp + '</td></tr>';
+        }).join('');
+        document.getElementById('cp-out-breakdown').innerHTML = bh || '<tr><td colspan="3" style="text-align:center;color:var(--text-secondary);">—</td></tr>';
+
+        // Schedule: days to reach 2nd, 3rd, 4th, 5th village
+        // With great celebration: +2000 CP per 24h (assuming TH10 and resource-available)
+        var dailyWithCel = (total + 2) + 2000;
+        var dailyPassive = total + 2;
+        var reqs = T.CP_REQUIRED.slice(1); // skip village 1
+        var sh = reqs.map(function (r) {
+          var daysPassive = dailyPassive > 0 ? (r.cumulative / dailyPassive).toFixed(1) : '∞';
+          var daysWithCel = (r.cumulative / dailyWithCel).toFixed(1);
+          return '<tr><td>#' + r.village + '</td><td>' + r.cumulative.toLocaleString() + '</td>' +
+                 '<td>' + daysPassive + '</td><td>' + daysWithCel + '</td></tr>';
+        }).join('');
+        document.getElementById('cp-out-sched').innerHTML = sh;
+      }
+
+      FIELD_MAP.forEach(function (f) {
+        document.getElementById(f.id).addEventListener('input', calc);
+      });
+      document.getElementById('cp-preset-lumi').addEventListener('click', function () { applyPreset('lumi'); });
+      document.getElementById('cp-preset-min').addEventListener('click', function () { applyPreset('min'); });
+      document.getElementById('cp-preset-zero').addEventListener('click', function () { applyPreset('zero'); });
 
       calc();
     })();
