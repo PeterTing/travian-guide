@@ -248,20 +248,20 @@
         </ul>
 
         <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
-          <span class="lang-text" data-zh="建築時間公式" data-en="Building Time Formula">建築時間公式</span>
+          <span class="lang-text" data-zh="主府加速公式" data-en="Main Building Speed-up">主府加速公式</span>
         </h3>
-        <p style="font-size: 1.1em; background: var(--color-bg-secondary); padding: var(--spacing-lg); border-radius: 8px; font-family: monospace;">
+        <p style="font-size: 1.05em; background: var(--color-bg-secondary); padding: var(--spacing-lg); border-radius: 8px; font-family: monospace;">
           <span class="lang-text"
-            data-zh="建築時間 = 基礎時間 / (1 + 主府等級)"
-            data-en="Building time = Base time / (1 + Main Building level)">
-            建築時間 = 基礎時間 / (1 + 主府等級)
+            data-zh="建造時間 = 基礎時間 × 0.964^(主府等級 − 1)"
+            data-en="Build time = Base time × 0.964^(Main Building level − 1)">
+            建造時間 = 基礎時間 × 0.964^(主府等級 − 1)
           </span>
         </p>
         <p>
           <span class="lang-text"
-            data-zh="主府等級越高，建築速度越快。例如：主府Lv20可使所有建築速度翻倍。"
-            data-en="Higher Main Building level = faster construction. E.g., Main Lv20 doubles all building speed.">
-            主府等級越高，建築速度越快。例如：主府Lv20可使所有建築速度翻倍。
+            data-zh="主府每升一級，後續建築時間約減少 3.6%（複利累積）。參考等級：Lv 10 約為基礎時間的 72%，Lv 15 約 60%，Lv 20 約 50%（大約加倍速度）。所以想衝資源田 Lv17+ 時，把主府先拉到 Lv 15–20 是標準做法。"
+            data-en="Each Main Building level cuts ~3.6% off subsequent build time (compounded). Reference: Lv 10 ≈ 72% of base, Lv 15 ≈ 60%, Lv 20 ≈ 50% (roughly double speed). That's why pushing Main Building to Lv 15–20 before high-level field upgrades is standard practice.">
+            主府每升一級，後續建築時間約減少 3.6%（複利累積）。參考等級：Lv 10 約為基礎時間的 72%，Lv 15 約 60%，Lv 20 約 50%（大約加倍速度）。所以想衝資源田 Lv17+ 時，把主府先拉到 Lv 15–20 是標準做法。
           </span>
         </p>
 
@@ -372,13 +372,70 @@
         </div>
 
         <h3 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);">
-          <span class="lang-text" data-zh="綠洲加成" data-en="Oasis Bonuses">綠洲加成</span>
+          <span class="lang-text" data-zh="綠洲類型與加成" data-en="Oasis Types &amp; Bonuses">綠洲類型與加成</span>
         </h3>
         <p>
           <span class="lang-text"
-            data-zh="村莊20格內的綠洲可提供資源加成(+25%)。每個綠洲只能被一個玩家佔據。特定綠洲可能提供特定資源加成或防禦加成。"
-            data-en="Oases within 20 tiles of village provide resource bonuses (+25%). Each oasis can only be held by one player. Specific oases may provide specific resource or defense bonuses.">
-            村莊20格內的綠洲可提供資源加成(+25%)。每個綠洲只能被一個玩家佔據。特定綠洲可能提供特定資源加成或防禦加成。
+            data-zh="綠洲每一塊會給特定資源的百分比加成。要佔領綠洲需要英雄莊園（Hero's Mansion）：Lv 10 可佔 1 塊、Lv 15 可佔 2 塊、Lv 20 可佔 3 塊，且綠洲必須落在村莊 7×7 範圍內。一個綠洲同時間只能被 1 位玩家佔領。"
+            data-en="Every oasis tile grants a percentage bonus to a specific resource. Capturing requires a Hero's Mansion: Lv 10 holds 1 oasis, Lv 15 holds 2, Lv 20 holds 3, and the oasis must fall inside the village's 7×7 area. Each oasis can only be held by one player at a time.">
+            綠洲每一塊會給特定資源的百分比加成。要佔領綠洲需要英雄莊園（Hero's Mansion）：Lv 10 可佔 1 塊、Lv 15 可佔 2 塊、Lv 20 可佔 3 塊，且綠洲必須落在村莊 7×7 範圍內。一個綠洲同時間只能被 1 位玩家佔領。
+          </span>
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: var(--spacing-lg) 0;">
+          <thead>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="綠洲類型" data-en="Oasis Type">綠洲類型</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="加成內容" data-en="Bonus">加成內容</span>
+              </th>
+              <th style="padding: var(--spacing-md); text-align: left; border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="出現頻率" data-en="Frequency">出現頻率</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="單資源 +25%" data-en="Single +25%">單資源 +25%</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="木 / 土 / 鐵 / 糧 其中一項 +25%" data-en="+25% to one of wood / clay / iron / crop">木 / 土 / 鐵 / 糧 其中一項 +25%</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="最常見" data-en="Most common">最常見</span>
+              </td>
+            </tr>
+            <tr style="background-color: var(--color-bg-secondary);">
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="雙資源 +25% / +25%" data-en="Dual +25% / +25%">雙資源 +25% / +25%</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="兩種資源各 +25%（通常其中一項是糧）" data-en="+25% to two resources (usually one of them is crop)">兩種資源各 +25%（通常其中一項是糧）</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="常見" data-en="Common">常見</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <strong><span class="lang-text" data-zh="單資源 +50%" data-en="Single +50%">單資源 +50%</span></strong>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="單一資源 +50%（糧食 50% 綠洲最有價值，首都必搶）" data-en="+50% to a single resource (crop 50% oases are prime capital targets)">單一資源 +50%（糧食 50% 綠洲最有價值，首都必搶）</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="較少" data-en="Less common">較少</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <span class="lang-text"
+            data-zh="加成相乘方式：最終產量 = 基礎產量 × (1 + 加工建築 %) × (1 + 綠洲 %) × (1 + 金幣 +25% Plus 加成)。早期用英雄清理綠洲動物可當臨時「農場」使用，並不佔領；真正佔領要等到英雄莊園 Lv 10 且確認收益足以回本（見「工具 → 綠洲 ROI 計算」）。"
+            data-en="Multipliers stack as: final production = base × (1 + bonus-building %) × (1 + oasis %) × (1 + Plus +25% gold bonus). Early on, raiding oasis animals with the hero is a viable farm without occupying them; real occupation should wait until Hero's Mansion Lv 10 and pass the ROI test (see &quot;Tools → Oasis ROI Calculator&quot;).">
+            加成相乘方式：最終產量 = 基礎產量 × (1 + 加工建築 %) × (1 + 綠洲 %) × (1 + 金幣 +25% Plus 加成)。早期用英雄清理綠洲動物可當臨時「農場」使用，並不佔領；真正佔領要等到英雄莊園 Lv 10 且確認收益足以回本（見「工具 → 綠洲 ROI 計算」）。
           </span>
         </p>
 
@@ -420,38 +477,42 @@
           <tbody>
             <tr>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="戰鬥力" data-en="Fighting Strength">戰鬥力</span></strong>
+                <strong><span class="lang-text" data-zh="戰鬥力 (Fighting Strength)" data-en="Fighting Strength">戰鬥力 (Fighting Strength)</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+100 <span class="lang-text" data-zh="攻擊力/點" data-en="attack/pt">攻擊力/點</span></td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="英雄在綠洲清理中的直接傷害" data-en="Hero damage in oasis battles">英雄在綠洲清理中的直接傷害</span>
+                <span class="lang-text" data-zh="羅馬 +100/點；其餘族別 +80/點" data-en="Romans +100/pt; all other tribes +80/pt">羅馬 +100/點；其餘族別 +80/點</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="英雄自身戰力；用於清綠洲、冒險、進攻時為己方加分（英雄本身也是一隻部隊）" data-en="The hero's own combat power; drives oasis clears, adventures, and counts as a unit when attacking/defending">英雄自身戰力；用於清綠洲、冒險、進攻時為己方加分（英雄本身也是一隻部隊）</span>
               </td>
             </tr>
             <tr style="background-color: var(--color-bg-secondary);">
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="進攻加成" data-en="Offense Bonus">進攻加成</span></strong>
+                <strong><span class="lang-text" data-zh="進攻加成 (Off Bonus)" data-en="Off Bonus">進攻加成 (Off Bonus)</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="兵隊攻擊/點" data-en="troop attack/pt">兵隊攻擊/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="同伍部隊攻擊/點（上限 +20% 滿 100 點）" data-en="team attack per pt (max +20% at 100 pts)">同伍部隊攻擊/點（上限 +20% 滿 100 點）</span></td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="提高所有兵隊的進攻力" data-en="Increases all troop attack">提高所有兵隊的進攻力</span>
+                <span class="lang-text" data-zh="英雄在軍隊內時套用；只影響隨行這支部隊" data-en="Applies when the hero is with the army; affects only that specific stack">英雄在軍隊內時套用；只影響隨行這支部隊</span>
               </td>
             </tr>
             <tr>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="防禦加成" data-en="Defense Bonus">防禦加成</span></strong>
+                <strong><span class="lang-text" data-zh="防禦加成 (Def Bonus)" data-en="Def Bonus">防禦加成 (Def Bonus)</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="兵隊防禦/點" data-en="troop defense/pt">兵隊防禦/點</span></td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+0.2% <span class="lang-text" data-zh="同伍部隊防禦/點（上限 +20%）" data-en="team defense per pt (max +20%)">同伍部隊防禦/點（上限 +20%）</span></td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="提高所有兵隊的防禦力" data-en="Increases all troop defense">提高所有兵隊的防禦力</span>
+                <span class="lang-text" data-zh="英雄與部隊共同駐守村莊時才生效" data-en="Only when the hero defends together with the stationed army">英雄與部隊共同駐守村莊時才生效</span>
               </td>
             </tr>
             <tr style="background-color: var(--color-bg-secondary);">
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="資源採集" data-en="Resources">資源採集</span></strong>
+                <strong><span class="lang-text" data-zh="資源採集 (Resources)" data-en="Resources">資源採集 (Resources)</span></strong>
               </td>
-              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">+100 <span class="lang-text" data-zh="資源/點" data-en="resources/pt">資源/點</span></td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="或+10/點/小時 單一資源(可在冒險或交易時使用)" data-en="Or +10/pt/hr single resource (usable in adventures/trades)">或+10/點/小時 單一資源(可在冒險或交易時使用)</span>
+                <span class="lang-text" data-zh="平均四資源：+6/點/小時（每種 +1.5）；專注單一資源：+6/點/小時全部灌入該資源（x1 速度）" data-en="Split across all four: +6/pt/hr (≈+1.5 each); focused on one resource: +6/pt/hr funneled into the chosen type (x1 speed)">平均四資源：+6/點/小時（每種 +1.5）；專注單一資源：+6/點/小時全部灌入該資源（x1 速度）</span>
+              </td>
+              <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
+                <span class="lang-text" data-zh="穩定、24 小時持續；保護期結束後的核心收入，英雄死亡時會中斷" data-en="Steady 24/7 income — the backbone after beginner protection; pauses while the hero is dead">穩定、24 小時持續；保護期結束後的核心收入，英雄死亡時會中斷</span>
               </td>
             </tr>
           </tbody>
@@ -579,35 +640,35 @@
           <tbody>
             <tr>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="居所" data-en="Residence">居所</span></strong>
+                <strong><span class="lang-text" data-zh="居所 (Residence)" data-en="Residence">居所 (Residence)</span></strong>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="首座村莊、收納定居者、啟動定居" data-en="First village, house settlers, enable settling">首座村莊、收納定居者、啟動定居</span>
+                <span class="lang-text" data-zh="訓練開拓者（Settler）與酋長（Chief）、收納並守衛村莊；防守時每級提供 2 × 等級² 基礎防禦。" data-en="Trains settlers and chiefs, protects the village; contributes 2 × level² base defense when the village is attacked.">訓練開拓者（Settler）與酋長（Chief）、收納並守衛村莊；防守時每級提供 2 × 等級² 基礎防禦。</span>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="每個帳戶只能1個居所" data-en="Only 1 per account">每個帳戶只能1個居所</span>
+                <span class="lang-text" data-zh="每個村莊 1 座；與宮殿互斥，建其中一個即可。Lv 10 可放 2 隊開拓者，Lv 20 可放 3 隊。" data-en="One per village, mutually exclusive with Palace. Lv 10 trains 2 settler parties, Lv 20 trains 3.">每個村莊 1 座；與宮殿互斥，建其中一個即可。Lv 10 可放 2 隊開拓者，Lv 20 可放 3 隊。</span>
               </td>
             </tr>
             <tr style="background-color: var(--color-bg-secondary);">
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="宮殿" data-en="Palace">宮殿</span></strong>
+                <strong><span class="lang-text" data-zh="宮殿 (Palace)" data-en="Palace">宮殿 (Palace)</span></strong>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="成為國王、統治聯盟、更多CP加成" data-en="Become king, rule alliance, more CP bonuses">成為國王、統領聯盟、更多CP加成</span>
+                <span class="lang-text" data-zh="宣告首都（Capital）：首都所在村莊的資源田可升到 Lv 20（一般村莊上限為 Lv 10）；同時可訓練開拓者與酋長。" data-en="Declares the capital: resource fields in the capital village can exceed Lv 10 (up to Lv 20); also trains settlers and chiefs.">宣告首都（Capital）：首都所在村莊的資源田可升到 Lv 20（一般村莊上限為 Lv 10）；同時可訓練開拓者與酋長。</span>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="需國王系統啟用、需居所Lv20+升級" data-en="King system required, upgrade from Res Lv20+">需國王系統啟用、需居所Lv20+升級</span>
+                <span class="lang-text" data-zh="每個帳號僅能有 1 座宮殿；拆除後可在他村重建以改變首都。宮殿 Lv 10 可放 1 隊、Lv 15 可放 2 隊、Lv 20 可放 3 隊酋長/開拓者。" data-en="Only one Palace per account. Demolishing lets you rebuild elsewhere to move the capital. Lv 10 = 1 party, Lv 15 = 2, Lv 20 = 3.">每個帳號僅能有 1 座宮殿；拆除後可在他村重建以改變首都。宮殿 Lv 10 可放 1 隊、Lv 15 可放 2 隊、Lv 20 可放 3 隊酋長/開拓者。</span>
               </td>
             </tr>
             <tr>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <strong><span class="lang-text" data-zh="司令部" data-en="Command Center">司令部</span></strong>
+                <strong><span class="lang-text" data-zh="司令部 (Command Center)" data-en="Command Center">司令部 (Command Center)</span></strong>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="征服村莊、軍事指揮點" data-en="Conquer villages, military command hub">征服村莊、軍事指揮點</span>
+                <span class="lang-text" data-zh="匈人族（Huns）專屬：可取代居所/宮殿，額外給予遠距作戰與部隊管理加成。非匈人族無此建築。" data-en="Hun-only: a tribe-exclusive replacement for Residence/Palace, providing extra bonuses for long-range military operations. Not available to other tribes.">匈人族（Huns）專屬：可取代居所/宮殿，額外給予遠距作戰與部隊管理加成。非匈人族無此建築。</span>
               </td>
               <td style="padding: var(--spacing-md); border: 1px solid var(--color-border);">
-                <span class="lang-text" data-zh="只能於非居所村莊建造" data-en="Only buildable in non-residence villages">只能於非居所村莊建造</span>
+                <span class="lang-text" data-zh="僅匈人可用；與居所、宮殿擇一建造。" data-en="Huns only; mutually exclusive with Residence and Palace.">僅匈人可用；與居所、宮殿擇一建造。</span>
               </td>
             </tr>
           </tbody>
