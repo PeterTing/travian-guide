@@ -1,0 +1,79 @@
+---
+interface Props {
+  headers: { zh: string; en: string }[];
+  rows: (string | number)[][];
+  caption?: { zh: string; en: string };
+}
+const { headers, rows, caption } = Astro.props;
+---
+<div class="table-wrap">
+  {caption && (
+    <p class="caption">
+      <span class="bi">
+        <span data-lang="zh">{caption.zh}</span>
+        <span data-lang="en">{caption.en}</span>
+      </span>
+    </p>
+  )}
+  <table>
+    <thead>
+      <tr>
+        {headers.map(h => (
+          <th>
+            <span class="bi">
+              <span data-lang="zh">{h.zh}</span>
+              <span data-lang="en">{h.en}</span>
+            </span>
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(r => (
+        <tr>
+          {r.map((cell, i) => (
+            <td class={i === 0 ? 'first' : 'num'}>{cell}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrap {
+    background: var(--bg-1);
+    border: 1px solid var(--border-0);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  .caption {
+    padding: 12px 16px;
+    margin: 0;
+    border-bottom: 1px solid var(--border-0);
+    background: var(--bg-2);
+    font-size: 13px;
+    color: var(--text-2);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th {
+    background: var(--bg-2);
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--text-1);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-top: 1px solid var(--border-0);
+    color: var(--text-0);
+  }
+  tbody tr:hover td { background: var(--bg-2); }
+  td.first { color: var(--text-0); font-weight: 500; }
+  td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+</style>

@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bi from '../components/shared/Bi.astro';
+import Callout from '../components/shared/Callout.astro';
+import Section from '../components/mechanics/Section.astro';
+import DataTable from '../components/mechanics/DataTable.astro';
+import { FIELD_PRODUCTION, CP_REQUIRED, MERCHANTS } from '../data/travian';
+
+const fieldRows: (string | number)[][] = [];
+for (let L = 0; L <= 20; L += (L < 10 ? 1 : L < 15 ? 2 : 1)) {
+  fieldRows.push([`Lv ${L}`, FIELD_PRODUCTION[L] ?? 0]);
+}
+
+const cpRows = CP_REQUIRED.map(r => [
+  `#${r.village}`,
+  r.delta.toLocaleString(),
+  r.cumulative.toLocaleString(),
+]);
+
+const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
+  tribe.charAt(0).toUpperCase() + tribe.slice(1),
+  m.capacity,
+  `${m.speed} tiles/hr`,
+]);
+---
+<BaseLayout
+  titleZh="遊戲機制 · Travian Guide"
+  titleEn="Game Mechanics · Travian Guide"
+>
+  <section style="padding: var(--space-7) var(--space-5); background: var(--bg-1); border-bottom: 1px solid var(--border-0);">
+    <div style="max-width: 860px; margin: 0 auto;">
+      <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;">
+        <Bi zh="遊戲機制 · T4.6 · 1x 速度" en="Game Mechanics · T4.6 · 1x speed" />
+      </span>
+      <h1 style="font-size: var(--fs-4xl); margin: 8px 0 12px; letter-spacing: -0.02em;">
+        <Bi zh="遊戲機制完整參考" en="Complete Mechanics Reference" />
+      </h1>
+      <p style="color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed);">
+        <Bi
+          zh="戰鬥、建築、資源、文化點、英雄、擴張。所有公式與數值均對照 kirilloid T4.6 與 support.travian.com 官方條目。"
+          en="Combat, buildings, resources, culture points, hero, expansion. All formulas and constants verified against kirilloid T4.6 source and support.travian.com."
+        />
+      </p>
+    </div>
+  </section>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 var(--space-5);">
+
+    <Section id="battle" titleZh="戰鬥系統" titleEn="Battle system" eyebrow="Combat">
+      <h3><Bi zh="損失公式" en="Damage formula" /></h3>
+      <p>
+        <Bi
+          zh="Travian 戰鬥使用「力量對比」的乘方公式："
+          en="Travian battles use a power-ratio formula:"
+        />
+      </p>
+      <pre>loser_ratio = (loser_power / winner_power) ^ 1.5</pre>
+      <p>
+        <Bi
+          zh="當雙方力量接近，兩邊都死慘；懸殊時輸的幾乎全滅。牆、Residence/Palace、Stone Mason 等加成都乘在防守力上，不是固定值。"
+          en="When powers are close, both sides take heavy losses; with a lopsided ratio the loser is nearly wiped. Wall, Residence/Palace, and Stone Mason bonuses multiply into defender power — they are not flat buffs."
+        />
+      </p>
+
+      <h3><Bi zh="牆壁每級加成" en="Wall bonus per level" /></h3>
+      <DataTable
+        headers={[{ zh: '部族', en: 'Tribe' }, { zh: '牆壁', en: 'Wall' }, { zh: '每級加成', en: 'Per level' }]}
+        rows={[
+          ['Romans', 'City Wall', '+3.0 %'],
+          ['Gauls', 'Palisade', '+2.5 %'],
+          ['Teutons', 'Earth Wall', '+2.0 %'],
+          ['Egyptians', 'Stone Wall', '+2.5 %'],
+          ['Huns', 'Makeshift Wall', '+1.5 %'],
+          ['Vikings', 'Barricade', '+1.5 %'],
+          ['Spartans', 'Palisade', '+2.5 %'],
+        ]}
+      />
+
+      <h3><Bi zh="Residence / Palace 防禦" en="Residence / Palace defense" /></h3>
+      <p>
+        <Bi
+          zh="Lv L 的居所 / 宮殿提供 2 × L² 的基礎防禦。滿等 Lv20 = 800 防（受牆 % 加成放大）。這是為什麼「守 cap 時升 res 到 20」很有價值。"
+          en="Residence / Palace at level L grants a flat 2 × L² base defense. Lv 20 = 800 def (scaled up by wall %). This is why pushing Residence to Lv 20 in a capital is worthwhile."
+        />
+      </p>
+    </Section>
+
+    <Section id="building" titleZh="建築系統" titleEn="Building system" eyebrow="Buildings">
+      <h3><Bi zh="田地分布" en="Field layouts" /></h3>
+      <p>
+        <Bi
+          zh="每個村莊有 18 格資源田。常見分布：4-4-4-6（標準）、3-4-4-7（7c）、3-3-3-9（9c）、1-1-1-15（15c）。首都通常選 15c / 9c 來衝產量。"
+          en="Every village has 18 resource-field tiles. Common layouts: 4-4-4-6 (standard), 3-4-4-7 (7c), 3-3-3-9 (9c), 1-1-1-15 (15c). Capitals usually pick 15c or 9c to push production."
+        />
+      </p>
+
+      <h3><Bi zh="主府加速公式" en="Main Building speed-up" /></h3>
+      <pre>build_time(L) = base_time × 0.964 ^ (MB_level − 1)</pre>
+      <p>
+        <Bi
+          zh="主府每升一級，後續建築時間減少約 3.6%（複利）。Lv 10 ≈ 72% 時間；Lv 20 ≈ 50%（約加倍速度）。"
+          en="Each Main Building level shaves ~3.6% off build time (compounded). Lv 10 ≈ 72% of base, Lv 20 ≈ 50% (roughly 2× speed)."
+        />
+      </p>
+
+      <h3><Bi zh="加成建築（每級 +5%，滿 Lv5 = +25%）" en="Bonus buildings (+5%/lv, max +25% at Lv5)" /></h3>
+      <ul>
+        <li>Sawmill → Wood · <Bi zh="需 Woodcutter Lv10 + 主府 Lv5" en="needs Woodcutter Lv10 + MB Lv5" /></li>
+        <li>Brickyard → Clay · <Bi zh="需 Clay Pit Lv10 + 主府 Lv5" en="needs Clay Pit Lv10 + MB Lv5" /></li>
+        <li>Iron Foundry → Iron · <Bi zh="需 Iron Mine Lv10 + 主府 Lv5" en="needs Iron Mine Lv10 + MB Lv5" /></li>
+        <li>Grain Mill → Crop · <Bi zh="需 Cropland Lv5 + 主府 Lv5" en="needs Cropland Lv5 + MB Lv5" /></li>
+        <li>Bakery → Crop · <Bi zh="需 Cropland Lv10 + Grain Mill Lv5" en="needs Cropland Lv10 + Grain Mill Lv5" /></li>
+      </ul>
+      <p>
+        <Bi
+          zh="糧食有兩棟加成建築（Grain Mill + Bakery），總共可疊加 +50%。其他資源只有一棟 = +25% 上限。"
+          en="Crop has two bonus buildings (Grain Mill + Bakery) stacking to +50%. Other resources have one each — capped at +25%."
+        />
+      </p>
+    </Section>
+
+    <Section id="resources" titleZh="資源產量 & 綠洲" titleEn="Resource production & oases" eyebrow="Resources">
+      <h3><Bi zh="田地產量（每小時，1x 速度）" en="Field production (per hour, 1x speed)" /></h3>
+      <DataTable
+        caption={{ zh: '所有四種資源共用同一張表', en: 'Same values apply to all 4 field types' }}
+        headers={[{ zh: '等級', en: 'Level' }, { zh: '產量 /小時', en: 'Production /hr' }]}
+        rows={fieldRows}
+      />
+
+      <h3><Bi zh="產量公式" en="Production formula" /></h3>
+      <pre>final = base × (1 + bonus_building% + oasis% + gold%)</pre>
+      <p>
+        <Bi
+          zh="所有加成以加法疊加（不是乘法）。例：L18 crop 2240/hr × (1 + 0.50 bakery + 1.50 crop oases + 0.25 gold) = 2240 × 3.25 = 7280/hr 每格。"
+          en="All bonuses stack additively (not multiplicatively). Example: L18 crop 2240/hr × (1 + 0.50 bakery + 1.50 crop oases + 0.25 gold) = 2240 × 3.25 = 7,280/hr per field."
+        />
+      </p>
+
+      <h3><Bi zh="綠洲類型" en="Oasis types" /></h3>
+      <ul>
+        <li><Bi zh="單一資源 +25%（最常見）" en="Single +25% (most common)" /></li>
+        <li><Bi zh="雙資源 +25% + 糧 +25%" en="Dual +25% with crop +25%" /></li>
+        <li><Bi zh="單一資源 +50%（較稀少；糧 +50% 是首都必搶）" en="Single +50% (rarer; crop +50% is the capital prize)" /></li>
+      </ul>
+      <p>
+        <Bi
+          zh="佔領綠洲需要英雄莊園：Lv10 可佔 1 塊、Lv15 可佔 2 塊、Lv20 可佔 3 塊。綠洲必須在村莊 7×7 範圍內。"
+          en="Capturing oases needs Hero's Mansion Lv10 (1 slot), Lv15 (2), Lv20 (3). Oasis must be within the village's 7×7 area."
+        />
+      </p>
+      <Callout kind="tip" titleZh="實戰建議" titleEn="Practical advice">
+        <p>
+          <Bi
+            zh="先用「綠洲 ROI 計算器」算出回本天數。15c 首都 + 50% crop 綠洲 + HM Lv10 = 1.8 天回本；若是單一 25% 綠洲就要 3–5 天，得評估值不值。"
+            en="Use the Oasis ROI calculator first. A 15c cap + 50% crop oasis + HM Lv10 ≈ 1.8 days payback. A single 25% oasis takes 3–5 days — weigh against other upgrades."
+          />
+        </p>
+      </Callout>
+    </Section>
+
+    <Section id="cp" titleZh="文化點與開村" titleEn="Culture points & expansion" eyebrow="Expansion">
+      <h3><Bi zh="CP 計算公式" en="CP formula" /></h3>
+      <pre>CP_at_level(L) = round(base × 1.2 ^ L)</pre>
+      <p>
+        <Bi
+          zh="每棟建築有一個基礎 CP 值（主府 = 2，市場 = 3，大使 / 學院 = 4，市政廳 / 宮殿 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
+          en="Each building has a base CP (Main Building = 2, Marketplace = 3, Embassy / Academy = 4, Town Hall / Palace = 5, Treasury = 6, most others 1 or 2). Higher levels give exponentially more CP."
+        />
+      </p>
+
+      <h3><Bi zh="Lumi 建議：每村 CP 配方" en="Lumi baseline: CP per village" /></h3>
+      <p>
+        <Bi
+          zh="主府 20 + 市場 20 + 大使 20 + 學院 20 + 市政廳 10 = 529 CP/天。這是每個村的「最低被動 CP」基線。"
+          en="Main Building 20 + Marketplace 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day. This is the minimum-passive-CP baseline every village should reach."
+        />
+      </p>
+
+      <h3><Bi zh="開村所需 CP" en="CP required per village" /></h3>
+      <DataTable
+        headers={[
+          { zh: '第幾村', en: 'Village #' },
+          { zh: '單次需求', en: 'Delta CP' },
+          { zh: '累積', en: 'Cumulative' },
+        ]}
+        rows={cpRows}
+      />
+      <p>
+        <Bi
+          zh="第 6 村起每村 +11,000 CP（與第 5 村相同增量）。"
+          en="From village 6 onward each adds +11,000 CP (same delta as village 5)."
+        />
+      </p>
+
+      <h3><Bi zh="慶典（Town Hall）" en="Celebrations (Town Hall)" /></h3>
+      <ul>
+        <li><Bi zh="小型慶典：TH Lv1+、24 小時、+500 CP、消耗約 19.5k 資源" en="Small celebration: TH Lv1+, 24 h, +500 CP, ~19.5k total cost" /></li>
+        <li><Bi zh="大型慶典：TH Lv10+、60 小時、+2,000 CP，但成本是 5x" en="Great celebration: TH Lv10+, 60 h, +2,000 CP, but costs 5x" /></li>
+      </ul>
+    </Section>
+
+    <Section id="hero" titleZh="英雄系統" titleEn="Hero system" eyebrow="Hero">
+      <h3><Bi zh="屬性點分配" en="Attribute points" /></h3>
+      <ul>
+        <li><strong><Bi zh="戰鬥力" en="Fighting strength" /></strong>: <Bi zh="羅馬 +100/點；其他族 +80/點" en="Romans +100/pt, other tribes +80/pt" /></li>
+        <li><strong><Bi zh="進攻加成" en="Off bonus" /></strong>: <Bi zh="+0.2% 同伍部隊攻擊/點，上限 +20%（100 點）" en="+0.2% attack per pt to the army this hero is in (max +20% at 100 pts)" /></li>
+        <li><strong><Bi zh="防禦加成" en="Def bonus" /></strong>: <Bi zh="+0.2% 同伍部隊防禦/點，上限 +20%" en="+0.2% defense per pt, max +20%" /></li>
+        <li><strong><Bi zh="資源採集" en="Resource production" /></strong>: <Bi zh="平均分四資源：+6/點/小時（每種 +1.5）；集中單一：+6/點/小時全入該資源" en="Split: +6/pt/hr (≈+1.5 each); focused on one resource: +6/pt/hr into that type" /></li>
+      </ul>
+
+      <Callout kind="warn" titleZh="保護期結束後" titleEn="After beginner protection">
+        <p>
+          <Bi
+            zh="綠洲清理不再安全（被反爆就死）。把英雄轉成資源採集，穩定提供 4 種 / 小時的額外收入。Book of Wisdom 可重置屬性。"
+            en="Oasis clears become risky (counter-attacks can kill the hero). Respec into resource production for a steady +hourly income. Book of Wisdom from adventures resets attribute points."
+          />
+        </p>
+      </Callout>
+    </Section>
+
+    <Section id="cranny" titleZh="秘密倉庫 & 保護" titleEn="Cranny & protection" eyebrow="Defense">
+      <h3><Bi zh="秘密倉庫容量" en="Cranny capacity" /></h3>
+      <p>
+        <Bi
+          zh="Lv1 每種資源藏 100（四項共 400）；Lv10 最高每種 2,000（共 8,000）。高盧享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"
+          en="Lv1 hides 100 per resource (400 total), Lv10 (MAX) hides 2,000 per resource (8,000 total). Gauls get ×1.5 (Lv10 = 3,000 per resource). Raiders take resources above the cranny threshold first."
+        />
+      </p>
+
+      <h3><Bi zh="商人" en="Merchants" /></h3>
+      <DataTable
+        headers={[
+          { zh: '部族', en: 'Tribe' },
+          { zh: '容量', en: 'Capacity' },
+          { zh: '速度', en: 'Speed' },
+        ]}
+        rows={merchantRows}
+      />
+      <p>
+        <Bi
+          zh="商路辦公室（Trade Office）每級 +10% 容量，上限 Lv20 = +200%（三倍）。"
+          en="Trade Office adds +10% capacity per level up to Lv20 (+200%, ×3 total)."
+        />
+      </p>
+    </Section>
+
+    <Section id="references" titleZh="延伸閱讀" titleEn="Further reading" eyebrow="Links">
+      <ul>
+        <li><a href="https://support.travian.com/en/support/home" target="_blank" rel="noopener">support.travian.com</a> — <Bi zh="官方支援站" en="Official support" /></li>
+        <li><a href="http://travian.kirilloid.ru/" target="_blank" rel="noopener">kirilloid.ru</a> — <Bi zh="公開遊戲公式與數據" en="Public game formulas & data" /></li>
+        <li><a href="https://travian.fandom.com/" target="_blank" rel="noopener">travian.fandom.com</a> — <Bi zh="玩家維護的維基" en="Community wiki" /></li>
+      </ul>
+    </Section>
+  </div>
+</BaseLayout>
