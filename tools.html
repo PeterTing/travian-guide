@@ -770,7 +770,70 @@
             </div>
           </div>
         </div>
-        <div class="calc-panel" data-calc="traderoute"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <!-- ===== CALCULATOR 5: Trade Route / Feeder ===== -->
+        <div class="calc-panel" data-calc="traderoute">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="商路 / 糧商計算器" data-en="Trade Route / Feeder Calculator">商路 / 糧商計算器</span></h3>
+          <p class="lang-content active" data-lang="zh">feeder 村每小時會產出多少「可外送」的資源？你需要幾個商人、跑幾趟才送得完？此計算器：給定資源產量/小時、目標村距離、部族與商路辦公室等級，算出最小商人數以維持 hourly 的商路。Lumi 的經驗：60 格以內用 1–2 個商人不是問題。</p>
+          <p class="lang-content" data-lang="en">How much surplus does a feeder make per hour, and how many merchants on how many trips are needed to haul it? Given hourly surplus per resource + target-village distance + tribe + Trade Office level, this calculator outputs the minimum merchant count to sustain an hourly route. Lumi's rule of thumb: within 60 fields, 1–2 merchants are enough.</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="輸入" data-en="Inputs">輸入</span></h4>
+
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="部族" data-en="Tribe">部族</span></label>
+                <select id="tr-tribe">
+                  <option value="romans">Romans (500/16)</option>
+                  <option value="teutons">Teutons (1000/12)</option>
+                  <option value="gauls" selected>Gauls (750/24)</option>
+                  <option value="egyptians">Egyptians (750/16)</option>
+                  <option value="huns">Huns (500/20)</option>
+                  <option value="spartans">Spartans (500/14)</option>
+                  <option value="vikings">Vikings (750/18)</option>
+                </select>
+              </div>
+
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="商路辦公室等級 (0–20)" data-en="Trade Office level (0–20)">商路辦公室等級 (0–20)</span></label>
+                <input type="number" id="tr-office" min="0" max="20" value="10">
+              </div>
+
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="到目標村距離（格）" data-en="Distance to target (tiles)">到目標村距離（格）</span></label>
+                <input type="number" id="tr-dist" min="1" max="500" value="30">
+              </div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="每小時要送出的量" data-en="Per-hour surplus to ship">每小時要送出的量</span></h4>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Wood /hr</label><input type="number" id="tr-sw" min="0" value="5000"></div>
+                <div class="calc-field"><label>Clay /hr</label><input type="number" id="tr-sc" min="0" value="5000"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Iron /hr</label><input type="number" id="tr-si" min="0" value="5000"></div>
+                <div class="calc-field"><label>Crop /hr</label><input type="number" id="tr-sr" min="0" value="2000"></div>
+              </div>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="商人規格" data-en="Merchant specs">商人規格</span></h4>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="每商人容量 (含商路辦公室加成)" data-en="Merchant capacity (incl. Trade Office)">每商人容量 (含商路辦公室加成)</span></span><span class="value" id="tr-cap">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="商人速度（格/小時）" data-en="Merchant speed (tiles/hr)">商人速度（格/小時）</span></span><span class="value" id="tr-speed">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="單程時間 / 往返時間" data-en="One-way / round-trip">單程時間 / 往返時間</span></span><span class="value" id="tr-trip">—</span></div>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="所需商人（每小時送完所有 surplus）" data-en="Merchants needed (ship all surplus within 1 hr)">所需商人（每小時送完所有 surplus）</span></h4>
+              <table class="calc-table">
+                <thead><tr><th><span class="lang-text" data-zh="資源" data-en="Resource">資源</span></th><th><span class="lang-text" data-zh="每小時送量" data-en="/hr surplus">每小時送量</span></th><th><span class="lang-text" data-zh="商人次數" data-en="Trips">商人次數</span></th><th><span class="lang-text" data-zh="常駐商人" data-en="Dedicated merchants">常駐商人</span></th></tr></thead>
+                <tbody id="tr-breakdown-body"></tbody>
+              </table>
+
+              <div class="calc-result-row" style="margin-top: 0.75rem;"><span class="label"><span class="lang-text" data-zh="總計（單向）" data-en="Total (one-way)">總計（單向）</span></span><span class="value highlight" id="tr-total">—</span></div>
+
+              <p class="calc-note">
+                <span class="lang-text" data-zh="公式：商人次數/hr = 送量 ÷ 商人容量；常駐商人 = 商人次數 × 往返時間(小時)。若距離過遠/部族慢，你可能需要不實際的商人數 — 調高商路辦公室等級、或把 feeder 移近一點。" data-en="Formula: trips/hr = surplus ÷ merchant capacity; dedicated merchants = trips × round-trip hours. If distance is too far or your tribe is slow you may get infeasible merchant counts — raise Trade Office level or move the feeder closer.">公式：商人次數/hr = 送量 ÷ 商人容量；常駐商人 = 商人次數 × 往返時間(小時)。若距離過遠/部族慢，你可能需要不實際的商人數 — 調高商路辦公室等級、或把 feeder 移近一點。</span>
+              </p>
+            </div>
+          </div>
+        </div>
         <div class="calc-panel" data-calc="farm"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="cap-sim"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
       </section>
@@ -2004,6 +2067,71 @@
       });
 
       plan();
+    })();
+
+    // ===== CALC 5: Trade Route / Feeder =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+
+      var selTribe = document.getElementById('tr-tribe');
+      var inOffice = document.getElementById('tr-office');
+      var inDist = document.getElementById('tr-dist');
+      var inS = { wood: document.getElementById('tr-sw'), clay: document.getElementById('tr-sc'),
+                  iron: document.getElementById('tr-si'), crop: document.getElementById('tr-sr') };
+
+      function fmtInt(n) { return isFinite(n) ? Math.round(n).toLocaleString('en-US') : '—'; }
+      function fmtHr(h) {
+        if (!isFinite(h)) return '—';
+        var totalMin = Math.round(h * 60);
+        var H = Math.floor(totalMin / 60), M = totalMin % 60;
+        return (H ? H + 'h ' : '') + M + 'm';
+      }
+
+      function calc() {
+        var tribe = selTribe.value;
+        var tradeOffice = Math.max(0, Math.min(20, parseInt(inOffice.value, 10) || 0));
+        var dist = Math.max(1, parseInt(inDist.value, 10) || 1);
+        var tribeData = T.MERCHANTS[tribe];
+        var cap = T.merchantCapacity(tribe, tradeOffice);
+        var speed = tribeData.speed;
+        var oneWay = dist / speed; // hours
+        var roundTrip = oneWay * 2;
+
+        document.getElementById('tr-cap').textContent = fmtInt(cap) + ' per merchant';
+        document.getElementById('tr-speed').textContent = speed + ' tiles/hr';
+        document.getElementById('tr-trip').textContent = fmtHr(oneWay) + ' / ' + fmtHr(roundTrip);
+
+        var totalDedicated = 0;
+        var labels = { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' };
+        var rows = ['wood','clay','iron','crop'].map(function (t) {
+          var surplus = Math.max(0, parseInt(inS[t].value, 10) || 0);
+          if (surplus === 0) return { html: '<tr><td>' + labels[t] + '</td><td>0</td><td>0</td><td>0</td></tr>', dedicated: 0 };
+          var tripsPerHr = surplus / cap;
+          var dedicated = tripsPerHr * roundTrip;
+          totalDedicated += dedicated;
+          return {
+            html: '<tr><td>' + labels[t] + '</td>' +
+                  '<td>' + fmtInt(surplus) + '</td>' +
+                  '<td>' + tripsPerHr.toFixed(2) + '</td>' +
+                  '<td>' + dedicated.toFixed(2) + '</td></tr>',
+            dedicated: dedicated
+          };
+        });
+        document.getElementById('tr-breakdown-body').innerHTML = rows.map(function (r) { return r.html; }).join('');
+
+        var totalText = totalDedicated.toFixed(1) + ' merchants';
+        if (totalDedicated <= 1.5) totalText += ' 🟢';
+        else if (totalDedicated <= 3) totalText += ' 🟡';
+        else totalText += ' 🔴';
+        document.getElementById('tr-total').textContent = totalText;
+      }
+
+      [selTribe, inOffice, inDist, inS.wood, inS.clay, inS.iron, inS.crop].forEach(function (el) {
+        el.addEventListener('change', calc);
+        el.addEventListener('input', calc);
+      });
+      calc();
     })();
   </script>
 </body>
