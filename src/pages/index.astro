@@ -1,16 +1,17 @@
 ---
-// Placeholder home — full layout + content lands in later commits.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bi from '../components/shared/Bi.astro';
 ---
-
-<!DOCTYPE html>
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travian Legends Guide</title>
-  </head>
-  <body style="background:#0a0909;color:#f5f0e8;font-family:system-ui;padding:2rem;">
-    <h1 style="color:#f59e0b;">Travian Legends Guide</h1>
-    <p>Rebuilding with Astro + React + TypeScript. Site will be restored shortly.</p>
-  </body>
-</html>
+<BaseLayout>
+  <section style="padding: var(--space-9) var(--space-5); max-width: var(--container); margin: 0 auto; text-align: center;">
+    <h1 style="font-size: var(--fs-5xl); margin-bottom: var(--space-4);">
+      <Bi zh="Travian Legends 攻略" en="Travian Legends Guide" />
+    </h1>
+    <p style="color: var(--text-1); font-size: var(--fs-lg); max-width: 640px; margin: 0 auto;">
+      <Bi
+        zh="T4.6 x1 速度 — 以 Lumi / Eggstra / Dave 進階指南為基礎。完整頁面正在建置中。"
+        en="T4.6 1x speed — based on the Lumi / Eggstra / Dave advanced guide. Full pages landing soon."
+      />
+    </p>
+  </section>
+</BaseLayout>

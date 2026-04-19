@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Header from '../components/shared/Header.astro';
+import Footer from '../components/shared/Footer.astro';
+import { LANG_STORAGE_KEY } from '../i18n/types';
+
+interface Props {
+  title?: string;
+  titleZh?: string;
+  titleEn?: string;
+  description?: string;
+  descriptionZh?: string;
+  descriptionEn?: string;
+}
+
+const {
+  title,
+  titleZh = 'Travian Legends 攻略與計算工具',
+  titleEn = 'Travian Legends Guide & Calculators',
+  description,
+  descriptionZh = '依 Lumi / Eggstra / Dave 進階指南整理；包含 ROI 計算、綠洲規劃、被動 CP、商路、農場效率等工具。T4.6 x1 速度。',
+  descriptionEn = 'Based on the Lumi/Eggstra/Dave advanced guide. ROI, oasis, passive CP, trade route, and farming calculators. T4.6 1x speed.'
+} = Astro.props;
+
+const fullTitle = title || `${titleZh} · ${titleEn}`;
+const fullDesc = description || `${descriptionZh} / ${descriptionEn}`;
+const base = import.meta.env.BASE_URL;
+---
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={fullDesc} />
+    <meta name="theme-color" content="#0a0909" />
+    <meta name="color-scheme" content="dark" />
+    <title>{fullTitle}</title>
+
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`.replace(/\/\//g, '/')} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Restore stored language before render to avoid flash -->
+    <script is:inline define:vars={{ LANG_STORAGE_KEY }}>
+      (function () {
+        try {
+          var stored = localStorage.getItem(LANG_STORAGE_KEY);
+          if (stored === 'en' || stored === 'zh') {
+            document.documentElement.dataset.lang = stored;
+            document.documentElement.lang = stored === 'en' ? 'en' : 'zh-Hant';
+          }
+        } catch (e) { /* private mode */ }
+      })();
+    </script>
+
+    <style is:global>
+      /* Bilingual text switching via <html data-lang="..."> */
+      html[data-lang="en"] .bi > [data-lang="zh"],
+      html:not([data-lang="en"]) .bi > [data-lang="en"] {
+        display: none;
+      }
+      .bi > [data-lang] { display: inline; }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main" class="visually-hidden">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

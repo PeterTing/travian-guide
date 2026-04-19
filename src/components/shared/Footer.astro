@@ -1,0 +1,58 @@
+---
+import Bi from './Bi.astro';
+import styles from './Footer.module.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const year = new Date().getFullYear();
+---
+<footer class={styles.footer}>
+  <div class={styles.inner}>
+    <div class={styles.col}>
+      <h4 class={styles.heading}><Bi zh="內容" en="Content" /></h4>
+      <ul class={styles.list}>
+        <li><a href={`${base}/guide`}><Bi zh="新手攻略" en="Beginner Guide" /></a></li>
+        <li><a href={`${base}/mechanics`}><Bi zh="遊戲機制" en="Game Mechanics" /></a></li>
+        <li><a href={`${base}/strategy`}><Bi zh="進階策略" en="Advanced Strategy" /></a></li>
+      </ul>
+    </div>
+
+    <div class={styles.col}>
+      <h4 class={styles.heading}><Bi zh="工具" en="Tools" /></h4>
+      <ul class={styles.list}>
+        <li><a href={`${base}/tools#field-roi`}><Bi zh="資源田 ROI" en="Field ROI" /></a></li>
+        <li><a href={`${base}/tools#oasis-roi`}><Bi zh="綠洲 ROI" en="Oasis ROI" /></a></li>
+        <li><a href={`${base}/tools#cp`}><Bi zh="文化點計算" en="Culture Points" /></a></li>
+        <li><a href={`${base}/tools#traderoute`}><Bi zh="商路規劃" en="Trade Routes" /></a></li>
+      </ul>
+    </div>
+
+    <div class={styles.col}>
+      <h4 class={styles.heading}><Bi zh="部族" en="Tribes" /></h4>
+      <ul class={styles.list}>
+        <li><a href={`${base}/tribes/romans`}>Romans</a></li>
+        <li><a href={`${base}/tribes/gauls`}>Gauls</a></li>
+        <li><a href={`${base}/tribes/teutons`}>Teutons</a></li>
+        <li><a href={`${base}/tribes/egyptians`}>Egyptians</a></li>
+        <li><a href={`${base}/tribes/huns`}>Huns</a></li>
+        <li><a href={`${base}/tribes/vikings`}>Vikings</a></li>
+        <li><a href={`${base}/tribes/spartans`}>Spartans</a></li>
+      </ul>
+    </div>
+
+    <div class={styles.col}>
+      <h4 class={styles.heading}><Bi zh="關於" en="About" /></h4>
+      <p class={styles.about}>
+        <Bi
+          zh="基於 Lumi / Eggstra / Dave 進階指南；資料源自 kirilloid/travian。本站非官方，與 Travian Games 無關。"
+          en="Based on the Lumi / Eggstra / Dave advanced guide; data sourced from kirilloid/travian. Unofficial, not affiliated with Travian Games."
+        />
+      </p>
+    </div>
+  </div>
+
+  <div class={styles.bottom}>
+    <span>© {year} Travian Guide</span>
+    <span class={styles.dot}>·</span>
+    <Bi zh="Travian 為 Travian Games GmbH 商標" en="Travian is a trademark of Travian Games GmbH" />
+  </div>
+</footer>

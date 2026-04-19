@@ -1,0 +1,64 @@
+---
+import LanguageToggle from './LanguageToggle.tsx';
+import Bi from './Bi.astro';
+import styles from './Header.module.css';
+
+interface NavItem { href: string; zh: string; en: string }
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const nav: NavItem[] = [
+  { href: `${base}/`,           zh: '首頁',     en: 'Home' },
+  { href: `${base}/tribes`,     zh: '部族',     en: 'Tribes' },
+  { href: `${base}/guide`,      zh: '新手攻略', en: 'Guide' },
+  { href: `${base}/mechanics`,  zh: '遊戲機制', en: 'Mechanics' },
+  { href: `${base}/tools`,      zh: '計算工具', en: 'Tools' },
+  { href: `${base}/strategy`,   zh: '進階策略', en: 'Strategy' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || `${base}/`;
+---
+<header class={styles.header}>
+  <div class={styles.inner}>
+    <a href={`${base}/`} class={styles.logo}>
+      <span class={styles.logoMark}>▲</span>
+      <span class={styles.logoText}>Travian Guide</span>
+    </a>
+
+    <nav class={styles.nav} aria-label="Primary">
+      {nav.map(item => {
+        const href = item.href.replace(/\/$/, '') || `${base}/`;
+        const isActive = href === currentPath ||
+          (href !== `${base}/` && currentPath.startsWith(href));
+        return (
+          <a
+            href={item.href}
+            class:list={[styles.link, isActive && styles.linkActive]}
+          >
+            <Bi zh={item.zh} en={item.en} />
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class={styles.controls}>
+      <LanguageToggle client:load />
+      <button
+        class={styles.menuBtn}
+        aria-label="Menu"
+        id="mobileMenuBtn"
+        type="button"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const headerEl = document.querySelector('header');
+  btn?.addEventListener('click', () => {
+    headerEl?.classList.toggle('mobile-open');
+  });
+</script>

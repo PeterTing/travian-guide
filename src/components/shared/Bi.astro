@@ -1,0 +1,23 @@
+---
+/**
+ * <Bi zh="繁中" en="English" /> — bilingual inline text.
+ *
+ * Renders both language strings in the HTML; the current language is
+ * controlled by `data-lang` on <html>, which is set by the LanguageToggle
+ * (localStorage source of truth) at hydration time.
+ *
+ * The visible-text switch happens in CSS in BaseLayout (no JS on every node).
+ */
+interface Props {
+  zh: string;
+  en: string;
+  as?: string;
+  class?: string;
+}
+const { zh, en, as = 'span', class: className } = Astro.props;
+const Tag = as as any;
+---
+<Tag class:list={['bi', className]}>
+  <span data-lang="zh">{zh}</span>
+  <span data-lang="en">{en}</span>
+</Tag>
