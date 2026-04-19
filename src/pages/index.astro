@@ -1,17 +1,123 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Bi from '../components/shared/Bi.astro';
+import TribeCard from '../components/shared/TribeCard.astro';
+import { TRIBE_LIST } from '../data/tribes/index';
+import styles from './index.module.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const quickStart = [
+  {
+    icon: '🎯', zh: '選擇部族', en: 'Pick a Tribe',
+    zhDesc: '依玩法選：平衡羅馬、速防高盧、掠奪條頓、生產埃及、騎兵匈人、海戰維京、精兵斯巴達。',
+    enDesc: 'Choose by playstyle: Balanced Romans, Speed-def Gauls, Raider Teutons, Economy Egyptians, Cavalry Huns, Amphibious Vikings, Elite Spartans.',
+    href: `${base}/tribes`,
+  },
+  {
+    icon: '📐', zh: 'ROI 導向規劃', en: 'ROI-driven planning',
+    zhDesc: '所有建築決策都用 ROI（Return on Investment）評估。遊戲每一步都在比「花多少、賺多久」。',
+    enDesc: 'Evaluate every build with ROI (Return on Investment). Every upgrade is "cost in, payback out".',
+    href: `${base}/tools#field-roi`,
+  },
+  {
+    icon: '🏛️', zh: '首都就是主力', en: 'Capital is the engine',
+    zhDesc: '首都資源田可到 Lv20（一般村 Lv10）。選好糧田數（15c/9c/7c/6c）再出發。',
+    enDesc: 'Capital fields can reach Lv20 (normal villages cap at Lv10). Commit to cropper type (15c/9c/7c/6c) early.',
+    href: `${base}/strategy`,
+  },
+  {
+    icon: '🎉', zh: 'CP 是一切擴張的燃料', en: 'Culture Points fuel expansion',
+    zhDesc: '2000 CP → 2 村，5000 → 3 村，每個村主府 20 + 市場 20 + 學院 20 + 大使 20 + 市政 10 = 529 CP/天。',
+    enDesc: '2,000 CP → village 2, 5,000 → village 3. Lumi preset: MB 20 + Market 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day per village.',
+    href: `${base}/tools#cp`,
+  },
+  {
+    icon: '🧪', zh: '計算工具已內建', en: 'Calculators built-in',
+    zhDesc: '7 個工具：田地 ROI、綠洲 ROI、CP、首都順序、商路、農場、糧食模擬。全部對照 Lumi 表格驗證。',
+    enDesc: 'Seven tools: field ROI, oasis ROI, CP, capital build order, trade routes, farming, and crop simulator — all validated against Lumi tables.',
+    href: `${base}/tools`,
+  },
+  {
+    icon: '🧠', zh: '進階：Lumi 指南', en: 'Advanced: Lumi Guide',
+    zhDesc: '錘子 / 鐵砧 / Feeder / NPC 村的功能定位、3-chief 首都、Day 45 攻擊配額、跟蹤錘子防禦。',
+    enDesc: 'Hammer / Anvil / Feeder / NPC village roles, 3-chief capitals, Day 45 op quotas, hammer-follow-home defense.',
+    href: `${base}/strategy`,
+  },
+];
 ---
 <BaseLayout>
-  <section style="padding: var(--space-9) var(--space-5); max-width: var(--container); margin: 0 auto; text-align: center;">
-    <h1 style="font-size: var(--fs-5xl); margin-bottom: var(--space-4);">
-      <Bi zh="Travian Legends 攻略" en="Travian Legends Guide" />
-    </h1>
-    <p style="color: var(--text-1); font-size: var(--fs-lg); max-width: 640px; margin: 0 auto;">
-      <Bi
-        zh="T4.6 x1 速度 — 以 Lumi / Eggstra / Dave 進階指南為基礎。完整頁面正在建置中。"
-        en="T4.6 1x speed — based on the Lumi / Eggstra / Dave advanced guide. Full pages landing soon."
-      />
-    </p>
+  <!-- ===== HERO ===== -->
+  <section class={styles.hero}>
+    <div class={styles.heroInner}>
+      <span class={styles.heroEyebrow}>
+        <Bi zh="Travian Legends · T4.6 · x1 速度" en="Travian Legends · T4.6 · 1x speed" />
+      </span>
+      <h1 class={styles.heroTitle}>
+        <Bi
+          zh="把每一步升級都算清楚。"
+          en="Plan every upgrade with numbers."
+        />
+      </h1>
+      <p class={styles.heroLead}>
+        <Bi
+          zh="以 Lumi / Eggstra / Dave 進階指南為骨架，配 7 個內建計算工具：資源田 ROI、綠洲 ROI、被動 CP、首都建築順序、商路、農場、首都糧食模擬。全部對照 kirilloid 官方數據與 Lumi 的 ROI 表格驗證。"
+          en="Built on the Lumi / Eggstra / Dave advanced guide with 7 on-site calculators: field ROI, oasis ROI, passive CP, capital build order, trade routes, farming, and capital crop simulator — all validated against kirilloid game data and Lumi's published ROI tables."
+        />
+      </p>
+      <div class={styles.heroCtas}>
+        <a href={`${base}/tools`} class={styles.ctaPrimary}>
+          <Bi zh="開始使用計算工具" en="Open calculators" /> →
+        </a>
+        <a href={`${base}/guide`} class={styles.ctaGhost}>
+          <Bi zh="新手從這裡開始" en="Start here if you're new" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUICK START CARDS ===== -->
+  <section class={styles.section}>
+    <div class={styles.container}>
+      <header class={styles.sectionHead}>
+        <h2 class={styles.sectionTitle}><Bi zh="核心觀念" en="Core concepts" /></h2>
+        <p class={styles.sectionLead}>
+          <Bi
+            zh="遊戲的 6 個關鍵決策。點任一張卡看細節或打開對應工具。"
+            en="Six decisions that shape the whole server. Tap any card for details or the matching tool."
+          />
+        </p>
+      </header>
+      <div class={styles.cardGrid}>
+        {quickStart.map(qs => (
+          <a href={qs.href} class={styles.qsCard}>
+            <span class={styles.qsIcon}>{qs.icon}</span>
+            <h3 class={styles.qsTitle}><Bi zh={qs.zh} en={qs.en} /></h3>
+            <p class={styles.qsDesc}><Bi zh={qs.zhDesc} en={qs.enDesc} /></p>
+            <span class={styles.qsLink}>
+              <Bi zh="了解更多 →" en="Learn more →" />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRIBE OVERVIEW ===== -->
+  <section class={styles.section}>
+    <div class={styles.container}>
+      <header class={styles.sectionHead}>
+        <h2 class={styles.sectionTitle}><Bi zh="七個部族" en="Seven tribes" /></h2>
+        <p class={styles.sectionLead}>
+          <Bi
+            zh="T4.6 目前可選的所有部族。前三族（羅馬 / 高盧 / 條頓）最適合新手；匈人與埃及屬於 T4；維京與斯巴達為年度特別族。"
+            en="All T4.6 playable tribes. The first three (Romans / Gauls / Teutons) are beginner-friendly; Huns and Egyptians are core T4; Vikings and Spartans are annual-special tribes."
+          />
+        </p>
+      </header>
+      <div class={styles.tribeGrid}>
+        {TRIBE_LIST.map(tribe => <TribeCard tribe={tribe} />)}
+      </div>
+    </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,40 @@
+---
+import type { Tribe } from '../../data/tribes-types';
+import Bi from './Bi.astro';
+import styles from './TribeCard.module.css';
+
+interface Props {
+  tribe: Tribe;
+  compact?: boolean;
+}
+const { tribe, compact = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const diff = '★'.repeat(tribe.difficulty) + '☆'.repeat(5 - tribe.difficulty);
+---
+<a
+  href={`${base}/tribes/${tribe.id}`}
+  class:list={[styles.card, compact && styles.compact]}
+  style={`--tribe-accent:${tribe.color}`}
+>
+  <div class={styles.head}>
+    <span class={styles.icon}>{tribe.icon}</span>
+    <div class={styles.names}>
+      <span class={styles.name}><Bi zh={tribe.name.zh} en={tribe.name.en} /></span>
+      <span class={styles.arch}><Bi zh={tribe.archetype.zh} en={tribe.archetype.en} /></span>
+    </div>
+    <span class={styles.diff} aria-label={`Difficulty ${tribe.difficulty} of 5`}>{diff}</span>
+  </div>
+  {!compact && (
+    <>
+      <p class={styles.tagline}>
+        <Bi zh={tribe.tagline.zh} en={tribe.tagline.en} />
+      </p>
+      <p class={styles.summary}>
+        <Bi zh={tribe.summary.zh} en={tribe.summary.en} />
+      </p>
+    </>
+  )}
+  <span class={styles.link}>
+    <Bi zh="詳細資料 →" en="View details →" />
+  </span>
+</a>
