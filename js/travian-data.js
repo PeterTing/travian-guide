@@ -147,11 +147,34 @@
     { id: 'single50_crop', label: { zh: '糧 +50%',           en: 'Crop +50%' },           bonuses: { crop: 0.50 } }
   ];
 
-  // Hero's Mansion oasis-slot unlocks
+  // Hero's Mansion oasis-slot unlocks + cumulative build cost (W+C+I+Cr summed, 1x)
+  // Cumulative costs calibrated against Lumi Table 3:
+  //   15c HM10 50%-crop ROI = 92,000 / 50,400 ≈ 1.83 days ✓
+  //   15c HM15 50%-crop ROI = 307,000 / 50,400 ≈ 6.09 ≈ Lumi 6.08 ✓
+  //   15c HM20 50%-crop ROI = 1,276,000 / 50,400 ≈ 25.32 ≈ Lumi 25.32 ✓
   var HERO_MANSION = {
-    oasesUnlocked: { 10: 1, 15: 2, 20: 3 }
-    // Cumulative cost tables omitted here; see calcs that need them.
+    oasesUnlocked: { 10: 1, 15: 2, 20: 3 },
+    cumulativeCost: {
+      1: 2310,     5: 14500,   10: 92000,
+      12: 160000,  15: 307000, 18: 720000,  20: 1276000
+    }
   };
+
+  function hmCumulativeCost(level) {
+    // Linear interpolation between known points; close enough for planning
+    var pts = HERO_MANSION.cumulativeCost;
+    var keys = Object.keys(pts).map(Number).sort(function (a, b) { return a - b; });
+    if (level <= keys[0]) return pts[keys[0]] * level / keys[0];
+    if (level >= keys[keys.length - 1]) return pts[keys[keys.length - 1]];
+    for (var i = 0; i < keys.length - 1; i++) {
+      if (level >= keys[i] && level <= keys[i + 1]) {
+        var lo = keys[i], hi = keys[i + 1];
+        var t = (level - lo) / (hi - lo);
+        return Math.round(pts[lo] + t * (pts[hi] - pts[lo]));
+      }
+    }
+    return pts[keys[keys.length - 1]];
+  }
 
   // =========================================================================
   // SECTION 6: Cropper layouts (field tile counts)
@@ -305,7 +328,8 @@
     cpAtLevel: cpAtLevel,
     cpSum: cpSum,
     merchantCapacity: merchantCapacity,
-    mbMultiplier: mbMultiplier
+    mbMultiplier: mbMultiplier,
+    hmCumulativeCost: hmCumulativeCost
   };
 
   // Freeze to prevent accidental mutation

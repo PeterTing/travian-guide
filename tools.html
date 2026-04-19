@@ -573,8 +573,62 @@
           </div>
         </div>
 
-        <!-- Placeholder panels for other calculators (filled in next commits) -->
-        <div class="calc-panel" data-calc="oasis-roi"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <!-- ===== CALCULATOR 2: Oasis ROI ===== -->
+        <div class="calc-panel" data-calc="oasis-roi">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="綠洲 ROI 計算器" data-en="Oasis ROI Calculator">綠洲 ROI 計算器</span></h3>
+          <p class="lang-content active" data-lang="zh">佔領綠洲需要把英雄莊園（Hero's Mansion）升到 Lv 10 / 15 / 20（分別可佔 1 / 2 / 3 塊）。此計算器算出：英雄莊園累積成本（以 Lumi Table 3 反推校準）除以綠洲帶來的每日產量增加 = 幾天回本。糧食綠洲通常遠優於單資源綠洲；首都最重要的決定是「第幾級英雄莊園值得升」。</p>
+          <p class="lang-content" data-lang="en">Capturing an oasis requires Hero's Mansion Lv 10 / 15 / 20 (holds 1 / 2 / 3 oases respectively). This calculator computes: cumulative HM cost (calibrated from Lumi Table 3) divided by daily production gained from the oasis = break-even days. Crop oases are usually far better than single-resource oases; the big decision is which HM level is worth reaching.</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="輸入" data-en="Inputs">輸入</span></h4>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="首都類型" data-en="Capital type">首都類型</span></label>
+                <select id="oasis-cropper">
+                  <option value="15c" selected>15c (1-1-1-15)</option>
+                  <option value="9c">9c (3-3-3-9)</option>
+                  <option value="7c">7c (3-4-4-7)</option>
+                  <option value="6c">6c (4-4-4-6)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="資源田等級（所有同級別）" data-en="Field level (all at this level)">資源田等級（所有同級別）</span></label>
+                <select id="oasis-fieldlv"></select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="綠洲類型" data-en="Oasis type">綠洲類型</span></label>
+                <select id="oasis-type"></select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="英雄莊園目標等級" data-en="Hero's Mansion target level">英雄莊園目標等級</span></label>
+                <select id="oasis-hm">
+                  <option value="10" selected>Lv 10 (+1 oasis slot)</option>
+                  <option value="15">Lv 15 (+2 slots)</option>
+                  <option value="20">Lv 20 (+3 slots)</option>
+                </select>
+              </div>
+              <label class="calc-check"><input type="checkbox" id="oasis-gold" checked> Plus +25% <span class="lang-text" data-zh="金幣產量加成" data-en="gold production bonus">金幣產量加成</span></label>
+
+              <p class="calc-note" style="margin-top: 0.75rem;">
+                <span class="lang-text" data-zh="此計算只納入此單一綠洲帶來的每日增益。若你將佔多塊綠洲，請分別用這個工具評估，或把「綠洲 %」在資源田 ROI 計算器裡疊加。" data-en="Only the daily gain from this single oasis is counted. If you plan to hold multiple oases, evaluate each one here or use the 'oasis %' field in the Field-ROI calculator.">此計算只納入此單一綠洲帶來的每日增益。若你將佔多塊綠洲，請分別用這個工具評估，或把「綠洲 %」在資源田 ROI 計算器裡疊加。</span>
+              </p>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="結果" data-en="Result">結果</span></h4>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="英雄莊園累積成本" data-en="HM cumulative cost">英雄莊園累積成本</span></span><span class="value" id="oasis-out-hmcost">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="此綠洲每小時產量增加" data-en="Oasis gain /hr">此綠洲每小時產量增加</span></span><span class="value" id="oasis-out-phr">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="每天產量增加" data-en="Gain /day">每天產量增加</span></span><span class="value" id="oasis-out-pday">—</span></div>
+              <div class="calc-result-row"><span class="label">ROI</span><span class="value highlight" id="oasis-out-roi">—</span></div>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="比較：三種英雄莊園等級" data-en="Compare: three HM levels">比較：三種英雄莊園等級</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>HM Level</th><th>HM Cost</th><th>ROI (days)</th><th><span class="lang-text" data-zh="建議" data-en="Verdict">建議</span></th></tr></thead>
+                <tbody id="oasis-compare-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <div class="calc-panel" data-calc="cp"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="cap-order"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="traderoute"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
@@ -1434,6 +1488,133 @@
       [selType, selLv, selBonus, selOasis, chkGold].forEach(function (el) {
         el.addEventListener('change', calc);
       });
+      calc();
+    })();
+
+    // ===== CALC 2: Oasis ROI =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+
+      var selCropper = document.getElementById('oasis-cropper');
+      var selFieldLv = document.getElementById('oasis-fieldlv');
+      var selOasis   = document.getElementById('oasis-type');
+      var selHm      = document.getElementById('oasis-hm');
+      var chkGold    = document.getElementById('oasis-gold');
+
+      // Populate field levels 5..20
+      for (var L = 5; L <= 20; L++) {
+        var opt = document.createElement('option');
+        opt.value = L;
+        opt.textContent = 'Lv ' + L;
+        if (L === 10) opt.selected = true;
+        selFieldLv.appendChild(opt);
+      }
+
+      // Populate oasis types
+      T.OASIS_TYPES.forEach(function (o) {
+        var opt = document.createElement('option');
+        opt.value = o.id;
+        var lang = localStorage.getItem('travian-lang') || 'zh';
+        opt.textContent = o.label[lang] || o.label.en;
+        opt.dataset.zh = o.label.zh;
+        opt.dataset.en = o.label.en;
+        if (o.id === 'single50_crop') opt.selected = true;
+        selOasis.appendChild(opt);
+      });
+
+      function fmt(n) {
+        if (!isFinite(n) || isNaN(n)) return '—';
+        if (Math.abs(n) >= 1000) return Math.round(n).toLocaleString('en-US');
+        return n.toFixed(1).replace(/\.0$/, '');
+      }
+
+      // Find cropper layout
+      function layoutOf(id) {
+        for (var i = 0; i < T.CROPPER_LAYOUTS.length; i++) {
+          if (T.CROPPER_LAYOUTS[i].id === id) return T.CROPPER_LAYOUTS[i];
+        }
+        return T.CROPPER_LAYOUTS[0];
+      }
+
+      // Compute oasis daily gain for a given layout + oasis bonuses + field level
+      // Delta from this oasis = sum over all 4 resource types of:
+      //   (#fields of type) × base_prod × (oasis bonus for that type)
+      function dailyGainFromOasis(layoutId, fieldLv, oasisId) {
+        var layout = layoutOf(layoutId);
+        var base = T.FIELD_PRODUCTION[fieldLv];
+        var oasis = T.OASIS_TYPES.find(function (o) { return o.id === oasisId; });
+        if (!oasis) return 0;
+        var typeMap = { wood: layout.wood, clay: layout.clay, iron: layout.iron, crop: layout.crop };
+        var total = 0;
+        Object.keys(oasis.bonuses).forEach(function (k) {
+          total += (typeMap[k] || 0) * base * oasis.bonuses[k];
+        });
+        return total * 24;
+      }
+
+      function verdict(roi) {
+        if (roi < 5)  return { zh: '🟢 非常值得', en: '🟢 Very worth it' };
+        if (roi < 15) return { zh: '🟡 值得', en: '🟡 Worth it' };
+        if (roi < 40) return { zh: '🟠 邊際', en: '🟠 Marginal' };
+        return { zh: '🔴 不建議', en: '🔴 Not recommended' };
+      }
+
+      function calc() {
+        var cropper = selCropper.value;
+        var fieldLv = parseInt(selFieldLv.value, 10);
+        var oasisId = selOasis.value;
+        var hm = parseInt(selHm.value, 10);
+        var gold = chkGold.checked ? 0.25 : 0;
+
+        var daily = dailyGainFromOasis(cropper, fieldLv, oasisId);
+        // Gold doesn't multiply the oasis delta — it's additive in the production formula.
+        // But user's CURRENT production (without this oasis) already reflects gold.
+        // Net extra from adding oasis = base × oasisPct (additive model).
+        // Gold is irrelevant to delta per se, but we include it for display consistency.
+        // (see verification test above — matches Lumi exactly.)
+
+        var cost = T.hmCumulativeCost(hm);
+        var phr = daily / 24;
+        var roi = cost / daily;
+
+        document.getElementById('oasis-out-hmcost').textContent = fmt(cost);
+        document.getElementById('oasis-out-phr').textContent = '+' + fmt(phr) + ' / hr';
+        document.getElementById('oasis-out-pday').textContent = '+' + fmt(daily) + ' / day';
+        document.getElementById('oasis-out-roi').textContent = roi.toFixed(2) + ' days';
+
+        // Compare table
+        var lang = localStorage.getItem('travian-lang') || 'zh';
+        var html = [10, 15, 20].map(function (L) {
+          var c = T.hmCumulativeCost(L);
+          var r = c / daily;
+          var v = verdict(r);
+          var isActive = L === hm ? ' class="hi"' : '';
+          return '<tr><td' + isActive + '>Lv ' + L + '</td>' +
+                 '<td' + isActive + '>' + fmt(c) + '</td>' +
+                 '<td' + isActive + '>' + r.toFixed(2) + '</td>' +
+                 '<td' + isActive + '>' + (v[lang] || v.en) + '</td></tr>';
+        }).join('');
+        document.getElementById('oasis-compare-body').innerHTML = html;
+      }
+
+      [selCropper, selFieldLv, selOasis, selHm, chkGold].forEach(function (el) {
+        el.addEventListener('change', calc);
+      });
+
+      // Re-run on language toggle so oasis-type labels refresh
+      document.querySelectorAll('.lang-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTimeout(function () {
+            var lang = btn.dataset.lang;
+            Array.prototype.forEach.call(selOasis.options, function (opt) {
+              if (opt.dataset[lang]) opt.textContent = opt.dataset[lang];
+            });
+            calc();
+          }, 50);
+        });
+      });
+
       calc();
     })();
   </script>
