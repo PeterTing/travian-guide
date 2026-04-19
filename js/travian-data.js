@@ -245,6 +245,32 @@
   }
 
   // =========================================================================
+  // SECTION 9b: Field build time (seconds, at MB Lv 1, 1x speed)
+  // Formula: time(L) = baseA × 1.6^(L-1) − 1000/3  (kirilloid/travian)
+  // baseA per field type (seconds / 3):
+  //   wood = 1780/3, clay = 1660/3, iron = 2350/3, crop = 1450/3
+  // =========================================================================
+  var FIELD_TIME_BASE = { wood: 1780/3, clay: 1660/3, iron: 2350/3, crop: 1450/3 };
+
+  function fieldBuildTime(type, level, mbLevel) {
+    var a = FIELD_TIME_BASE[type];
+    var baseSec = Math.max(0, a * Math.pow(1.6, level - 1) - 1000/3);
+    return baseSec * mbMultiplier(mbLevel || 1);
+  }
+
+  function formatDuration(sec) {
+    if (!isFinite(sec) || sec <= 0) return '—';
+    var d = Math.floor(sec / 86400);
+    var h = Math.floor((sec % 86400) / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var parts = [];
+    if (d) parts.push(d + 'd');
+    if (h) parts.push(h + 'h');
+    if (m && d === 0) parts.push(m + 'm');
+    return parts.join(' ') || (Math.floor(sec) + 's');
+  }
+
+  // =========================================================================
   // SECTION 10: Culture Points required for expanding
   // Village #1: 0 (starter); #2: 2,000; #3: 5,000 cumul; #4: 13,000; #5: 24,000;
   // each subsequent +11,000
@@ -329,6 +355,8 @@
     cpSum: cpSum,
     merchantCapacity: merchantCapacity,
     mbMultiplier: mbMultiplier,
+    fieldBuildTime: fieldBuildTime,
+    formatDuration: formatDuration,
     hmCumulativeCost: hmCumulativeCost
   };
 

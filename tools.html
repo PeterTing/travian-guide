@@ -704,7 +704,72 @@
             </div>
           </div>
         </div>
-        <div class="calc-panel" data-calc="cap-order"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <!-- ===== CALCULATOR 4: Capital Build Order ===== -->
+        <div class="calc-panel" data-calc="cap-order">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="首都 / 村莊建築順序產生器" data-en="Capital / Village Build-Order Generator">首都 / 村莊建築順序產生器</span></h3>
+          <p class="lang-content active" data-lang="zh">依目前狀態，用貪婪 ROI 法排出接下來 20 個最優升級（每次挑 ROI 最短的田升一級）。首都解開 Lv11–20，一般村只能到 Lv10。加成建築若達成前提（田 Lv10 且主府 Lv5；糧食田 Lv5）也會加入選項。建議搭配 Lumi 公式：非糧 全到 Lv7 → 一格 Lv10 → 加成建築 Lv3 → 1 格 Lv9 …</p>
+          <p class="lang-content" data-lang="en">Greedy ROI planner: given current state, lists the next 20 best upgrades (lowest ROI each step). Capitals can push fields Lv11–20; normal villages cap at Lv10. Bonus buildings become candidates once prerequisites are met (field Lv10 + MB Lv5; crop Lv5). Pair with Lumi's pattern: non-crop all to Lv7 → one to Lv10 → bonus building Lv3 → 1 field to Lv9 …</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="村莊設定" data-en="Village setup">村莊設定</span></h4>
+
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="田地分布" data-en="Field layout">田地分布</span></label>
+                <select id="co-layout">
+                  <option value="15c" selected>15c (1-1-1-15)</option>
+                  <option value="9c">9c (3-3-3-9)</option>
+                  <option value="7c">7c (3-4-4-7)</option>
+                  <option value="6c">6c (4-4-4-6)</option>
+                </select>
+              </div>
+
+              <label class="calc-check"><input type="checkbox" id="co-iscap" checked> <span class="lang-text" data-zh="首都（解鎖 Lv11–20）" data-en="Capital (unlocks Lv11–20)">首都（解鎖 Lv11–20）</span></label>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="現況（每種類型同等級）" data-en="Current state (all fields of each type at this level)">現況（每種類型同等級）</span></h4>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Wood</label><input type="number" id="co-wood" min="0" max="20" value="5"></div>
+                <div class="calc-field"><label>Clay</label><input type="number" id="co-clay" min="0" max="20" value="5"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Iron</label><input type="number" id="co-iron" min="0" max="20" value="5"></div>
+                <div class="calc-field"><label>Crop</label><input type="number" id="co-crop" min="0" max="20" value="5"></div>
+              </div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="加成建築等級" data-en="Bonus building levels">加成建築等級</span></h4>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Sawmill</label><input type="number" id="co-saw" min="0" max="5" value="0"></div>
+                <div class="calc-field"><label>Brickyard</label><input type="number" id="co-bri" min="0" max="5" value="0"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Iron Foundry</label><input type="number" id="co-fnd" min="0" max="5" value="0"></div>
+                <div class="calc-field"><label>Grain Mill</label><input type="number" id="co-mil" min="0" max="5" value="0"></div>
+              </div>
+              <div class="calc-field">
+                <label>Bakery</label>
+                <input type="number" id="co-bak" min="0" max="5" value="0">
+              </div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="其他" data-en="Other">其他</span></h4>
+              <div class="calc-field">
+                <label>Main Building Lv</label>
+                <input type="number" id="co-mb" min="1" max="20" value="10">
+              </div>
+              <label class="calc-check"><input type="checkbox" id="co-gold" checked> Plus +25% gold</label>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="接下來 20 步（依 ROI 排序）" data-en="Next 20 upgrades (sorted by ROI)">接下來 20 步（依 ROI 排序）</span></h4>
+              <ol class="calc-steps" id="co-steps-list"></ol>
+              <div class="calc-result-row" style="margin-top: 0.75rem;"><span class="label"><span class="lang-text" data-zh="20 步累積成本" data-en="Cumulative cost (20 steps)">20 步累積成本</span></span><span class="value" id="co-total-cost">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="20 步累積時間" data-en="Cumulative time (20 steps)">20 步累積時間</span></span><span class="value" id="co-total-time">—</span></div>
+
+              <p class="calc-note">
+                <span class="lang-text" data-zh="時間已套用主府加速（0.964^(MB Lv − 1)），但未計入單/雙佇列、羅馬人雙隊、慶典加速、黃金 5min 補時等額外加成。實際結果會稍快。" data-en="Time uses Main Building speed-up (0.964^(MB Lv − 1)) but does not model single/dual queues, Roman dual queue, celebration speed-ups, or the gold instant-5m bonus. Reality will be slightly faster.">時間已套用主府加速（0.964^(MB Lv − 1)），但未計入單/雙佇列、羅馬人雙隊、慶典加速、黃金 5min 補時等額外加成。實際結果會稍快。</span>
+              </p>
+            </div>
+          </div>
+        </div>
         <div class="calc-panel" data-calc="traderoute"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="farm"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
         <div class="calc-panel" data-calc="cap-sim"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
@@ -1783,6 +1848,162 @@
       document.getElementById('cp-preset-zero').addEventListener('click', function () { applyPreset('zero'); });
 
       calc();
+    })();
+
+    // ===== CALC 4: Capital Build Order =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+      var BB_MAP = {
+        sawmill: { resource: 'wood',  fieldReq: 10 },
+        brickyard: { resource: 'clay', fieldReq: 10 },
+        ironFoundry: { resource: 'iron', fieldReq: 10 },
+        grainMill: { resource: 'crop', fieldReq: 5 },
+        bakery: { resource: 'crop',   fieldReq: 10, alsoReqMill: 5 }
+      };
+      var BB_BASE_COST = {
+        sawmill:     { wood: 520,  clay: 380,  iron: 290,  crop: 90 },
+        brickyard:   { wood: 440,  clay: 480,  iron: 320,  crop: 50 },
+        ironFoundry: { wood: 200,  clay: 450,  iron: 510,  crop: 120 },
+        grainMill:   { wood: 500,  clay: 440,  iron: 380,  crop: 1240 },
+        bakery:      { wood: 1200, clay: 1480, iron: 870,  crop: 1600 }
+      };
+      function bbCost(bb, lv) {
+        var b = BB_BASE_COST[bb];
+        var m = Math.pow(1.80, lv - 1);
+        return {
+          wood: Math.round(b.wood * m / 5) * 5,
+          clay: Math.round(b.clay * m / 5) * 5,
+          iron: Math.round(b.iron * m / 5) * 5,
+          crop: Math.round(b.crop * m / 5) * 5
+        };
+      }
+      function bbTotalCost(bb, lv) { var c = bbCost(bb, lv); return c.wood + c.clay + c.iron + c.crop; }
+
+      // Field production per hour increment when upgrading to nextLv
+      function deltaPerHour(type, fromLv, toLv, bonusPct, goldPct) {
+        var base = T.FIELD_PRODUCTION[toLv] - (toLv === 1 ? 0 : T.FIELD_PRODUCTION[fromLv]);
+        return base * (1 + (bonusPct || 0) + (goldPct || 0));
+      }
+
+      function plan() {
+        var layout = document.getElementById('co-layout').value;
+        var isCap = document.getElementById('co-iscap').checked;
+        var mbLv = parseInt(document.getElementById('co-mb').value, 10) || 10;
+        var gold = document.getElementById('co-gold').checked ? 0.25 : 0;
+        var layoutObj = T.CROPPER_LAYOUTS.find(function (l) { return l.id === layout; });
+
+        var counts = { wood: layoutObj.wood, clay: layoutObj.clay, iron: layoutObj.iron, crop: layoutObj.crop };
+        var fields = {};
+        ['wood','clay','iron','crop'].forEach(function (t) {
+          var lv = parseInt(document.getElementById('co-' + t).value, 10) || 0;
+          fields[t] = new Array(counts[t]).fill(lv);
+        });
+        var bonus = {
+          sawmill:     parseInt(document.getElementById('co-saw').value, 10) || 0,
+          brickyard:   parseInt(document.getElementById('co-bri').value, 10) || 0,
+          ironFoundry: parseInt(document.getElementById('co-fnd').value, 10) || 0,
+          grainMill:   parseInt(document.getElementById('co-mil').value, 10) || 0,
+          bakery:      parseInt(document.getElementById('co-bak').value, 10) || 0
+        };
+        var maxFieldLv = isCap ? 20 : 10;
+
+        function bonusFor(type) {
+          if (type === 'wood') return bonus.sawmill * 0.05;
+          if (type === 'clay') return bonus.brickyard * 0.05;
+          if (type === 'iron') return bonus.ironFoundry * 0.05;
+          if (type === 'crop') return (bonus.grainMill + bonus.bakery) * 0.05;
+          return 0;
+        }
+
+        // Enumerate candidate upgrades with ROI
+        function candidates() {
+          var list = [];
+          ['wood','clay','iron','crop'].forEach(function (type) {
+            var lowest = Infinity, lowIdx = -1;
+            fields[type].forEach(function (lv, idx) {
+              if (lv < lowest && lv < maxFieldLv) { lowest = lv; lowIdx = idx; }
+            });
+            if (lowIdx >= 0) {
+              var toLv = lowest + 1;
+              var cost = T.fieldTotalCost(type, toLv);
+              var bbPct = bonusFor(type);
+              var delta = deltaPerHour(type, lowest, toLv, bbPct, gold);
+              var perDay = delta * 24;
+              var roi = perDay > 0 ? cost / perDay : Infinity;
+              list.push({
+                kind: 'field', type: type, idx: lowIdx, fromLv: lowest, toLv: toLv,
+                cost: cost, roi: roi,
+                time: T.fieldBuildTime(type, toLv, mbLv),
+                label: type[0].toUpperCase() + type.slice(1) + ' field #' + (lowIdx+1) + ' → Lv ' + toLv
+              });
+            }
+          });
+          Object.keys(BB_MAP).forEach(function (bb) {
+            var currLv = bonus[bb];
+            if (currLv >= 5) return;
+            var req = BB_MAP[bb];
+            var minField = Math.min.apply(null, fields[req.resource]);
+            if (minField < req.fieldReq) return;
+            if (bb === 'bakery' && bonus.grainMill < 5) return;
+            var toLv = currLv + 1;
+            var cost = bbTotalCost(bb, toLv);
+            // ROI for bonus building: it boosts production of its resource type by +5% of ALL fields of that type
+            var nFields = counts[req.resource];
+            var totalProdHr = 0;
+            fields[req.resource].forEach(function (lv) { totalProdHr += T.FIELD_PRODUCTION[lv]; });
+            var delta = totalProdHr * 0.05;
+            var perDay = delta * 24;
+            var roi = perDay > 0 ? cost / perDay : Infinity;
+            list.push({
+              kind: 'bonus', building: bb, fromLv: currLv, toLv: toLv,
+              cost: cost, roi: roi,
+              time: 0, // approximate — omit bonus building time for simplicity
+              label: bb.charAt(0).toUpperCase() + bb.slice(1) + ' → Lv ' + toLv + ' (+5% ' + req.resource + ')'
+            });
+          });
+          return list;
+        }
+
+        function applyUpgrade(step) {
+          if (step.kind === 'field') fields[step.type][step.idx] = step.toLv;
+          if (step.kind === 'bonus') bonus[step.building] = step.toLv;
+        }
+
+        var steps = [], totalCost = 0, totalTime = 0;
+        var MAX_STEPS = 20;
+        for (var i = 0; i < MAX_STEPS; i++) {
+          var cands = candidates();
+          if (cands.length === 0) break;
+          cands.sort(function (a, b) { return a.roi - b.roi; });
+          var chosen = cands[0];
+          steps.push(chosen);
+          totalCost += chosen.cost;
+          totalTime += chosen.time;
+          applyUpgrade(chosen);
+        }
+
+        // Render
+        var html = steps.map(function (s, i) {
+          var rt = s.time > 0 ? T.formatDuration(s.time) : '—';
+          return '<li><span class="step-num">#' + (i+1) + '</span>' +
+                 '<span>' + s.label + '</span>' +
+                 '<span class="step-res">' + s.cost.toLocaleString() + '</span>' +
+                 '<span class="step-t">' + rt + '</span></li>';
+        }).join('');
+        document.getElementById('co-steps-list').innerHTML = html || '<li><span>—</span></li>';
+        document.getElementById('co-total-cost').textContent = totalCost.toLocaleString() + ' resources';
+        document.getElementById('co-total-time').textContent = T.formatDuration(totalTime);
+      }
+
+      ['co-layout','co-iscap','co-wood','co-clay','co-iron','co-crop',
+       'co-saw','co-bri','co-fnd','co-mil','co-bak','co-mb','co-gold'].forEach(function (id) {
+        var el = document.getElementById(id);
+        el.addEventListener('change', plan);
+        el.addEventListener('input', plan);
+      });
+
+      plan();
     })();
   </script>
 </body>
