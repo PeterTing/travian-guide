@@ -1,0 +1,170 @@
+.crumb {
+  padding: var(--space-4) var(--space-5) 0;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+.container { max-width: var(--container); margin: 0 auto; }
+.crumb a { color: var(--text-2); }
+.crumb a:hover { color: var(--accent); text-decoration: none; }
+.sep { margin: 0 6px; opacity: 0.5; }
+.crumbCurrent { color: var(--text-0); }
+
+.hero {
+  padding: var(--space-6) var(--space-5) var(--space-7);
+  border-bottom: 1px solid var(--border-0);
+  background: radial-gradient(
+    ellipse at 15% 30%,
+    color-mix(in srgb, var(--tribe-accent) 12%, transparent) 0%,
+    transparent 50%
+  );
+}
+.heroInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.heroHead {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+.heroIcon {
+  font-size: 4rem;
+  line-height: 1;
+}
+.heroArch {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--tribe-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.heroTitle {
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.heroTag { margin: 0; color: var(--text-1); font-size: var(--fs-md); }
+
+.heroDifficulty {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin: 0;
+}
+.difLabel { font-size: var(--fs-xs); color: var(--text-2); text-transform: uppercase; letter-spacing: 0.08em; }
+.difStars { color: var(--tribe-accent); font-family: var(--font-mono); letter-spacing: -0.05em; }
+
+.main {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.card {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.card > :first-child { margin-top: 0; }
+.card > :last-child { margin-bottom: 0; }
+
+.h2 {
+  font-size: var(--fs-xl);
+  margin: 0 0 var(--space-4);
+  font-weight: 600;
+}
+.h3 {
+  font-size: var(--fs-lg);
+  margin: 0 0 var(--space-3);
+  font-weight: 600;
+}
+.lead {
+  color: var(--text-1);
+  line-height: var(--lh-relaxed);
+  font-size: var(--fs-md);
+}
+
+.statList {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+.statList > div { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: baseline; }
+.statList dt { color: var(--text-2); font-size: var(--fs-sm); }
+.statList dd { color: var(--text-0); margin: 0; font-size: var(--fs-sm); text-align: right; }
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.bulletList li {
+  padding-left: var(--space-4);
+  position: relative;
+  color: var(--text-1);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+}
+.bulletList li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.strengths .bulletList li::before { background: var(--success); }
+.weaknesses .bulletList li::before { background: var(--warning); }
+
+.cta {
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: var(--radius-lg);
+}
+.cta p { margin: 0 0 var(--space-4); color: var(--text-1); }
+.ctaRow { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+.ctaBtn {
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  border: 1px solid var(--border-1);
+  color: var(--text-0);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--t-fast);
+}
+.ctaBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .grid2 { grid-template-columns: 1fr; }
+  .heroTitle { font-size: var(--fs-3xl); }
+  .heroIcon { font-size: 3rem; }
+}

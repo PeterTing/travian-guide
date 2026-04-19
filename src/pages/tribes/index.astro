@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Bi from '../../components/shared/Bi.astro';
+import TribeCard from '../../components/shared/TribeCard.astro';
+import { TRIBE_LIST } from '../../data/tribes/index';
+---
+<BaseLayout
+  titleZh="七個部族 · Travian Guide"
+  titleEn="All tribes · Travian Guide"
+>
+  <section style="max-width: var(--container); margin: 0 auto; padding: var(--space-7) var(--space-5);">
+    <header style="text-align: center; max-width: 720px; margin: 0 auto var(--space-7);">
+      <h1 style="font-size: var(--fs-3xl); margin-bottom: var(--space-3);">
+        <Bi zh="選擇一個部族" en="Pick a tribe" />
+      </h1>
+      <p style="color: var(--text-1); line-height: var(--lh-relaxed);">
+        <Bi
+          zh="T4.6 有七個可選部族，各自有不同的節奏與強項。難度星星只代表「需要多少先備知識」，不是強弱。新手建議從羅馬、高盧、條頓三者擇一。"
+          en="T4.6 offers seven playable tribes, each with a distinct rhythm and strength. Difficulty stars reflect prior knowledge required — not tribe power. Newcomers should pick among Romans / Gauls / Teutons first."
+        />
+      </p>
+    </header>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);">
+      {TRIBE_LIST.map(tribe => <TribeCard tribe={tribe} />)}
+    </div>
+  </section>
+  <style>
+    @media (max-width: 960px) { div[style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media (max-width: 600px) { div[style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: 1fr !important; } }
+  </style>
+</BaseLayout>

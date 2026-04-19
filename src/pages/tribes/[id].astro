@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Bi from '../../components/shared/Bi.astro';
+import UnitsTable from '../../components/tribe/UnitsTable.tsx';
+import { LangProvider } from '../../i18n/LangContext.tsx';
+import { TRIBE_LIST, getTribe } from '../../data/tribes/index';
+import styles from './[id].module.css';
+
+export function getStaticPaths() {
+  return TRIBE_LIST.map(t => ({ params: { id: t.id } }));
+}
+
+const { id } = Astro.params;
+const tribe = getTribe(id!);
+if (!tribe) throw new Error(`Unknown tribe: ${id}`);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const diff = '★'.repeat(tribe.difficulty) + '☆'.repeat(5 - tribe.difficulty);
+const wallPct = (tribe.wallType.bonusPerLevel * 100).toFixed(1).replace('.0', '');
+---
+<BaseLayout
+  titleZh={`${tribe.name.zh} · Travian Guide`}
+  titleEn={`${tribe.name.en} · Travian Guide`}
+>
+  <!-- Breadcrumb -->
+  <section class={styles.crumb}>
+    <div class={styles.container}>
+      <a href={`${base}/`}>Home</a>
+      <span class={styles.sep}>/</span>
+      <a href={`${base}/tribes`}>Tribes</a>
+      <span class={styles.sep}>/</span>
+      <span class={styles.crumbCurrent}><Bi zh={tribe.name.zh} en={tribe.name.en} /></span>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class={styles.hero} style={`--tribe-accent:${tribe.color}`}>
+    <div class={styles.heroInner}>
+      <div class={styles.heroHead}>
+        <span class={styles.heroIcon}>{tribe.icon}</span>
+        <div>
+          <span class={styles.heroArch}>
+            <Bi zh={tribe.archetype.zh} en={tribe.archetype.en} />
+          </span>
+          <h1 class={styles.heroTitle}>
+            <Bi zh={tribe.name.zh} en={tribe.name.en} />
+          </h1>
+          <p class={styles.heroTag}>
+            <Bi zh={tribe.tagline.zh} en={tribe.tagline.en} />
+          </p>
+        </div>
+      </div>
+      <p class={styles.heroDifficulty}>
+        <span class={styles.difLabel}><Bi zh="難度" en="Difficulty" /></span>
+        <span class={styles.difStars}>{diff}</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <div class={styles.main}>
+    <!-- Summary + Stats 2col -->
+    <section class={styles.grid2}>
+      <div class={styles.card}>
+        <h2 class={styles.h2}><Bi zh="這個部族是什麼？" en="What is this tribe?" /></h2>
+        <p class={styles.lead}>
+          <Bi zh={tribe.summary.zh} en={tribe.summary.en} />
+        </p>
+      </div>
+      <div class={styles.card}>
+        <h2 class={styles.h2}><Bi zh="核心數據" en="Key stats" /></h2>
+        <dl class={styles.statList}>
+          <div><dt><Bi zh="商人容量" en="Merchant capacity" /></dt>
+               <dd class="mono">{tribe.merchant.capacity}</dd></div>
+          <div><dt><Bi zh="商人速度" en="Merchant speed" /></dt>
+               <dd class="mono">{tribe.merchant.speed} <Bi zh="格/小時" en="tiles/hr" /></dd></div>
+          <div><dt><Bi zh="城牆" en="Wall" /></dt>
+               <dd><Bi zh={tribe.wallType.name.zh} en={tribe.wallType.name.en} /> · +{wallPct}%/lv</dd></div>
+          <div><dt><Bi zh="英雄被動" en="Hero passive" /></dt>
+               <dd><Bi zh={tribe.heroPassive.zh} en={tribe.heroPassive.en} /></dd></div>
+          <div><dt><Bi zh="標準防守配比" en="Standard def mix" /></dt>
+               <dd><Bi zh={tribe.defenseMix.zh} en={tribe.defenseMix.en} /></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Specials -->
+    <section class={styles.card}>
+      <h2 class={styles.h2}><Bi zh="獨特建築與機制" en="Uniques & mechanics" /></h2>
+      <ul class={styles.bulletList}>
+        {tribe.specials.map(s => <li><Bi zh={s.zh} en={s.en} /></li>)}
+      </ul>
+    </section>
+
+    <!-- Strengths / Weaknesses -->
+    <section class={styles.grid2}>
+      <div class={`${styles.card} ${styles.strengths}`}>
+        <h3 class={styles.h3}>✅ <Bi zh="優勢" en="Strengths" /></h3>
+        <ul class={styles.bulletList}>
+          {tribe.strengths.map(s => <li><Bi zh={s.zh} en={s.en} /></li>)}
+        </ul>
+      </div>
+      <div class={`${styles.card} ${styles.weaknesses}`}>
+        <h3 class={styles.h3}>⚠️ <Bi zh="弱點" en="Weaknesses" /></h3>
+        <ul class={styles.bulletList}>
+          {tribe.weaknesses.map(s => <li><Bi zh={s.zh} en={s.en} /></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Units -->
+    <section>
+      <h2 class={styles.h2}><Bi zh="兵種一覽" en="Troop roster" /></h2>
+      <LangProvider client:load>
+        <UnitsTable tribe={tribe} client:load />
+      </LangProvider>
+    </section>
+
+    <!-- Offensive / Defensive tips -->
+    <section class={styles.grid2}>
+      {tribe.offTips && tribe.offTips.length > 0 && (
+        <div class={styles.card}>
+          <h3 class={styles.h3}>⚔️ <Bi zh="進攻要點" en="Offensive tips" /></h3>
+          <ul class={styles.bulletList}>
+            {tribe.offTips.map(s => <li><Bi zh={s.zh} en={s.en} /></li>)}
+          </ul>
+        </div>
+      )}
+      {tribe.defTips && tribe.defTips.length > 0 && (
+        <div class={styles.card}>
+          <h3 class={styles.h3}>🛡️ <Bi zh="防守要點" en="Defensive tips" /></h3>
+          <ul class={styles.bulletList}>
+            {tribe.defTips.map(s => <li><Bi zh={s.zh} en={s.en} /></li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    <!-- Next CTA -->
+    <section class={styles.cta}>
+      <p>
+        <Bi
+          zh="選了這個部族之後，下一步去看新手攻略或用 ROI 計算器規劃首都。"
+          en="Chosen this tribe? Next, follow the beginner guide or plan your capital with the ROI calculator."
+        />
+      </p>
+      <div class={styles.ctaRow}>
+        <a href={`${base}/guide`} class={styles.ctaBtn}><Bi zh="新手攻略 →" en="Beginner guide →" /></a>
+        <a href={`${base}/tools`} class={styles.ctaBtn}><Bi zh="計算工具 →" en="Calculators →" /></a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+</style>
