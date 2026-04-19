@@ -483,6 +483,105 @@
         </div>
       </section>
 
+      <!-- ON-SITE CALCULATORS -->
+      <section id="onsite-calculators" class="calc-section">
+        <div class="calc-header-intro">
+          <h2 class="section-header" style="margin-bottom: var(--spacing-md);">
+            <span class="lang-text" data-zh="內建計算工具" data-en="On-site Calculators">內建計算工具</span>
+          </h2>
+          <p class="lang-content active" data-lang="zh">根據 Travian Legends T4.6（1× 速度伺服器）參數實作的互動計算器。所有公式與基礎數據已對照 Lumi/Eggstra/Dave 進階指南的 ROI 表格驗證一致。輸入你的帳號狀態即可得到客觀建議。</p>
+          <p class="lang-content" data-lang="en">Interactive calculators built on Travian Legends T4.6 (1× speed) constants. All formulas and base data have been validated against the ROI tables from the Lumi/Eggstra/Dave advanced guide. Enter your account state to get an objective recommendation.</p>
+        </div>
+
+        <div class="calc-tabs" id="calcTabs">
+          <button class="calc-tab-btn active" data-calc="field-roi"><span class="lang-text" data-zh="① 資源田 ROI" data-en="① Field ROI">① 資源田 ROI</span></button>
+          <button class="calc-tab-btn" data-calc="oasis-roi"><span class="lang-text" data-zh="② 綠洲 ROI" data-en="② Oasis ROI">② 綠洲 ROI</span></button>
+          <button class="calc-tab-btn" data-calc="cp"><span class="lang-text" data-zh="③ 被動 CP" data-en="③ Passive CP">③ 被動 CP</span></button>
+          <button class="calc-tab-btn" data-calc="cap-order"><span class="lang-text" data-zh="④ 首都建築順序" data-en="④ Capital Build Order">④ 首都建築順序</span></button>
+          <button class="calc-tab-btn" data-calc="traderoute"><span class="lang-text" data-zh="⑤ 商路 / 糧商" data-en="⑤ Trade Route">⑤ 商路 / 糧商</span></button>
+          <button class="calc-tab-btn" data-calc="farm"><span class="lang-text" data-zh="⑥ 農場效率" data-en="⑥ Farming">⑥ 農場效率</span></button>
+          <button class="calc-tab-btn" data-calc="cap-sim"><span class="lang-text" data-zh="⑦ 首都糧食模擬" data-en="⑦ Capital Sim">⑦ 首都糧食模擬</span></button>
+        </div>
+
+        <!-- ===== CALCULATOR 1: Field ROI ===== -->
+        <div class="calc-panel active" data-calc="field-roi">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="資源田 ROI 計算器" data-en="Resource Field ROI Calculator">資源田 ROI 計算器</span></h3>
+          <p class="lang-content active" data-lang="zh">ROI（Return on Investment）告訴你「升一級資源田，幾天才能把投入的資源賺回來」。ROI 天數越短代表效率越高；一般來說同等級 ROI 下應優先升 ROI 最短的那種田。此計算器使用 Lumi 的慣例（L1 比對 0 產出，L2+ 比對前一級產出，疊加為加法 1 + 加成建築% + 綠洲% + 金幣%）。</p>
+          <p class="lang-content" data-lang="en">ROI tells you "how many days of extra production recovers the cost of this field upgrade". Lower ROI = more efficient; given equivalent levels you should prioritize the lowest-ROI field first. This calculator follows the Lumi convention (L1 compared to 0, L2+ compared to previous level, additive stacking: 1 + bonus-building% + oasis% + gold%).</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="輸入" data-en="Inputs">輸入</span></h4>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="資源類型" data-en="Resource type">資源類型</span></label>
+                <select id="froi-type">
+                  <option value="wood">🪵 <span>Wood</span></option>
+                  <option value="clay">🧱 Clay</option>
+                  <option value="iron">⛏️ Iron</option>
+                  <option value="crop" selected>🌾 Crop</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="目標等級" data-en="Target level">目標等級</span></label>
+                <select id="froi-level"></select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="加成建築 %（0–25 非糧；0–50 糧食）" data-en="Bonus building % (0–25 non-crop, 0–50 crop)">加成建築 %（0–25 非糧；0–50 糧食）</span></label>
+                <select id="froi-bonus">
+                  <option value="0" selected>0% (未建 / Not built)</option>
+                  <option value="5">+5% (Lv 1)</option>
+                  <option value="10">+10% (Lv 2)</option>
+                  <option value="15">+15% (Lv 3)</option>
+                  <option value="20">+20% (Lv 4)</option>
+                  <option value="25">+25% (Lv 5, max)</option>
+                  <option value="35">+35% (crop: mill Lv5 + bakery Lv2)</option>
+                  <option value="50">+50% (crop: mill Lv5 + bakery Lv5)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="綠洲 %" data-en="Oasis %">綠洲 %</span></label>
+                <select id="froi-oasis">
+                  <option value="0" selected>0%</option>
+                  <option value="25">+25%</option>
+                  <option value="50">+50%</option>
+                  <option value="75">+75% (25+25+25)</option>
+                  <option value="100">+100% (two 50% oases)</option>
+                  <option value="150">+150% (three 50% oases — only crop possible)</option>
+                </select>
+              </div>
+              <label class="calc-check"><input type="checkbox" id="froi-gold" checked> <span class="lang-text" data-zh="Plus +25% 金幣產量加成" data-en="Plus +25% gold production bonus">Plus +25% 金幣產量加成</span></label>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="結果" data-en="Result">結果</span></h4>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="升級成本（合計）" data-en="Upgrade cost (total)">升級成本（合計）</span></span><span class="value" id="froi-out-cost">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="每小時產量增加" data-en="Production gain /hr">每小時產量增加</span></span><span class="value" id="froi-out-phr">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="每天產量增加" data-en="Production gain /day">每天產量增加</span></span><span class="value" id="froi-out-pday">—</span></div>
+              <div class="calc-result-row"><span class="label">ROI</span><span class="value highlight" id="froi-out-roi">—</span></div>
+
+              <div class="calc-note">
+                <span class="lang-text" data-zh="成本拆解 (Wood / Clay / Iron / Crop)：" data-en="Cost breakdown (Wood / Clay / Iron / Crop):">成本拆解 (Wood / Clay / Iron / Crop)：</span>
+                <span id="froi-out-breakdown" style="color: var(--text-primary);">—</span>
+              </div>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="四種資源 ROI 對照（同等級、同參數）" data-en="Compare all 4 resources (same level, same params)">四種資源 ROI 對照（同等級、同參數）</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>Type</th><th>Cost</th><th>Δ /day</th><th>ROI (days)</th></tr></thead>
+                <tbody id="froi-compare-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder panels for other calculators (filled in next commits) -->
+        <div class="calc-panel" data-calc="oasis-roi"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <div class="calc-panel" data-calc="cp"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <div class="calc-panel" data-calc="cap-order"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <div class="calc-panel" data-calc="traderoute"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <div class="calc-panel" data-calc="farm"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <div class="calc-panel" data-calc="cap-sim"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+      </section>
+
       <!-- CATEGORY 1: MOST USED TOOLS -->
       <section class="tools-section">
         <h2 class="section-header">
@@ -1247,6 +1346,96 @@
   </div>
 
   <script src="js/data.js?v=1774283536"></script>
+  <script src="js/travian-data.js"></script>
   <script src="js/app.js?v=1774283536"></script>
+  <script>
+    // ===== Calculator Tab Switching =====
+    (function () {
+      var tabs = document.querySelectorAll('#calcTabs .calc-tab-btn');
+      var panels = document.querySelectorAll('.calc-panel');
+      tabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.dataset.calc;
+          tabs.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          var panel = document.querySelector('.calc-panel[data-calc="' + target + '"]');
+          if (panel) panel.classList.add('active');
+        });
+      });
+    })();
+
+    // ===== CALC 1: Field ROI =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+
+      var selType  = document.getElementById('froi-type');
+      var selLv    = document.getElementById('froi-level');
+      var selBonus = document.getElementById('froi-bonus');
+      var selOasis = document.getElementById('froi-oasis');
+      var chkGold  = document.getElementById('froi-gold');
+
+      // Populate levels 1..20
+      for (var L = 1; L <= 20; L++) {
+        var opt = document.createElement('option');
+        opt.value = L;
+        opt.textContent = 'Lv ' + L;
+        if (L === 7) opt.selected = true; // sensible default
+        selLv.appendChild(opt);
+      }
+
+      function fmt(n) {
+        if (!isFinite(n)) return '—';
+        if (n >= 1000) return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        return n.toFixed(1).replace(/\.0$/, '');
+      }
+
+      function calc() {
+        var type = selType.value;
+        var L = parseInt(selLv.value, 10);
+        var bonus = parseFloat(selBonus.value) / 100;
+        var oasis = parseFloat(selOasis.value) / 100;
+        var gold = chkGold.checked ? 0.25 : 0;
+
+        var r = T.fieldRoi(type, L, {
+          goldBonus: gold,
+          bonusBuildingPct: bonus,
+          oasisPct: oasis
+        });
+        var row = T.FIELD_COSTS[type][L - 1];
+
+        document.getElementById('froi-out-cost').textContent = fmt(r.cost);
+        document.getElementById('froi-out-phr').textContent = '+' + fmt(r.productionGainPerHour) + ' / hr';
+        document.getElementById('froi-out-pday').textContent = '+' + fmt(r.productionGainPerDay) + ' / day';
+        document.getElementById('froi-out-roi').textContent = r.roiDays.toFixed(2) + ' days';
+        document.getElementById('froi-out-breakdown').textContent =
+          fmt(row.wood) + ' / ' + fmt(row.clay) + ' / ' + fmt(row.iron) + ' / ' + fmt(row.crop);
+
+        // Comparison table (all 4 types at same level + params)
+        var types = ['wood', 'clay', 'iron', 'crop'];
+        var labels = { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' };
+        var bestRoi = Infinity, bestType = '';
+        var rows = types.map(function (t) {
+          var rr = T.fieldRoi(t, L, { goldBonus: gold, bonusBuildingPct: bonus, oasisPct: oasis });
+          if (rr.roiDays < bestRoi) { bestRoi = rr.roiDays; bestType = t; }
+          return { t: t, rr: rr };
+        });
+        var html = rows.map(function (x) {
+          var hi = x.t === bestType ? ' class="hi"' : '';
+          return '<tr><td' + hi + '>' + labels[x.t] + '</td>' +
+                 '<td' + hi + '>' + fmt(x.rr.cost) + '</td>' +
+                 '<td' + hi + '>' + fmt(x.rr.productionGainPerDay) + '</td>' +
+                 '<td' + hi + '>' + x.rr.roiDays.toFixed(2) + '</td></tr>';
+        }).join('');
+        document.getElementById('froi-compare-body').innerHTML = html;
+      }
+
+      [selType, selLv, selBonus, selOasis, chkGold].forEach(function (el) {
+        el.addEventListener('change', calc);
+      });
+      calc();
+    })();
+  </script>
 </body>
 </html>
