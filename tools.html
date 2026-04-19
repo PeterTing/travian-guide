@@ -896,7 +896,83 @@
             </div>
           </div>
         </div>
-        <div class="calc-panel" data-calc="cap-sim"><p><em><span class="lang-text" data-zh="載入中…" data-en="Loading...">載入中…</span></em></p></div>
+        <!-- ===== CALCULATOR 7: Capital Crop Simulator ===== -->
+        <div class="calc-panel" data-calc="cap-sim">
+          <h3 style="color: var(--accent-color); margin-top: 0;"><span class="lang-text" data-zh="首都糧食 / 總產量模擬器" data-en="Capital Crop / Total Production Simulator">首都糧食 / 總產量模擬器</span></h3>
+          <p class="lang-content active" data-lang="zh">Lumi 的 Table 1 複現：同樣首都、不同糧食綠洲加成下會產出多少資源/小時？把所有田、加成建築、綠洲、金幣加成都套上去，看見首都實戰產量。可比較 1-1-1-15 / 3-3-3-9 / 3-4-4-7 / 4-4-4-6 四種佈局。</p>
+          <p class="lang-content" data-lang="en">Reproduces Lumi's Table 1: given a capital, how much resource per hour does it actually push? Applies all field levels, bonus buildings, oasis bonuses, and gold simultaneously to simulate real capital output. Compare 1-1-1-15 / 3-3-3-9 / 3-4-4-7 / 4-4-4-6 side-by-side.</p>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <h4><span class="lang-text" data-zh="佈局 & 等級" data-en="Layout & levels">佈局 & 等級</span></h4>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="村莊佈局" data-en="Village layout">村莊佈局</span></label>
+                <select id="sim-layout">
+                  <option value="15c" selected>15c (1-1-1-15)</option>
+                  <option value="9c">9c (3-3-3-9)</option>
+                  <option value="7c">7c (3-4-4-7)</option>
+                  <option value="6c">6c (4-4-4-6)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label><span class="lang-text" data-zh="田地等級（所有同級別）" data-en="Field level (all same)">田地等級（所有同級別）</span></label>
+                <select id="sim-flv"></select>
+              </div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="加成建築" data-en="Bonus buildings">加成建築</span></h4>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Sawmill (0–5)</label><input type="number" id="sim-saw" min="0" max="5" value="5"></div>
+                <div class="calc-field"><label>Brickyard</label><input type="number" id="sim-bri" min="0" max="5" value="5"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Iron Foundry</label><input type="number" id="sim-fnd" min="0" max="5" value="5"></div>
+                <div class="calc-field"><label>Grain Mill</label><input type="number" id="sim-mil" min="0" max="5" value="5"></div>
+              </div>
+              <div class="calc-field"><label>Bakery</label><input type="number" id="sim-bak" min="0" max="5" value="5"></div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="綠洲加成 (% 加到每種資源)" data-en="Oasis bonuses (% added to each)">綠洲加成 (% 加到每種資源)</span></h4>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Wood %</label><input type="number" id="sim-o-w" min="0" max="150" value="0"></div>
+                <div class="calc-field"><label>Clay %</label><input type="number" id="sim-o-c" min="0" max="150" value="0"></div>
+              </div>
+              <div class="calc-field-row">
+                <div class="calc-field"><label>Iron %</label><input type="number" id="sim-o-i" min="0" max="150" value="0"></div>
+                <div class="calc-field"><label>Crop %</label><input type="number" id="sim-o-r" min="0" max="150" value="150"></div>
+              </div>
+
+              <h4 style="margin-top: 1rem;"><span class="lang-text" data-zh="其他" data-en="Other">其他</span></h4>
+              <label class="calc-check"><input type="checkbox" id="sim-gold" checked> Plus +25% gold</label>
+              <label class="calc-check"><input type="checkbox" id="sim-egypt"> <span class="lang-text" data-zh="埃及人（水利 +35% 糧綠洲）" data-en="Egyptian (Waterworks +35% crop oasis)">埃及人（水利 +35% 糧綠洲）</span></label>
+            </div>
+
+            <div class="calc-output">
+              <h4><span class="lang-text" data-zh="逐項產量 /小時" data-en="Production breakdown /hr">逐項產量 /小時</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>Resource</th><th>Fields</th><th>Base</th><th>Bonus%</th><th>Oasis%</th><th>Total /hr</th></tr></thead>
+                <tbody id="sim-breakdown-body"></tbody>
+              </table>
+
+              <div class="calc-result-row" style="margin-top: 0.75rem;"><span class="label">Wood + Clay + Iron /hr</span><span class="value" id="sim-non-crop">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="Crop /hr" data-en="Crop /hr">Crop /hr</span></span><span class="value" id="sim-crop">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="總產量 /hr" data-en="Total /hr">總產量 /hr</span></span><span class="value highlight" id="sim-total">—</span></div>
+              <div class="calc-result-row"><span class="label"><span class="lang-text" data-zh="每日糧食可養軍量" data-en="Army upkeep supported /day">每日糧食可養軍量</span></span><span class="value" id="sim-upkeep">—</span></div>
+
+              <h4 style="margin-top: var(--spacing-lg);"><span class="lang-text" data-zh="Lumi Table 1 對照 (L18 全加成)" data-en="Lumi Table 1 comparison (L18, all bonuses)">Lumi Table 1 對照 (L18 全加成)</span></h4>
+              <table class="calc-table">
+                <thead><tr><th>Crop oasis</th><th>1-1-1-15</th><th>3-3-3-9</th><th>3-4-4-7</th></tr></thead>
+                <tbody>
+                  <tr><td>150%</td><td>136,500</td><td>107,100</td><td>97,300</td></tr>
+                  <tr><td>125%</td><td>126,000</td><td>100,800</td><td>92,400</td></tr>
+                  <tr><td>100%</td><td>105,000</td><td>94,500</td><td>87,500</td></tr>
+                  <tr><td>75%</td><td>94,500</td><td>88,200</td><td>82,600</td></tr>
+                </tbody>
+              </table>
+              <p class="calc-note">
+                <span class="lang-text" data-zh="Lumi Table 1 假設：田地 Lv18、所有加成建築滿、Plus +25% 金幣、綠洲按上列 %。設定成這些值即可重現 Table 1 的數字。" data-en="Lumi Table 1 assumes: fields Lv18, all bonus buildings maxed, Plus +25% gold, oasis % as listed. Set these values in the inputs to reproduce Table 1.">Lumi Table 1 假設：田地 Lv18、所有加成建築滿、Plus +25% 金幣、綠洲按上列 %。設定成這些值即可重現 Table 1 的數字。</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- CATEGORY 1: MOST USED TOOLS -->
@@ -2261,6 +2337,89 @@
       }
 
       [inPop, inDist, selUnit, selFreq, inLoot].forEach(function (el) {
+        el.addEventListener('change', calc); el.addEventListener('input', calc);
+      });
+      calc();
+    })();
+
+    // ===== CALC 7: Capital Crop Simulator =====
+    (function () {
+      if (!window.TRAVIAN) return;
+      var T = window.TRAVIAN;
+
+      var selLayout = document.getElementById('sim-layout');
+      var selFlv = document.getElementById('sim-flv');
+      var I = {
+        saw: document.getElementById('sim-saw'), bri: document.getElementById('sim-bri'),
+        fnd: document.getElementById('sim-fnd'), mil: document.getElementById('sim-mil'),
+        bak: document.getElementById('sim-bak'),
+        ow: document.getElementById('sim-o-w'), oc: document.getElementById('sim-o-c'),
+        oi: document.getElementById('sim-o-i'), or: document.getElementById('sim-o-r'),
+        gold: document.getElementById('sim-gold'), egypt: document.getElementById('sim-egypt')
+      };
+
+      // Populate field levels 1..21
+      for (var L = 1; L <= 21; L++) {
+        var o = document.createElement('option');
+        o.value = L; o.textContent = 'Lv ' + L;
+        if (L === 18) o.selected = true;
+        selFlv.appendChild(o);
+      }
+
+      function fmtInt(n) { return Math.round(n).toLocaleString('en-US'); }
+
+      function calc() {
+        var layout = T.CROPPER_LAYOUTS.find(function (l) { return l.id === selLayout.value; });
+        var flv = parseInt(selFlv.value, 10);
+        var base = T.FIELD_PRODUCTION[flv];
+        var gold = I.gold.checked ? 0.25 : 0;
+        var egypt = I.egypt.checked;
+
+        var bonus = {
+          wood: (parseInt(I.saw.value, 10) || 0) * 0.05,
+          clay: (parseInt(I.bri.value, 10) || 0) * 0.05,
+          iron: (parseInt(I.fnd.value, 10) || 0) * 0.05,
+          crop: ((parseInt(I.mil.value, 10) || 0) + (parseInt(I.bak.value, 10) || 0)) * 0.05
+        };
+        var oasisPct = {
+          wood: (parseInt(I.ow.value, 10) || 0) / 100,
+          clay: (parseInt(I.oc.value, 10) || 0) / 100,
+          iron: (parseInt(I.oi.value, 10) || 0) / 100,
+          crop: (parseInt(I.or.value, 10) || 0) / 100
+        };
+        // Egyptian Waterworks: +35% to crop oasis effect (applied to crop oasis only)
+        // Modeled as a multiplicative bump on the oasis component.
+        if (egypt && oasisPct.crop > 0) oasisPct.crop *= 1.35;
+
+        var counts = { wood: layout.wood, clay: layout.clay, iron: layout.iron, crop: layout.crop };
+        var icons = { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' };
+        var totals = { wood: 0, clay: 0, iron: 0, crop: 0 };
+
+        var rows = ['wood', 'clay', 'iron', 'crop'].map(function (t) {
+          var n = counts[t];
+          var mult = 1 + bonus[t] + oasisPct[t] + gold;
+          var perField = base * mult;
+          var total = perField * n;
+          totals[t] = total;
+          return '<tr><td>' + icons[t] + '</td>' +
+                 '<td>' + n + ' × ' + base + '</td>' +
+                 '<td>' + (base * n).toLocaleString() + '</td>' +
+                 '<td>+' + (bonus[t] * 100).toFixed(0) + '%</td>' +
+                 '<td>+' + (oasisPct[t] * 100).toFixed(0) + '%</td>' +
+                 '<td>' + fmtInt(total) + '</td></tr>';
+        }).join('');
+        document.getElementById('sim-breakdown-body').innerHTML = rows;
+
+        var nonCrop = totals.wood + totals.clay + totals.iron;
+        var cropTotal = totals.crop;
+        document.getElementById('sim-non-crop').textContent = fmtInt(nonCrop);
+        document.getElementById('sim-crop').textContent = fmtInt(cropTotal);
+        document.getElementById('sim-total').textContent = fmtInt(nonCrop + cropTotal);
+        // Upkeep: 1 crop/hr supports 1 unit of upkeep, so 24 upkeep/day = 24 × crop/hr units
+        document.getElementById('sim-upkeep').textContent = Math.round(cropTotal).toLocaleString() + ' crop/hr → ' + Math.round(cropTotal / 1) + ' troop-upkeep slots';
+      }
+
+      [selLayout, selFlv, I.saw, I.bri, I.fnd, I.mil, I.bak, I.ow, I.oc, I.oi, I.or, I.gold, I.egypt].forEach(function (el) {
         el.addEventListener('change', calc); el.addEventListener('input', calc);
       });
       calc();
