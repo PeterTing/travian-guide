@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bi from '../components/shared/Bi.astro';
+import Callout from '../components/shared/Callout.astro';
+import SectionSettling from '../components/guide/SectionSettling.astro';
+import SectionHero from '../components/guide/SectionHero.astro';
+import SectionEarlyGame from '../components/guide/SectionEarlyGame.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout
+  titleZh="新手攻略 · Travian Guide"
+  titleEn="Beginner Guide · Travian Guide"
+>
+  <!-- Hero -->
+  <section style="padding: var(--space-7) var(--space-5); background: var(--bg-1); border-bottom: 1px solid var(--border-0);">
+    <div style="max-width: 860px; margin: 0 auto;">
+      <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;">
+        <Bi zh="新手攻略 · Day 0–7" en="Beginner guide · Day 0–7" />
+      </span>
+      <h1 style="font-size: var(--fs-4xl); margin: 8px 0 12px; letter-spacing: -0.02em;">
+        <Bi zh="從開帳號到第 2 村" en="From day-zero to your 2nd village" />
+      </h1>
+      <p style="color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed);">
+        <Bi
+          zh="這是 Lumi 進階指南 §1 + §4.1（Early Game）的整理。重點不是「第幾天蓋什麼」，而是理解每個決定的 ROI 思維 —— 後面任何複雜情況都從這套基礎延伸。"
+          en="A distillation of Lumi's advanced guide §1 + §4.1 (Early Game). The point isn't a hour-by-hour build queue — it's the ROI thinking behind every decision. Every later situation extends from this base."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- TOC + Sections -->
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 var(--space-5);">
+    <Callout kind="info" titleZh="本頁三個階段" titleEn="Three phases on this page">
+      <ol>
+        <li><a href="#settling"><Bi zh="盡快開到第 2 村（Day 0–7）" en="Settle the 2nd village ASAP (Day 0–7)" /></a></li>
+        <li><a href="#hero-farming"><Bi zh="英雄打綠洲：保護期一次性獎金（Day 1–3）" en="Hero oasis farming: one-time bounty (Day 1–3)" /></a></li>
+        <li><a href="#early-game"><Bi zh="開首都 + 偵察周邊（Day 5+）" en="Land your capital + scout neighbours (Day 5+)" /></a></li>
+      </ol>
+    </Callout>
+
+    <SectionSettling />
+    <SectionHero />
+    <SectionEarlyGame />
+
+    <!-- Next CTA -->
+    <section style="margin: var(--space-7) 0; padding: var(--space-6); background: var(--bg-1); border: 1px solid var(--border-0); border-radius: var(--radius-lg); text-align: center;">
+      <h2 style="font-size: var(--fs-xl); margin-bottom: var(--space-3);">
+        <Bi zh="下一步" en="What's next" />
+      </h2>
+      <p style="color: var(--text-1); margin-bottom: var(--space-4);">
+        <Bi
+          zh="開過第 2 村、英雄打過幾輪綠洲、選好首都位置之後 —— 現在是時候進階規劃 ROI、村莊定位（Cap / Hammer / Anvil / Feeder / NPC）、3-chief、與 Day 45 攻擊配額。"
+          en="Once you've settled village #2, milked oases, and locked in your capital location — it's time to plan with ROI, village roles (Cap / Hammer / Anvil / Feeder / NPC), 3-chief setups, and Day 45 op quotas."
+        />
+      </p>
+      <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+        <a href={`${base}/strategy`} style="padding: 10px 20px; border-radius: 8px; background: var(--accent); color: var(--text-inv); text-decoration: none; font-weight: 600;">
+          <Bi zh="進階策略 →" en="Advanced strategy →" />
+        </a>
+        <a href={`${base}/tools`} style="padding: 10px 20px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--border-1); color: var(--text-0); text-decoration: none; font-weight: 500;">
+          <Bi zh="計算工具 →" en="Calculators →" />
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
