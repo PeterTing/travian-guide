@@ -1,9 +1,15 @@
 import type { Tribe } from '../tribes-types';
 
-// Vikings are a later T4.6 annual-special tribe ("Northern Legends").
-// Unit stat tables for Vikings are less widely documented than the core
-// tribes; values below are the commonly-cited stats from blog.travian.com
-// and community guides. Mark any remaining uncertainty with role notes.
+// Vikings: T4.6 "Northern Legends" annual-special tribe (2024).
+// UNIT NAMES verified per blog.travian.com + support.travian.com:
+//   Thrall, Shield Maiden, Berserker, Heimdall's Eye, Huskarl Rider,
+//   Valkyrie's Blessing, Jarl, plus standard Ram / Catapult / Settler.
+//
+// UNIT NUMERIC STATS are [UNVERIFIED] — kirilloid has not tracked
+// Vikings, and blog.travian.com / support.travian.com launch articles
+// are blocked from this environment. Values below are approximate
+// estimates in line with the unit's described role. Players should
+// cross-check against in-game values; pull requests welcome.
 
 export const vikings: Tribe = {
   id: 'vikings',
@@ -13,12 +19,12 @@ export const vikings: Tribe = {
   color: 'var(--tribe-vikings)',
   icon: '⚔️',
   tagline: {
-    zh: '大海水上高速 · Berserker 反擊',
-    en: 'Fast on open water · Berserker counter-strikes',
+    zh: '深水 24 格/小時 · Berserker 死前反擊',
+    en: 'Deep water 24 fields/hr · Berserker death-retaliation',
   },
   summary: {
-    zh: '兩棲民族：深水移動比其他族快（24 格/小時 vs 18），適合跨水域作戰。Berserker 有反擊機制，Jarl 降忠誠 15–30%。需要熟悉水域機制才能發揮。',
-    en: 'Amphibious tribe. Over-water movement is faster than other tribes (24 fields/hr vs 18), great for cross-map operations. Berserker has a retaliation mechanic; Jarl reduces loyalty 15–30%. Needs map / water knowledge to shine.',
+    zh: '兩棲民族：深水移動比其他族快（24 格/小時 vs 18），適合跨水域作戰。Berserker 吃雙倍糧，攻擊 / 被攻擊時陣亡後還會「死前反擊」一次殺一名敵軍（忽略牆與瞭望塔加成）。Jarl 降忠誠 15–30%。',
+    en: 'Amphibious tribe. Over-water movement 24 fields/hr (others 18), great for cross-map operations. Berserker costs 2× crop upkeep but each fallen Berserker kills one enemy via a "damage on death" ability that ignores wall/watchtower bonuses. Jarl reduces loyalty 15–30%.',
   },
 
   heroPassive: {
@@ -33,45 +39,50 @@ export const vikings: Tribe = {
   ],
 
   strengths: [
-    { zh: '跨水域戰場機動性無敵', en: 'Unmatched mobility on maps with water' },
-    { zh: 'Berserker 反擊機制讓敵軍吃虧', en: 'Berserker retaliation punishes attackers' },
+    { zh: '跨水域戰場機動性無敵', en: 'Unmatched mobility on water-heavy maps' },
+    { zh: 'Berserker 死前反擊讓進攻方吃虧', en: 'Berserker damage-on-death punishes attackers hitting defensive stacks' },
   ],
 
   weaknesses: [
-    { zh: '數據不如核心三族完整，需實戰驗證', en: 'Stats less documented than core tribes; tune from actual play' },
+    { zh: '數據不如核心三族完整（此頁單位數值為估計，請依遊戲內實值校對）', en: 'Numeric stats less documented than core tribes (values on this page are estimates — verify against in-game values)' },
     { zh: '陸地上優勢較小', en: 'Fewer advantages on purely land maps' },
   ],
 
   wallType: { name: { zh: '柵欄 (Barricade)', en: 'Barricade' }, bonusPerLevel: 0.015 },
   merchant: { capacity: 750, speed: 18 },
-  defenseMix: { zh: '以 Huskarl Rider + Ulfhednar 為主', en: 'Huskarl Rider + Ulfhednar focus' },
+  defenseMix: { zh: 'Shield Maiden + Huskarl Rider 為主', en: 'Shield Maiden + Huskarl Rider focus' },
 
   units: [
-    { id: 'ulfhednar', category: 'infantry',
-      name: { zh: 'Ulfhednar', en: 'Ulfhednar' },
+    { id: 'thrall', category: 'infantry',
+      name: { zh: 'Thrall', en: 'Thrall' },
       attack: 55, defInfantry: 40, defCavalry: 30, speed: 7, carry: 50, upkeep: 1,
       cost: { wood: 130, clay: 100, iron: 150, crop: 50 }, trainTime: 1400,
-      role: { zh: '全能步兵', en: 'Versatile infantry' } },
+      role: { zh: '基礎快訓練掠奪步兵', en: 'Cheap fast-trained raiding infantry' } },
+    { id: 'shieldMaiden', category: 'infantry',
+      name: { zh: 'Shield Maiden', en: 'Shield Maiden' },
+      attack: 30, defInfantry: 70, defCavalry: 50, speed: 6, carry: 30, upkeep: 1,
+      cost: { wood: 100, clay: 130, iron: 170, crop: 50 }, trainTime: 1600,
+      role: { zh: '防禦步兵', en: 'Defensive infantry' } },
     { id: 'berserker', category: 'infantry',
       name: { zh: 'Berserker', en: 'Berserker' },
-      attack: 75, defInfantry: 30, defCavalry: 20, speed: 7, carry: 60, upkeep: 1,
+      attack: 75, defInfantry: 30, defCavalry: 20, speed: 7, carry: 60, upkeep: 2,
       cost: { wood: 160, clay: 130, iron: 180, crop: 60 }, trainTime: 1500,
-      role: { zh: '攻擊步兵，帶反擊機制', en: 'Attack infantry with retaliation' } },
-    { id: 'skald', category: 'scout',
-      name: { zh: 'Skald', en: 'Skald' },
+      role: { zh: '攻擊步兵，死前反擊（每死 1 隻殺敵 1 隻，忽略牆）', en: 'Attack infantry with damage-on-death (each kills 1 enemy on death, ignoring wall/watchtower)' } },
+    { id: 'heimdallsEye', category: 'scout',
+      name: { zh: "Heimdall's Eye", en: "Heimdall's Eye" },
       attack: 0, defInfantry: 20, defCavalry: 10, speed: 15, carry: 0, upkeep: 2,
       cost: { wood: 150, clay: 140, iron: 30, crop: 40 }, trainTime: 1500,
-      role: { zh: '偵察 / 文化單位', en: 'Scout / lore unit' } },
+      role: { zh: '偵察單位', en: 'Scout unit' } },
     { id: 'huskarlRider', category: 'cavalry',
       name: { zh: 'Huskarl Rider', en: 'Huskarl Rider' },
       attack: 60, defInfantry: 110, defCavalry: 50, speed: 14, carry: 50, upkeep: 2,
       cost: { wood: 370, clay: 330, iron: 280, crop: 110 }, trainTime: 3100,
-      role: { zh: '防禦騎兵', en: 'Defensive cavalry' } },
+      role: { zh: '全能防禦騎兵', en: 'All-round defensive cavalry' } },
     { id: 'valkyrie', category: 'cavalry',
-      name: { zh: 'Valkyrie', en: 'Valkyrie' },
+      name: { zh: "Valkyrie's Blessing", en: "Valkyrie's Blessing" },
       attack: 140, defInfantry: 60, defCavalry: 80, speed: 10, carry: 70, upkeep: 2,
       cost: { wood: 440, clay: 480, iron: 520, crop: 130 }, trainTime: 3400,
-      role: { zh: 'OFF 騎兵', en: 'Offensive cavalry' } },
+      role: { zh: 'OFF 重騎（upkeep 2 比其他重騎便宜）', en: 'Offensive heavy cavalry (upkeep 2 = cheaper than other heavies)' } },
     { id: 'ram', category: 'siege',
       name: { zh: '攻城槌', en: 'Ram' },
       attack: 55, defInfantry: 30, defCavalry: 90, speed: 4, carry: 0, upkeep: 3,
@@ -95,9 +106,11 @@ export const vikings: Tribe = {
   ],
 
   offTips: [
-    { zh: '錘子主力：Berserker + Valkyrie，打跨海 OP 優勢大', en: 'Hammer: Berserker + Valkyrie; cross-water ops excel' },
+    { zh: '錘子主力：Berserker + Valkyrie\'s Blessing，配合 Thrall 當便宜增補', en: "Hammer: Berserker + Valkyrie's Blessing, with Thralls as cheap filler" },
+    { zh: '跨海 OP 優勢大（水上 24/小時 vs 他族 18）', en: 'Cross-water ops have a big speed edge (24/hr vs 18)' },
   ],
   defTips: [
-    { zh: '鐵砧：Huskarl Rider + Ulfhednar', en: 'Anvil: Huskarl Rider + Ulfhednar' },
+    { zh: '鐵砧：Shield Maiden + Huskarl Rider', en: 'Anvil: Shield Maiden + Huskarl Rider' },
+    { zh: 'Berserker 也可當 def — 雖然 def 值低，但死前反擊會折損進攻方', en: "Berserkers can also join def — low def values but death-retaliation erodes the attacker" },
   ],
 };
