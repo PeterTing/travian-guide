@@ -1,0 +1,144 @@
+/* Shared CSS module for all calculator components.
+   Each calculator imports `import s from './calc.module.css'` and reuses
+   these primitives so styling stays consistent. */
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .wrapper { grid-template-columns: 1fr; }
+}
+
+.intro {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+.intro h2 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.intro p {
+  color: var(--text-1);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.inputs, .output {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.inputs h4, .output h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px;
+}
+.output h4 + h4 { margin-top: 24px; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+.field label {
+  font-size: 12px;
+  color: var(--text-2);
+}
+.field input, .field select {
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text-0);
+  cursor: pointer;
+}
+.check input { width: auto; padding: 0; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-0);
+  font-size: 14px;
+}
+.row:last-child { border-bottom: 0; }
+.label { color: var(--text-2); }
+.value { color: var(--text-0); font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; }
+.highlight { color: var(--accent); font-size: 16px; font-weight: 600; }
+
+.note {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+.table th, .table td { padding: 6px 8px; border: 1px solid var(--border-0); text-align: right; }
+.table th:first-child, .table td:first-child { text-align: left; }
+.table th { background: var(--bg-2); color: var(--text-1); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+.tableRowHi td { background: var(--accent-glow); color: var(--accent); }
+.tableRowHi td:not(:first-child) { font-family: var(--font-mono); }
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+.steps li {
+  display: grid;
+  grid-template-columns: 32px 1fr auto auto;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-0);
+  align-items: center;
+}
+.steps li:last-child { border-bottom: 0; }
+.stepNum { color: var(--text-2); font-size: 12px; font-family: var(--font-mono); }
+.stepCost { color: var(--accent); font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 12px; }
+.stepTime { color: var(--text-2); font-family: var(--font-mono); font-size: 12px; }
+
+.btnRow { display: flex; gap: 6px; margin-top: 12px; }
+.btnRow button {
+  flex: 1;
+  padding: 8px 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-0);
+  border-radius: 6px;
+  color: var(--text-1);
+  font-size: 12px;
+  cursor: pointer;
+}
+.btnRow button:hover { border-color: var(--accent); color: var(--accent); }
