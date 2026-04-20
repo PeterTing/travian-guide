@@ -6,7 +6,7 @@ interface UnitOpt { id: string; label: { zh: string; en: string }; carry: number
 const UNITS: UnitOpt[] = [
   { id: 'tt',     label: { zh: 'TT (高盧, 速 19)',     en: 'TT (Gaul, speed 19)' },     carry: 75, speed: 19, cost: 1090 },
   { id: 'ei',     label: { zh: 'EI (羅馬, 速 14)',     en: 'EI (Roman, speed 14)' },    carry: 100, speed: 14, cost: 1410 },
-  { id: 'steppe', label: { zh: 'Steppe (匈, 速 16)',   en: 'Steppe (Hun, speed 16)' },  carry: 45, speed: 16, cost: 895 },
+  { id: 'steppe', label: { zh: 'Steppe Rider (匈, 速 16)',   en: 'Steppe Rider (Hun, speed 16)' },  carry: 115, speed: 16, cost: 895 },
   { id: 'paladin',label: { zh: 'Paladin (條頓, 速 10)',en: 'Paladin (Teuton, speed 10)' },carry: 110, speed: 10, cost: 1005 },
   { id: 'club',   label: { zh: 'Clubswinger (條頓, 速 7)', en: 'Clubswinger (Teuton, speed 7)' }, carry: 60, speed: 7, cost: 250 },
   { id: 'ec',     label: { zh: 'EC (羅馬, 速 10)',     en: 'EC (Roman, speed 10)' },    carry: 70, speed: 10, cost: 2170 },
