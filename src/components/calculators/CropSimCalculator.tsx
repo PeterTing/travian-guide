@@ -83,13 +83,16 @@ export default function CropSimCalculator() {
           <div className={s.field}><label>Bakery</label><input type="number" min={0} max={5} value={bonus.bak} onChange={e => setBonus(p => ({ ...p, bak: +e.target.value }))} /></div>
 
           <h4 style={{ marginTop: 16 }}>{lang === 'en' ? 'Oasis bonuses (%)' : '綠洲加成 (%)'}</h4>
+          <p style={{ fontSize: 11, color: 'var(--text-2)', margin: '0 0 8px' }}>
+            {lang === 'en' ? 'Per-village cap: 75% non-crop, 150% crop (3 oases max via HM Lv 20)' : '每村上限：木 / 土 / 鐵 75%、糧 150%（HM Lv 20 共 3 塊綠洲）'}
+          </p>
           <div className={s.fieldRow}>
-            <div className={s.field}><label>Wood</label><input type="number" min={0} max={150} value={oasis.wood} onChange={e => setOasis(p => ({ ...p, wood: +e.target.value }))} /></div>
-            <div className={s.field}><label>Clay</label><input type="number" min={0} max={150} value={oasis.clay} onChange={e => setOasis(p => ({ ...p, clay: +e.target.value }))} /></div>
+            <div className={s.field}><label>Wood (max 75)</label><input type="number" min={0} max={75} value={oasis.wood} onChange={e => setOasis(p => ({ ...p, wood: +e.target.value }))} /></div>
+            <div className={s.field}><label>Clay (max 75)</label><input type="number" min={0} max={75} value={oasis.clay} onChange={e => setOasis(p => ({ ...p, clay: +e.target.value }))} /></div>
           </div>
           <div className={s.fieldRow}>
-            <div className={s.field}><label>Iron</label><input type="number" min={0} max={150} value={oasis.iron} onChange={e => setOasis(p => ({ ...p, iron: +e.target.value }))} /></div>
-            <div className={s.field}><label>Crop</label><input type="number" min={0} max={150} value={oasis.crop} onChange={e => setOasis(p => ({ ...p, crop: +e.target.value }))} /></div>
+            <div className={s.field}><label>Iron (max 75)</label><input type="number" min={0} max={75} value={oasis.iron} onChange={e => setOasis(p => ({ ...p, iron: +e.target.value }))} /></div>
+            <div className={s.field}><label>Crop (max 150)</label><input type="number" min={0} max={150} value={oasis.crop} onChange={e => setOasis(p => ({ ...p, crop: +e.target.value }))} /></div>
           </div>
 
           <label className={s.check}><input type="checkbox" checked={gold} onChange={e => setGold(e.target.checked)} /> Plus +25% gold</label>
