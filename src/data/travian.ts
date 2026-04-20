@@ -263,6 +263,11 @@ export const CROPPER_LAYOUTS: readonly CropperLayout[] = Object.freeze([
 
 // =========================================================================
 // Merchants / Trade Office
+//
+// Trade Office bonus is **tribe-dependent**:
+//   - Romans: +20%/level (max +400% / 5× at Lv 20)
+//   - Other tribes: +10%/level (max +200% / 3× at Lv 20)
+// (Per travian.fandom.com/wiki/Trade_office and Travian Answers aid 48.)
 // =========================================================================
 export type TribeId = 'romans' | 'teutons' | 'gauls' | 'egyptians' | 'huns' | 'spartans' | 'vikings';
 
@@ -276,13 +281,21 @@ export const MERCHANTS: Record<TribeId, { capacity: number; speed: number }> = {
   vikings:   { capacity: 750,  speed: 18 },
 };
 
-export const TRADE_OFFICE_PER_LEVEL = 0.10; // +10% capacity per level
+export const TRADE_OFFICE_PER_LEVEL_DEFAULT = 0.10; // +10%/level (most tribes)
+export const TRADE_OFFICE_PER_LEVEL_ROMAN = 0.20;   // Roman exception: +20%/level
+
+export function tradeOfficePerLevel(tribe: TribeId): number {
+  return tribe === 'romans' ? TRADE_OFFICE_PER_LEVEL_ROMAN : TRADE_OFFICE_PER_LEVEL_DEFAULT;
+}
 
 export function merchantCapacity(tribe: TribeId, tradeOfficeLevel: number): number {
   const base = MERCHANTS[tribe]?.capacity ?? 500;
   const lv = Math.max(0, Math.min(20, Math.floor(tradeOfficeLevel)));
-  return Math.round(base * (1 + lv * TRADE_OFFICE_PER_LEVEL));
+  return Math.round(base * (1 + lv * tradeOfficePerLevel(tribe)));
 }
+
+// Backwards-compat re-export (some callers may still want a constant)
+export const TRADE_OFFICE_PER_LEVEL = TRADE_OFFICE_PER_LEVEL_DEFAULT;
 
 // =========================================================================
 // Town Hall Celebrations (1x speed)
