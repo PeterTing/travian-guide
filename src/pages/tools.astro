@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bi from '../components/shared/Bi.astro';
+import { LangProvider } from '../i18n/LangContext.tsx';
+import CalculatorTabs from '../components/calculators/CalculatorTabs.tsx';
+---
+<BaseLayout
+  titleZh="計算工具 · Travian Guide"
+  titleEn="Calculators · Travian Guide"
+>
+  <section style="padding: var(--space-7) var(--space-5); background: var(--bg-1); border-bottom: 1px solid var(--border-0);">
+    <div style="max-width: var(--container); margin: 0 auto;">
+      <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;">
+        <Bi zh="計算工具 · T4.6 · 1x" en="Calculators · T4.6 · 1x" />
+      </span>
+      <h1 style="font-size: var(--fs-4xl); margin: 8px 0 12px; letter-spacing: -0.02em;">
+        <Bi zh="七個內建計算工具" en="Seven on-site calculators" />
+      </h1>
+      <p style="color: var(--text-1); max-width: 720px; line-height: var(--lh-relaxed);">
+        <Bi
+          zh="所有公式對照 kirilloid 開源遊戲資料、Lumi/Eggstra/Dave 進階指南三張表（Table 1 產量、Table 2 田地 ROI、Table 3 綠洲 ROI）驗證。輸入會即時更新，URL hash 可分享當前頁籤。"
+          en="All formulas verified against kirilloid's open game data and the three Lumi/Eggstra/Dave reference tables (Table 1 production, Table 2 field ROI, Table 3 oasis ROI). Live recalculation on every input, URL hash deep-links to the current tab."
+        />
+      </p>
+    </div>
+  </section>
+
+  <section style="max-width: var(--container); margin: 0 auto; padding: var(--space-6) var(--space-5);">
+    <LangProvider client:load>
+      <CalculatorTabs client:load />
+    </LangProvider>
+  </section>
+</BaseLayout>

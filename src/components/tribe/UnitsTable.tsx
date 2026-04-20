@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { Tribe, Unit, UnitCategory } from '../../data/tribes-types';
+import type { Tribe, UnitCategory } from '../../data/tribes-types';
 import { useLang } from '../../i18n/LangContext';
 import styles from './UnitsTable.module.css';
 
