@@ -64,7 +64,7 @@ export const spartans: Tribe = {
       role: { zh: '防禦主力', en: 'Defensive backbone' } },
     { id: 'twinsteel', category: 'infantry',
       name: { zh: 'Twinsteel Therion', en: 'Twinsteel Therion' },
-      attack: 90, defInfantry: 55, defCavalry: 40, speed: 6, carry: 65, upkeep: 1,
+      attack: 90, defInfantry: 55, defCavalry: 40, speed: 6, carry: 50, upkeep: 1,
       cost: { wood: 130, clay: 200, iron: 400, crop: 65 }, trainTime: 2112,
       role: { zh: '高攻步兵', en: 'High-attack infantry' } },
     { id: 'elpida', category: 'cavalry',
