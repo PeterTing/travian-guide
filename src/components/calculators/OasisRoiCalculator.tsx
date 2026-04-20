@@ -46,8 +46,8 @@ export default function OasisRoiCalculator() {
       <div className={s.intro}>
         <h2>{lang === 'en' ? 'Oasis ROI Calculator' : '綠洲 ROI 計算器'}</h2>
         <p>{lang === 'en'
-          ? "How many days does an oasis pay back the Hero's Mansion that captured it? HM Lv 10/15/20 → 1/2/3 oases. Calibrated against Lumi Table 3 — 15c HM10 50%-crop = 1.83 days exact match."
-          : '佔領綠洲所需的英雄莊園多少天可回本？HM Lv 10/15/20 各可佔 1/2/3 塊。已對照 Lumi Table 3 校準 ─ 15c HM10 50%-crop = 1.83 天完全吻合。'}</p>
+          ? "How many days does an oasis pay back the Hero's Mansion that captured it? HM Lv 10/15/20 → 1/2/3 oases. HM cost derived directly from kirilloid T4 source (base [80,120,70,90], k=1.33). Note: Lumi's published ROI table uses older HM costs ~5× higher — modern T4 makes oasis capture much cheaper than Lumi implies."
+          : "佔領綠洲所需的英雄莊園多少天可回本？HM Lv 10/15/20 各可佔 1/2/3 塊。HM 成本依 kirilloid T4 原始碼（base [80,120,70,90], k=1.33）計算。注意：Lumi 指南內的 ROI 表格用的是舊版 HM 成本（約 5 倍高）；現代 T4 佔綠洲比 Lumi 數字短很多。"}</p>
       </div>
 
       <div className={s.wrapper}>

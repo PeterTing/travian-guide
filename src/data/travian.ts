@@ -205,15 +205,23 @@ export const OASIS_TYPES: readonly OasisType[] = Object.freeze([
 
 // =========================================================================
 // Hero's Mansion oasis unlocks + cumulative build cost
-// Costs calibrated against Lumi Table 3:
-//   15c HM10 50%-crop = 92,000 / 50,400 ≈ 1.83 days ✓
-//   15c HM15 50%-crop = 307,000 / 50,400 ≈ 6.08 days ✓
-//   15c HM20 50%-crop = 1,276,000 / 50,400 ≈ 25.32 days ✓
+//
+// T4 override per kirilloid src/model/t4/buildings.ts:
+//   [ID.HERO_MANSION]: { c: [80, 120, 70, 90] }  → L1 total = 360
+//   Inherits k = 1.33 from T3 base (src/model/t3/buildings.ts)
+//
+// Cumulative(L) = base × (k^L − 1) / (k − 1) = 360 × (1.33^L − 1) / 0.33
+//
+// Note: Lumi Table 3 ROI values (e.g. 15c HM10 50%-crop = 1.83 days) were
+// derived against an earlier HM cost table ~5× higher than modern T4.
+// With the correct modern cost, 15c HM10 50%-crop ROI is ~0.37 days —
+// meaning modern T4 makes capturing oases FAR more attractive than the
+// numbers in the published Lumi guide suggest.
 // =========================================================================
 export const HERO_MANSION = {
   oasesUnlocked: { 10: 1, 15: 2, 20: 3 } as Record<number, number>,
   cumulativeCost: {
-    1: 2310, 5: 14500, 10: 92000, 12: 160000, 15: 307000, 18: 720000, 20: 1276000,
+    1: 360, 5: 3450, 10: 18460, 12: 33470, 15: 80020, 18: 189500, 20: 249170,
   } as Record<number, number>,
 };
 
