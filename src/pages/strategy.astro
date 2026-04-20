@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bi from '../components/shared/Bi.astro';
+import LumiSectionView from '../components/strategy/LumiSectionView.astro';
+import { LUMI_SECTIONS } from '../data/lumi/index';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout
+  titleZh="進階策略 · Travian Guide"
+  titleEn="Advanced Strategy · Travian Guide"
+>
+  <section style="padding: var(--space-7) var(--space-5); background: var(--bg-1); border-bottom: 1px solid var(--border-0);">
+    <div style="max-width: 860px; margin: 0 auto;">
+      <span style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;">
+        <Bi zh="進階策略 · Lumi / Eggstra / Dave" en="Advanced Strategy · Lumi / Eggstra / Dave" />
+      </span>
+      <h1 style="font-size: var(--fs-4xl); margin: 8px 0 12px; letter-spacing: -0.02em;">
+        <Bi zh="把帳號當系統規劃" en="Plan your account as a system" />
+      </h1>
+      <p style="color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed);">
+        <Bi
+          zh="這份內容濃縮自 Lumi / Eggstra / Dave 的進階指南。如果你已經開過 4-5 個村，是時候從「直覺發展」轉成「系統規劃」 — 每個村都有功能、每個 OP 都有配額、每次農場都有 ROI。"
+          en="A condensed translation of the Lumi / Eggstra / Dave advanced guide. If you've already settled 4-5 villages, it's time to switch from intuition to system: every village has a role, every op has a quota, every raid has an ROI."
+        />
+      </p>
+    </div>
+  </section>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 var(--space-5);">
+    <!-- TOC -->
+    <nav aria-label="Strategy contents" style="margin-top: var(--space-6); padding: var(--space-5); background: var(--bg-1); border: 1px solid var(--border-0); border-radius: var(--radius-lg);">
+      <h4 style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-2); margin: 0 0 12px;">
+        <Bi zh="本頁章節" en="On this page" />
+      </h4>
+      <ol style="margin: 0; padding-left: 20px; color: var(--text-1); font-size: 14px; line-height: 1.9;">
+        {LUMI_SECTIONS.map(sec => (
+          <li>
+            <a href={`#${sec.id}`}>
+              {sec.number}. <Bi zh={sec.title.zh} en={sec.title.en} />
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    {LUMI_SECTIONS.map(sec => <LumiSectionView section={sec} />)}
+
+    <!-- CTA -->
+    <section style="margin: var(--space-7) 0; padding: var(--space-6); background: var(--bg-1); border: 1px solid var(--border-0); border-radius: var(--radius-lg); text-align: center;">
+      <h2 style="font-size: var(--fs-xl); margin-bottom: var(--space-3);">
+        <Bi zh="搭配計算工具使用" en="Pair with the calculators" />
+      </h2>
+      <p style="color: var(--text-1); margin-bottom: var(--space-4);">
+        <Bi
+          zh="本頁的所有 ROI / CP / 商路 / 糧食數字，都可以在計算工具裡輸入你的實際參數來驗證。"
+          en="Every ROI / CP / merchant / crop figure on this page can be plugged into the live calculators with your own parameters."
+        />
+      </p>
+      <a href={`${base}/tools`} style="display: inline-block; padding: 10px 20px; border-radius: 8px; background: var(--accent); color: var(--text-inv); text-decoration: none; font-weight: 600;">
+        <Bi zh="開啟計算工具 →" en="Open the calculators →" />
+      </a>
+    </section>
+  </div>
+</BaseLayout>

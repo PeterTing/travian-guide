@@ -1,0 +1,100 @@
+---
+import type { LumiSection } from '../../data/lumi-types';
+import Bi from '../shared/Bi.astro';
+import Callout from '../shared/Callout.astro';
+
+interface Props { section: LumiSection }
+const { section } = Astro.props;
+---
+<section id={section.id} class="lumi-section">
+  <span class="lumi-eyebrow">Lumi {section.number}</span>
+  <h2><Bi zh={section.title.zh} en={section.title.en} /></h2>
+  {section.intro && (
+    <p class="lumi-intro">
+      <Bi zh={section.intro.zh} en={section.intro.en} />
+    </p>
+  )}
+
+  {section.subsections.map(sub => (
+    <div class="lumi-sub" id={`${section.id}-${sub.id}`}>
+      <h3><Bi zh={sub.title.zh} en={sub.title.en} /></h3>
+
+      {sub.blocks.map(block => {
+        if (block.type === 'paragraph' && block.text) {
+          return <p><Bi zh={block.text.zh} en={block.text.en} /></p>;
+        }
+        if (block.type === 'list' && block.items) {
+          return (
+            <ul>
+              {block.items.map(item => (
+                <li><Bi zh={item.zh} en={item.en} /></li>
+              ))}
+            </ul>
+          );
+        }
+        if (block.type === 'callout' && block.text) {
+          return (
+            <Callout
+              kind={block.variant ?? 'info'}
+              titleZh={block.title?.zh}
+              titleEn={block.title?.en}
+            >
+              <p><Bi zh={block.text.zh} en={block.text.en} /></p>
+            </Callout>
+          );
+        }
+        return null;
+      })}
+    </div>
+  ))}
+</section>
+
+<style>
+  .lumi-section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border-0);
+    scroll-margin-top: 80px;
+  }
+  .lumi-section:first-of-type { border-top: 0; padding-top: 0; }
+  .lumi-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .lumi-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .lumi-intro {
+    font-size: 16px;
+    color: var(--text-1);
+    line-height: 1.7;
+    margin: 0 0 24px;
+    padding-left: 16px;
+    border-left: 3px solid var(--border-1);
+  }
+  .lumi-sub {
+    margin-top: 32px;
+    scroll-margin-top: 80px;
+  }
+  .lumi-sub h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: var(--text-0);
+  }
+  .lumi-sub p {
+    color: var(--text-1);
+    line-height: 1.7;
+    margin: 0 0 12px;
+  }
+  .lumi-sub ul { padding-left: 20px; color: var(--text-1); }
+  .lumi-sub li { margin-bottom: 6px; line-height: 1.6; }
+</style>
