@@ -1,23 +1,15 @@
-/**
- * Per-tribe "fastest 2nd village" settlement timelines.
- * Each step: when (server hour / day), what to do, why.
- *
- * Values assume 1x server speed + Plus gold +25% production bonus.
- * For faster servers, divide hours by speed multiplier.
- */
-
 import type { TribeId } from './travian';
 
-export interface SettlementStep {
-  at: string;          // "Hour 0:00" / "Day 2" etc.
-  action: { zh: string; en: string };
-  note?: { zh: string; en: string };
-}
-
+/**
+ * Per-tribe opening-game character profile. Used by SectionSettling to give
+ * each tribe a "what this tribe's early game feels like" introduction.
+ *
+ * The actual hour-by-hour / step-by-step build order now lives in
+ * src/data/build-order/ (strategy-based, xlsx-sourced). This module only
+ * keeps qualitative tribe flavor + tips.
+ */
 export interface SettlementTimeline {
   tribe: TribeId;
-  targetDay: { zh: string; en: string };
   approach: { zh: string; en: string };
-  steps: SettlementStep[];
   keyTips: { zh: string; en: string }[];
 }
