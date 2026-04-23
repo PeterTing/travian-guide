@@ -1,0 +1,159 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border-0);
+  padding-bottom: 0;
+  margin-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.tab,
+.tabActive {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-1);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  margin-bottom: -1px;
+}
+
+.tab:hover {
+  color: var(--text-0);
+}
+
+.tabActive {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+.tagline {
+  margin: 0;
+  padding: 8px 0;
+  font-size: 16px;
+  color: var(--text-0);
+  line-height: 1.55;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 8px;
+}
+
+.metaCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--text-2);
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+.metaValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-0);
+  font-variant-numeric: tabular-nums;
+}
+
+.prosCons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pros,
+.cons {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.pros {
+  border-left: 3px solid var(--success);
+}
+
+.cons {
+  border-left: 3px solid var(--danger);
+}
+
+.prosConsH {
+  font-size: 14px;
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--text-0);
+}
+
+.pros .prosConsH {
+  color: var(--success);
+}
+
+.cons .prosConsH {
+  color: var(--danger);
+}
+
+.prosConsList {
+  list-style: disc;
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prosConsList li {
+  font-size: 14px;
+  color: var(--text-1);
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .tab,
+  .tabActive {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .metaValue {
+    font-size: 16px;
+  }
+
+  .prosCons {
+    grid-template-columns: 1fr;
+  }
+
+  .tagline {
+    font-size: 15px;
+  }
+}
