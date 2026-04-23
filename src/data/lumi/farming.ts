@@ -20,7 +20,7 @@ export const farming: LumiSection = {
         { type: 'list', items: [
           { zh: '偵察 inactive：1 個 scout 看資源、1 個 scout 看 def', en: 'Scout inactives: one for resources, one for defense' },
           { zh: '加入「需要先清」list 之前先清牆 / 居所 / 宮殿', en: 'Before adding to your active list, clear wall / residence / palace first' },
-          { zh: '人口分配：150–400 = 1 馬 / 400–550 = 2 馬 / 550–800 = 3–5 馬 / 800+ = 5–7 馬', en: 'By pop: 150–400 = 1 horse / 400–550 = 2 / 550–800 = 3–5 / 800+ = 5–7' },
+          { zh: '人口分配：150–400 = 1 馬 / 400–550 = 2 馬 / 550+ = 3–7 馬（依 pop 與目標 def 調整）', en: 'By pop: 150–400 = 1 horse / 400–550 = 2 horses / 550+ = 3–7 horses (adjust to pop and target def)' },
           { zh: '常更新 — 新發現的 farm 是最高效的（被搶之前獨吞）', en: 'Update often — newly-found farms are most efficient (you grab everything before competitors)' },
         ]},
       ],

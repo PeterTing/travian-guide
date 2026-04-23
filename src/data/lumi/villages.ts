@@ -46,7 +46,10 @@ export const villages: LumiSection = {
         }},
         { type: 'list', items: [
           { zh: '位置必須緊鄰 cap 與 NPC 村（10 格內最好），方便資源來回', en: 'Must sit close to capital and NPC village (within ~10 tiles) for resource shuttling' },
-          { zh: '進階版錘子會加蓋大兵營 / 大馬廄（Great Barracks / Great Stable）翻倍訓練速度（資源 ×3）', en: 'Advanced hammers add Great Barracks / Great Stable (3× resources for double training speed)' },
+          // Source: Great Barracks / Great Stable each train the same units as their standard
+          // counterpart but at 3× resource cost per unit. Running both in parallel doubles total
+          // training throughput per village. https://support.kingdoms.com/en/support/solutions/articles/7000087781-great-barracks
+          { zh: '進階版錘子會加蓋大兵營 / 大馬廄（Great Barracks / Great Stable）— 兵種與一般版相同，但訓練成本 ×3；配合一般兵營 / 馬廄同時訓練可讓單村總產兵速度 ×2', en: 'Advanced hammers add Great Barracks / Great Stable — same unit roster as standard, but 3× resource cost per unit. Running both in parallel with the standard building doubles total per-village troop throughput.' },
           { zh: 'Day 45 第一波 OP 目標：500 rams + 500 catas + 3 chiefs', en: 'Day 45 first OP target: 500 rams + 500 catas + 3 chiefs' },
           { zh: 'Day 70+：2,000 rams + 1,000 catas + 3 chiefs（足以拆 4 棟 Lv 20 + 多餘做假）', en: 'Day 70+: 2,000 rams + 1,000 catas + 3 chiefs (enough to demolish 4× Lv 20 + extras for fakes)' },
         ]},

@@ -67,10 +67,18 @@ export const concepts: LumiSection = {
           zh: 'Lumi 強烈建議：每個村至少做到 主府 20 + 市場 20 + 大使 20 + 學院 20 + 市政廳 10 = 529 CP/天 的被動基線。慶典補足另外 50%。',
           en: 'Lumi strongly recommends every village should reach a passive baseline of: Main Building 20 + Marketplace 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day. Celebrations cover the other ~50%.',
         }},
+        // Source: official CP-per-level values published on Travian Legends support
+        // (e.g. Embassy Lv 20 = 153 CP, Main Building Lv 20 = 77 CP). These match the
+        // community-derived formula round(base × 1.2^L), which is what Lumi references.
+        // https://support.travian.com/en/support/solutions/articles/7000091813-passive-culture-points
         { type: 'list', items: [
           { zh: '更多 CP = 更多村 = 更多資源 = 更多兵 = 解決所有 Travian 問題的答案', en: 'More CP → more villages → more resources → more troops → answer to every Travian question' },
-          { zh: '只蓋「便宜的高 CP 建築」沒意義；要看「每等級提供多少 CP」（公式 round(base × 1.2^L)）', en: '"Cheap building, lots of CP" is misleading — what matters is CP per level (formula: round(base × 1.2^L))' },
-          { zh: '市政廳 Lv 10 後，連續開大慶典 = 每 60 小時 +2,000 CP，配合被動 CP 才是擴張的真正引擎', en: 'After Town Hall Lv 10, back-to-back great celebrations give +2,000 CP per 60 hours — that, plus passive CP, is the actual expansion engine' },
+          { zh: '只蓋「便宜的高 CP 建築」沒意義；要看「每等級提供多少 CP」（官方公告每建築每等級 CP 值；社群歸納公式為 round(base × 1.2^L)，與官方表對齊）', en: '"Cheap building, lots of CP" is misleading — what matters is CP per level. Official tables publish CP per building per level; community-derived formula round(base × 1.2^L) matches those values.' },
+          // Source: Great Celebration yields up to 2,000 CP per completion (requires Town Hall Lv 10).
+          // https://support.travian.com/en/support/solutions/articles/7000070669-celebrations-and-town-hall
+          // Exact cooldown at each Town Hall level is published in-game tables; it shortens with higher
+          // Town Hall level. We avoid stating a specific hour figure since it varies by server speed.
+          { zh: '市政廳 Lv 10 解鎖大慶典 = 每次完成 +2,000 CP（冷卻時間依 Town Hall 等級與伺服器速度而異），連續開大慶典配合被動 CP 才是擴張的真正引擎', en: 'Town Hall Lv 10 unlocks great celebrations = +2,000 CP per completion (cooldown depends on Town Hall level and server speed). Back-to-back great celebrations plus passive CP are the real expansion engine.' },
         ]},
         { type: 'callout', variant: 'info', title: { zh: '被動 CP 效率表（Lumi 推薦）', en: 'Passive CP efficiency sheet (Lumi-recommended)' }, text: {
           zh: 'Lumi 指的這份表列出每個建築「每等級投入資源 → 提供多少被動 CP」的效率排名。結論呼應上面的建議：主府、市場、學院、大使館是被動 CP 的四大 goat（不計 cranny）。原始表格：https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
