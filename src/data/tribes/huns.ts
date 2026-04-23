@@ -17,8 +17,8 @@ export const huns: Tribe = {
   },
 
   heroPassive: {
-    zh: '英雄騎馬時速度加成（類似高盧）',
-    en: 'Hero gains extra speed when mounted (similar to Gauls)',
+    zh: '純騎兵軍隊 +3 格/小時（騎兵限定速度光環；隨伺服器速度縮放）',
+    en: '+3 fields/hr to armies containing only mounted units (cavalry-only speed aura; scales with server speed)',
   },
 
   specials: [

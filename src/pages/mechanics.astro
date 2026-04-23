@@ -122,8 +122,8 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
       <p>
         <Bi
-          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +34–36%（取決於糧消耗）。"
-          en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+34–36% (varies by upkeep)."
+          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +24–29%（取決於糧消耗；高糧消耗兵種加成較大）。"
+          en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+24–29% (varies by upkeep; higher-upkeep units gain more)."
         />
       </p>
       <h3><Bi zh="計算公式" en="Formula" /></h3>
@@ -144,12 +144,12 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '提升', en: 'Gain' },
         ]}
         rows={[
-          [{ zh: '帝國兵 (Imperian, 羅馬)', en: 'Imperian (Roman)' }, '70', '~94', '+34%'],
-          [{ zh: '將軍騎士 (EC, 羅馬)', en: 'EC (Roman)' }, '180', '~245', '+36%'],
-          [{ zh: 'Haeduan (高盧)', en: 'Haeduan (Gaul)' }, '140', '~190', '+36%'],
-          [{ zh: '條頓騎士 (TK, 條頓)', en: 'Teutonic Knight' }, '150', '~204', '+36%'],
-          [{ zh: '掠奪者 (Marauder, 匈)', en: 'Marauder (Hun)' }, '180', '~245', '+36%'],
-          [{ zh: 'Corinthian Crusher (斯巴達)', en: 'Corinthian (Spartan)' }, '195', '~265', '+36%'],
+          [{ zh: '帝國兵 (Imperian, 羅馬)', en: 'Imperian (Roman)' }, '70', '~87', '+24%'],
+          [{ zh: '將軍騎士 (EC, 羅馬)', en: 'EC (Roman)' }, '180', '~233', '+29%'],
+          [{ zh: 'Haeduan (高盧)', en: 'Haeduan (Gaul)' }, '140', '~180', '+29%'],
+          [{ zh: '條頓騎士 (TK, 條頓)', en: 'Teutonic Knight' }, '150', '~192', '+28%'],
+          [{ zh: '掠奪者 (Marauder, 匈)', en: 'Marauder (Hun)' }, '180', '~226', '+26%'],
+          [{ zh: 'Corinthian Crusher (斯巴達)', en: 'Corinthian (Spartan)' }, '195', '~250', '+28%'],
         ]}
       />
       <Callout kind="tip" titleZh="升幾級 vs 多訓兵？" titleEn="Upgrade vs more troops?">
@@ -377,8 +377,8 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           [{ zh: '首領 (Chief, 條頓)', en: 'Chief (Teuton)' }, '20–25%', { zh: '所有 chief 訓練最快（70,500s）', en: 'Trains fastest of all chiefs (70,500s)' }],
           [{ zh: 'Nomarch (埃及)', en: 'Nomarch (Egyptian)' }, '20–25%', '—'],
           [{ zh: 'Logades (匈)', en: 'Logades (Hun)' }, '20–25%', '—'],
-          [{ zh: 'Ephor (斯巴達)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '獨特被動（每次降幅較小但成本較低）', en: 'Unique passive (smaller drops but cheaper recovery)' }],
-          [{ zh: 'Jarl (維京)', en: 'Jarl (Viking)' }, '15–30%', { zh: '範圍較寬；有英雄同行時更高', en: 'Wider range; useful with hero present' }],
+          [{ zh: 'Ephor (斯巴達)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '標準 chief 單位降忠誠度', en: 'Standard chief-unit loyalty reduction' }],
+          [{ zh: 'Jarl (維京)', en: 'Jarl (Viking)' }, '15–30%', { zh: '維京英雄的 raid 忠誠傷害是獨立機制，不計入 Jarl 的擲骰', en: "Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll" }],
         ]}
       />
       <p>
