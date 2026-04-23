@@ -1,0 +1,25 @@
+---
+import Bi from '../shared/Bi.astro';
+import Section from '../mechanics/Section.astro';
+import { LangProvider } from '../../i18n/LangContext.tsx';
+import StyleSelector from './StyleSelector.tsx';
+---
+<Section
+  id="style-selector"
+  titleZh="先選一個開局風格"
+  titleEn="Pick your opening style first"
+  eyebrow="Step 2 · before build order"
+>
+  <p>
+    <Bi
+      zh="在研究族別和建築順序之前，先決定你要怎麼玩。xlsx（Carpis 原版）的 5 種風格是多次驗證過的路線，選對了可以早 1-2 天結帳。回答下面 3 題，系統會推薦最適合你的風格。"
+      en="Before picking a tribe or build order, decide HOW you want to play. The 5 strategies (from Carpis's xlsx) are battle-tested — picking right saves 1-2 days on your settle. Answer the 3 questions below; the system will recommend your best fit."
+    />
+  </p>
+
+  <LangProvider client:load>
+    <StyleSelector client:load />
+  </LangProvider>
+</Section>
+</content>
+</invoke>
