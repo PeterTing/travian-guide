@@ -56,9 +56,11 @@ export default function PassiveCpCalculator() {
     <>
       <div className={s.intro}>
         <h2>{lang === 'en' ? 'Passive CP Calculator' : '被動 CP 計算器'}</h2>
+        {/* Breakdown: MB20=77 + Mkt20=115 + Emb20=153 + Acad20=153 + TH10=31 + baseline=2 = 531 CP/day
+            (round(base×1.2^L) per building; Lumi's "529" rounds the components individually differently) */}
         <p>{lang === 'en'
-          ? 'CP per day from a single village. Lumi recommends MB 20 + Market 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day per village (validated exact). The 2,000-CP baseline includes a small constant +2 for an empty village.'
-          : '單村每天能產多少被動 CP。Lumi 建議：主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天（已對照精確）。基線含 +2（空村產量）。'}</p>
+          ? 'CP per day from a single village. Lumi recommends MB 20 + Market 20 + Embassy 20 + Academy 20 + Town Hall 10 = 531 CP/day per village (77 + 115 + 153 + 153 + 31 + 2 baseline). The 2,000-CP baseline includes a small constant +2 for an empty village.'
+          : '單村每天能產多少被動 CP。Lumi 建議：主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 531 CP/天（77+115+153+153+31+2 基線）。基線含 +2（空村產量）。'}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -88,7 +90,7 @@ export default function PassiveCpCalculator() {
           })}
 
           <div className={s.btnRow}>
-            <button onClick={() => apply('lumi')}>{lang === 'en' ? 'Lumi (529/d)' : 'Lumi (529/天)'}</button>
+            <button onClick={() => apply('lumi')}>{lang === 'en' ? 'Lumi (531/d)' : 'Lumi (531/天)'}</button>
             <button onClick={() => apply('min')}>{lang === 'en' ? 'Bare-min' : '最小'}</button>
             <button onClick={() => apply('zero')}>{lang === 'en' ? 'Clear' : '清空'}</button>
           </div>
