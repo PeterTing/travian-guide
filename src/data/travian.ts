@@ -284,7 +284,7 @@ export const MERCHANTS: Record<TribeId, { capacity: number; speed: number }> = {
   teutons:   { capacity: 1000, speed: 12 },
   gauls:     { capacity: 750,  speed: 24 },
   egyptians: { capacity: 750,  speed: 16 },
-  huns:      { capacity: 500,  speed: 20 },
+  huns:      { capacity: 750,  speed: 20 },
   spartans:  { capacity: 500,  speed: 14 },
   vikings:   { capacity: 750,  speed: 18 },
 };
