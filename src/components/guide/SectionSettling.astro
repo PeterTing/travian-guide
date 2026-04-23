@@ -2,36 +2,128 @@
 import Bi from '../shared/Bi.astro';
 import Callout from '../shared/Callout.astro';
 import Section from '../mechanics/Section.astro';
+import { SETTLEMENT_LIST } from '../../data/settlement/index';
+import { TRIBES } from '../../data/tribes/index';
 ---
-<Section id="settling" titleZh="第 1 階段：盡快開到第 2 村" titleEn="Phase 1: Settle the 2nd village ASAP" eyebrow="Lumi §1">
+<Section
+  id="settling"
+  titleZh="選一個族"
+  titleEn="Pick your tribe"
+  eyebrow="Step 1 · before strategy selector"
+>
   <p>
     <Bi
-      zh="開局唯一目標：第 2 村。為什麼急著開？因為糧食是 Travian 中 ROI 最高的資源，而首都（Lv11–20 解鎖）才是真正的產糧引擎。從定居村轉到「真正的首都」越早越好。"
-      en="The only opening goal: get village #2. Why the rush? Crop is the highest-ROI resource in Travian, and the capital (with Lv11–20 fields unlocked) is the real crop engine. The sooner you settle off the spawn village, the sooner the snowball begins."
+      zh="開局建築順序對 7 個族幾乎一樣（xlsx 的 40 步共通前綴，之後依「風格」而非「族」分支）。族別只影響最後訓練 3 個 settler 的成本、獨特單位、和族特色（羅馬雙隊列 / 高盧陷阱 / 條頓早期掠奪）。下面是每族的開局性格。"
+      en="The opening build order is nearly identical across all 7 tribes (xlsx's 40-step common prefix, then branches by strategy, not tribe). Tribe choice affects only the final 3-settler cost, the tribe's unique unit, and qualitative early-game flavor (Roman dual queue / Gaul Trapper / Teuton early raiding). Each tribe's opening character below."
     />
   </p>
 
-  <h3><Bi zh="拿一份開村指南" en="Use a settling guide" /></h3>
-  <p>
-    <Bi
-      zh="不要自己摸索。每個族都有最佳化過的時間表（依 1x 速度寫的）。羅馬可以雙隊伍佔便宜；高盧開拓者最便宜；條頓可以靠掠奪補資源。每一族的最佳順序略有差異，但骨幹相同：田地 → 主府 → 居所 → 慶典 → 開拓者。"
-      en="Don't wing it. Every tribe has a battle-tested timeline (calibrated for 1x speed). Romans abuse the dual queue, Gauls have the cheapest settlers, Teutons fund settlement via raiding. Each tribe's exact sequence differs slightly, but the spine is identical: fields → Main Building → Residence → celebrations → settlers."
-    />
-  </p>
-
-  <h3><Bi zh="第 2 村目標時間" en="Target settlement time" /></h3>
-  <ul>
-    <li><Bi zh="羅馬 / 高盧：Day 5–6 開到第 2 村" en="Romans / Gauls: village #2 by Day 5–6" /></li>
-    <li><Bi zh="條頓：Day 6–7（兵養家難度高一點）" en="Teutons: Day 6–7 (slightly harder due to troop investment)" /></li>
-    <li><Bi zh="埃及 / 匈人：Day 6–8（兵 / 建築週期較重）" en="Egyptians / Huns: Day 6–8 (heavier troop / building cycles)" /></li>
-  </ul>
-
-  <Callout kind="tip" titleZh="慢開可能反而更好" titleEn="Sometimes slower start = better start">
+  <Callout kind="tip" titleZh="下一步" titleEn="Next step">
     <p>
       <Bi
-        zh="Lumi 提到：刻意晚 1–8 小時開帳號，會被 spawn 在地圖外圍，比較少人跟你搶綠洲。前期靠英雄打綠洲動物的收入巨大，少一個競爭者差很多。"
-        en="Per Lumi: deliberately starting 1–8 hours after server launch puts you closer to the map edge, with fewer competitors for early oases. Hero oasis-clearing income is enormous early on; one fewer rival per oasis matters."
+        zh="選好族之後，捲到下面「先選一個開局風格」（#style-selector）決定 Sim / Farming / Lazy 路線，再看「建築順序」（#build-order）。"
+        en="After picking a tribe, scroll to the Style Selector (#style-selector) to choose Sim / Farming / Lazy, then see the actual build order (#build-order)."
       />
     </p>
   </Callout>
+
+  <div class="tribe-grid">
+    {SETTLEMENT_LIST.map(s => {
+      const tribe = TRIBES[s.tribe];
+      return (
+        <article class="tribe-card" style={`--tribe-accent: ${tribe.color}`}>
+          <h3 class="tribe-head">
+            <span class="tribe-icon" aria-hidden="true">{tribe.icon}</span>
+            <span class="tribe-name">
+              <Bi zh={tribe.name.zh} en={tribe.name.en} />
+            </span>
+          </h3>
+          <p class="tribe-approach">
+            <Bi zh={s.approach.zh} en={s.approach.en} />
+          </p>
+          <h4 class="tips-head">
+            <Bi zh="關鍵要點" en="Key tips" />
+          </h4>
+          <ul class="tips">
+            {s.keyTips.map(tip => (
+              <li><Bi zh={tip.zh} en={tip.en} /></li>
+            ))}
+          </ul>
+        </article>
+      );
+    })}
+  </div>
+
+  <Callout kind="info" titleZh="想深入族別？" titleEn="Want more on tribes?">
+    <p>
+      <Bi
+        zh="每族的兵種、建築、英雄獨特性見"
+        en="Per-tribe units, buildings, hero specifics: "
+      />
+      <a href="/tribes">
+        <Bi zh="族別頁面" en="/tribes" />
+      </a>
+      <Bi zh="。族別 settler 成本詳細對照表見" en=". Settler cost comparison at " />
+      <a href="#build-order">
+        <Bi zh="建築順序區" en="#build-order" />
+      </a>
+      .
+    </p>
+  </Callout>
 </Section>
+
+<style>
+  .tribe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .tribe-card {
+    border: 1px solid var(--border-0);
+    border-left: 3px solid var(--tribe-accent, var(--accent));
+    border-radius: 8px;
+    background: var(--bg-1);
+    padding: 16px 18px;
+  }
+  .tribe-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--text-0);
+  }
+  .tribe-icon {
+    font-size: 22px;
+  }
+  .tribe-name {
+    font-weight: 600;
+  }
+  .tribe-approach {
+    margin: 0 0 14px;
+    color: var(--text-1);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .tips-head {
+    margin: 14px 0 8px;
+    font-size: 13px;
+    color: var(--text-2);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tips {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-1);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .tips li {
+    margin-bottom: 6px;
+  }
+  .tips li:last-child {
+    margin-bottom: 0;
+  }
+</style>
