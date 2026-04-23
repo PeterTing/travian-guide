@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Bi from '../components/shared/Bi.astro';
 import Callout from '../components/shared/Callout.astro';
 import SectionSettling from '../components/guide/SectionSettling.astro';
+import SectionBuildOrder from '../components/guide/SectionBuildOrder.astro';
 import SectionHero from '../components/guide/SectionHero.astro';
 import SectionEarlyGame from '../components/guide/SectionEarlyGame.astro';
 
@@ -32,15 +33,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- TOC + Sections -->
   <div style="max-width: 860px; margin: 0 auto; padding: 0 var(--space-5);">
-    <Callout kind="info" titleZh="本頁三個階段" titleEn="Three phases on this page">
+    <Callout kind="info" titleZh="本頁四個階段" titleEn="Four phases on this page">
       <ol>
-        <li><a href="#settling"><Bi zh="盡快開到第 2 村（Day 0–7）" en="Settle the 2nd village ASAP (Day 0–7)" /></a></li>
+        <li><a href="#settling"><Bi zh="盡快開到第 2 村（Day 0–7 策略思維）" en="Settle the 2nd village ASAP (Day 0–7 strategy)" /></a></li>
+        <li><a href="#build-order"><Bi zh="最快開二村建築順序（七族小時級時程表）" en="Fastest 2nd-village build order (per-tribe hour-by-hour timelines)" /></a></li>
         <li><a href="#hero-farming"><Bi zh="英雄打綠洲：保護期一次性獎金（Day 1–3）" en="Hero oasis farming: one-time bounty (Day 1–3)" /></a></li>
         <li><a href="#early-game"><Bi zh="開首都 + 偵察周邊（Day 5+）" en="Land your capital + scout neighbours (Day 5+)" /></a></li>
       </ol>
     </Callout>
 
     <SectionSettling />
+    <SectionBuildOrder />
     <SectionHero />
     <SectionEarlyGame />
 

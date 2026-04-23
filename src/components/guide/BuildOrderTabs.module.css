@@ -1,0 +1,150 @@
+.tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tab, .tabActive {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-0);
+  color: var(--text-1);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.tab:hover {
+  background: var(--bg-3);
+  color: var(--text-0);
+  border-color: var(--border-1);
+}
+
+.tabActive {
+  background: var(--bg-1);
+  color: var(--text-0);
+  border-color: var(--accent, var(--accent));
+  box-shadow: inset 0 -2px 0 var(--accent, var(--accent));
+}
+
+.tabIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.tabTarget {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-2);
+  background: var(--bg-3);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tabActive .tabTarget {
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.panel {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.panelHead {
+  margin-bottom: 20px;
+}
+
+.panelTitle {
+  font-size: 20px;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.panelApproach {
+  color: var(--text-1);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 14px;
+}
+
+.h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 24px 0 12px;
+  font-weight: 600;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border-0);
+  align-items: baseline;
+  font-size: 14px;
+  color: var(--text-0);
+}
+.steps li:last-child { border-bottom: none; }
+
+.when {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.action { color: var(--text-0); line-height: 1.6; }
+
+.note {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-2);
+  font-style: italic;
+  grid-column: 2;
+}
+
+.tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tips li {
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border-left: 3px solid var(--success);
+  border-radius: 4px;
+  color: var(--text-1);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .steps li { grid-template-columns: 1fr; }
+  .when { font-size: 11px; }
+}
