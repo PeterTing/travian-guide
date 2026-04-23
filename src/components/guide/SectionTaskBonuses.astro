@@ -28,6 +28,210 @@ import Section from '../mechanics/Section.astro';
     </p>
   </Callout>
 
+  <Callout kind="info" titleZh="任務獎勵會隨英雄等級放大" titleEn="Task rewards scale with hero level">
+    <p>
+      <Bi
+        zh="每個任務獎勵的資源量 = 基準值 × (1 + 英雄等級 × 0.02)。也就是每級 +2%。"
+        en="Each task reward = base × (1 + hero_level × 0.02). That's +2% per level."
+      />
+    </p>
+    <ul>
+      <li>
+        <Bi
+          zh="Lv 0（新手）→ ×1.00（基準值）"
+          en="Lv 0 (fresh) → ×1.00 (base)"
+        />
+      </li>
+      <li>
+        <Bi
+          zh="Lv 25 → ×1.50"
+          en="Lv 25 → ×1.50"
+        />
+      </li>
+      <li>
+        <Bi
+          zh="Lv 50 → ×2.00（雙倍獎勵）"
+          en="Lv 50 → ×2.00 (double)"
+        />
+      </li>
+      <li>
+        <Bi
+          zh="Lv 100 → ×3.00（三倍獎勵）"
+          en="Lv 100 → ×3.00 (triple)"
+        />
+      </li>
+    </ul>
+    <p>
+      <Bi
+        zh="策略意義：越晚領任務（拉高英雄等級後）獎勵越大。但別為了多拿 2-5% 而卡住進度 — 卡在 Lv 20 領 vs Lv 22 領只差 4%，不值得延誤。真正值得拖的是重大任務（人口/CP 高 tier）等 Lv 25+ 再領。"
+        en="Implication: delaying reward claims until later (higher hero level) means bigger rewards. But don't stall progression for 2-5% — Lv 20 vs Lv 22 is only 4% difference. Only the big-ticket tasks (high-tier Population / CP) are worth holding until Lv 25+."
+      />
+    </p>
+  </Callout>
+
+  <details class="task-reward-table">
+    <summary>
+      <Bi zh="任務獎勵完整對照表（點開展開）" en="Full task reward reference (click to expand)" />
+    </summary>
+
+    <p class="table-caption">
+      <Bi
+        zh="以下全部是 Lv 0 英雄的基準值。你實際拿到 = 基準 × (1 + 英雄 Lv × 0.02)。"
+        en="All values below are base rewards (hero Lv 0). Your actual reward = base × (1 + heroLevel × 0.02)."
+      />
+    </p>
+
+    <h4>
+      <Bi zh="B1. 文化點產量任務（tier 1-7）" en="B1. Culture point production (tier 1-7)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th><Bi zh="CP 目標" en="CP target" /></th>
+          <th><Bi zh="資源" en="Res" /></th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>50</td><td>1,500</td><td>25</td></tr>
+        <tr><td>2</td><td>100</td><td>3,000</td><td>50</td></tr>
+        <tr><td>3</td><td>150</td><td>4,500</td><td>75</td></tr>
+        <tr><td>4</td><td>250</td><td>6,000</td><td>100</td></tr>
+        <tr><td>5</td><td>350</td><td>7,500</td><td>125</td></tr>
+        <tr><td>6</td><td>500</td><td>9,000</td><td>150</td></tr>
+        <tr><td>7</td><td>750</td><td>10,500</td><td>175</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh="B2. 人口任務（tier 1-7）" en="B2. Population (tier 1-7)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th><Bi zh="人口目標" en="Pop target" /></th>
+          <th><Bi zh="資源" en="Res" /></th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>50</td><td>1,500</td><td>25</td></tr>
+        <tr><td>2</td><td>100</td><td>3,000</td><td>50</td></tr>
+        <tr><td>3</td><td>150</td><td>4,500</td><td>75</td></tr>
+        <tr><td>4</td><td>250</td><td>6,000</td><td>100</td></tr>
+        <tr><td>5</td><td>350</td><td>7,500</td><td>125</td></tr>
+        <tr><td>6</td><td>500</td><td>9,000</td><td>150</td></tr>
+        <tr><td>7</td><td>750</td><td>10,500</td><td>175</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh="B3. 單格資源田升級（Crop / Wood / Clay / Iron，每種資源相同）" en="B3. Field upgrade per resource (Crop / Wood / Clay / Iron — same per resource)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th><Bi zh="田等級" en="Field level" /></th>
+          <th><Bi zh="資源" en="Res" /></th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Lv 2</td><td>600</td><td>10</td></tr>
+        <tr><td>2</td><td>Lv 4</td><td>1,200</td><td>20</td></tr>
+        <tr><td>3</td><td>Lv 7</td><td>1,800</td><td>30</td></tr>
+        <tr><td>4</td><td>Lv 10</td><td>2,400</td><td>40</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh={`B4. "全部同種" 資源田（同種 4 格全升到該等級，每種資源相同）`} en={`B4. "All X" fields (all 4 of a type to level — same per resource)`} />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th><Bi zh="等級" en="Level" /></th>
+          <th><Bi zh="資源" en="Res" /></th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Lv 2</td><td>900</td><td>15</td></tr>
+        <tr><td>2</td><td>Lv 3</td><td>1,800</td><td>30</td></tr>
+        <tr><td>3</td><td>Lv 5</td><td>2,700</td><td>45</td></tr>
+        <tr><td>4</td><td>Lv 8</td><td>3,600</td><td>60</td></tr>
+        <tr><td>5</td><td>Lv 10</td><td>4,500</td><td>75</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh="B5. 全資源田到同等級（混合）" en="B5. All resources to level (mixed)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th><Bi zh="等級" en="Level" /></th>
+          <th><Bi zh="資源" en="Res" /></th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>All Lv 2</td><td>2,400</td><td>40</td></tr>
+        <tr><td>2</td><td>All Lv 4</td><td>4,800</td><td>80</td></tr>
+        <tr><td>3</td><td>All Lv 7</td><td>7,200</td><td>120</td></tr>
+        <tr><td>4</td><td>All Lv 8</td><td>9,600</td><td>160</td></tr>
+        <tr><td>5</td><td>All Lv 9</td><td>12,000</td><td>200</td></tr>
+        <tr><td>6</td><td>All Lv 10</td><td>14,400</td><td>240</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh="B6. 基礎建設（主要建築）" en="B6. Infrastructure (key buildings)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th><Bi zh="建築" en="Building" /></th>
+          <th>Lv 1</th>
+          <th>Lv 3</th>
+          <th>Lv 7</th>
+          <th>Lv 12</th>
+          <th>Lv 20</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Warehouse</td><td>300</td><td>600</td><td>900</td><td>1,200</td><td>1,500</td></tr>
+        <tr><td>Granary</td><td>300</td><td>600</td><td>900</td><td>1,200</td><td>1,500</td></tr>
+        <tr><td>Barracks</td><td>300</td><td>600</td><td>900</td><td>1,200</td><td>1,500</td></tr>
+        <tr><td>Stable</td><td>600</td><td>1,200</td><td>1,800</td><td>2,400</td><td>3,000</td></tr>
+      </tbody>
+    </table>
+
+    <h4>
+      <Bi zh="B7. Academy / Smithy / Town Hall（僅 Lv 1 / 10 / 20）" en="B7. Academy / Smithy / Town Hall (only Lv 1 / 10 / 20)" />
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th><Bi zh="建築" en="Building" /></th>
+          <th>Lv 1</th>
+          <th>Lv 10</th>
+          <th>Lv 20</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Academy</td><td>600</td><td>1,200</td><td>1,800</td></tr>
+        <tr><td>Smithy</td><td>600</td><td>1,200</td><td>1,800</td></tr>
+        <tr><td>Town Hall</td><td>2,400</td><td>4,800</td><td>7,200</td></tr>
+      </tbody>
+    </table>
+  </details>
+
   <p style="font-size: var(--fs-sm); color: var(--text-2);">
     <Bi
       zh="任務獎勵可以等到當下需要時才領（按下 Adviser → Reward 領取）。Lumi 建議：要訓開拓者前一刻才領，因為剛好把成本補回來。"
@@ -35,3 +239,48 @@ import Section from '../mechanics/Section.astro';
     />
   </p>
 </Section>
+
+<style>
+  .task-reward-table {
+    margin: 16px 0;
+    border: 1px solid var(--border-0);
+    border-radius: 8px;
+    background: var(--bg-1);
+    padding: 12px 16px;
+  }
+  .task-reward-table summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 4px 0;
+  }
+  .task-reward-table .table-caption {
+    color: var(--text-2);
+    font-size: 13px;
+    font-style: italic;
+    margin: 8px 0 12px;
+  }
+  .task-reward-table h4 {
+    margin: 16px 0 6px;
+    font-size: 14px;
+    color: var(--text-0);
+  }
+  .task-reward-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 0 0 8px;
+  }
+  .task-reward-table th,
+  .task-reward-table td {
+    padding: 4px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-0);
+  }
+  .task-reward-table td {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    color: var(--text-1);
+  }
+  .task-reward-table tr:last-child td {
+    border-bottom: none;
+  }
+</style>
