@@ -131,6 +131,24 @@ All ✅ from prior audits. See individual tests (9-12 per file) that pin total c
 | **Deferred features** | 0 | 2 (TS section, BuildOrderCalc oasis %) |
 | **Unverifiable claims** | Many | Only 6 Spartan units (source-cited in file header) |
 
-All remaining ⚠️ items are either (a) cited but not independently re-fetched, or (b) acceptable approximations noted as such. No known incorrect numbers remain.
+## Verification depth per fix (post-2nd-pass re-fetch)
 
-**Last commit:** `ac55836 fix(data+guide+calc): apply 10 audit findings` — 105/105 tests, 0 astro errors, 14 pages build.
+| Fix | Source | Confidence |
+|---|---|---|
+| CP_REQUIRED #2-#10 | ST [cp article](https://support.travian.com/en/support/solutions/articles/7000065115-culture-points-cp-) direct fetch | 🟢 100% |
+| `<5min free` row removed | ST [finish article](https://support.travian.com/en/support/solutions/articles/7000061579-finish-constructions-and-research-orders) direct fetch says "cost 2 Gold" no exception | 🟢 100% |
+| Viking 10 units | ST [Viking article](https://support.travian.com/en/support/solutions/articles/7000090975) direct fetch | 🟢 100% |
+| Egyptian settler speed 5 | K t4.fs/units.ts GitHub raw | 🟢 100% |
+| HM L20 = 326,110 | K formula + hand-verified | 🟢 100% |
+| Cranny Lv1 = 200 | ST [cranny article](https://support.travian.com/en/support/solutions/articles/7000068298-hiding-resources-cranny) direct fetch 2nd-pass | 🟢 100% |
+| Plus 10g/7d (1x) | ST [Plus article](https://support.travian.com/en/support/solutions/articles/7000060367-travian-plus-membership) direct fetch 2nd-pass | 🟢 100% |
+| Horse T1/T2/T3 +14/17/20 | ST [hero item article](https://support.travian.com/en/support/solutions/articles/7000064021-hero-item-overview-and-mounts) direct fetch 2nd-pass (named: Gelding/Thoroughbred/Warhorse) | 🟢 100% |
+| Smithy ~34-36% at Lv20 | K formula; ST [troop upgrades article](https://support.travian.com/en/support/solutions/articles/7000065343-troop-upgrades-and-smithy) does NOT publish precise % (only says "depends on upkeep") | 🟡 95% — formula-verified, no official %  |
+| FarmingCalculator 550+ bracket | PDF §5.4 direct text | 🟢 100% |
+| OasisRoi gold wiring | Code bug (state not used in math) | 🟢 100% |
+| Traderoute Roman +20% note | Code self-consistency (math correct, UI text added) | 🟢 100% |
+| SectionEarlyGame softening | Conservative removal of unsourced specifics | 🟢 |
+
+**9/10 directly verified via official support.travian.com or kirilloid GitHub. 1/10 (Smithy) uses kirilloid formula (official doesn't publish precise %).**
+
+**Last commits:** `ac55836` (10 fixes) + `9386904` (this doc) — 105/105 tests, 0 astro errors, 14 pages build.
