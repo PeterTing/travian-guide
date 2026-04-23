@@ -4,6 +4,7 @@ import { villages } from './villages';
 import { operations } from './operations';
 import { farming } from './farming';
 import { underAttack } from './under-attack';
+import { endgame } from './endgame';
 
 export const LUMI_SECTIONS: LumiSection[] = [
   concepts,
@@ -11,4 +12,5 @@ export const LUMI_SECTIONS: LumiSection[] = [
   operations,
   farming,
   underAttack,
+  endgame,
 ];
