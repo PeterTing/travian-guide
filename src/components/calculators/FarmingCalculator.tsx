@@ -12,7 +12,7 @@ const UNITS: UnitOpt[] = [
   { id: 'ec',     label: { zh: 'EC (羅馬, 速 10)',     en: 'EC (Roman, speed 10)' },    carry: 70, speed: 10, cost: 2170 },
 ];
 
-function lumiBracket(pop: number, lang: 'zh' | 'en') {
+export function lumiBracket(pop: number, lang: 'zh' | 'en') {
   if (pop < 150) return { bracket: '< 150', n: 0,
     msg: lang === 'en' ? 'Usually skip' : '通常不值得' };
   if (pop < 400) return { bracket: '150–400', n: 1,
