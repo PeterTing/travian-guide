@@ -18,12 +18,14 @@ export const concepts: LumiSection = {
           en: 'ROI = upgrade cost / daily production gain. It tells you how many days a given upgrade takes to pay for itself. Shorter ROI = higher priority.',
         }},
         { type: 'paragraph', text: {
-          zh: '為什麼這個觀念這麼關鍵？因為 Travian 是長線遊戲，不是「這小時最強」的遊戲。Day 30 多賺 5,000 資源/天，到 Day 90 就多了 300,000 資源 — 足夠多訓練幾百隻單位。早期每一個小決定都會被 60 天放大。',
-          en: 'Why does this matter? Travian is a marathon, not a sprint. An extra 5,000 resources/day from Day 30 compounds into 300,000 by Day 90 — enough for several hundred extra troops. Every early decision is magnified by 60 days of compounding.',
+          zh: '為什麼這個觀念這麼關鍵？因為 Travian 是長線遊戲，不是「這小時最強」的遊戲。舉例來說：若從 Day 30 起每天多產 5,000 資源，到 Day 90 就累積多了 300,000 資源 — 足夠多訓練幾百隻單位（單純舉例，實際數字看你當下的產量）。早期每一個小決定都會被 60 天放大。',
+          en: 'Why does this matter? Travian is a marathon, not a sprint. Example: an extra 5,000 resources/day from Day 30 compounds into 300,000 by Day 90 — enough for several hundred extra troops (illustrative math; actual numbers depend on your production). Every early decision is magnified by 60 days of compounding.',
         }},
+        // Source: Flour Mill & Bakery each +5%/level up to Lv 5 (max +25% each), stacking additively
+        // to +50% max crop production. https://support.kingdoms.com/en/support/solutions/articles/7000087791-bakery
         { type: 'callout', variant: 'tip', title: { zh: '實戰運用', en: 'Practical use' }, text: {
-          zh: '打開「資源田 ROI 計算器」，輸入當下的加成建築 / 綠洲 %，看四種田哪個 ROI 最短就先升那個。記得：糧食田有 mill+bakery 雙倍加成（最高 +50%），所以升糧的「實際 ROI」常常比表面看的還短。',
-          en: 'Open the Field ROI Calculator, plug in your current bonus-building / oasis %, and upgrade the resource with the shortest ROI. Note: crop fields have mill+bakery double-stacking (max +50%), so crop\'s real ROI is often shorter than it looks at first glance.',
+          zh: '打開「資源田 ROI 計算器」，輸入當下的加成建築 / 綠洲 %，看四種田哪個 ROI 最短就先升那個。記得：糧食田有 Mill + Bakery 雙加成（各 +25%，疊加後最高 +50%），所以升糧的「實際 ROI」常常比表面看的還短。',
+          en: "Open the Field ROI Calculator, plug in your current bonus-building / oasis %, and upgrade the resource with the shortest ROI. Note: crop fields have dual Mill + Bakery bonuses (up to +25% each, stacking additively to +50% max), so crop's real ROI is often shorter than it looks at first glance.",
         }},
         { type: 'paragraph', text: {
           zh: '想看實際數字？Lumi §5.3 的兩張官方表已搬到站內 /mechanics#roi-tables：Table 2（田級 1→10 每級回本天數 × 四種資源）+ Table 3（4 種首都配置 × 3 種綠洲 × HM10/15/20 ROI）。',
