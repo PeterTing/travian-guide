@@ -15,6 +15,8 @@ export const egyptians: SettlementTimeline = {
   keyTips: [
     { zh: '埃及前期慢，但後期 Waterworks + 3×50% 糧綠洲產量碾壓', en: 'Slow start, but Waterworks + 3× 50% crop oases = crushing late-game production' },
     { zh: '奴隸民兵（530 秒、45/60/30/15）可以大量訓練當英雄帶路，死了也不痛', en: 'Slave Militia (530s train, 45/60/30/15 cost) trains in bulk for cheap hero escorts' },
+    { zh: '慢熱但首都強：前期英雄清綠洲務必帶 Slave Militia 保命；定居後 Waterworks 拉到 Lv20 讓糧綠洲加成翻倍', en: 'Slow start, huge cap: always bring Slave Militia as hero bodyguards when clearing early oases; after settling, Waterworks Lv20 doubles crop-oasis bonus' },
+    { zh: 'Settler 總成本 21,000（5040/6510/4830/4620 × 3）且糧食消耗高 — Day 3 前把糧田推到 Lv 5', en: 'Settlers cost 21,000 each (5040/6510/4830/4620) and are crop-heavy — push crop fields to Lv 5 before Day 3' },
   ],
 };
 
@@ -27,6 +29,8 @@ export const huns: SettlementTimeline = {
   keyTips: [
     { zh: 'Steppe Rider 的速度 16 + carry 115 讓你早期掠奪收入超越他族', en: 'Steppe Rider speed 16 + carry 115 yields higher early raiding income than other tribes' },
     { zh: '司令部（Command Center）是匈人獨有的，解鎖後可支援遠距 Op', en: 'Command Center is Hun-exclusive, enabling long-range operations when unlocked' },
+    { zh: 'Steppe Rider 是早期最強的 farming 機器 — 蓋馬廄的優先序高於兵營', en: 'Steppe Rider is the best early farming unit — prioritise Stable over Barracks' },
+    { zh: '司令部取代行宮/皇宮：同樣 Lv10 才能訓 settler、Lv20 才能放 3 chiefs', en: 'Command Center replaces Residence/Palace: Lv10 unlocks Settler training, Lv20 unlocks the 3-chief slot' },
   ],
 };
 
@@ -39,6 +43,8 @@ export const spartans: SettlementTimeline = {
   keyTips: [
     { zh: '英雄武器對所有斯巴達同類兵 +50%，值得早投資英雄裝備', en: 'Hero weapons give +50% to ALL matching Spartan units — invest in hero gear early' },
     { zh: 'Shieldsman 速度 8 是全遊戲最快防禦步兵，鐵砧搭 Elpida Rider', en: 'Shieldsman speed 8 is the fastest def infantry in the game; pair with Elpida Rider on anvil' },
+    { zh: 'Asclepeion 可復活 60% 陣亡單位（約支付 33% 訓練成本）—— 長線 def 經濟超強', en: 'Asclepeion revives 60% of fallen units (at ~33% of training cost) — massive long-term def economy edge' },
+    { zh: 'Hoplite（速 6、def 35/30）是最通用的早期單位；Day 2+ 也可以拿來 farming 綠洲', en: 'Hoplite (speed 6, def 35/30) is the most versatile early Spartan unit; viable for oasis farming from Day 2+' },
   ],
 };
 
@@ -51,5 +57,7 @@ export const vikings: SettlementTimeline = {
   keyTips: [
     { zh: '地圖有大量水域才發揮維京優勢，純陸圖選羅馬 / 高盧會更舒服', en: 'Vikings shine on water-heavy maps; on pure land maps, Romans/Gauls are smoother' },
     { zh: 'Berserker 死前反擊：攻擊時每死 1 隻殺敵 1 隻，無視牆 + 瞭望塔', en: 'Berserker damage-on-death: each fallen Berserker kills 1 enemy, ignoring wall + watchtower bonuses' },
+    { zh: '深水移動速度 24 格/小時（他族 18）—— 地圖有水域時 Viking 跨區打很吃香', en: 'Deep-water speed 24 fields/hr (vs 18 for others) — on water-heavy maps, Vikings excel at cross-map operations' },
+    { zh: 'Thrall 是廉價掠奪步兵（類似條頓 Clubswinger），800 秒訓練。無水圖時回退走 Teuton-style raiding', en: 'Thrall is cheap raiding infantry (like Teuton Clubswinger), 800s train time. On landlocked maps, fall back to Teuton-style raiding' },
   ],
 };

@@ -505,6 +505,41 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       </p>
     </Section>
 
+    <Section id="tournament-square" titleZh="競技廣場 (Tournament Square)" titleEn="Tournament Square" eyebrow="Long-distance speed">
+      <p>
+        <Bi
+          zh="競技廣場是遠程攻擊加速建築。前 20 格速度不變；超過 20 格的部分，每升一級增加 10% 速度。Lv 20 最高 +200%（三倍速度）。"
+          en="Tournament Square (TS) speeds up long-distance attacks. Trips ≤20 fields get no bonus; beyond 20 fields, each TS level adds +10% speed. Lv 20 maxes at +200% (3× speed)."
+        />
+      </p>
+
+      <h3><Bi zh="計算公式" en="Formula" /></h3>
+      <pre>effective_speed = base_speed × (1 + TS_level × 0.10)   for trips > 20 fields</pre>
+      <p>
+        <Bi
+          zh="例：TT 基礎速度 19 格/小時。Lv 20 TS：前 20 格以 19 走，剩下距離以 19 × 3 = 57 格/小時走。"
+          en="Example: Theutates Thunder at base speed 19. With TS Lv 20, first 20 fields at 19/hr, remainder at 19 × 3 = 57/hr."
+        />
+      </p>
+
+      <Callout kind="tip" titleZh="誰值得升到 20？" titleEn="Who benefits most?">
+        <p>
+          <Bi
+            zh="錘子必升 TS 20 — 跨象限打 op 時間差可以壓縮一半以上。Feeder/NPC 不用蓋。Anvil 建議 Lv 10+（可以趕 def call），不一定要 Lv 20。"
+            en="Hammer villages MUST push TS to Lv 20 — halves cross-quadrant OP times. Feeders and NPC villages don't need it. Anvils: Lv 10+ suffices for def-call timing; Lv 20 optional."
+          />
+        </p>
+      </Callout>
+
+      <h3><Bi zh="上限：20 格內無效" en="Zero benefit under 20 fields" /></h3>
+      <p>
+        <Bi
+          zh="TS 不加速近距離攻擊（20 格以內）。攻擊 10 格外目標 TS 幫不上忙，farming 用不到。"
+          en="TS doesn't affect sub-20-field trips. Attacking neighbors 10 fields away gets no boost. Farming is unaffected."
+        />
+      </p>
+    </Section>
+
     <Section id="alliance" titleZh="聯盟系統" titleEn="Alliance system" eyebrow="Multiplayer">
       <p>
         <Bi
