@@ -1,10 +1,16 @@
 ---
+type Cell = string | number | { zh: string; en: string };
+
 interface Props {
   headers: { zh: string; en: string }[];
-  rows: (string | number)[][];
+  rows: Cell[][];
   caption?: { zh: string; en: string };
 }
 const { headers, rows, caption } = Astro.props;
+
+function isBi(c: Cell): c is { zh: string; en: string } {
+  return typeof c === 'object' && c !== null && 'zh' in c && 'en' in c;
+}
 ---
 <div class="table-wrap">
   {caption && (
@@ -32,7 +38,14 @@ const { headers, rows, caption } = Astro.props;
       {rows.map(r => (
         <tr>
           {r.map((cell, i) => (
-            <td class={i === 0 ? 'first' : 'num'}>{cell}</td>
+            <td class={i === 0 ? 'first' : 'num'}>
+              {isBi(cell) ? (
+                <span class="bi">
+                  <span data-lang="zh">{cell.zh}</span>
+                  <span data-lang="en">{cell.en}</span>
+                </span>
+              ) : cell}
+            </td>
           ))}
         </tr>
       ))}

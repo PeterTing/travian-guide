@@ -25,14 +25,16 @@ export default function TraderouteCalculator() {
   const roundTrip = oneWay * 2;
 
   const rows = useMemo(() => {
-    const labels = { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' } as const;
+    const labels: Record<string, string> = lang === 'en'
+      ? { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' }
+      : { wood: '🪵 木材', clay: '🧱 黏土', iron: '⛏️ 鐵礦', crop: '🌾 糧食' };
     return (['wood', 'clay', 'iron', 'crop'] as const).map(t => {
       const sur = Math.max(0, surplus[t]);
       const tripsHr = sur > 0 ? sur / cap : 0;
       const dedicated = tripsHr * roundTrip;
       return { t, label: labels[t], sur, tripsHr, dedicated };
     });
-  }, [surplus, cap, roundTrip]);
+  }, [surplus, cap, roundTrip, lang]);
 
   const totalDed = rows.reduce((s, r) => s + r.dedicated, 0);
   const totalLabel =
@@ -56,9 +58,16 @@ export default function TraderouteCalculator() {
           <div className={s.field}>
             <label>{lang === 'en' ? 'Tribe' : '部族'}</label>
             <select value={tribe} onChange={e => setTribe(e.target.value as TribeId)}>
-              {Object.entries(MERCHANTS).map(([id, m]) => (
-                <option key={id} value={id}>{id.charAt(0).toUpperCase() + id.slice(1)} ({m.capacity}/{m.speed})</option>
-              ))}
+              {Object.entries(MERCHANTS).map(([id, m]) => {
+                const zhNames: Record<string, string> = {
+                  romans: '羅馬', gauls: '高盧', teutons: '條頓',
+                  egyptians: '埃及', huns: '匈人', spartans: '斯巴達', vikings: '維京',
+                };
+                const display = lang === 'en'
+                  ? `${id.charAt(0).toUpperCase() + id.slice(1)} (${m.capacity}/${m.speed})`
+                  : `${zhNames[id]} (${m.capacity}/${m.speed})`;
+                return <option key={id} value={id}>{display}</option>;
+              })}
             </select>
           </div>
 

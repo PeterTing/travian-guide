@@ -102,23 +102,35 @@ export default function CropSimCalculator() {
         <div className={s.output}>
           <h4>{lang === 'en' ? 'Production breakdown /hr' : '產量分解 /hr'}</h4>
           <table className={s.table}>
-            <thead><tr><th>Resource</th><th>Fields</th><th>Base</th><th>Bonus%</th><th>Oasis%</th><th>Total /hr</th></tr></thead>
+            <thead><tr>
+              <th>{lang === 'en' ? 'Resource' : '資源'}</th>
+              <th>{lang === 'en' ? 'Fields' : '田數'}</th>
+              <th>{lang === 'en' ? 'Base' : '基礎'}</th>
+              <th>{lang === 'en' ? 'Bonus%' : '加成%'}</th>
+              <th>{lang === 'en' ? 'Oasis%' : '綠洲%'}</th>
+              <th>{lang === 'en' ? 'Total /hr' : '總計 /hr'}</th>
+            </tr></thead>
             <tbody>
-              {result.rows.map(r => (
-                <tr key={r.t}>
-                  <td>{r.t}</td>
-                  <td>{r.n} × {r.base}</td>
-                  <td>{(r.n * r.base).toLocaleString()}</td>
-                  <td>+{(r.bb * 100).toFixed(0)}%</td>
-                  <td>+{(r.oa * 100).toFixed(0)}%</td>
-                  <td>{fmtInt(r.total)}</td>
-                </tr>
-              ))}
+              {result.rows.map(r => {
+                const labels: Record<string, string> = lang === 'en'
+                  ? { wood: '🪵 Wood', clay: '🧱 Clay', iron: '⛏️ Iron', crop: '🌾 Crop' }
+                  : { wood: '🪵 木材', clay: '🧱 黏土', iron: '⛏️ 鐵礦', crop: '🌾 糧食' };
+                return (
+                  <tr key={r.t}>
+                    <td>{labels[r.t]}</td>
+                    <td>{r.n} × {r.base}</td>
+                    <td>{(r.n * r.base).toLocaleString()}</td>
+                    <td>+{(r.bb * 100).toFixed(0)}%</td>
+                    <td>+{(r.oa * 100).toFixed(0)}%</td>
+                    <td>{fmtInt(r.total)}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 
-          <div className={s.row} style={{ marginTop: 12 }}><span className={s.label}>Wood + Clay + Iron /hr</span><span className={s.value}>{fmtInt(nonCrop)}</span></div>
-          <div className={s.row}><span className={s.label}>Crop /hr</span><span className={s.value}>{fmtInt(result.totals.crop)}</span></div>
+          <div className={s.row} style={{ marginTop: 12 }}><span className={s.label}>{lang === 'en' ? 'Wood + Clay + Iron /hr' : '木 + 土 + 鐵 /hr'}</span><span className={s.value}>{fmtInt(nonCrop)}</span></div>
+          <div className={s.row}><span className={s.label}>{lang === 'en' ? 'Crop /hr' : '糧食 /hr'}</span><span className={s.value}>{fmtInt(result.totals.crop)}</span></div>
           <div className={s.row}><span className={s.label}>{lang === 'en' ? 'Total /hr' : '總計 /hr'}</span><span className={`${s.value} ${s.highlight}`}>{fmtInt(total)}</span></div>
 
           <h4>{lang === 'en' ? 'Lumi Table 1 reference (Lv 18 maxed)' : 'Lumi Table 1 對照 (Lv 18 全滿)'}</h4>

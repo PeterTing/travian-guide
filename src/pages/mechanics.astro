@@ -66,13 +66,13 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <DataTable
         headers={[{ zh: '部族', en: 'Tribe' }, { zh: '牆壁', en: 'Wall' }, { zh: '每級加成', en: 'Per level' }]}
         rows={[
-          ['Romans', 'City Wall', '+3.0 %'],
-          ['Gauls', 'Palisade', '+2.5 %'],
-          ['Teutons', 'Earth Wall', '+2.0 %'],
-          ['Egyptians', 'Stone Wall', '+2.5 %'],
-          ['Huns', 'Makeshift Wall', '+1.5 %'],
-          ['Vikings', 'Barricade', '+1.5 %'],
-          ['Spartans', 'Palisade', '+2.5 %'],
+          [{ zh: '羅馬 (Romans)', en: 'Romans' }, { zh: '城牆 (City Wall)', en: 'City Wall' }, '+3.0 %'],
+          [{ zh: '高盧 (Gauls)', en: 'Gauls' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
+          [{ zh: '條頓 (Teutons)', en: 'Teutons' }, { zh: '土牆 (Earth Wall)', en: 'Earth Wall' }, '+2.0 %'],
+          [{ zh: '埃及 (Egyptians)', en: 'Egyptians' }, { zh: '石牆 (Stone Wall)', en: 'Stone Wall' }, '+2.5 %'],
+          [{ zh: '匈人 (Huns)', en: 'Huns' }, { zh: '簡易牆 (Makeshift Wall)', en: 'Makeshift Wall' }, '+1.5 %'],
+          [{ zh: '維京 (Vikings)', en: 'Vikings' }, { zh: '柵欄 (Barricade)', en: 'Barricade' }, '+1.5 %'],
+          [{ zh: '斯巴達 (Spartans)', en: 'Spartans' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
         ]}
       />
 
@@ -144,12 +144,12 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '提升', en: 'Gain' },
         ]}
         rows={[
-          ['Imperian (Roman)', '70', '~94', '+34%'],
-          ['EC (Roman)', '180', '~245', '+36%'],
-          ['Haeduan (Gaul)', '140', '~190', '+36%'],
-          ['Teutonic Knight', '150', '~204', '+36%'],
-          ['Marauder (Hun)', '180', '~245', '+36%'],
-          ['Corinthian (Spartan)', '195', '~265', '+36%'],
+          [{ zh: '帝國兵 (Imperian, 羅馬)', en: 'Imperian (Roman)' }, '70', '~94', '+34%'],
+          [{ zh: '將軍騎士 (EC, 羅馬)', en: 'EC (Roman)' }, '180', '~245', '+36%'],
+          [{ zh: 'Haeduan (高盧)', en: 'Haeduan (Gaul)' }, '140', '~190', '+36%'],
+          [{ zh: '條頓騎士 (TK, 條頓)', en: 'Teutonic Knight' }, '150', '~204', '+36%'],
+          [{ zh: '掠奪者 (Marauder, 匈)', en: 'Marauder (Hun)' }, '180', '~245', '+36%'],
+          [{ zh: 'Corinthian Crusher (斯巴達)', en: 'Corinthian (Spartan)' }, '195', '~265', '+36%'],
         ]}
       />
       <Callout kind="tip" titleZh="升幾級 vs 多訓兵？" titleEn="Upgrade vs more troops?">
@@ -262,13 +262,13 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '備註', en: 'Note' },
         ]}
         rows={[
-          ['Senator (Roman)', '20–30%', 'Most expensive, balanced'],
-          ['Chieftain (Gaul)', '20–25%', 'Slightly cheaper, slightly weaker'],
-          ['Chief (Teuton)', '20–25%', 'Trains fastest of all chiefs (70,500s)'],
-          ['Nomarch (Egyptian)', '20–25%', '—'],
-          ['Logades (Hun)', '20–25%', '—'],
-          ['Ephor (Spartan)', '20–25%', 'Unique passive (smaller drops but cheaper recovery)'],
-          ['Jarl (Viking)', '15–30%', 'Wider range; useful with hero present'],
+          [{ zh: '參議員 (Senator, 羅馬)', en: 'Senator (Roman)' }, '20–30%', { zh: '成本最高、平衡型', en: 'Most expensive, balanced' }],
+          [{ zh: '酋長 (Chieftain, 高盧)', en: 'Chieftain (Gaul)' }, '20–25%', { zh: '稍便宜、稍弱', en: 'Slightly cheaper, slightly weaker' }],
+          [{ zh: '首領 (Chief, 條頓)', en: 'Chief (Teuton)' }, '20–25%', { zh: '所有 chief 訓練最快（70,500s）', en: 'Trains fastest of all chiefs (70,500s)' }],
+          [{ zh: 'Nomarch (埃及)', en: 'Nomarch (Egyptian)' }, '20–25%', '—'],
+          [{ zh: 'Logades (匈)', en: 'Logades (Hun)' }, '20–25%', '—'],
+          [{ zh: 'Ephor (斯巴達)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '獨特被動（每次降幅較小但成本較低）', en: 'Unique passive (smaller drops but cheaper recovery)' }],
+          [{ zh: 'Jarl (維京)', en: 'Jarl (Viking)' }, '15–30%', { zh: '範圍較寬；有英雄同行時更高', en: 'Wider range; useful with hero present' }],
         ]}
       />
       <p>
@@ -319,9 +319,9 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '獎勵', en: 'Reward' },
         ]}
         rows={[
-          ['Normal', '0–30%', 'Resources / silver / common item'],
-          ['Difficult', '30–60%', 'Better items, more silver'],
-          ['Very difficult', '60%+ (death risk)', 'Top-tier items + cages'],
+          [{ zh: '一般 (Normal)', en: 'Normal' }, '0–30%', { zh: '資源 / 銀幣 / 普通物品', en: 'Resources / silver / common item' }],
+          [{ zh: '困難 (Difficult)', en: 'Difficult' }, '30–60%', { zh: '較好物品、較多銀幣', en: 'Better items, more silver' }],
+          [{ zh: '極難 (Very difficult)', en: 'Very difficult' }, '60%+ (有死亡風險)', { zh: '頂級物品 + 籠子', en: 'Top-tier items + cages' }],
         ]}
       />
       <Callout kind="tip" titleZh="冒險前必模擬" titleEn="Always simulate before adventuring">
@@ -347,19 +347,18 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '範例效果', en: 'Example effect' },
         ]}
         rows={[
-          ['Helmet', '+25% / +50% troop training speed | +20% XP'],
-          ['Weapon (per tribe)', '+50% attack to 1 chosen unit (Spartans: all units of category)'],
-          ['Boots', '+25% / +50% / +75% hero speed'],
-          ['Armor', '+10% / +20% hero HP'],
-          ['Horse', '+5–14 speed when riding'],
-          ['Bag', '+200/400/800 carrying capacity'],
-          ['Ointment', '+5 HP per use (consumable)'],
-          ['Bandage', '+10–15 HP after battle (consumable)'],
-          ['Bucket', '+25 HP instantly (rare)'],
-          ['Cage', 'Capture an oasis animal (use to clear oases without combat)'],
-          ['Book of Wisdom', 'Reset all hero skill points (consumable)'],
-          ['Tablet of Law', 'Restore village loyalty by 1% per use (defensive)'],
-          ['Ointment large', '+10 HP per use'],
+          [{ zh: '頭盔 (Helmet)', en: 'Helmet' }, { zh: '+25% / +50% 兵種訓練速度 | +20% 經驗值', en: '+25% / +50% troop training speed | +20% XP' }],
+          [{ zh: '武器 (Weapon, 各族不同)', en: 'Weapon (per tribe)' }, { zh: '對選定的 1 種兵 +50% 攻擊（斯巴達：對該類別所有兵）', en: '+50% attack to 1 chosen unit (Spartans: all units of category)' }],
+          [{ zh: '靴子 (Boots)', en: 'Boots' }, { zh: '+25% / +50% / +75% 英雄速度', en: '+25% / +50% / +75% hero speed' }],
+          [{ zh: '盔甲 (Armor)', en: 'Armor' }, { zh: '+10% / +20% 英雄生命', en: '+10% / +20% hero HP' }],
+          [{ zh: '坐騎 (Horse)', en: 'Horse' }, { zh: '騎乘時 +5–14 速度', en: '+5–14 speed when riding' }],
+          [{ zh: '背袋 (Bag)', en: 'Bag' }, { zh: '+200/400/800 搬運容量', en: '+200/400/800 carrying capacity' }],
+          [{ zh: '軟膏 (Ointment)', en: 'Ointment' }, { zh: '每次使用 +5 HP（消耗品）', en: '+5 HP per use (consumable)' }],
+          [{ zh: '繃帶 (Bandage)', en: 'Bandage' }, { zh: '戰鬥後 +10–15 HP（消耗品）', en: '+10–15 HP after battle (consumable)' }],
+          [{ zh: '水桶 (Bucket)', en: 'Bucket' }, { zh: '立即 +25 HP（稀有）', en: '+25 HP instantly (rare)' }],
+          [{ zh: '籠子 (Cage)', en: 'Cage' }, { zh: '捕捉綠洲動物（不用戰鬥就清空綠洲）', en: 'Capture an oasis animal (use to clear oases without combat)' }],
+          [{ zh: '智慧之書 (Book of Wisdom)', en: 'Book of Wisdom' }, { zh: '重置所有英雄技能點（消耗品）', en: 'Reset all hero skill points (consumable)' }],
+          [{ zh: '法律石板 (Tablet of Law)', en: 'Tablet of Law' }, { zh: '每次使用恢復 1% 村莊忠誠度（防守用）', en: 'Restore village loyalty by 1% per use (defensive)' }],
         ]}
       />
       <p style="font-size: var(--fs-sm); color: var(--text-2);">
@@ -411,10 +410,10 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '效果', en: 'Effect' },
         ]}
         rows={[
-          ['Confederacy / NAP', 'Cannot attack each other; reinforcements still allowed'],
-          ['Wonder of the World ally', 'Can ship plans + reinforce WW'],
-          ['War declaration', 'Officially marked enemy; some servers grant attack bonuses'],
-          ['Friendship (informal)', 'Trust-based, no in-game enforcement'],
+          [{ zh: '聯盟 / 互不侵犯 (Confederacy / NAP)', en: 'Confederacy / NAP' }, { zh: '不能互相攻擊；可派援軍', en: 'Cannot attack each other; reinforcements still allowed' }],
+          [{ zh: 'WW 同盟 (Wonder of the World ally)', en: 'Wonder of the World ally' }, { zh: '可運送 Plans + 援軍駐守 WW', en: 'Can ship plans + reinforce WW' }],
+          [{ zh: '宣戰 (War declaration)', en: 'War declaration' }, { zh: '官方標記為敵；某些伺服器給攻擊加成', en: 'Officially marked enemy; some servers grant attack bonuses' }],
+          [{ zh: '友好（非正式）(Friendship)', en: 'Friendship (informal)' }, { zh: '基於信任、無遊戲內機制強制', en: 'Trust-based, no in-game enforcement' }],
         ]}
       />
 
@@ -444,14 +443,14 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '估計成本', en: 'Cost (approx)' },
         ]}
         rows={[
-          ['+25% Wood / Clay / Iron / Crop production', 'Permanent boost while active', '5 gold/day per resource OR 10/day for all 4'],
-          ['+25% Crop production (separately)', 'Standalone purchase', '5 gold/day'],
-          ['+25% Warehouse / Granary capacity', 'More storage without building', '~3 gold/day'],
-          ['Plus Account', 'Better UI, build-queue extender, advanced stats, list views', '5 gold / 10 days'],
-          ['Instant build (≤5 min)', 'Free-finish any building task in last 5 minutes', '0 gold (built into Plus)'],
-          ['NPC Trader', 'Swap resources at marketplace at 1:1 ratio', '3 gold per use'],
-          ['Auctions (silver bidding)', 'Earned via adventures, no gold needed', '—'],
-          ['Quick-finish current build', 'Skip remaining time on a building', 'Variable, scales with time saved'],
+          [{ zh: '+25% 木 / 土 / 鐵 / 糧 產量', en: '+25% Wood / Clay / Iron / Crop production' }, { zh: '啟用期間永久加成', en: 'Permanent boost while active' }, { zh: '每資源 5 金幣/天 或 全部 10/天', en: '5 gold/day per resource OR 10/day for all 4' }],
+          [{ zh: '+25% 糧食產量（獨立購買）', en: '+25% Crop production (separately)' }, { zh: '獨立購買', en: 'Standalone purchase' }, '5 金幣/天'],
+          [{ zh: '+25% 倉庫 / 糧倉容量', en: '+25% Warehouse / Granary capacity' }, { zh: '不用蓋建築就有更多儲存', en: 'More storage without building' }, '~3 金幣/天'],
+          [{ zh: 'Plus 帳號', en: 'Plus Account' }, { zh: '更好的 UI、建築佇列加長、進階統計、列表檢視', en: 'Better UI, build-queue extender, advanced stats, list views' }, '5 金幣 / 10 天'],
+          [{ zh: '5 分鐘內免費完成', en: 'Instant build (≤5 min)' }, { zh: '建築最後 5 分鐘可免費完工', en: 'Free-finish any building task in last 5 minutes' }, { zh: '0 金幣（Plus 自帶）', en: '0 gold (built into Plus)' }],
+          [{ zh: 'NPC 商人', en: 'NPC Trader' }, { zh: '在市場以 1:1 比例交換資源', en: 'Swap resources at marketplace at 1:1 ratio' }, '每次 3 金幣'],
+          [{ zh: '拍賣場（用銀幣競標）', en: 'Auctions (silver bidding)' }, { zh: '從冒險取得銀幣，不需金幣', en: 'Earned via adventures, no gold needed' }, '—'],
+          [{ zh: '快速完成當前建築', en: 'Quick-finish current build' }, { zh: '跳過剩餘建造時間', en: 'Skip remaining time on a building' }, { zh: '依省下時間浮動', en: 'Variable, scales with time saved' }],
         ]}
       />
 
