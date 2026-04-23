@@ -4,21 +4,23 @@ import Callout from '../shared/Callout.astro';
 import Section from '../mechanics/Section.astro';
 ---
 <Section id="hero-farming" titleZh="第 2 階段：英雄打綠洲" titleEn="Phase 2: Hero oasis farming" eyebrow="Lumi §1">
+  {/* Source: Lumi PDF §1 (pages 1-2). Animal bounty scales with the nature unit's crop upkeep — no fixed per-tier table in the guide. */}
   <p>
     <Bi
-      zh="保護期內，野生動物在綠洲上是「一次性獎金」—— 清完不會再生。每隻動物給 160 / 240 / 320 / 480 / 800 資源（依強度）。把英雄全部技能點丟戰鬥力，能在 Day 1–3 內賺 2,000+ 資源，這比把點數塞進「資源採集」前期划算多了。"
-      en="During beginner protection, oasis animals are a one-time bounty — once cleared, they don't respawn. Each animal yields 160 / 240 / 320 / 480 / 800 resources by tier. Putting every skill point into Fighting Strength on Day 1–3 nets 2,000+ resources — far more than what Resource Production gives in the same window."
+      zh="Lumi 說：「早期除了 settling guide 之外，最重要的就是英雄打綠洲」。保護期內野生動物是「一次性獎金」—— 清完不再生，獎勵依動物強度而異，合計可以直接拉高 Day 1–3 的資源，比把點數丟進資源採集更划算。"
+      en="Lumi: aside from a settling guide, early-game hero oasis farming is the single most important thing. During beginner protection, nature units are a one-time bounty — once cleared they don't respawn, and rewards scale with animal strength. The totals you pull on Day 1–3 beat what Resource Production would give in the same window."
     />
   </p>
 
-  <h3><Bi zh="第 1 次冒險拿馬" en="First adventure → horse" /></h3>
+  <h3><Bi zh="第 1 次冒險 → 拿馬（所有部族）" en="First adventure → horse (all tribes)" /></h3>
   <p>
     <Bi
-      zh="不論部族，第一次冒險的獎勵幾乎都會給馬，把英雄速度從 7 拉到 14 格/小時。打更多綠洲、跑更遠、更安全。"
-      en="The first adventure almost always rewards a horse, doubling hero speed from 7 to 14 fields/hr. More oases reachable, longer routes, safer escapes."
+      zh="Lumi 原文：「still do first adventure directly to get the horse!」第一次冒險直接派出去，拿到馬之後英雄速度大幅提升 —— 打更多綠洲、跑更遠、更安全。"
+      en="Lumi, verbatim: 'still do first adventure directly to get the horse!' Send the hero on the first adventure immediately — the horse is a big speed upgrade that unlocks more oases, longer routes and safer escapes."
     />
   </p>
 
+  {/* Source: Lumi PDF §1 — "Put points in strength according to the amount of oasis you can raid." */}
   <Callout kind="tip" titleZh="Strength 分配規則（依可打綠洲數）" titleEn="Strength allocation rule (by accessible oases)">
     <ul>
       <li>
@@ -29,38 +31,54 @@ import Section from '../mechanics/Section.astro';
       </li>
       <li>
         <Bi
-          zh="1-5 塊綠洲 → 加 8-12 點 strength（適度 farming 窗口）"
-          en="1-5 oases → 8-12 strength points (moderate farming window)"
+          zh="1–5 塊綠洲 → 8–12 點 strength（適度 farming 窗口）"
+          en="1–5 oases → 8–12 strength points (moderate farming window)"
         />
       </li>
       <li>
         <Bi
-          zh="6 塊以上綠洲 → 加 12+ 點 strength（重 farming，strength 回報好）"
-          en="6+ oases → 12+ strength points (heavy farming, strength scales well)"
+          zh="6 塊以上綠洲 → 12+ 點 strength（重 farming，strength 回報好）"
+          en="6+ oases → 12(+) strength points (heavy farming, strength scales well)"
         />
       </li>
     </ul>
     <p>
       <Bi
-        zh="原則：英雄不太可能連續 24 小時都有綠洲能打。綠洲打完之後，多餘的 strength 點是浪費；改投資源產量，英雄空閒時也在幫你賺資源。"
-        en="Principle: your hero rarely has 24h+ of oasis-clearing activity. Once oases run dry, extra strength points are wasted; invest in resource production instead — hero keeps earning even when idle."
+        zh="Lumi 原則：英雄連續 24 小時都有綠洲能打的機率很低。綠洲清完後，多餘的 strength 點形同浪費；把剩下的點投資源採集，英雄空閒時也在幫你賺資源。"
+        en="Lumi's principle: your hero rarely has 24h+ of oasis-clearing activity. Once oases run dry, extra strength points are wasted — put the rest into resource production so the hero keeps earning even when idle."
       />
     </p>
   </Callout>
 
-  <h3><Bi zh="保護期結束後 → 切換為資源採集" en="After protection → switch to Resource Production" /></h3>
+  <h3><Bi zh="兩個 Lumi 額外提醒" en="Two more Lumi notes" /></h3>
+  <ul>
+    <li>
+      <Bi
+        zh="晚 1–8 小時登入：因為早期綠洲 raiding 太重要，延後 1–8 小時再登入可以讓你在地圖外圍 spawn，綠洲競爭較少（Lumi PDF §1）。"
+        en="Start 1–8 hours late: because early oasis raiding matters so much, spawning 1–8h later tends to place you further out on the map with less competition for oases (Lumi PDF §1)."
+      />
+    </li>
+    <li>
+      <Bi
+        zh="模擬 + 用升級補血：打綠洲前一定要在 rally point 模擬，並且刻意用任務經驗值升級來把英雄補滿血（Lumi PDF §1）。"
+        en="Simulate + heal via level-ups: always simulate the attack before clearing an oasis, and use quest XP to level up (level-ups heal the hero back to full) (Lumi PDF §1)."
+      />
+    </li>
+  </ul>
+
+  <h3><Bi zh="第 6 次冒險 → 切換為資源採集" en="Around 6th adventure → switch to Resource Production" /></h3>
   <p>
     <Bi
-      zh="第 3–4 天保護期一結束，英雄打綠洲就可能被反偵察 → 反殺。把屬性透過冒險獲得的「智慧之書」重置，全灌資源採集。"
-      en="When protection ends around Day 3–4, oasis raids become suicide runs (other players will counter-attack). Use a Book of Wisdom (from adventures) to respec the hero entirely into Resource Production."
+      zh="Lumi 原文：「You will get a book after the 6th adventure → you will probably run out of oasis at that point and can switch to production now.」第 6 次冒險後會拿到一本書，通常那時綠洲也差不多清光了，用書把屬性重置，把剩下的點灌到資源採集。"
+      en="Lumi, verbatim: 'You will get a book after the 6th adventure → you will probably run out of oasis at that point and can switch to production now.' The 6th adventure drops a book, by which point most oases are cleared — respec and pour the remaining points into Resource Production."
     />
   </p>
 
   <Callout kind="warn" titleZh="不要讓英雄死掉" titleEn="Don't let your hero die">
     <p>
       <Bi
-        zh="英雄死亡 = 24 小時復活 + 失去經驗值。打綠洲前必模擬戰鬥（rally point → 戰鬥模擬器）。早期可帶幾隻便宜兵當肉盾（埃及奴隸民兵特別便宜）。"
-        en="A dead hero = 24h respawn + lost XP. Always simulate before clearing an oasis (rally point → battle simulator). Bring cheap troops as buffer (Egyptian Slave Militia are dirt-cheap and ideal for this)."
+        zh="英雄死亡 = 24 小時復活 + 損失經驗值。打綠洲前一律先模擬（rally point → 戰鬥模擬器），早期可帶幾隻便宜兵當肉盾（埃及奴隸民兵成本極低，最適合打底）。"
+        en="A dead hero = 24h respawn + lost XP. Always simulate at the rally point before any oasis clear. Early on you can bring a handful of cheap troops as buffer — Egyptian Slave Militia are dirt-cheap and ideal for this role."
       />
     </p>
   </Callout>
