@@ -224,27 +224,26 @@ export const OASIS_TYPES: readonly OasisType[] = Object.freeze([
 // meaning modern T4 makes capturing oases FAR more attractive than the
 // numbers in the published Lumi guide suggest.
 // =========================================================================
+// Hero's Mansion cumulative cost (T4 formula, kirilloid-verified)
+// Base L1 cost per resource: [80, 120, 70, 90] with k=1.33 geometric scaling, round5 per-level.
+export function hmCumulativeCost(level: number): number {
+  if (level <= 0) return 0;
+  const base = [80, 120, 70, 90];
+  const k = 1.33;
+  let sum = 0;
+  for (let L = 1; L <= level; L++) {
+    const m = Math.pow(k, L - 1);
+    for (const b of base) sum += Math.round((b * m) / 5) * 5;
+  }
+  return sum;
+}
+
 export const HERO_MANSION = {
   oasesUnlocked: { 10: 1, 15: 2, 20: 3 } as Record<number, number>,
-  cumulativeCost: {
-    1: 360, 5: 3450, 10: 18460, 12: 33470, 15: 80020, 18: 189500, 20: 249170,
-  } as Record<number, number>,
+  cumulativeCost: Object.fromEntries(
+    Array.from({ length: 20 }, (_, i) => [i + 1, hmCumulativeCost(i + 1)]),
+  ) as Record<number, number>,
 };
-
-export function hmCumulativeCost(level: number): number {
-  const pts = HERO_MANSION.cumulativeCost;
-  const keys = Object.keys(pts).map(Number).sort((a, b) => a - b);
-  if (level <= keys[0]!) return (pts[keys[0]!]! * level) / keys[0]!;
-  if (level >= keys[keys.length - 1]!) return pts[keys[keys.length - 1]!]!;
-  for (let i = 0; i < keys.length - 1; i++) {
-    const lo = keys[i]!; const hi = keys[i + 1]!;
-    if (level >= lo && level <= hi) {
-      const t = (level - lo) / (hi - lo);
-      return Math.round(pts[lo]! + t * (pts[hi]! - pts[lo]!));
-    }
-  }
-  return pts[keys[keys.length - 1]!]!;
-}
 
 // =========================================================================
 // Cropper layouts

@@ -47,8 +47,8 @@ export default function TraderouteCalculator() {
       <div className={s.intro}>
         <h2>{lang === 'en' ? 'Trade Route / Feeder Calculator' : '商路 / 糧商計算器'}</h2>
         <p>{lang === 'en'
-          ? "How many merchants are needed to haul a feeder's hourly surplus? Tribe sets base capacity & speed; Trade Office adds +10% capacity per level (max +200% at Lv 20). Lumi rule of thumb: within 60 fields, 1–2 merchants should suffice."
-          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；商路辦公室每級 +10% 容量（Lv 20 最高 +200%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
+          ? "How many merchants are needed to haul a feeder's hourly surplus? Tribe sets base capacity & speed; Trade Office adds +10% capacity per level (max +200% at Lv 20). Roman exception: +20%/lv (max +400% at Lv 20). Lumi rule of thumb: within 60 fields, 1–2 merchants should suffice."
+          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；商路辦公室每級 +10% 容量（Lv 20 最高 +200%）。羅馬例外：+20%/級（Lv 20 最高 +400%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
       </div>
 
       <div className={s.wrapper}>

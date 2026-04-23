@@ -19,10 +19,8 @@ function lumiBracket(pop: number, lang: 'zh' | 'en') {
     msg: lang === 'en' ? '1 horse' : '1 馬' };
   if (pop < 550) return { bracket: '400–550', n: 2,
     msg: lang === 'en' ? '2 horses' : '2 馬' };
-  if (pop < 800) return { bracket: '550–800', n: 4,
-    msg: lang === 'en' ? '3–5 horses' : '3–5 馬' };
-  return { bracket: '800+', n: 7,
-    msg: lang === 'en' ? '5–7 horses' : '5–7 馬' };
+  return { bracket: '550+', n: 5,
+    msg: lang === 'en' ? '3–7 horses (5 default)' : '3–7 馬（預設 5）' };
 }
 
 const fmtMin = (m: number) => {
@@ -61,8 +59,8 @@ export default function FarmingCalculator() {
       <div className={s.intro}>
         <h2>{lang === 'en' ? 'Farming Calculator' : '農場效率計算器'}</h2>
         <p>{lang === 'en'
-          ? "Lumi's troop sizing for inactive farm targets, with daily yield estimate. Pop brackets: <150 skip, 150-400 = 1 horse, 400-550 = 2, 550-800 = 3-5, 800+ = 5-7. Tune per-raid loot from your actual battle reports."
-          : 'Lumi 的目標農場兵數法則，含每日收益預估。人口分級：<150 略過、150-400 = 1 馬、400-550 = 2、550-800 = 3-5、800+ = 5-7。每次掠奪量請從實際戰報調整。'}</p>
+          ? "Lumi's troop sizing for inactive farm targets, with daily yield estimate. Pop brackets: <150 skip, 150-400 = 1 horse, 400-550 = 2, 550+ = 3-7 (5 default). Tune per-raid loot from your actual battle reports."
+          : 'Lumi 的目標農場兵數法則，含每日收益預估。人口分級：<150 略過、150-400 = 1 馬、400-550 = 2、550+ = 3-7（預設 5）。每次掠奪量請從實際戰報調整。'}</p>
       </div>
 
       <div className={s.wrapper}>

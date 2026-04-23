@@ -36,8 +36,8 @@ export default function OasisRoiCalculator() {
     Object.entries(oasis.bonuses).forEach(([k, v]) => {
       total += counts[k as ResourceType] * base * (v ?? 0);
     });
-    return total * 24;
-  }, [cropper, fieldLv, oasisId]);
+    return total * 24 * (gold ? 1.25 : 1);
+  }, [cropper, fieldLv, oasisId, gold]);
 
   const roi = useMemo(() => hmCumulativeCost(hm) / dailyGain, [hm, dailyGain]);
 

@@ -122,8 +122,8 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
       <p>
         <Bi
-          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成最高約 +30%。"
-          en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+30%."
+          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +34–36%（取決於糧消耗）。"
+          en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+34–36% (varies by upkeep)."
         />
       </p>
       <h3><Bi zh="計算公式" en="Formula" /></h3>
@@ -461,7 +461,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           [{ zh: '武器 (Weapon, 各族不同)', en: 'Weapon (per tribe)' }, { zh: '對選定的 1 種兵 +50% 攻擊（斯巴達：對該類別所有兵）', en: '+50% attack to 1 chosen unit (Spartans: all units of category)' }],
           [{ zh: '靴子 (Boots)', en: 'Boots' }, { zh: '+25% / +50% / +75% 英雄速度', en: '+25% / +50% / +75% hero speed' }],
           [{ zh: '盔甲 (Armor)', en: 'Armor' }, { zh: '+10% / +20% 英雄生命', en: '+10% / +20% hero HP' }],
-          [{ zh: '坐騎 (Horse)', en: 'Horse' }, { zh: '騎乘時 +5–14 速度', en: '+5–14 speed when riding' }],
+          [{ zh: '坐騎 (Horse)', en: 'Horse' }, { zh: '騎乘時加速：T1 馬 +14 格/時、T2 馬（Pferd）+17、T3 馬（訓練馬 / 阿拉伯馬）+20', en: 'Riding speed bonus: T1 Horse +14 fields/hr, T2 Horse (Pferd) +17, T3 Horse (Training/Arabian) +20' }],
           [{ zh: '背袋 (Bag)', en: 'Bag' }, { zh: '+200/400/800 搬運容量', en: '+200/400/800 carrying capacity' }],
           [{ zh: '軟膏 (Ointment)', en: 'Ointment' }, { zh: '每次使用 +5 HP（消耗品）', en: '+5 HP per use (consumable)' }],
           [{ zh: '繃帶 (Bandage)', en: 'Bandage' }, { zh: '戰鬥後 +10–15 HP（消耗品）', en: '+10–15 HP after battle (consumable)' }],
@@ -483,8 +483,8 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="秘密倉庫容量" en="Cranny capacity" /></h3>
       <p>
         <Bi
-          zh="Lv1 每種資源藏 100（四項共 400）；Lv10 最高每種 2,000（共 8,000）。高盧享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"
-          en="Lv1 hides 100 per resource (400 total), Lv10 (MAX) hides 2,000 per resource (8,000 total). Gauls get ×1.5 (Lv10 = 3,000 per resource). Raiders take resources above the cranny threshold first."
+          zh="Lv1 每種資源藏 200（四項共 800；高盧 ×1.5 = 每種 300 / 共 1,200）；Lv10 最高每種 2,000（共 8,000）。高盧享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"
+          en="Lv1 hides 200 per resource (800 total; Gauls ×1.5 = 300 per resource / 1,200 total). Lv10 (MAX) hides 2,000 per resource (8,000 total). Gauls get ×1.5 (Lv10 = 3,000 per resource). Raiders take resources above the cranny threshold first."
         />
       </p>
 
@@ -556,7 +556,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           [{ zh: '+25% 木 / 土 / 鐵 / 糧 產量', en: '+25% Wood / Clay / Iron / Crop production' }, { zh: '啟用期間永久加成', en: 'Permanent boost while active' }, { zh: '每資源 5 金幣/天 或 全部 10/天', en: '5 gold/day per resource OR 10/day for all 4' }],
           [{ zh: '+25% 糧食產量（獨立購買）', en: '+25% Crop production (separately)' }, { zh: '獨立購買', en: 'Standalone purchase' }, '5 金幣/天'],
           [{ zh: '+25% 倉庫 / 糧倉容量', en: '+25% Warehouse / Granary capacity' }, { zh: '不用蓋建築就有更多儲存', en: 'More storage without building' }, '~3 金幣/天'],
-          [{ zh: 'Plus 帳號', en: 'Plus Account' }, { zh: '更好的 UI、建築佇列加長、進階統計、列表檢視', en: 'Better UI, build-queue extender, advanced stats, list views' }, '5 金幣 / 10 天'],
+          [{ zh: 'Plus 帳號', en: 'Plus Account' }, { zh: '更好的 UI、建築佇列加長、進階統計、列表檢視', en: 'Better UI, build-queue extender, advanced stats, list views' }, { zh: '10 金幣 / 7 天（1x 伺服器）', en: '10 gold / 7 days (1x server)' }],
           [{ zh: 'NPC 商人', en: 'NPC Trader' }, { zh: '在市場以 1:1 比例交換資源', en: 'Swap resources at marketplace at 1:1 ratio' }, '每次 3 金幣'],
           [{ zh: '拍賣場（用銀幣競標）', en: 'Auctions (silver bidding)' }, { zh: '從冒險取得銀幣，不需金幣', en: 'Earned via adventures, no gold needed' }, '—'],
           [{ zh: '快速完成當前建築', en: 'Quick-finish current build' }, { zh: '跳過剩餘建造時間', en: 'Skip remaining time on a building' }, { zh: '依省下時間浮動', en: 'Variable, scales with time saved' }],
