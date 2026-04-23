@@ -240,3 +240,34 @@ ac55836 fix(data+guide+calc): apply 10 audit findings
 ```
 
 **Status**: 305/305 tests, 0 astro errors, 14 pages build. All numeric data load-bearing for calculators/ROI tables is either test-pinned or officially cited.
+
+---
+
+## Appendix: 2026-04-23 late-session fixes
+
+After per-section inventory (commit `11fc08f`), a second-pass verification sweep was run on 10 remaining 🟡 medium-confidence items:
+
+### Confirmed correct (4 items — no change)
+- Viking Barricade wall +1.5%/lv — ST Vikings article
+- Trade Office Roman +20%/lv vs others +10%/lv — travian.fandom.com/wiki/Trade_office
+- Teuton Chief training time 70,500s (others 90,700s) — kirilloid base/units.ts
+- Spartan merchant capacity 500 — ST Spartans article
+
+### Fixed (4 items — commit `4e8ccd4`)
+- **Smithy Lv20 table**: Lv20 values inflated. Recomputed with official formula `base + (base + 300·upkeep/7)·(1.007^20 − 1)`. Final: Imperian 87 (+24%), EC 233 (+29%), Haeduan 180 (+29%), TK 192 (+28%), Marauder 226 (+26%), Corinthian 250 (+28%). Intro updated from "~+34-36%" to "~+24-29%".
+- **Ephor (Spartan)**: "Unique passive, smaller drops cheaper" → standard chief-unit 20-25% loyalty. ST Spartans article shows no unique passive.
+- **Jarl (Viking)**: "wider with hero" qualifier removed. Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll. Kept 15-30% range.
+- **Hun hero passive**: "extra speed when mounted (similar to Gauls)" → "+3 fields/hr to armies containing only mounted units (cavalry-only speed aura; scales with server speed)". ST Huns article. Dropped inaccurate Gaul comparison.
+
+### Content additions (2 items — commit `29d83fb`)
+- **Tournament Square section** added to mechanics.astro (formula, TT example, hammer-vs-anvil callout).
+- **4 tribes keyTips expanded** from 2 → 4 each: Egyptian, Hun, Viking, Spartan (+8 total tips, all game-fact based).
+
+### Status after full sweep
+- 🟢 **All 10 previously-🟡 items** now either verified ✅ or corrected 🔧
+- 🟢 Tests: **305/305** pass across 14 files (pin all numeric data)
+- 🟢 Astro check: **0 errors, 0 warnings**
+- 🟢 Production build: **14 pages**
+- 🔲 Deferred (not bugs; feature work):
+  - BuildOrderCalculator oasis-% input (feature request)
+  - Stonemason HP bonus section (if user wants it — currently not in mechanics.astro)
