@@ -396,6 +396,82 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       </p>
     </Section>
 
+    <Section id="alliance" titleZh="聯盟系統" titleEn="Alliance system" eyebrow="Multiplayer">
+      <p>
+        <Bi
+          zh="加入聯盟需要 Embassy（大使館）。Embassy Lv 1 = 加入；Lv 3 = 創立。聯盟最多 60 名成員（大部分伺服器）。聯盟內可內部聊天、協同作戰、共享報告、設置聯盟金庫等。"
+          en="Joining an alliance requires an Embassy. Embassy Lv 1 = join, Lv 3 = create. Most servers cap alliances at 60 members. Alliance grants internal chat, coordinated attack planning, shared reports, and alliance treasury slots."
+        />
+      </p>
+
+      <h3><Bi zh="聯盟外交（Pacts）" en="Alliance diplomacy (pacts)" /></h3>
+      <DataTable
+        headers={[
+          { zh: '關係', en: 'Relation' },
+          { zh: '效果', en: 'Effect' },
+        ]}
+        rows={[
+          ['Confederacy / NAP', 'Cannot attack each other; reinforcements still allowed'],
+          ['Wonder of the World ally', 'Can ship plans + reinforce WW'],
+          ['War declaration', 'Officially marked enemy; some servers grant attack bonuses'],
+          ['Friendship (informal)', 'Trust-based, no in-game enforcement'],
+        ]}
+      />
+
+      <Callout kind="tip" titleZh="新手選聯盟標準" titleEn="Picking an alliance as a beginner">
+        <p>
+          <Bi
+            zh="挑活躍度高的聯盟最重要：日均線上人數越多 → 你的 def call 越快有人接。其次看領導層是否規劃 OP（Day 45 起）、是否分工（OFF / DEF / Feeder 各有對應人）。萬人聯盟若只是聊天群沒打仗，不如進 30 人但有計畫的小團。"
+            en="Activity matters most: high concurrent online count = faster def-call response. Second priority: do leaders plan OPs (from Day 45)? Are roles split (OFF / DEF / Feeder)? A 30-person alliance with discipline beats a 100-person social-only group."
+          />
+        </p>
+      </Callout>
+    </Section>
+
+    <Section id="plus-gold" titleZh="Plus 與金幣 (Gold)" titleEn="Plus & Gold" eyebrow="Premium">
+      <p>
+        <Bi
+          zh="Travian 是免費遊戲但有付費功能（Gold）。買 Gold 不是必需的，但前期 +25% 產量幾乎是「主流玩家全買」的標準配置。"
+          en="Travian is free-to-play with a premium currency (Gold). Buying gold isn't required, but the +25% production bonuses are standard among most competitive players in the early game."
+        />
+      </p>
+
+      <h3><Bi zh="主要 Gold 功能" en="Main gold-purchased features" /></h3>
+      <DataTable
+        headers={[
+          { zh: '功能', en: 'Feature' },
+          { zh: '效果', en: 'Effect' },
+          { zh: '估計成本', en: 'Cost (approx)' },
+        ]}
+        rows={[
+          ['+25% Wood / Clay / Iron / Crop production', 'Permanent boost while active', '5 gold/day per resource OR 10/day for all 4'],
+          ['+25% Crop production (separately)', 'Standalone purchase', '5 gold/day'],
+          ['+25% Warehouse / Granary capacity', 'More storage without building', '~3 gold/day'],
+          ['Plus Account', 'Better UI, build-queue extender, advanced stats, list views', '5 gold / 10 days'],
+          ['Instant build (≤5 min)', 'Free-finish any building task in last 5 minutes', '0 gold (built into Plus)'],
+          ['NPC Trader', 'Swap resources at marketplace at 1:1 ratio', '3 gold per use'],
+          ['Auctions (silver bidding)', 'Earned via adventures, no gold needed', '—'],
+          ['Quick-finish current build', 'Skip remaining time on a building', 'Variable, scales with time saved'],
+        ]}
+      />
+
+      <Callout kind="info" titleZh="Lumi 觀點：金幣早期超強" titleEn="Lumi's view: gold is overpowered early">
+        <p>
+          <Bi
+            zh="Lumi §4.1：「Gold is absolutely overpowered in the early game」— 配合英雄綠洲 raid 的軟膏 + 桶子（Bucket）+ 訓練頭盔（Helmet），有金幣的玩家會領先沒金幣的人 2–3 天的進度。中後期金幣優勢縮小但仍重要（NPC Trader 用來救糧）。"
+            en="Per Lumi §4.1: 'Gold is absolutely overpowered in the early game.' Combined with hero ointments / buckets / training helmets, gold-using players are 2–3 days ahead of free players in early development. The advantage narrows mid-game but stays meaningful (NPC Trader for crop emergencies)."
+          />
+        </p>
+      </Callout>
+
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="不買 Gold 仍可玩，但要：(1) 接受發展慢一兩天；(2) 多用英雄資源採集屬性補足產量；(3) 加更活躍的聯盟讓 def 互相 cover。"
+          en="Free-to-play is viable but requires: (1) accepting a 1–2 day pacing gap; (2) heavier hero resource-production allocation; (3) joining a more active alliance for mutual def coverage."
+        />
+      </p>
+    </Section>
+
     <Section id="references" titleZh="延伸閱讀" titleEn="Further reading" eyebrow="Links">
       <ul>
         <li><a href="https://support.travian.com/en/support/home" target="_blank" rel="noopener">support.travian.com</a> — <Bi zh="官方支援站" en="Official support" /></li>

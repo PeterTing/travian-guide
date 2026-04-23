@@ -1,0 +1,40 @@
+---
+import Bi from '../shared/Bi.astro';
+import Callout from '../shared/Callout.astro';
+import Section from '../mechanics/Section.astro';
+---
+<Section id="server-types" titleZh="先選對伺服器" titleEn="Pick the right server first" eyebrow="Before Day 1">
+  <p>
+    <Bi
+      zh="Travian 同時開很多種伺服器，每種速度與規則不同。新手建議從標準 1x 速度練起，熟練後再嘗試快速或年度特別版。"
+      en="Travian runs several server types in parallel, with different speeds and rule sets. Beginners should start on standard 1x; once comfortable, try faster servers or annual specials."
+    />
+  </p>
+
+  <table style="width:100%; border-collapse: collapse; margin: var(--space-4) 0; font-size: var(--fs-sm);">
+    <thead>
+      <tr style="background:var(--bg-2); border-bottom:1px solid var(--border-0);">
+        <th style="padding:10px; text-align:left;"><Bi zh="伺服器類型" en="Server type" /></th>
+        <th style="padding:10px; text-align:left;"><Bi zh="速度" en="Speed" /></th>
+        <th style="padding:10px; text-align:left;"><Bi zh="長度" en="Length" /></th>
+        <th style="padding:10px; text-align:left;"><Bi zh="特色" en="Highlights" /></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:8px; border-top:1px solid var(--border-0);">Standard</td><td style="padding:8px;">1x</td><td style="padding:8px;">~250 days</td><td style="padding:8px;"><Bi zh="入門首選；Lumi 指南預設場景" en="Beginner default; the scenario the Lumi guide is written for" /></td></tr>
+      <tr><td style="padding:8px; border-top:1px solid var(--border-0);">Speed</td><td style="padding:8px;">3x / 5x</td><td style="padding:8px;">~80–150 days</td><td style="padding:8px;"><Bi zh="所有時間 / 訓練 / 移動 ÷ 速度倍率；要更高活躍度" en="All times / training / travel ÷ speed; demands higher activity" /></td></tr>
+      <tr><td style="padding:8px; border-top:1px solid var(--border-0);">Tournament</td><td style="padding:8px;">3x / 5x</td><td style="padding:8px;">~100 days</td><td style="padding:8px;"><Bi zh="高手競技；Final 進入官方總決賽" en="Competitive; finalists qualify for official championship" /></td></tr>
+      <tr><td style="padding:8px; border-top:1px solid var(--border-0);">Annual Special</td><td style="padding:8px;">1x / 2x</td><td style="padding:8px;">~250 days</td><td style="padding:8px;"><Bi zh="加入新族與機制（過去：Fire & Sand 埃及/匈, Glory of Sparta 斯巴達, Northern Legends 維京, Path to Pandora 系統大改）" en="Adds new tribes / mechanics (past: Fire & Sand for Egyptians/Huns, Glory of Sparta, Northern Legends for Vikings, Path to Pandora system overhaul)" /></td></tr>
+      <tr><td style="padding:8px; border-top:1px solid var(--border-0);">Beta / PTR</td><td style="padding:8px;">varies</td><td style="padding:8px;">varies</td><td style="padding:8px;"><Bi zh="測試新功能，常常重置；不適合認真打" en="Tests new features; frequent resets; not for serious play" /></td></tr>
+    </tbody>
+  </table>
+
+  <Callout kind="warn" titleZh="速度伺服器的陷阱" titleEn="Speed server pitfalls">
+    <p>
+      <Bi
+        zh="3x 速度看起來只是「3 倍快」但實際上：(1) 你睡 8 小時 = 別人遊戲內 24 小時，sitter 是必需而非可選；(2) Op 時間會壓縮到 30 天內就開打，沒有時間慢慢摸索；(3) 金幣優勢被放大（5 分鐘 instant build 變相省更多時間）。新手別跳速度。"
+        en="3x speed looks like '3× faster' but in reality: (1) your 8h sleep = 24h in-game, sitters become mandatory not optional; (2) the first OP often happens by Day 30, no time to learn; (3) gold's value compounds (5-minute instant builds save proportionally more)."
+      />
+    </p>
+  </Callout>
+</Section>
