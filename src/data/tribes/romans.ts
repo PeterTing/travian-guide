@@ -89,7 +89,7 @@ export const romans: Tribe = {
       cost: { wood: 30750, clay: 27200, iron: 45000, crop: 37500 }, trainTime: 90700,
       role: { zh: '降敵忠誠、征服村莊', en: 'Reduces loyalty, conquers villages' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 4600, clay: 4200, iron: 5800, crop: 4400 }, trainTime: 26900,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

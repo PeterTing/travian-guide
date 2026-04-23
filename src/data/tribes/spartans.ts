@@ -95,7 +95,7 @@ export const spartans: Tribe = {
       cost: { wood: 33450, clay: 30665, iron: 36240, crop: 13935 }, trainTime: 77550,
       role: { zh: '獨特降忠誠 20–25%', en: 'Unique 20–25% loyalty reduction' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 5115, clay: 5580, iron: 6045, crop: 3255 }, trainTime: 34100,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

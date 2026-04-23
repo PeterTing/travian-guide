@@ -9,7 +9,7 @@ export const teutons: SettlementTimeline = {
   keyTips: [
     { zh: '棍棒兵 900 秒訓練時間是全遊戲最快，便宜（95/75/40/40）+ carry 60 = 早期農場機器。', en: 'Clubswinger 900s train time is the fastest in the game; cheap (95/75/40/40) + carry 60 = early farming machine.' },
     { zh: '條頓英雄被動是「加入掠奪時 +20% 搶劫額外資源」，前 14 天一起去搶最划算。', en: 'Teuton hero passive: "+20% extra plunder when joining a raid" — send hero with raids for the first 2 weeks.' },
-    { zh: '條頓開拓者是三族中最慢最貴的，所以要靠掠奪把資源補回來，不然會晚 1-2 天。', en: 'Teuton settlers are slowest and most expensive among the 3 starters — raids must fund them or you slip 1–2 days behind.' },
-    { zh: '如果鄰居都是活躍玩家沒 inactive 打，就用高盧/羅馬模式（專心蓋田 + 主府）。', en: 'If no inactive neighbors exist, fall back to Gaul/Roman pattern (pure economy): fields + MB only.' },
+    { zh: '條頓拓荒者是三族中最慢最貴的，所以要靠掠奪把資源補回來，不然會晚 1-2 天。', en: 'Teuton settlers are slowest and most expensive among the 3 starters — raids must fund them or you slip 1–2 days behind.' },
+    { zh: '如果鄰居都是活躍玩家沒 inactive 打，就用高盧/羅馬模式（專心蓋田 + 主建築）。', en: 'If no inactive neighbors exist, fall back to Gaul/Roman pattern (pure economy): fields + MB only.' },
   ],
 };

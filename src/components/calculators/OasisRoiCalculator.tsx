@@ -47,7 +47,7 @@ export default function OasisRoiCalculator() {
         <h2>{lang === 'en' ? 'Oasis ROI Calculator' : '綠洲 ROI 計算器'}</h2>
         <p>{lang === 'en'
           ? "How many days does an oasis pay back the Hero's Mansion that captured it? HM Lv 10/15/20 → 1/2/3 oases. HM cost derived directly from kirilloid T4 source (base [80,120,70,90], k=1.33). Note: Lumi's published ROI table uses older HM costs ~5× higher — modern T4 makes oasis capture much cheaper than Lumi implies."
-          : "佔領綠洲所需的英雄莊園多少天可回本？HM Lv 10/15/20 各可佔 1/2/3 塊。HM 成本依 kirilloid T4 原始碼（base [80,120,70,90], k=1.33）計算。注意：Lumi 指南內的 ROI 表格用的是舊版 HM 成本（約 5 倍高）；現代 T4 佔綠洲比 Lumi 數字短很多。"}</p>
+          : "佔領綠洲所需的英雄宅多少天可回本？HM Lv 10/15/20 各可佔 1/2/3 塊。HM 成本依 kirilloid T4 原始碼（base [80,120,70,90], k=1.33）計算。注意：Lumi 指南內的 ROI 表格用的是舊版 HM 成本（約 5 倍高）；現代 T4 佔綠洲比 Lumi 數字短很多。"}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -82,7 +82,7 @@ export default function OasisRoiCalculator() {
           </div>
 
           <div className={s.field}>
-            <label>{lang === 'en' ? "Hero's Mansion target" : '英雄莊園目標等級'}</label>
+            <label>{lang === 'en' ? "Hero's Mansion target" : '英雄宅目標等級'}</label>
             <select value={hm} onChange={e => setHm(+e.target.value)}>
               <option value={10}>Lv 10 (+1 oasis)</option>
               <option value={15}>Lv 15 (+2 oases)</option>
@@ -104,7 +104,7 @@ export default function OasisRoiCalculator() {
 
         <div className={s.output}>
           <h4>{lang === 'en' ? 'Result' : '結果'}</h4>
-          <div className={s.row}><span className={s.label}>{lang === 'en' ? 'HM cumulative cost' : '英雄莊園累積成本'}</span><span className={s.value}>{fmt(hmCumulativeCost(hm))}</span></div>
+          <div className={s.row}><span className={s.label}>{lang === 'en' ? 'HM cumulative cost' : '英雄宅累積成本'}</span><span className={s.value}>{fmt(hmCumulativeCost(hm))}</span></div>
           <div className={s.row}><span className={s.label}>{lang === 'en' ? 'Gain /hr from this oasis' : '此綠洲每小時產量'}</span><span className={s.value}>+{fmt(dailyGain / 24)}</span></div>
           <div className={s.row}><span className={s.label}>{lang === 'en' ? 'Gain /day' : '每天'}</span><span className={s.value}>+{fmt(dailyGain)}</span></div>
           <div className={s.row}><span className={s.label}>ROI</span><span className={`${s.value} ${s.highlight}`}>{roi.toFixed(2)} {lang === 'en' ? 'days' : '天'}</span></div>

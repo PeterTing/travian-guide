@@ -13,7 +13,7 @@ import type { BuildStep } from './types';
 export const common: BuildStep[] = [
   {
     step: 1,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 1,
     tier: 1,
     cost: null,
@@ -46,7 +46,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 4,
-    building: { zh: '集合點', en: 'Rally Point' },
+    building: { zh: '集結點', en: 'Rally Point' },
     targetLevel: 1,
     tier: 1,
     cost: null,
@@ -112,7 +112,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 10,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 3,
     tier: 2,
     cost: 555,
@@ -132,7 +132,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 12,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 1,
     tier: 1,
     cost: 340,
@@ -142,7 +142,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 13,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 3,
     tier: 2,
     cost: 990,
@@ -171,7 +171,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 16,
-    building: { zh: '密倉', en: 'Cranny' },
+    building: { zh: '秘密倉庫', en: 'Cranny' },
     targetLevel: 1,
     tier: 1,
     cost: 130,
@@ -180,7 +180,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 17,
-    building: { zh: '密倉', en: 'Cranny' },
+    building: { zh: '秘密倉庫', en: 'Cranny' },
     targetLevel: 3,
     tier: 2,
     cost: 380,
@@ -328,7 +328,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 32,
-    building: { zh: '密倉', en: 'Cranny' },
+    building: { zh: '秘密倉庫', en: 'Cranny' },
     targetLevel: 6,
     tier: 3,
     cost: 1065,
@@ -338,7 +338,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 33,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 7,
     tier: 3,
     cost: 2395,
@@ -366,7 +366,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 36,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 1,
     tier: 1,
     cost: 510,

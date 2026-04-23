@@ -21,7 +21,7 @@ export const egyptians: SettlementTimeline = {
 export const huns: SettlementTimeline = {
   tribe: 'huns',
   approach: {
-    zh: '匈人以騎兵為核心，開局蓋馬廄而非兵營。Steppe Rider（2,400 秒、速 16、carry 115）是全遊戲最好的早期農場單位。司令部取代居所。',
+    zh: '匈人以騎兵為核心，開局蓋馬廄而非兵營。Steppe Rider（2,400 秒、速 16、carry 115）是全遊戲最好的早期農場單位。司令部取代行宮。',
     en: 'Cavalry-first tribe: build Stable instead of Barracks. Steppe Rider (2,400s train, speed 16, carry 115) is one of the best early farming units. Command Center replaces Residence.',
   },
   keyTips: [
@@ -33,7 +33,7 @@ export const huns: SettlementTimeline = {
 export const spartans: SettlementTimeline = {
   tribe: 'spartans',
   approach: {
-    zh: '斯巴達兵種貴，但 Asclepeion 可復活 60% 陣亡單位，長線超強。開局像羅馬一樣穩，只是開拓者更貴（每個約 20,000）。',
+    zh: '斯巴達兵種貴，但 Asclepeion 可復活 60% 陣亡單位，長線超強。開局像羅馬一樣穩，只是拓荒者更貴（每個約 20,000）。',
     en: 'Spartans run expensive troops, but Asclepeion revives 60% of fallen units — a massive long-term edge. Opening resembles Roman but with pricier settlers (~20,000 each).',
   },
   keyTips: [

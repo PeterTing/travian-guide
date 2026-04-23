@@ -8,11 +8,11 @@ export const huns: Tribe = {
   color: 'var(--tribe-huns)',
   icon: '🐴',
   tagline: {
-    zh: '騎兵王者 · 司令部取代居所',
+    zh: '騎兵王者 · 司令部取代行宮',
     en: 'Cavalry nation · Command Center replaces Residence',
   },
   summary: {
-    zh: '游牧騎兵族：Steppe Rider 速度 16 + 攻擊 120，Marauder 攻擊 180 是高遊速 OFF 騎兵；司令部（Command Center）取代居所 / 宮殿，專為遠距離作戰設計。早期騎兵 farm 超強。',
+    zh: '游牧騎兵族：Steppe Rider 速度 16 + 攻擊 120，Marauder 攻擊 180 是高遊速 OFF 騎兵；司令部（Command Center）取代行宮 / 皇宮，專為遠距離作戰設計。早期騎兵 farm 超強。',
     en: 'Nomadic cavalry tribe. Steppe Rider: speed 16 + atk 120. Marauder: atk 180 fast offensive cavalry. Command Center replaces Residence/Palace, purpose-built for long-range operations. Early cavalry farming dominates.',
   },
 
@@ -22,7 +22,7 @@ export const huns: Tribe = {
   },
 
   specials: [
-    { zh: '司令部（Command Center）：匈人獨有，取代居所 / 宮殿', en: 'Command Center: Hun-exclusive, replaces Residence/Palace' },
+    { zh: '司令部（Command Center）：匈人獨有，取代行宮 / 皇宮', en: 'Command Center: Hun-exclusive, replaces Residence/Palace' },
     { zh: 'Makeshift Wall：每級 +1.5% 防禦（最弱牆）', en: 'Makeshift Wall: +1.5% defense per level (weakest wall)' },
     { zh: '大部分 OFF 單位都是騎兵', en: 'Most OFF units are cavalry' },
   ],
@@ -90,7 +90,7 @@ export const huns: Tribe = {
       cost: { wood: 37200, clay: 27600, iron: 25200, crop: 27600 }, trainTime: 90700,
       role: { zh: '降忠誠 / 征服', en: 'Reduces loyalty, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 6100, clay: 4600, iron: 4800, crop: 5400 }, trainTime: 28950,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

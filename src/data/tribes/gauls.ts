@@ -89,10 +89,10 @@ export const gauls: Tribe = {
       cost: { wood: 30750, clay: 45400, iron: 31000, crop: 37500 }, trainTime: 90700,
       role: { zh: '降忠誠 / 征服', en: 'Reduces loyalty, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 4400, clay: 5600, iron: 4200, crop: 3900 }, trainTime: 22700,
-      role: { zh: '最便宜開拓者', en: 'Cheapest settler — fastest expansion' } },
+      role: { zh: '最便宜拓荒者', en: 'Cheapest settler — fastest expansion' } },
   ],
 
   offTips: [

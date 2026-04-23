@@ -79,7 +79,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="Residence / Palace 防禦" en="Residence / Palace defense" /></h3>
       <p>
         <Bi
-          zh="Lv L 的居所 / 宮殿提供 2 × L² 的基礎防禦。滿等 Lv20 = 800 防（受牆 % 加成放大）。這是為什麼「守 cap 時升 res 到 20」很有價值。"
+          zh="Lv L 的行宮 / 皇宮提供 2 × L² 的基礎防禦。滿等 Lv20 = 800 防（受牆 % 加成放大）。這是為什麼「守 cap 時升 res 到 20」很有價值。"
           en="Residence / Palace at level L grants a flat 2 × L² base defense. Lv 20 = 800 def (scaled up by wall %). This is why pushing Residence to Lv 20 in a capital is worthwhile."
         />
       </p>
@@ -94,21 +94,21 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         />
       </p>
 
-      <h3><Bi zh="主府加速公式" en="Main Building speed-up" /></h3>
+      <h3><Bi zh="主建築加速公式" en="Main Building speed-up" /></h3>
       <pre>build_time(L) = base_time × 0.964 ^ (MB_level − 1)</pre>
       <p>
         <Bi
-          zh="主府每升一級，後續建築時間減少約 3.6%（複利）。Lv 10 ≈ 72% 時間；Lv 20 ≈ 50%（約加倍速度）。"
+          zh="主建築每升一級，後續建築時間減少約 3.6%（複利）。Lv 10 ≈ 72% 時間；Lv 20 ≈ 50%（約加倍速度）。"
           en="Each Main Building level shaves ~3.6% off build time (compounded). Lv 10 ≈ 72% of base, Lv 20 ≈ 50% (roughly 2× speed)."
         />
       </p>
 
       <h3><Bi zh="加成建築（每級 +5%，滿 Lv5 = +25%）" en="Bonus buildings (+5%/lv, max +25% at Lv5)" /></h3>
       <ul>
-        <li>Sawmill → Wood · <Bi zh="需 Woodcutter Lv10 + 主府 Lv5" en="needs Woodcutter Lv10 + MB Lv5" /></li>
-        <li>Brickyard → Clay · <Bi zh="需 Clay Pit Lv10 + 主府 Lv5" en="needs Clay Pit Lv10 + MB Lv5" /></li>
-        <li>Iron Foundry → Iron · <Bi zh="需 Iron Mine Lv10 + 主府 Lv5" en="needs Iron Mine Lv10 + MB Lv5" /></li>
-        <li>Grain Mill → Crop · <Bi zh="需 Cropland Lv5 + 主府 Lv5" en="needs Cropland Lv5 + MB Lv5" /></li>
+        <li>Sawmill → Wood · <Bi zh="需 Woodcutter Lv10 + 主建築 Lv5" en="needs Woodcutter Lv10 + MB Lv5" /></li>
+        <li>Brickyard → Clay · <Bi zh="需 Clay Pit Lv10 + 主建築 Lv5" en="needs Clay Pit Lv10 + MB Lv5" /></li>
+        <li>Iron Foundry → Iron · <Bi zh="需 Iron Mine Lv10 + 主建築 Lv5" en="needs Iron Mine Lv10 + MB Lv5" /></li>
+        <li>Grain Mill → Crop · <Bi zh="需 Cropland Lv5 + 主建築 Lv5" en="needs Cropland Lv5 + MB Lv5" /></li>
         <li>Bakery → Crop · <Bi zh="需 Cropland Lv10 + Grain Mill Lv5" en="needs Cropland Lv10 + Grain Mill Lv5" /></li>
       </ul>
       <p>
@@ -122,7 +122,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
       <p>
         <Bi
-          zh="鐵匠舖（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠舖達對應等級。每隻兵可以升 20 次，總加成最高約 +30%。"
+          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成最高約 +30%。"
           en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+30%."
         />
       </p>
@@ -193,7 +193,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       </ul>
       <p>
         <Bi
-          zh="佔領綠洲需要英雄莊園：Lv10 可佔 1 塊、Lv15 可佔 2 塊、Lv20 可佔 3 塊。綠洲必須在村莊 7×7 範圍內。"
+          zh="佔領綠洲需要英雄宅：Lv10 可佔 1 塊、Lv15 可佔 2 塊、Lv20 可佔 3 塊。綠洲必須在村莊 7×7 範圍內。"
           en="Capturing oases needs Hero's Mansion Lv10 (1 slot), Lv15 (2), Lv20 (3). Oasis must be within the village's 7×7 area."
         />
       </p>
@@ -251,7 +251,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="Table 3 — 綠洲 ROI（所有田 Lv 10）" en="Table 3 — Oasis ROI (all fields at Lv 10)" /></h3>
       <p style="font-size: var(--fs-sm); color: var(--text-2);">
         <Bi
-          zh="格式：HMx → y 代表「英雄莊園 Lv x、y 天回本」。括弧內是 Lumi 推薦「在田升到第幾 → 第幾級時捕綠洲最划算」（25/25 雙綠洲不含建議）。"
+          zh="格式：HMx → y 代表「英雄宅 Lv x、y 天回本」。括弧內是 Lumi 推薦「在田升到第幾 → 第幾級時捕綠洲最划算」（25/25 雙綠洲不含建議）。"
           en={`Format: "HMx → y" means "Hero's Mansion Lv x, y days to break even". Numbers in brackets = Lumi's recommended trigger point ("capture the oasis when your fields are at Lv X → Y"). 25/25 dual oases have no bracketed recommendation.`}
         />
       </p>
@@ -322,7 +322,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <pre>CP_at_level(L) = round(base × 1.2 ^ L)</pre>
       <p>
         <Bi
-          zh="每棟建築有一個基礎 CP 值（主府 = 2，市場 = 3，大使 / 學院 = 4，市政廳 / 宮殿 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
+          zh="每棟建築有一個基礎 CP 值（主建築 = 2，市場 = 3，大使 / 研究院 = 4，城鎮廳 / 皇宮 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
           en="Each building has a base CP (Main Building = 2, Marketplace = 3, Embassy / Academy = 4, Town Hall / Palace = 5, Treasury = 6, most others 1 or 2). Higher levels give exponentially more CP."
         />
       </p>
@@ -330,7 +330,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="Lumi 建議：每村 CP 配方" en="Lumi baseline: CP per village" /></h3>
       <p>
         <Bi
-          zh="主府 20 + 市場 20 + 大使 20 + 學院 20 + 市政廳 10 = 529 CP/天。這是每個村的「最低被動 CP」基線。"
+          zh="主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天。這是每個村的「最低被動 CP」基線。"
           en="Main Building 20 + Marketplace 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day. This is the minimum-passive-CP baseline every village should reach."
         />
       </p>
@@ -390,7 +390,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <Callout kind="warn" titleZh="防守忠誠度的工具" titleEn="Defending loyalty">
         <p>
           <Bi
-            zh="忠誠藥水（Tablet of Law，從冒險取得）：每用 1 個恢復 1% 忠誠。被精準連擊（.00 / .01 兩波）時，要在 .00 之前喝。可同時計時建造居所/宮殿，等它們在 wave 中間完工 → 立刻把忠誠度回滿。"
+            zh="忠誠藥水（Tablet of Law，從冒險取得）：每用 1 個恢復 1% 忠誠。被精準連擊（.00 / .01 兩波）時，要在 .00 之前喝。可同時計時建造行宮/皇宮，等它們在 wave 中間完工 → 立刻把忠誠度回滿。"
             en="Loyalty Tablets (from adventures) restore 1% loyalty per use. Against tightly-timed waves (e.g., .00 + .01), drink BEFORE .00. You can also time a Residence/Palace upgrade to finish in the gap between waves — completion instantly restores loyalty."
           />
         </p>
@@ -418,7 +418,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="冒險系統 (Adventures)" en="Adventures" /></h3>
       <p>
         <Bi
-          zh="英雄莊園（Hero's Mansion）會在地圖上 spawn 冒險點：所有點都離 HM 最近的村莊不超過 30 格。每完成一次冒險可拿經驗值、銀幣或物品。"
+          zh="英雄宅（Hero's Mansion）會在地圖上 spawn 冒險點：所有點都離 HM 最近的村莊不超過 30 格。每完成一次冒險可拿經驗值、銀幣或物品。"
           en="The Hero's Mansion spawns adventures on the map within 30 fields of the village holding it. Each completed adventure rewards XP, silver, or an item."
         />
       </p>
@@ -473,7 +473,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       />
       <p style="font-size: var(--fs-sm); color: var(--text-2);">
         <Bi
-          zh="拍賣場（需主府 Lv 5）讓你用銀幣競標他人賣出的裝備。後期 +50% 訓練頭盔 / +50% 攻擊武器 / +75% 速度靴會競到 100k+ 銀幣。"
+          zh="拍賣場（需主建築 Lv 5）讓你用銀幣競標他人賣出的裝備。後期 +50% 訓練頭盔 / +50% 攻擊武器 / +75% 速度靴會競到 100k+ 銀幣。"
           en="Auctions (requires Main Building Lv 5) let you bid silver on items posted by other players. Late-game +50% training helmets / +50% attack weapons / +75% boots routinely sell for 100k+ silver."
         />
       </p>

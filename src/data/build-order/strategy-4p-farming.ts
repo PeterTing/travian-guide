@@ -44,7 +44,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 44,
-    building: { zh: '密倉', en: 'Cranny' },
+    building: { zh: '秘密倉庫', en: 'Cranny' },
     targetLevel: 10,
     tier: 4,
     cost: 3430,
@@ -54,7 +54,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 45,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 1,
     tier: 1,
     cost: 1570,
@@ -64,7 +64,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 46,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 7,
     tier: 3,
     cost: 4290,
@@ -74,7 +74,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 47,
-    building: { zh: '密倉 x 7(全部升到 3)', en: '7x Crannies to 3' },
+    building: { zh: '秘密倉庫 x 7(全部升到 3)', en: '7x Crannies to 3' },
     targetLevel: 3,
     tier: null,
     cost: 3570,
@@ -101,7 +101,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 50,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 5,
     tier: null,
     cost: 3915,
@@ -167,7 +167,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 57,
-    building: { zh: '研發軍團兵（Research Legionnaire）', en: 'Research Legionnaire' },
+    building: { zh: '研發古羅馬步兵（Research Legionnaire）', en: 'Research Legionnaire' },
     targetLevel: null,
     tier: null,
     cost: null,
@@ -204,7 +204,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 61,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 12,
     tier: 4,
     cost: 9310,
@@ -218,7 +218,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 62,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 10,
     tier: 2,
     cost: 15250,
@@ -238,7 +238,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 64,
-    building: { zh: '市政廳', en: 'Town Hall' },
+    building: { zh: '城鎮廳', en: 'Town Hall' },
     targetLevel: 1,
     tier: 1,
     cost: 4220,
@@ -337,7 +337,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 74,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 12,
     tier: 4,
     cost: 16655,
@@ -357,7 +357,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 76,
-    building: { zh: '密倉 x 7(全部升到 7)', en: '7x Crannies to 7' },
+    building: { zh: '秘密倉庫 x 7(全部升到 7)', en: '7x Crannies to 7' },
     targetLevel: 7,
     tier: null,
     cost: 11445,
@@ -375,7 +375,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 78,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 3,
     tier: null,
     cost: 4585,
@@ -385,7 +385,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 79,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 7,
     tier: null,
     cost: 19810,
@@ -404,7 +404,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 81,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 10,
     tier: null,
     cost: 34635,
@@ -414,7 +414,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 82,
-    building: { zh: '訓練開拓者 x 1', en: 'Train 1 settler' },
+    building: { zh: '訓練拓荒者 x 1', en: 'Train 1 settler' },
     targetLevel: null,
     tier: null,
     cost: 18100,
@@ -431,7 +431,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 84,
-    building: { zh: '訓練開拓者 x 2', en: 'Train 2 settlers' },
+    building: { zh: '訓練拓荒者 x 2', en: 'Train 2 settlers' },
     targetLevel: null,
     tier: null,
     cost: 36200,
@@ -467,7 +467,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 88,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 14,
     tier: null,
     cost: 8380,
@@ -477,7 +477,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 89,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 11,
     tier: null,
     cost: 6020,
@@ -487,7 +487,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 90,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 15,
     tier: null,
     cost: 6025,
@@ -507,7 +507,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 92,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 14,
     tier: null,
     cost: 14995,
@@ -517,7 +517,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 93,
-    building: { zh: '集合點', en: 'Rally Point' },
+    building: { zh: '集結點', en: 'Rally Point' },
     targetLevel: 3,
     tier: null,
     cost: 1250,
@@ -537,7 +537,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 95,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 12,
     tier: null,
     cost: 7710,
@@ -545,13 +545,13 @@ const branchSteps: BuildStep[] = [
     popGain: 3,
     phase: 'post-settle',
     notes: {
-      zh: '重要提醒:派對在佇列中排隊時,升級市政廳並不會縮短該派對的時長。升級 CP(當派對已在佇列中時),新增的 CP 要等下一場派對開始才會生效。',
+      zh: '重要提醒:派對在佇列中排隊時,升級城鎮廳並不會縮短該派對的時長。升級 CP(當派對已在佇列中時),新增的 CP 要等下一場派對開始才會生效。',
       en: 'Important reminder: a party in queue will not be shortened in duration when upping TH. When upgrading CP (while having a party in queue) the increase will be given when next party starts.',
     },
   },
   {
     step: 96,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 16,
     tier: null,
     cost: 7710,
@@ -579,7 +579,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 99,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 18,
     tier: null,
     cost: 22495,
@@ -589,7 +589,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 100,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 13,
     tier: null,
     cost: 9865,
@@ -599,7 +599,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 101,
-    building: { zh: '密倉(所有村一起升到 10)', en: 'Cranny sims all to 10' },
+    building: { zh: '秘密倉庫(所有村一起升到 10)', en: 'Cranny sims all to 10' },
     targetLevel: 10,
     tier: null,
     cost: 28600,

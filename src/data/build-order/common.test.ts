@@ -13,7 +13,7 @@ describe('common build order (steps 1-40, shared by all 5 strategies)', () => {
   it('step 1 is Main Building to 1 (tier 1, free)', () => {
     const s = common[0];
     expect(s.building.en).toBe('Main Building');
-    expect(s.building.zh).toBe('主府');
+    expect(s.building.zh).toBe('主建築');
     expect(s.targetLevel).toBe(1);
     expect(s.tier).toBe(1);
     expect(s.cost).toBeNull(); // xlsx step 1 cost is empty

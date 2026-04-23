@@ -47,7 +47,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 44,
-    building: { zh: '密倉', en: 'Cranny' },
+    building: { zh: '秘密倉庫', en: 'Cranny' },
     targetLevel: 10,
     tier: 4,
     cost: 3430,
@@ -57,7 +57,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 45,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 7,
     tier: 3,
     cost: 4290,
@@ -67,7 +67,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 46,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 1,
     tier: 1,
     cost: 1570,
@@ -90,7 +90,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 48,
-    building: { zh: '密倉 x 8(全部升到 3)', en: '8x Crannies to 3' },
+    building: { zh: '秘密倉庫 x 8(全部升到 3)', en: '8x Crannies to 3' },
     targetLevel: 3,
     tier: null,
     cost: 4080,
@@ -107,7 +107,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 50,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 8,
     tier: null,
     cost: 1075,
@@ -172,7 +172,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 57,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 12,
     tier: 4,
     cost: 8235,
@@ -182,7 +182,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 58,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 10,
     tier: 2,
     cost: 19165,
@@ -202,7 +202,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 60,
-    building: { zh: '市政廳', en: 'Town Hall' },
+    building: { zh: '城鎮廳', en: 'Town Hall' },
     targetLevel: 1,
     tier: 1,
     cost: 4220,
@@ -212,7 +212,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 61,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 10,
     tier: null,
     cost: 7500,
@@ -242,7 +242,7 @@ const branchSteps: BuildStep[] = [
     cost: null,
     phase: 'pre-party-1',
     notes: {
-      zh: '這裡是最關鍵的判斷點,特別注意!\n如果你 farm 得很好,第 1 場派對在 48 小時內辦完,代表你每小時 CP 產量不夠,必須補回來。補的方法是把密倉升到 7。關鍵是要算出你差多少 CP、再決定要升多少密倉。記住:你還有至少 3 場派對和大約 60 小時的產出時間可以補 CP。另外:最少要 1 個密倉才能衝到 250 人口。',
+      zh: '這裡是最關鍵的判斷點,特別注意!\n如果你 farm 得很好,第 1 場派對在 48 小時內辦完,代表你每小時 CP 產量不夠,必須補回來。補的方法是把秘密倉庫升到 7。關鍵是要算出你差多少 CP、再決定要升多少秘密倉庫。記住:你還有至少 3 場派對和大約 60 小時的產出時間可以補 CP。另外:最少要 1 個秘密倉庫才能衝到 250 人口。',
       en: "So here comes the tricky part! I've designed the build-up to have one decisive moment and that's here. Pay attention!\nIf you have farmed well and you have done party 1 faster than 48h you've too less CP generated out of the regular production/ hour. This needs to be compensated and this is done by upgrading crannies to 7. It is critical to calculate how much CP you need and therewith know how much you lack. Determine how much CP you need to compensate and use the crannies to fix it. Remember you have at least 3 parties and about 60h of production to compensate the missed CP. Be aware; 1 is neccessary for getting 250 pop.",
     },
   },
@@ -258,7 +258,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 65,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 3,
     tier: null,
     cost: 4585,
@@ -286,7 +286,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 68,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 12,
     tier: 4,
     cost: 9155,
@@ -296,7 +296,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 69,
-    building: { zh: '密倉(依需求升到 7)', en: 'Crannies TBD to 7' },
+    building: { zh: '秘密倉庫(依需求升到 7)', en: 'Crannies TBD to 7' },
     targetLevel: 7,
     tier: null,
     cost: 1635,
@@ -326,7 +326,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 72,
-    building: { zh: '拆除 1 個密倉', en: 'Remove 1 Cranny' },
+    building: { zh: '拆除 1 個秘密倉庫', en: 'Remove 1 Cranny' },
     targetLevel: 0,
     tier: null,
     cost: null,
@@ -345,7 +345,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 74,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 7,
     tier: null,
     cost: 19510,
@@ -355,7 +355,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 75,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 8,
     tier: null,
     cost: 8840,
@@ -382,7 +382,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 78,
-    building: { zh: '居所', en: 'Residence' },
+    building: { zh: '行宮', en: 'Residence' },
     targetLevel: 10,
     tier: null,
     cost: 25795,
@@ -392,7 +392,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 79,
-    building: { zh: '訓練開拓者 x 1', en: 'Train 1 settler' },
+    building: { zh: '訓練拓荒者 x 1', en: 'Train 1 settler' },
     targetLevel: null,
     tier: null,
     cost: 20000,
@@ -409,7 +409,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 81,
-    building: { zh: '訓練開拓者 x 2', en: 'Train 2 settlers' },
+    building: { zh: '訓練拓荒者 x 2', en: 'Train 2 settlers' },
     targetLevel: null,
     tier: null,
     cost: 40000,
@@ -445,7 +445,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 85,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 14,
     tier: null,
     cost: 8380,
@@ -455,7 +455,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 86,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 11,
     tier: null,
     cost: 6020,
@@ -465,7 +465,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 87,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 15,
     tier: null,
     cost: 6025,
@@ -485,7 +485,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 89,
-    building: { zh: '市集', en: 'Marketplace' },
+    building: { zh: '市場', en: 'Marketplace' },
     targetLevel: 14,
     tier: null,
     cost: 14995,
@@ -495,7 +495,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 90,
-    building: { zh: '集合點', en: 'Rally Point' },
+    building: { zh: '集結點', en: 'Rally Point' },
     targetLevel: 3,
     tier: null,
     cost: 1250,
@@ -515,7 +515,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 92,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 12,
     tier: null,
     cost: 7710,
@@ -523,13 +523,13 @@ const branchSteps: BuildStep[] = [
     popGain: 3,
     phase: 'post-settle',
     notes: {
-      zh: '重要提醒:派對在佇列中排隊時,升級市政廳並不會縮短該派對的時長。升級 CP(當派對已在佇列中時),新增的 CP 要等下一場派對開始才會生效。',
+      zh: '重要提醒:派對在佇列中排隊時,升級城鎮廳並不會縮短該派對的時長。升級 CP(當派對已在佇列中時),新增的 CP 要等下一場派對開始才會生效。',
       en: 'Important reminder: a party in queue will not be shortened in duration when upping TH. When upgrading CP (while having a party in queue) the increase will be given when next party starts.',
     },
   },
   {
     step: 93,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 16,
     tier: null,
     cost: 7710,
@@ -557,7 +557,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 96,
-    building: { zh: '主府', en: 'Main Building' },
+    building: { zh: '主建築', en: 'Main Building' },
     targetLevel: 18,
     tier: null,
     cost: 22495,
@@ -567,7 +567,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 97,
-    building: { zh: '學院', en: 'Academy' },
+    building: { zh: '研究院', en: 'Academy' },
     targetLevel: 13,
     tier: null,
     cost: 9865,
@@ -577,7 +577,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 98,
-    building: { zh: '密倉(所有村一起升到 10)', en: 'Cranny sims all to 10' },
+    building: { zh: '秘密倉庫(所有村一起升到 10)', en: 'Cranny sims all to 10' },
     targetLevel: 10,
     tier: null,
     cost: 28600,

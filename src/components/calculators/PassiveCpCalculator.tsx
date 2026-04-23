@@ -58,7 +58,7 @@ export default function PassiveCpCalculator() {
         <h2>{lang === 'en' ? 'Passive CP Calculator' : '被動 CP 計算器'}</h2>
         <p>{lang === 'en'
           ? 'CP per day from a single village. Lumi recommends MB 20 + Market 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day per village (validated exact). The 2,000-CP baseline includes a small constant +2 for an empty village.'
-          : '單村每天能產多少被動 CP。Lumi 建議：主府 20 + 市場 20 + 大使 20 + 學院 20 + 市政廳 10 = 529 CP/天（已對照精確）。基線含 +2（空村產量）。'}</p>
+          : '單村每天能產多少被動 CP。Lumi 建議：主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天（已對照精確）。基線含 +2（空村產量）。'}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -130,7 +130,7 @@ export default function PassiveCpCalculator() {
           <div className={s.note}>
             {lang === 'en'
               ? 'CP is account-global — sum across all your villages for the true total. Great Celebration costs 5× a small one but gives +2,000 CP/cycle (60 hr at TH Lv 10).'
-              : 'CP 是帳號全域 ─ 多村加總才準。大慶典成本是小慶典的 5 倍但給 +2,000 CP/週期（市政廳 Lv 10 為 60 小時）。'}
+              : 'CP 是帳號全域 ─ 多村加總才準。大慶典成本是小慶典的 5 倍但給 +2,000 CP/週期（城鎮廳 Lv 10 為 60 小時）。'}
           </div>
         </div>
       </div>

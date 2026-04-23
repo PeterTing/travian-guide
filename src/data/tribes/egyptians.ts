@@ -89,7 +89,7 @@ export const egyptians: Tribe = {
       cost: { wood: 34000, clay: 50000, iron: 34000, crop: 42000 }, trainTime: 90700,
       role: { zh: '降忠誠 / 征服', en: 'Reduces loyalty, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 4, carry: 3000, upkeep: 1,
       cost: { wood: 4560, clay: 5890, iron: 4370, crop: 4180 }, trainTime: 24800,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

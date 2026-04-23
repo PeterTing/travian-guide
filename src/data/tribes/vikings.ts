@@ -95,7 +95,7 @@ export const vikings: Tribe = {
       cost: { wood: 35500, clay: 26600, iron: 25000, crop: 27200 }, trainTime: 70500,
       role: { zh: '降忠誠 15–30% / 征服', en: 'Reduces loyalty 15–30%, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '開拓者', en: 'Settler' },
+      name: { zh: '拓荒者', en: 'Settler' },
       attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 5800, clay: 4600, iron: 4800, crop: 4800 }, trainTime: 31000,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

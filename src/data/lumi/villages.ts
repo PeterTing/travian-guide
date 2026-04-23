@@ -27,7 +27,7 @@ export const villages: LumiSection = {
           en: 'A village has only 20 building slots. Higher crop levels need matching storage: crop Lv 17 needs 5 warehouses + 1 granary (6 slots); crop 18 needs 7 wh + 2 gr (9 slots); crop 19 needs 12 wh + 3 gr (15 slots). Without early planning you\'ll stall at Lv 16.',
         }},
         { type: 'paragraph', text: {
-          zh: '首都必備建築（佔 6 槽）：主府 + Mill + Bakery + Market + Trade Office + (Stone Mason)。剩下的槽位主要給倉庫、糧倉、CP 建築。其他建築之後可以拆掉換成倉儲。',
+          zh: '首都必備建築（佔 6 槽）：主建築 + Mill + Bakery + Market + Trade Office + (Stone Mason)。剩下的槽位主要給倉庫、糧倉、CP 建築。其他建築之後可以拆掉換成倉儲。',
           en: 'Mandatory capital buildings (6 slots): Main Building + Mill + Bakery + Market + Trade Office + (Stone Mason). Remaining slots go mostly to warehouses, granaries, and CP buildings. Anything else can be demolished later to make room for storage.',
         }},
         { type: 'callout', variant: 'warn', title: { zh: '不要在首都養兵', en: "Don't train troops in the capital" }, text: {
@@ -41,7 +41,7 @@ export const villages: LumiSection = {
       title: { zh: '錘子 (Hammer / OFF Village)', en: 'Hammer (OFF village)' },
       blocks: [
         { type: 'paragraph', text: {
-          zh: '錘子是你的進攻主力 — 訓練 OFF 兵 + 攻城 + 3 chiefs。需要的建築：兵營、馬廄、工坊、醫院、TS、市政廳、市場 + 商路、宮殿（為了 3 chiefs）、5–6 個倉儲。',
+          zh: '錘子是你的進攻主力 — 訓練 OFF 兵 + 攻城 + 3 chiefs。需要的建築：兵營、馬廄、工廠、醫院、TS、城鎮廳、市場 + 商路、皇宮（為了 3 chiefs）、5–6 個倉儲。',
           en: 'Your offensive main force — produces OFF troops + siege + 3 chiefs. Buildings: barracks, stable, workshop, hospital, TS, town hall, market + trade office, palace (for the 3-chief slot), 5–6 storage.',
         }},
         { type: 'list', items: [
@@ -65,7 +65,7 @@ export const villages: LumiSection = {
         }},
         { type: 'list', items: [
           { zh: '所有 def 都先存在鐵砧本身，方便傳送（不用每次調 trade route）', en: 'Keep def stored in the anvil itself, not the cap, so you don\'t reshuffle trade routes for every call-out' },
-          { zh: '需要建築：兵營、馬廄、醫院、TS、市政廳、市場 + 商路、3-5 倉儲', en: 'Buildings: barracks, stable, hospital, TS, town hall, market + trade office, 3-5 storage' },
+          { zh: '需要建築：兵營、馬廄、醫院、TS、城鎮廳、市場 + 商路、3-5 倉儲', en: 'Buildings: barracks, stable, hospital, TS, town hall, market + trade office, 3-5 storage' },
           { zh: '若有空，可以加 1k catas + 3 chiefs 跟 OP — 但別早期就分心', en: 'Once stable, can also add 1k catas + 3 chiefs to join OPs — but don\'t spread thin too early' },
         ]},
       ],
@@ -79,13 +79,13 @@ export const villages: LumiSection = {
           en: 'Feeders are the backbone of your account: 8–15k resources/hr shipped back to your main cluster. Enemies usually don\'t waste resources hitting feeders. Once finished, all you do is click parties daily — trade routes do the rest.',
         }},
         { type: 'paragraph', text: {
-          zh: 'Feeder 標準的 13 個基本建築（佔大部分槽位）：主府、市場、學院、大使館、市政廳、Mill、Bakery、Sawmill、Brickyard、Iron Foundry、Trade Office、倉庫、糧倉。這 13 個是 CP + 產量雙重最佳化。',
+          zh: 'Feeder 標準的 13 個基本建築（佔大部分槽位）：主建築、市場、研究院、大使館、城鎮廳、Mill、Bakery、Sawmill、Brickyard、Iron Foundry、Trade Office、倉庫、糧倉。這 13 個是 CP + 產量雙重最佳化。',
           en: 'A standard feeder uses these 13 core buildings (filling most slots): Main Building, Marketplace, Academy, Embassy, Town Hall, Mill, Bakery, Sawmill, Brickyard, Iron Foundry, Trade Office, Warehouse, Granary. These 13 maximize both CP and production efficiency.',
         }},
         { type: 'list', items: [
           { zh: '不要把馬廄 / 兵營 / 醫院升到 Lv 20 — feeder 不訓兵，是浪費槽位', en: "Don't level barracks / stable / hospital to Lv 20 — feeders don't train troops, it's wasted slots" },
           { zh: '若要拼被動 CP，Hospital Lv 20 反而比 Barracks Lv 20 划算（CP base 1）', en: 'If chasing passive CP, Hospital Lv 20 beats Barracks Lv 20 (same base 1 but Hospital not used)' },
-          { zh: '佔到綠洲後拆英雄莊園（HM 留著會在那裡 spawn 冒險，浪費英雄走路時間）', en: 'After capturing oasis, demolish Hero\'s Mansion (else adventures spawn there and waste hero travel time)' },
+          { zh: '佔到綠洲後拆英雄宅（HM 留著會在那裡 spawn 冒險，浪費英雄走路時間）', en: 'After capturing oasis, demolish Hero\'s Mansion (else adventures spawn there and waste hero travel time)' },
           { zh: '剩餘槽位：多蓋倉庫，可以暫時關掉商路存資源辦 push / 大慶典 / 醫療單', en: 'Remaining slots: more warehouses — lets you toggle off trade routes to stockpile for pushes / great celebrations / hospital bills' },
         ]},
         { type: 'callout', variant: 'tip', title: { zh: '商路距離經驗值', en: 'Trade-route rule of thumb' }, text: {
@@ -103,7 +103,7 @@ export const villages: LumiSection = {
           en: 'NPC villages are nearly all warehouses + granaries, used to store resources and NPC-trade them. Early game: NPC crop→resources (for pushes); late game: feeder resources → crop (to feed the army).',
         }},
         { type: 'paragraph', text: {
-          zh: '位置必須緊鄰 cap 跟錘子村。建築：主府、市場、商路、市政廳，剩下全是倉庫 + 糧倉（1 倉庫 : 3 糧倉的比例）。',
+          zh: '位置必須緊鄰 cap 跟錘子村。建築：主建築、市場、商路、城鎮廳，剩下全是倉庫 + 糧倉（1 倉庫 : 3 糧倉的比例）。',
           en: 'Must sit adjacent to cap and hammer. Buildings: MB, market, TO, TH, then everything else is warehouse + granary (~1:3 ratio).',
         }},
       ],
