@@ -49,6 +49,15 @@
   text-align: right;
 }
 
+.tierCell {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  white-space: nowrap;
+  width: 36px;
+}
+
 .unitName { font-weight: 600; color: var(--text-0); margin-bottom: 2px; }
 .unitRole { color: var(--text-2); font-size: var(--fs-xs); }
 

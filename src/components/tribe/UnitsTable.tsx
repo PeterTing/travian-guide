@@ -3,7 +3,7 @@ import type { Tribe, UnitCategory } from '../../data/tribes-types';
 import { useLang } from '../../i18n/LangContext';
 import styles from './UnitsTable.module.css';
 
-type SortKey = 'name' | 'attack' | 'defInfantry' | 'defCavalry' | 'speed' | 'carry' | 'upkeep' | 'trainTime' | 'totalCost';
+type SortKey = 'tier' | 'name' | 'attack' | 'defInfantry' | 'defCavalry' | 'speed' | 'carry' | 'upkeep' | 'trainTime' | 'totalCost';
 type Dir = 'asc' | 'desc';
 
 const CAT_ORDER: UnitCategory[] = ['infantry', 'cavalry', 'scout', 'siege', 'chief', 'settler'];
@@ -21,11 +21,13 @@ interface Props { tribe: Tribe }
 
 export default function UnitsTable({ tribe }: Props) {
   const { lang, t } = useLang();
-  const [sortKey, setSortKey] = useState<SortKey>('attack');
-  const [dir, setDir] = useState<Dir>('desc');
+  // Default sort: T1 → T10 (natural array order from data files).
+  const [sortKey, setSortKey] = useState<SortKey>('tier');
+  const [dir, setDir] = useState<Dir>('asc');
 
-  const rows = useMemo(() => tribe.units.map(u => ({
+  const rows = useMemo(() => tribe.units.map((u, idx) => ({
     ...u,
+    tier: idx,           // 0-indexed tier (matches T1..T10 ordering)
     totalCost: u.cost.wood + u.cost.clay + u.cost.iron + u.cost.crop,
   })), [tribe]);
 
@@ -76,6 +78,7 @@ export default function UnitsTable({ tribe }: Props) {
       <table className={styles.table}>
         <thead>
           <tr>
+            {h('tier', '#', '#')}
             {h('name', '單位', 'Unit')}
             <th className={styles.thPlain}>{lang === 'en' ? 'Cat.' : '類別'}</th>
             {h('attack', '攻擊', 'Atk')}
@@ -93,6 +96,7 @@ export default function UnitsTable({ tribe }: Props) {
             const catColor = `cat-${u.category}`;
             return (
               <tr key={u.id}>
+                <td className={styles.tierCell}>T{u.tier + 1}</td>
                 <td>
                   <div className={styles.unitName}>{t(u.name)}</div>
                   <div className={styles.unitRole}>{t(u.role)}</div>
