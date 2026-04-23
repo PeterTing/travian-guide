@@ -28,6 +28,28 @@ export const concepts: LumiSection = {
       ],
     },
     {
+      id: 'build-order',
+      title: { zh: '一般村建築順序（非首都）', en: 'Non-capital build order (Lumi)' },
+      blocks: [
+        { type: 'paragraph', text: {
+          zh: 'Lumi 公式化的非首都資源田升級順序，背後就是 ROI 排序。記住一個關鍵：加成建築（Sawmill / Brickyard / Iron Foundry）需要該類型田 Lv 10，所以順序很重要。',
+          en: "Lumi's formulaic non-capital field-upgrade sequence — under the hood it's pure ROI ordering. Key constraint: bonus buildings (Sawmill / Brickyard / Iron Foundry) need their resource field at Lv 10, so order matters.",
+        }},
+        { type: 'callout', variant: 'info', title: { zh: '木 / 土 / 鐵的標準順序', en: 'Wood / Clay / Iron standard sequence' }, text: {
+          zh: '全部到 Lv 7 → 一個到 Lv 10 → 加成建築 Lv 3 → 1 個到 Lv 9 → 加成建築 Lv 4 → 全部到 Lv 10 → 加成建築 Lv 5。等於是「把投資攤開到對的時間點」。',
+          en: 'All to Lv 7 → one to Lv 10 → bonus building Lv 3 → another to Lv 9 → bonus building Lv 4 → all to Lv 10 → bonus building Lv 5. Each step interleaves field upgrades with bonus-building upgrades exactly when its prerequisites are met.',
+        }},
+        { type: 'callout', variant: 'info', title: { zh: '糧食的標準順序（更複雜）', en: 'Crop sequence (more nuanced)' }, text: {
+          zh: '4 個糧 to Lv 6 → Mill Lv 1 → 全部 to Lv 7 → Mill Lv 2 → 全部 to Lv 8 → Mill Lv 3 → 全部 to Lv 9 + 1 個 to Lv 10 → Mill Lv 5 → Bakery Lv 2 → 再 2 個 to Lv 10 → Bakery Lv 3 → 全部 to Lv 10 → Bakery Lv 5。糧的雙加成建築（Mill + Bakery）讓最終加成可達 +50%，所以糧 ROI 比看起來短。',
+          en: 'First 4 crops to Lv 6 → Mill Lv 1 → all to Lv 7 → Mill Lv 2 → all to Lv 8 → Mill Lv 3 → all to Lv 9 + 1 to Lv 10 → Mill Lv 5 → Bakery Lv 2 → 2 more to Lv 10 → Bakery Lv 3 → all to Lv 10 → Bakery Lv 5. Crop\'s dual bonus-buildings (Mill + Bakery) stack to +50%, making real crop ROI shorter than the headline.',
+        }},
+        { type: 'paragraph', text: {
+          zh: '首都是另一回事 — 由於可以升到 Lv 11–20 + slot 限制，順序更複雜。Lumi 推薦用 Tardis 的 Cropcalc T44 工具計算最佳化首都順序，或用本站的「首都建築順序」計算器（greedy ROI 法）。',
+          en: 'Capitals are different — Lv 11–20 unlocked plus slot constraints make ordering more complex. Lumi recommends Tardis\' Cropcalc T44 tool for the optimal capital sequence, or use this site\'s "Capital Build Order" calculator (greedy ROI approach).',
+        }},
+      ],
+    },
+    {
       id: 'cp',
       title: { zh: 'CP（文化點）優化', en: 'CP (Culture Point) optimization' },
       blocks: [

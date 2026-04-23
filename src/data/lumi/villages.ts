@@ -22,6 +22,14 @@ export const villages: LumiSection = {
           { zh: '佈局選擇：15c (1-1-1-15) 是糧食巨獸首選；9c (3-3-3-9) 較自給自足', en: 'Layout: 15c (1-1-1-15) for the crop monster; 9c (3-3-3-9) for self-sustaining capital' },
           { zh: '建築槽位是稀缺資源 — Lv 18 田需要 9 個倉儲槽（7 倉庫 + 2 糧倉），Lv 19 需要 15 個', en: 'Building slots are precious — Lv 18 fields need 9 storage slots (7 warehouses + 2 granaries); Lv 19 needs 15' },
         ]},
+        { type: 'callout', variant: 'warn', title: { zh: '槽位陷阱：crop 17/18/19 倉儲需求', en: 'Slot trap: crop 17/18/19 storage requirements' }, text: {
+          zh: '村莊只有 20 個建築槽。要把糧田升到高等級，必須先有對應的倉儲：crop 17 需 5 倉庫 + 1 糧倉（6 槽）；crop 18 需 7 倉庫 + 2 糧倉（9 槽）；crop 19 需 12 倉庫 + 3 糧倉（15 槽）。沒提早規劃就會卡在 Lv 16 上不去。',
+          en: 'A village has only 20 building slots. Higher crop levels need matching storage: crop Lv 17 needs 5 warehouses + 1 granary (6 slots); crop 18 needs 7 wh + 2 gr (9 slots); crop 19 needs 12 wh + 3 gr (15 slots). Without early planning you\'ll stall at Lv 16.',
+        }},
+        { type: 'paragraph', text: {
+          zh: '首都必備建築（佔 6 槽）：主府 + Mill + Bakery + Market + Trade Office + (Stone Mason)。剩下的槽位主要給倉庫、糧倉、CP 建築。其他建築之後可以拆掉換成倉儲。',
+          en: 'Mandatory capital buildings (6 slots): Main Building + Mill + Bakery + Market + Trade Office + (Stone Mason). Remaining slots go mostly to warehouses, granaries, and CP buildings. Anything else can be demolished later to make room for storage.',
+        }},
         { type: 'callout', variant: 'warn', title: { zh: '不要在首都養兵', en: "Don't train troops in the capital" }, text: {
           zh: '兵營 / 馬廄會吃掉 cap 必需的 storage 槽。如果你沒提早規劃，就會卡在 Lv 16 田升不上去。錘子村放在第 3、5 村（從 cap 開出去的村）。',
           en: 'Barracks / Stables eat the storage slots the cap desperately needs. Without early planning you\'ll be stuck at Lv 16 fields. Put hammer in village 3 or 5 (settled from the cap).',
@@ -67,11 +75,20 @@ export const villages: LumiSection = {
           zh: 'Feeder 是帳號的支柱：產 8–15k 資源/小時送回主 cluster。Feeder 不會被打（敵人通常不會浪費資源在 feeder 上）。蓋好 feeder 你只需要每天點開派對 + 商路自動跑。',
           en: 'Feeders are the backbone of your account: 8–15k resources/hr shipped back to your main cluster. Enemies usually don\'t waste resources hitting feeders. Once finished, all you do is click parties daily — trade routes do the rest.',
         }},
+        { type: 'paragraph', text: {
+          zh: 'Feeder 標準的 13 個基本建築（佔大部分槽位）：主府、市場、學院、大使館、市政廳、Mill、Bakery、Sawmill、Brickyard、Iron Foundry、Trade Office、倉庫、糧倉。這 13 個是 CP + 產量雙重最佳化。',
+          en: 'A standard feeder uses these 13 core buildings (filling most slots): Main Building, Marketplace, Academy, Embassy, Town Hall, Mill, Bakery, Sawmill, Brickyard, Iron Foundry, Trade Office, Warehouse, Granary. These 13 maximize both CP and production efficiency.',
+        }},
         { type: 'list', items: [
-          { zh: '只蓋會給 CP + 產量的建築：主府、市場 + 商路、大使、學院、市政廳、mill / bakery / sawmill / brickyard / iron foundry、倉庫', en: 'Build only CP + production buildings: MB, market + TO, embassy, academy, TH, mill / bakery / sawmill / brickyard / iron foundry, warehouses' },
-          { zh: '不要把馬廄 / 兵營 / 醫院升到 Lv 20 — 沒用', en: "Don't level barracks / stable / hospital to Lv 20 — useless here" },
+          { zh: '不要把馬廄 / 兵營 / 醫院升到 Lv 20 — feeder 不訓兵，是浪費槽位', en: "Don't level barracks / stable / hospital to Lv 20 — feeders don't train troops, it's wasted slots" },
+          { zh: '若要拼被動 CP，Hospital Lv 20 反而比 Barracks Lv 20 划算（CP base 1）', en: 'If chasing passive CP, Hospital Lv 20 beats Barracks Lv 20 (same base 1 but Hospital not used)' },
           { zh: '佔到綠洲後拆英雄莊園（HM 留著會在那裡 spawn 冒險，浪費英雄走路時間）', en: 'After capturing oasis, demolish Hero\'s Mansion (else adventures spawn there and waste hero travel time)' },
+          { zh: '剩餘槽位：多蓋倉庫，可以暫時關掉商路存資源辦 push / 大慶典 / 醫療單', en: 'Remaining slots: more warehouses — lets you toggle off trade routes to stockpile for pushes / great celebrations / hospital bills' },
         ]},
+        { type: 'callout', variant: 'tip', title: { zh: '商路距離經驗值', en: 'Trade-route rule of thumb' }, text: {
+          zh: '60 格內：1–2 個商人就能維持。實際公式：往返時間 × 每小時送量 ÷ 商人容量。用「商路 / 糧商」計算器算精確值。',
+          en: 'Within 60 fields: 1–2 merchants are enough. Exact formula: round-trip × hourly surplus ÷ merchant capacity. Use the Trade Route calculator for the precise number.',
+        }},
       ],
     },
     {
