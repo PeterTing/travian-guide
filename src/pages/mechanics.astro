@@ -200,11 +200,121 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <Callout kind="tip" titleZh="實戰建議" titleEn="Practical advice">
         <p>
           <Bi
-            zh="先用「綠洲 ROI 計算器」算出回本天數。15c 首都 + 50% crop 綠洲 + HM Lv10 = 1.8 天回本；若是單一 25% 綠洲就要 3–5 天，得評估值不值。"
-            en="Use the Oasis ROI calculator first. A 15c cap + 50% crop oasis + HM Lv10 ≈ 1.8 days payback. A single 25% oasis takes 3–5 days — weigh against other upgrades."
+            zh={`先用「綠洲 ROI 計算器」算出回本天數。15c 首都 + 50% crop 綠洲 + HM Lv10 = 1.8 天回本；若是單一 25% 綠洲就要 3–5 天，得評估值不值。詳見下方 #roi-tables 的 Lumi 官方 ROI 表。`}
+            en={`Use the Oasis ROI calculator first. A 15c cap + 50% crop oasis + HM Lv10 ≈ 1.8 days payback. A single 25% oasis takes 3–5 days — weigh against other upgrades. See Lumi's official ROI tables below in #roi-tables.`}
           />
         </p>
       </Callout>
+    </Section>
+
+    <Section id="roi-tables" titleZh="Lumi ROI 參考表（Table 2 / 3）" titleEn="Lumi ROI reference tables (Table 2 / 3)" eyebrow="ROI">
+      <p>
+        <Bi
+          zh="以下兩張表直接搬自 Lumi Travian Guide §5.3。用來快速判斷：(1) 單格資源田升級多久回本、(2) 佔綠洲值不值。所有數值已包含加成建築 + 25% 金幣產量加成，對照 Lumi 推薦的建築順序計算。"
+          en="Both tables below are reproduced from the Lumi Travian Guide §5.3. Use them to quickly judge: (1) how many days a single field-level upgrade takes to break even, and (2) whether capturing a given oasis is worth it. All values already include bonus-building bonuses and 25% gold production bonus, assuming Lumi's recommended build order."
+        />
+      </p>
+
+      <h3><Bi zh="Table 2 — 資源田每級 ROI（天）" en="Table 2 — Field ROI by level (days)" /></h3>
+      <DataTable
+        caption={{
+          zh: 'Lv 1 → 10；包含加成建築 +25% 產量加成（按 Lumi 順序）+ 25% 金幣加成。主要用來比較「首都糧田 vs spawn village 資源田」何時優先升。',
+          en: 'Lv 1 → 10; includes +25% bonus-building production (per Lumi build order) + 25% gold production bonus. Mainly useful when comparing spawn-village field upgrades against cap-village fields.',
+        }}
+        headers={[
+          { zh: '等級', en: 'Level' },
+          { zh: '糧 Crop', en: 'Crop' },
+          { zh: '土 Clay', en: 'Clay' },
+          { zh: '木 Wood', en: 'Wood' },
+          { zh: '鐵 Iron', en: 'Iron' },
+        ]}
+        rows={[
+          ['Lv 1', '1.19', '1.19', '1.19', '1.29'],
+          ['Lv 2', '2.31', '2.33', '2.31', '2.50'],
+          ['Lv 3', '2.90', '2.92', '2.90', '3.15'],
+          ['Lv 4', '3.88', '3.90', '3.88', '4.20'],
+          ['Lv 5', '4.32', '4.31', '4.32', '4.67'],
+          ['Lv 6', '4.51', '4.51', '4.51', '4.88'],
+          ['Lv 7', '6.21', '6.46', '6.46', '6.97'],
+          ['Lv 8', '6.65', '7.19', '7.19', '7.77'],
+          ['Lv 9', '7.15', '7.15', '7.15', '7.72'],
+          ['Lv 10', '8.54', '9.42', '9.42', '10.18'],
+        ]}
+      />
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="觀察重點：Lv 1–6 幾乎都在 5 天內回本（極便宜），到 Lv 7 起 ROI 跳一截（需要加成建築才補得回）。Iron 因為單價略高於木/土，全程 ROI 最久。"
+          en="Takeaway: Lv 1–6 all pay back within ~5 days (dirt cheap), but from Lv 7 onward ROI jumps a tier (bonus buildings are needed to catch up). Iron has the longest ROI end-to-end because of its slightly higher cost."
+        />
+      </p>
+
+      <h3><Bi zh="Table 3 — 綠洲 ROI（所有田 Lv 10）" en="Table 3 — Oasis ROI (all fields at Lv 10)" /></h3>
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="格式：HMx → y 代表「英雄莊園 Lv x、y 天回本」。括弧內是 Lumi 推薦「在田升到第幾 → 第幾級時捕綠洲最划算」（25/25 雙綠洲不含建議）。"
+          en={`Format: "HMx → y" means "Hero's Mansion Lv x, y days to break even". Numbers in brackets = Lumi's recommended trigger point ("capture the oasis when your fields are at Lv X → Y"). 25/25 dual oases have no bracketed recommendation.`}
+        />
+      </p>
+      <div class="table-wrap oasis-roi-wrap">
+        <table class="oasis-roi">
+          <thead>
+            <tr>
+              <th><span class="bi"><span data-lang="zh">首都配置</span><span data-lang="en">Crop layout</span></span></th>
+              <th><span class="bi"><span data-lang="zh">50% 糧綠洲</span><span data-lang="en">50% crop oasis</span></span></th>
+              <th><span class="bi"><span data-lang="zh">25% / 25% 雙綠洲</span><span data-lang="en">25% / 25% dual oasis</span></span></th>
+              <th><span class="bi"><span data-lang="zh">25% 糧綠洲</span><span data-lang="en">25% crop oasis</span></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="layout">15c</td>
+              <td><div class="hm">HM10 → 1.83 <span class="hint">(11→7)</span></div><div class="hm">HM15 → 6.08</div><div class="hm">HM20 → 25.32</div></td>
+              <td><div class="hm">HM10 → 3.40</div><div class="hm">HM15 → 11.41</div><div class="hm">HM20 → 47.47</div></td>
+              <td><div class="hm">HM10 → 3.63 <span class="hint">(8→9)</span></div><div class="hm">HM15 → 12.16</div><div class="hm">HM20 → 50.62</div></td>
+            </tr>
+            <tr>
+              <td class="layout">9c</td>
+              <td><div class="hm">HM10 → 3.01 <span class="hint">(all 8)</span></div><div class="hm">HM15 → 10.14</div><div class="hm">HM20 → 42.20</div></td>
+              <td><div class="hm">HM10 → 4.53</div><div class="hm">HM15 → 15.21</div><div class="hm">HM20 → 63.30</div></td>
+              <td><div class="hm">HM10 → 6.00 <span class="hint">(2→10)</span></div><div class="hm">HM15 → 20.27</div><div class="hm">HM20 → 84.34</div></td>
+            </tr>
+            <tr>
+              <td class="layout">7c</td>
+              <td><div class="hm">HM10 → 3.89 <span class="hint">(2→9)</span></div><div class="hm">HM15 → 13.04</div><div class="hm">HM20 → 54.25</div></td>
+              <td><div class="hm">HM10 → 4.91</div><div class="hm">HM15 → 16.58</div><div class="hm">HM20 → 69.01</div></td>
+              <td><div class="hm">HM10 → 7.77</div><div class="hm">HM15 → 26.05</div><div class="hm">HM20 → 108.42</div></td>
+            </tr>
+            <tr>
+              <td class="layout">6c</td>
+              <td><div class="hm">HM10 → 4.53 <span class="hint">(5→9)</span></div><div class="hm">HM15 → 15.21</div><div class="hm">HM20 → 63.30</div></td>
+              <td><div class="hm">HM10 → 5.44</div><div class="hm">HM15 → 18.25</div><div class="hm">HM20 → 95.96</div></td>
+              <td><div class="hm">HM10 → 9.01</div><div class="hm">HM15 → 30.42</div><div class="hm">HM20 → 126.59</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <Callout kind="tip" titleZh="怎麼讀 Table 3" titleEn="How to read Table 3">
+        <p>
+          <Bi
+            zh="HM10 = Hero's Mansion Lv 10 只能佔 1 塊綠洲 —— 這格是你搶首塊綠洲時看的。15c + 50% 糧綠洲 + HM10 = 1.83 天回本（最香）。到了 HM20（可佔 3 塊），後兩塊邊際報酬遞減（+25% 加法疊加稀釋），所以 HM20 那一排的數字才會那麼大。"
+            en="HM10 = Hero's Mansion Lv 10 can hold only 1 oasis — use this row when judging your first capture. A 15c + 50% crop oasis + HM10 = 1.83 days payback (the S-tier pick). By HM20 (3 slots), marginal returns shrink because +25% bonuses add linearly and dilute — that's why the HM20 row looks so big."
+          />
+        </p>
+      </Callout>
+      <Callout kind="warn" titleZh="觸發時機的判讀" titleEn="Reading the trigger hints">
+        <p>
+          <Bi
+            zh={`括弧中的 "11→7" 等符號代表 Lumi 建議的捕綠洲時機：當你「第 11 塊田升到 Lv 7」時抓這塊綠洲最划算。"all 8" = 全部 8 塊都到指定等級，"2→10" = 第 2 塊到 Lv 10。所以 ROI 不只看表面天數，要搭配觸發時機才是 Lumi 的完整讀法。`}
+            en={`Brackets like "11→7" are Lumi's capture timing: grab this oasis when "your 11th field hits Lv 7". "all 8" = all 8 fields at the stated level; "2→10" = second field up to Lv 10. ROI isn't just about days — match it with the trigger point for Lumi's complete reading.`}
+          />
+        </p>
+      </Callout>
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="來源：Lumi Travian Guide §5.3（PDF p. 11–12）。Lumi 原文：「ROI for Oasis - all fields at 10 | comment in bracket → recommendation when to get the oasis (25/25 not included)」。"
+          en={`Source: Lumi Travian Guide §5.3 (PDF p. 11–12). Original caption: "ROI for Oasis - all fields at 10 | comment in bracket → recommendation when to get the oasis (25/25 not included)".`}
+        />
+      </p>
     </Section>
 
     <Section id="cp" titleZh="文化點與開村" titleEn="Culture points & expansion" eyebrow="Expansion">
@@ -480,3 +590,50 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     </Section>
   </div>
 </BaseLayout>
+
+<style>
+  .oasis-roi-wrap {
+    background: var(--bg-1);
+    border: 1px solid var(--border-0);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  table.oasis-roi { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.oasis-roi thead th {
+    background: var(--bg-2);
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--text-1);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  table.oasis-roi tbody td {
+    padding: 10px 14px;
+    border-top: 1px solid var(--border-0);
+    color: var(--text-0);
+    vertical-align: top;
+  }
+  table.oasis-roi tbody tr:hover td { background: var(--bg-2); }
+  table.oasis-roi td.layout {
+    font-weight: 600;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+  }
+  table.oasis-roi .hm {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  table.oasis-roi .hint {
+    color: var(--text-2);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+</style>

@@ -25,6 +25,10 @@ export const concepts: LumiSection = {
           zh: '打開「資源田 ROI 計算器」，輸入當下的加成建築 / 綠洲 %，看四種田哪個 ROI 最短就先升那個。記得：糧食田有 mill+bakery 雙倍加成（最高 +50%），所以升糧的「實際 ROI」常常比表面看的還短。',
           en: 'Open the Field ROI Calculator, plug in your current bonus-building / oasis %, and upgrade the resource with the shortest ROI. Note: crop fields have mill+bakery double-stacking (max +50%), so crop\'s real ROI is often shorter than it looks at first glance.',
         }},
+        { type: 'paragraph', text: {
+          zh: '想看實際數字？Lumi §5.3 的兩張官方表已搬到站內 /mechanics#roi-tables：Table 2（田級 1→10 每級回本天數 × 四種資源）+ Table 3（4 種首都配置 × 3 種綠洲 × HM10/15/20 ROI）。',
+          en: "Want the actual numbers? Lumi §5.3's two official tables are reproduced at /mechanics#roi-tables: Table 2 (days-to-break-even per field level 1→10 × 4 resources) and Table 3 (4 crop layouts × 3 oasis types × HM10/15/20 ROI).",
+        }},
       ],
     },
     {
@@ -66,6 +70,10 @@ export const concepts: LumiSection = {
           { zh: '只蓋「便宜的高 CP 建築」沒意義；要看「每等級提供多少 CP」（公式 round(base × 1.2^L)）', en: '"Cheap building, lots of CP" is misleading — what matters is CP per level (formula: round(base × 1.2^L))' },
           { zh: '市政廳 Lv 10 後，連續開大慶典 = 每 60 小時 +2,000 CP，配合被動 CP 才是擴張的真正引擎', en: 'After Town Hall Lv 10, back-to-back great celebrations give +2,000 CP per 60 hours — that, plus passive CP, is the actual expansion engine' },
         ]},
+        { type: 'callout', variant: 'info', title: { zh: '被動 CP 效率表（Lumi 推薦）', en: 'Passive CP efficiency sheet (Lumi-recommended)' }, text: {
+          zh: 'Lumi 指的這份表列出每個建築「每等級投入資源 → 提供多少被動 CP」的效率排名。結論呼應上面的建議：主府、市場、學院、大使館是被動 CP 的四大 goat（不計 cranny）。原始表格：https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
+          en: 'Lumi\'s recommended sheet ranks every building by "resource cost per level → passive CP generated". The verdict matches the baseline above: main building, marketplace, academy, and embassy are the four goats of passive CP (not counting cranny). Original: https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
+        }},
       ],
     },
   ],
