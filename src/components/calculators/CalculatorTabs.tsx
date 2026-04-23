@@ -7,9 +7,10 @@ import BuildOrderCalculator from './BuildOrderCalculator';
 import TraderouteCalculator from './TraderouteCalculator';
 import FarmingCalculator from './FarmingCalculator';
 import CropSimCalculator from './CropSimCalculator';
+import LaunchSimCalculator from './LaunchSimCalculator';
 import styles from './CalculatorTabs.module.css';
 
-type TabId = 'field-roi' | 'oasis-roi' | 'cp' | 'build-order' | 'trade' | 'farming' | 'crop-sim';
+type TabId = 'field-roi' | 'oasis-roi' | 'cp' | 'build-order' | 'trade' | 'farming' | 'crop-sim' | 'launch-sim';
 
 const TABS: { id: TabId; zh: string; en: string }[] = [
   { id: 'field-roi',  zh: '① 資源田 ROI',     en: '① Field ROI' },
@@ -19,6 +20,7 @@ const TABS: { id: TabId; zh: string; en: string }[] = [
   { id: 'trade',      zh: '⑤ 商路 / 糧商',    en: '⑤ Trade Route' },
   { id: 'farming',    zh: '⑥ 農場效率',       en: '⑥ Farming' },
   { id: 'crop-sim',   zh: '⑦ 首都糧食模擬',   en: '⑦ Crop Sim' },
+  { id: 'launch-sim', zh: '⑧ 開局模擬器',     en: '⑧ Launching Sim' },
 ];
 
 const VALID_HASH = new Set<string>(TABS.map(t => t.id));
@@ -69,6 +71,7 @@ export default function CalculatorTabs() {
         {active === 'trade'      && <TraderouteCalculator />}
         {active === 'farming'    && <FarmingCalculator />}
         {active === 'crop-sim'   && <CropSimCalculator />}
+        {active === 'launch-sim' && <LaunchSimCalculator />}
       </div>
     </div>
   );
