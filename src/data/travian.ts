@@ -171,13 +171,19 @@ export function cpSum(building: CpBuilding, minLevel: number, maxLevel: number):
 // =========================================================================
 // Culture Points required to settle village N
 // =========================================================================
+// Source: support.travian.com/en/support/solutions/articles/7000065115-culture-points-cp-
+// x1 speed. Verified 2026-04-23. Delta = cumulative[N] - cumulative[N-1].
 export const CP_REQUIRED: ReadonlyArray<{ village: number; delta: number; cumulative: number }> = Object.freeze([
-  { village: 1, delta: 0,     cumulative: 0 },
-  { village: 2, delta: 2000,  cumulative: 2000 },
-  { village: 3, delta: 3000,  cumulative: 5000 },
-  { village: 4, delta: 8000,  cumulative: 13000 },
-  { village: 5, delta: 11000, cumulative: 24000 },
-  // village 6+ each adds +11000
+  { village: 1,  delta: 0,      cumulative: 0 },
+  { village: 2,  delta: 2000,   cumulative: 2000 },
+  { village: 3,  delta: 6000,   cumulative: 8000 },
+  { village: 4,  delta: 12000,  cumulative: 20000 },
+  { village: 5,  delta: 19000,  cumulative: 39000 },
+  { village: 6,  delta: 26000,  cumulative: 65000 },
+  { village: 7,  delta: 34000,  cumulative: 99000 },
+  { village: 8,  delta: 42000,  cumulative: 141000 },
+  { village: 9,  delta: 50000,  cumulative: 191000 },
+  { village: 10, delta: 60000,  cumulative: 251000 },
 ]);
 
 // =========================================================================
