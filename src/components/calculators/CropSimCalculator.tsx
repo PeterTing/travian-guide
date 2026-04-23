@@ -51,8 +51,8 @@ export default function CropSimCalculator() {
       <div className={s.intro}>
         <h2>{lang === 'en' ? 'Capital Crop / Total Production Simulator' : '首都糧食 / 總產量模擬器'}</h2>
         <p>{lang === 'en'
-          ? "Reproduces Lumi's Table 1: capital production /hr with all bonuses applied. Compare 15c / 9c / 7c / 6c. Egyptian Waterworks toggle scales crop oasis bonus by ×1.35. Validated: 15c @ Lv 18 + max bonuses + 150% crop + Egyptian = ~136,920/hr (Lumi 136,500)."
-          : '複現 Lumi Table 1：首都全加成下的每小時產量。可比較 15c / 9c / 7c / 6c。埃及水利會把糧綠洲加成 ×1.35。驗證：15c Lv 18 + 全滿加成 + 150% crop + 埃及 = 約 136,920/hr（Lumi 136,500）。'}</p>
+          ? "Reproduces Lumi's Table 1: total capital production /hr (all 4 resources) with every bonus applied. Compare 15c / 9c / 7c / 6c. Egyptian Waterworks toggle scales crop oasis bonus by ×1.35. Validated against Lumi Table 1 (15c @ Lv 18 + Lv 5 BBs + 150% crop oasis + Plus gold + Egyptian): calculator Total /hr ≈ 136,920 vs Lumi 136,500 (+0.3%). Crop-only row at that cell is ≈126,840/hr; the remaining ≈10,080/hr comes from the three non-crop fields (1 each) at +50% (Plus+BBs)."
+          : '複現 Lumi Table 1：首都全資源（木土鐵糧）總和每小時產量。可比較 15c / 9c / 7c / 6c。埃及水利會把糧綠洲加成 ×1.35。驗證對照 Lumi Table 1（15c Lv 18 + Lv 5 加成建築 + 150% 糧綠洲 + Plus 金 + 埃及）：計算器 Total /hr ≈ 136,920，Lumi 136,500（誤差 +0.3%）。該格糧食列約 126,840/hr，剩下約 10,080/hr 來自三塊非糧田（各 1 塊，+50% 加成）。'}</p>
       </div>
 
       <div className={s.wrapper}>
