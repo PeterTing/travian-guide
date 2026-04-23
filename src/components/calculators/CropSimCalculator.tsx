@@ -135,18 +135,23 @@ export default function CropSimCalculator() {
 
           <h4>{lang === 'en' ? 'Lumi Table 1 reference (Lv 18 maxed)' : 'Lumi Table 1 對照 (Lv 18 全滿)'}</h4>
           <table className={s.table}>
-            <thead><tr><th>Crop oasis</th><th>1-1-1-15</th><th>3-3-3-9</th><th>3-4-4-7</th></tr></thead>
+            <thead><tr>
+              <th>{lang === 'en' ? 'Layout' : '首都配置'}</th>
+              <th>150%</th>
+              <th>125%</th>
+              <th>100%</th>
+              <th>75%</th>
+            </tr></thead>
             <tbody>
-              <tr><td>150%</td><td>136,500</td><td>107,100</td><td>97,300</td></tr>
-              <tr><td>125%</td><td>126,000</td><td>100,800</td><td>92,400</td></tr>
-              <tr><td>100%</td><td>105,000</td><td>94,500</td><td>87,500</td></tr>
-              <tr><td>75%</td><td>94,500</td><td>88,200</td><td>82,600</td></tr>
+              <tr><td>1-1-1-15</td><td>136,500</td><td>126,000</td><td>105,000</td><td>94,500</td></tr>
+              <tr><td>3-3-3-9</td><td>107,100</td><td>100,800</td><td>94,500</td><td>88,200</td></tr>
+              <tr><td>3-4-4-7</td><td>97,300</td><td>92,400</td><td>87,500</td><td>82,600</td></tr>
             </tbody>
           </table>
           <div className={s.note}>
             {lang === 'en'
-              ? 'Lumi Table 1 assumes Egyptian Waterworks. Toggle "Egyptian" + match the row to reproduce.'
-              : 'Lumi Table 1 假設埃及水利。把「埃及」打勾即可重現該數字。'}
+              ? 'All cells assume Lv 18 fields + all bonus buildings (Lv 5) + Plus +25% + Egyptian Waterworks. Columns = crop-oasis bonus tier: 150% = 3× 50% crop oases, 125% / 100% = fewer oases (or Waterworks inactive), 75% = minimal. Numbers are 1x-speed crop /hr. Toggle "Egyptian" + pick layout + set crop oasis in the calculator to reproduce any cell.'
+              : '所有儲存格：Lv 18 田 + 全加成建築（Lv 5）+ Plus +25% + 埃及水利（Waterworks）。欄位 = 糧綠洲加成層級：150% = 3 塊 50% 糧綠洲、125% / 100% = 綠洲較少（或水利未啟動）、75% = 最少。數字為 1x 速每小時糧產。計算器打開「埃及」+ 選配置 + 設定糧綠洲加成即可重現任一格。'}
           </div>
         </div>
       </div>
