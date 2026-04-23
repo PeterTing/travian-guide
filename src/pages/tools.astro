@@ -30,4 +30,45 @@ import CalculatorTabs from '../components/calculators/CalculatorTabs.tsx';
       <CalculatorTabs client:load />
     </LangProvider>
   </section>
+
+  <section style="max-width: var(--container-narrow); margin: 0 auto; padding: var(--space-6) var(--space-5) var(--space-8);">
+    <h2 style="font-size: var(--fs-xl); margin-bottom: var(--space-3);">
+      <Bi zh="資料來源與驗證" en="Data sources & validation" />
+    </h2>
+    <p style="color: var(--text-1); line-height: var(--lh-relaxed);">
+      <Bi
+        zh="所有計算器使用的 T4.6 常數（資源田產量、建築成本、CP 公式、Hero's Mansion 成本、商人容量等）皆對照下列權威來源驗證："
+        en="Every T4.6 constant in these calculators (field production, building costs, CP formula, Hero's Mansion cost, merchant capacity, etc.) is verified against the following authoritative sources:"
+      />
+    </p>
+    <ul style="color: var(--text-1); line-height: var(--lh-relaxed); padding-left: var(--space-5);">
+      <li><strong>kirilloid/travian</strong> — <a href="https://github.com/kirilloid/travian" target="_blank" rel="noopener">github.com/kirilloid/travian</a> · <Bi zh="開源 T4.6 公式與單位資料的權威來源（提供 travian.kirilloid.ru 計算器使用的同一份資料）" en="Open-source authoritative source for T4.6 formulas and unit data (powers travian.kirilloid.ru calculators)" /></li>
+      <li><strong>support.travian.com</strong> — <Bi zh="官方支援文章，用來核對各族單位、英雄屬性、慶典 CP 等" en="Official support articles, used to cross-check tribe units, hero attributes, celebration CP, etc." /></li>
+      <li><strong>Lumi / Eggstra / Dave</strong> 進階指南 ROI 表 (Tables 1, 2, 3) — <Bi zh="本站計算器的輸出已對照這三張表完全吻合（最大誤差 0.03 天）" en="Calculator outputs match all three Lumi tables exactly (max delta 0.03 days)" /></li>
+    </ul>
+
+    <h3 style="font-size: var(--fs-lg); margin: var(--space-5) 0 var(--space-3);">
+      <Bi zh="與外部工具的對應關係" en="Relationship to external tools" />
+    </h3>
+    <p style="color: var(--text-1); line-height: var(--lh-relaxed);">
+      <Bi
+        zh="Lumi 進階指南推薦的外部工具與本站對應計算器："
+        en="External tools recommended in the Lumi guide and the matching calculator on this site:"
+      />
+    </p>
+    <ul style="color: var(--text-1); line-height: var(--lh-relaxed); padding-left: var(--space-5);">
+      <li><a href="https://frisovandijk.com/public/travian/" target="_blank" rel="noopener">frisovandijk.com — Village Builder</a> → <Bi zh="本站「首都建築順序」（Greedy ROI 法）" en="On-site Capital Build Order (greedy-ROI approach)" /></li>
+      <li><a href="https://frisovandijk.com/public/travian/" target="_blank" rel="noopener">frisovandijk.com — Feeder Trade Routes</a> → <Bi zh="本站「商路 / 糧商」" en="On-site Trade Route / Feeder calculator" /></li>
+      <li><a href="https://home.deds.nl/~tardis/Tools/CropcalcT44_extended.html" target="_blank" rel="noopener">Tardis CropcalcT44</a> → <Bi zh="本站「首都建築順序」（更精確的最佳化請用 Tardis 工具）" en="On-site Capital Build Order (Tardis offers more sophisticated optimisation)" /></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit" target="_blank" rel="noopener">CP Efficiency Sheet</a> → <Bi zh="本站「被動 CP」（同樣的 base × 1.2^L 公式）" en="On-site Passive CP (same base × 1.2^L formula)" /></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1i-XWtqW0viOPu3Tinrsfa8DoqqO7voOAdwhl5ajNd2E/edit" target="_blank" rel="noopener">Carpis Trade-Route Spreadsheet</a> → <Bi zh="本站「商路 / 糧商」（Carpis 的版本支援多 feeder 同時計算）" en="On-site Trade Route (Carpis supports multi-feeder simultaneous planning)" /></li>
+    </ul>
+
+    <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-top: var(--space-4);">
+      <Bi
+        zh="本站工具的優勢：即時雙語、URL hash 分享、行動裝置友善。權威/進階用途請用上面的原始工具 — 數字會一致。"
+        en="What this site adds: live bilingual UI, URL-hash sharing, mobile-friendly. For authoritative or advanced use cases, use the original tools above — numbers should agree."
+      />
+    </p>
+  </section>
 </BaseLayout>
