@@ -1,0 +1,133 @@
+---
+import Bi from '../shared/Bi.astro';
+import { TRIBE_SETTLER_COST } from '../../data/build-order/tribe-cost';
+import { TRIBES } from '../../data/tribes/index';
+import type { TribeId } from '../../data/travian';
+
+const TRIBE_ORDER: TribeId[] = [
+  'romans', 'teutons', 'gauls', 'egyptians', 'huns', 'vikings', 'spartans',
+];
+
+function formatDuration(seconds: number): string {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function formatNumber(n: number): string {
+  return n.toLocaleString('en-US');
+}
+---
+<div class="tribe-cost-table-wrap">
+  <table class="tribe-cost-table">
+    <thead>
+      <tr>
+        <th scope="col"><Bi zh="族" en="Tribe" /></th>
+        <th scope="col"><Bi zh="木" en="Wood" /></th>
+        <th scope="col"><Bi zh="土" en="Clay" /></th>
+        <th scope="col"><Bi zh="鐵" en="Iron" /></th>
+        <th scope="col"><Bi zh="糧" en="Crop" /></th>
+        <th scope="col"><Bi zh="單 settler 總" en="Total / settler" /></th>
+        <th scope="col"><Bi zh="訓練時間" en="Training" /></th>
+        <th scope="col"><Bi zh="3 × 總和" en="3× Total" /></th>
+      </tr>
+    </thead>
+    <tbody>
+      {TRIBE_ORDER.map(id => {
+        const c = TRIBE_SETTLER_COST[id];
+        const tribe = TRIBES[id];
+        return (
+          <tr>
+            <th scope="row" class="tribe-name">
+              <span class="icon" aria-hidden="true">{tribe.icon}</span>
+              <Bi zh={tribe.name.zh} en={tribe.name.en} />
+            </th>
+            <td class="num">{formatNumber(c.wood)}</td>
+            <td class="num">{formatNumber(c.clay)}</td>
+            <td class="num">{formatNumber(c.iron)}</td>
+            <td class="num">{formatNumber(c.crop)}</td>
+            <td class="num total"><strong>{formatNumber(c.total)}</strong></td>
+            <td class="num">{formatDuration(c.trainingSeconds)}</td>
+            <td class="num"><strong>{formatNumber(c.total * 3)}</strong></td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+  <p class="caption">
+    <Bi
+      zh="開局建築順序 78-102 步對所有族都一樣；差別只在這張表的最後訓練 3 個 settler 的總成本。Gaul 最便宜（54,300），Egyptian 最貴（63,000）。資料來源見 tribe-cost.ts 的 source 欄位。"
+      en="The opening build order (78-102 steps) is identical for all tribes; only the final 3-settler training cost differs, shown in this table. Gaul is cheapest (54,300), Egyptian is most expensive (63,000). See tribe-cost.ts source field for verification links."
+    />
+  </p>
+</div>
+
+<style>
+  .tribe-cost-table-wrap {
+    margin: 16px 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-0);
+    border-radius: 8px;
+    background: var(--bg-1);
+  }
+  .tribe-cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .tribe-cost-table th,
+  .tribe-cost-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-0);
+  }
+  .tribe-cost-table thead th {
+    font-weight: 600;
+    color: var(--text-0);
+    background: var(--bg-2, var(--bg-1));
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tribe-cost-table tbody tr:last-child th,
+  .tribe-cost-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .tribe-cost-table tbody tr:hover {
+    background: var(--bg-2, var(--bg-0));
+  }
+  .tribe-cost-table .tribe-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text-0);
+  }
+  .tribe-cost-table .icon {
+    font-size: 18px;
+  }
+  .tribe-cost-table .num {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    text-align: right;
+    color: var(--text-1);
+  }
+  .tribe-cost-table .total strong {
+    color: var(--text-0);
+  }
+  .caption {
+    padding: 10px 12px;
+    color: var(--text-2);
+    font-size: 13px;
+    line-height: 1.6;
+    border-top: 1px solid var(--border-0);
+    background: var(--bg-0, var(--bg-1));
+  }
+  @media (max-width: 640px) {
+    .tribe-cost-table th,
+    .tribe-cost-table td {
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+  }
+</style>

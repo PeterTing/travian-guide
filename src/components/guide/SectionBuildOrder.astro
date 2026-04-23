@@ -4,6 +4,7 @@ import Callout from '../shared/Callout.astro';
 import Section from '../mechanics/Section.astro';
 import { LangProvider } from '../../i18n/LangContext.tsx';
 import StrategyTabs from './StrategyTabs.tsx';
+import TribeCostTable from './TribeCostTable.astro';
 ---
 <Section
   id="build-order"
@@ -58,6 +59,6 @@ import StrategyTabs from './StrategyTabs.tsx';
         en="The opening build order itself is tribe-agnostic (first 78-102 steps are identical). Only the final 3-settler training cost differs by tribe. See the TribeCostTable below for details."
       />
     </p>
-    <!-- TribeCostTable will be inserted here in Task 4.2 -->
+    <TribeCostTable />
   </Callout>
 </Section>
