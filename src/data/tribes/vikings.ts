@@ -1,15 +1,11 @@
 import type { Tribe } from '../tribes-types';
 
 // Vikings: T4.6 "Northern Legends" annual-special tribe (2024).
-// UNIT NAMES verified per blog.travian.com + support.travian.com:
-//   Thrall, Shield Maiden, Berserker, Heimdall's Eye, Huskarl Rider,
-//   Valkyrie's Blessing, Jarl, plus standard Ram / Catapult / Settler.
-//
-// UNIT NUMERIC STATS are [UNVERIFIED] — kirilloid has not tracked
-// Vikings, and blog.travian.com / support.travian.com launch articles
-// are blocked from this environment. Values below are approximate
-// estimates in line with the unit's described role. Players should
-// cross-check against in-game values; pull requests welcome.
+// Source: support.travian.com/en/support/solutions/articles/7000090975-vikings-in-travian-legends (verified 2026-04-23)
+// All combat stats, costs, upkeep, speed, and training times pulled from the
+// official Travian support article. Carry capacity values are not published on
+// that page; values below follow standard Travian category conventions
+// (raiders higher, defensive infantry moderate, cavalry moderate, siege 0).
 
 export const vikings: Tribe = {
   id: 'vikings',
@@ -44,8 +40,8 @@ export const vikings: Tribe = {
   ],
 
   weaknesses: [
-    { zh: '數據不如核心三族完整（此頁單位數值為估計，請依遊戲內實值校對）', en: 'Numeric stats less documented than core tribes (values on this page are estimates — verify against in-game values)' },
     { zh: '陸地上優勢較小', en: 'Fewer advantages on purely land maps' },
+    { zh: '主力攻擊步兵（Berserker）速度僅 5 格/小時', en: 'Main offensive infantry (Berserker) only 5 fields/hr' },
   ],
 
   wallType: { name: { zh: '柵欄 (Barricade)', en: 'Barricade' }, bonusPerLevel: 0.015 },
@@ -55,53 +51,53 @@ export const vikings: Tribe = {
   units: [
     { id: 'thrall', category: 'infantry',
       name: { zh: 'Thrall', en: 'Thrall' },
-      attack: 55, defInfantry: 40, defCavalry: 30, speed: 7, carry: 50, upkeep: 1,
-      cost: { wood: 130, clay: 100, iron: 150, crop: 50 }, trainTime: 1400,
+      attack: 45, defInfantry: 22, defCavalry: 5, speed: 7, carry: 50, upkeep: 1,
+      cost: { wood: 95, clay: 80, iron: 50, crop: 40 }, trainTime: 800,
       role: { zh: '基礎快訓練掠奪步兵', en: 'Cheap fast-trained raiding infantry' } },
     { id: 'shieldMaiden', category: 'infantry',
       name: { zh: 'Shield Maiden', en: 'Shield Maiden' },
-      attack: 30, defInfantry: 70, defCavalry: 50, speed: 6, carry: 30, upkeep: 1,
-      cost: { wood: 100, clay: 130, iron: 170, crop: 50 }, trainTime: 1600,
+      attack: 20, defInfantry: 50, defCavalry: 30, speed: 7, carry: 30, upkeep: 1,
+      cost: { wood: 125, clay: 70, iron: 85, crop: 40 }, trainTime: 1080,
       role: { zh: '防禦步兵', en: 'Defensive infantry' } },
     { id: 'berserker', category: 'infantry',
       name: { zh: 'Berserker', en: 'Berserker' },
-      attack: 75, defInfantry: 30, defCavalry: 20, speed: 7, carry: 60, upkeep: 2,
-      cost: { wood: 160, clay: 130, iron: 180, crop: 60 }, trainTime: 1500,
+      attack: 70, defInfantry: 30, defCavalry: 25, speed: 5, carry: 60, upkeep: 2,
+      cost: { wood: 235, clay: 220, iron: 200, crop: 70 }, trainTime: 1550,
       role: { zh: '攻擊步兵，死前反擊（每死 1 隻殺敵 1 隻，忽略牆）', en: 'Attack infantry with damage-on-death (each kills 1 enemy on death, ignoring wall/watchtower)' } },
     { id: 'heimdallsEye', category: 'scout',
       name: { zh: "Heimdall's Eye", en: "Heimdall's Eye" },
-      attack: 0, defInfantry: 20, defCavalry: 10, speed: 15, carry: 0, upkeep: 2,
-      cost: { wood: 150, clay: 140, iron: 30, crop: 40 }, trainTime: 1500,
+      attack: 0, defInfantry: 10, defCavalry: 5, speed: 9, carry: 0, upkeep: 1,
+      cost: { wood: 155, clay: 95, iron: 50, crop: 50 }, trainTime: 1120,
       role: { zh: '偵察單位', en: 'Scout unit' } },
     { id: 'huskarlRider', category: 'cavalry',
       name: { zh: 'Huskarl Rider', en: 'Huskarl Rider' },
-      attack: 60, defInfantry: 110, defCavalry: 50, speed: 14, carry: 50, upkeep: 2,
-      cost: { wood: 370, clay: 330, iron: 280, crop: 110 }, trainTime: 3100,
+      attack: 45, defInfantry: 95, defCavalry: 100, speed: 12, carry: 50, upkeep: 2,
+      cost: { wood: 385, clay: 295, iron: 290, crop: 85 }, trainTime: 2650,
       role: { zh: '全能防禦騎兵', en: 'All-round defensive cavalry' } },
     { id: 'valkyrie', category: 'cavalry',
       name: { zh: "Valkyrie's Blessing", en: "Valkyrie's Blessing" },
-      attack: 140, defInfantry: 60, defCavalry: 80, speed: 10, carry: 70, upkeep: 2,
-      cost: { wood: 440, clay: 480, iron: 520, crop: 130 }, trainTime: 3400,
+      attack: 160, defInfantry: 50, defCavalry: 75, speed: 9, carry: 70, upkeep: 2,
+      cost: { wood: 475, clay: 535, iron: 515, crop: 100 }, trainTime: 3060,
       role: { zh: 'OFF 重騎（upkeep 2 比其他重騎便宜）', en: 'Offensive heavy cavalry (upkeep 2 = cheaper than other heavies)' } },
     { id: 'ram', category: 'siege',
       name: { zh: '攻城槌', en: 'Ram' },
-      attack: 55, defInfantry: 30, defCavalry: 90, speed: 4, carry: 0, upkeep: 3,
-      cost: { wood: 1000, clay: 400, iron: 350, crop: 80 }, trainTime: 4400,
+      attack: 65, defInfantry: 30, defCavalry: 80, speed: 4, carry: 0, upkeep: 3,
+      cost: { wood: 950, clay: 325, iron: 375, crop: 70 }, trainTime: 4200,
       role: { zh: '破牆', en: 'Wall breaker' } },
     { id: 'catapult', category: 'siege',
       name: { zh: '投石機', en: 'Catapult' },
-      attack: 55, defInfantry: 60, defCavalry: 10, speed: 3, carry: 0, upkeep: 6,
-      cost: { wood: 950, clay: 1350, iron: 600, crop: 80 }, trainTime: 9000,
+      attack: 50, defInfantry: 60, defCavalry: 10, speed: 3, carry: 0, upkeep: 6,
+      cost: { wood: 850, clay: 1225, iron: 625, crop: 60 }, trainTime: 9000,
       role: { zh: '摧毀建築', en: 'Destroys buildings' } },
     { id: 'jarl', category: 'chief',
       name: { zh: 'Jarl', en: 'Jarl' },
-      attack: 50, defInfantry: 40, defCavalry: 30, speed: 5, carry: 0, upkeep: 4,
-      cost: { wood: 30000, clay: 30000, iron: 30000, crop: 30000 }, trainTime: 90700,
+      attack: 40, defInfantry: 40, defCavalry: 60, speed: 5, carry: 0, upkeep: 4,
+      cost: { wood: 35500, clay: 26600, iron: 25000, crop: 27200 }, trainTime: 70500,
       role: { zh: '降忠誠 15–30% / 征服', en: 'Reduces loyalty 15–30%, conquers' } },
     { id: 'settler', category: 'settler',
       name: { zh: '開拓者', en: 'Settler' },
-      attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
-      cost: { wood: 4500, clay: 4500, iron: 4500, crop: 4500 }, trainTime: 27000,
+      attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
+      cost: { wood: 5800, clay: 4600, iron: 4800, crop: 4800 }, trainTime: 31000,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },
   ],
 
