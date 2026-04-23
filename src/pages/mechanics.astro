@@ -119,6 +119,55 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       </p>
     </Section>
 
+    <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
+      <p>
+        <Bi
+          zh="鐵匠舖（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠舖達對應等級。每隻兵可以升 20 次，總加成最高約 +30%。"
+          en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+30%."
+        />
+      </p>
+      <h3><Bi zh="計算公式" en="Formula" /></h3>
+      <pre>improved = base × 1.015^level   <Bi zh="（簡化式）" en="(simplified)" /></pre>
+      <pre>improved = base + (base + 300 × upkeep ÷ 7) × (1.007^level − 1)   <Bi zh="（精確式）" en="(exact)" /></pre>
+      <p>
+        <Bi
+          zh="精確公式表示「高糧消耗的兵種升級每級得到的絕對加成更大」 — 例如 EC（upkeep 4）每級加成幅度大於 EI（upkeep 3）。簡化式 ~1.5% 適合快速估算。"
+          en="The exact formula means high-upkeep units gain a larger absolute bonus per level — e.g., EC (upkeep 4) benefits more per level than EI (upkeep 3). The simplified ~1.5%/level approximation is fine for quick estimates."
+        />
+      </p>
+      <DataTable
+        caption={{ zh: '常用兵種 Lv 20 升級加成範例', en: 'Lv 20 upgrade bonus on common units' }}
+        headers={[
+          { zh: '單位', en: 'Unit' },
+          { zh: '基礎', en: 'Base' },
+          { zh: 'Lv 20 攻擊', en: 'Lv 20 attack' },
+          { zh: '提升', en: 'Gain' },
+        ]}
+        rows={[
+          ['Imperian (Roman)', '70', '~94', '+34%'],
+          ['EC (Roman)', '180', '~245', '+36%'],
+          ['Haeduan (Gaul)', '140', '~190', '+36%'],
+          ['Teutonic Knight', '150', '~204', '+36%'],
+          ['Marauder (Hun)', '180', '~245', '+36%'],
+          ['Corinthian (Spartan)', '195', '~265', '+36%'],
+        ]}
+      />
+      <Callout kind="tip" titleZh="升幾級 vs 多訓兵？" titleEn="Upgrade vs more troops?">
+        <p>
+          <Bi
+            zh="官方部落格 'More Troops or Smithy Upgrades?' 結論：低等級（0→Lv 5）升級超划算，因為單級成本低。Lv 15→20 成本暴增（每級 ×1.28），通常多訓 50 隻兵收益更高。實戰：每隻主力兵升到 Lv 5，再決定要不要繼續。"
+            en="Per the official 'More Troops or Smithy Upgrades?' blog: low levels (0 → Lv 5) are extremely cheap — always do them. Lv 15 → 20 costs explode (×1.28 per level); usually 50 more troops > 5 more upgrade levels. Practical rule: get every key unit to Smithy Lv 5 first, then evaluate."
+          />
+        </p>
+      </Callout>
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="T4 Travian Legends 把舊版的 Blacksmith（攻擊）+ Armoury（防禦）合併成一個 Smithy；同一棟同時升攻防。"
+          en="T4 Travian Legends merged the old Blacksmith (attack) + Armoury (defense) into a single Smithy that upgrades both at once."
+        />
+      </p>
+    </Section>
+
     <Section id="resources" titleZh="資源產量 & 綠洲" titleEn="Resource production & oases" eyebrow="Resources">
       <h3><Bi zh="田地產量（每小時，1x 速度）" en="Field production (per hour, 1x speed)" /></h3>
       <DataTable
@@ -197,6 +246,45 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         <li><Bi zh="小型慶典：TH Lv1+、24 小時、+500 CP、消耗約 19.5k 資源" en="Small celebration: TH Lv1+, 24 h, +500 CP, ~19.5k total cost" /></li>
         <li><Bi zh="大型慶典：TH Lv10+、60 小時、+2,000 CP，但成本是 5x" en="Great celebration: TH Lv10+, 60 h, +2,000 CP, but costs 5x" /></li>
       </ul>
+
+      <h3><Bi zh="忠誠度與征服（Chiefing）" en="Loyalty & chiefing" /></h3>
+      <p>
+        <Bi
+          zh="每個村莊有忠誠度（loyalty）值。預設 100，被攻擊+ Senator/Chief/Chieftain/Nomarch/Logades/Ephor/Jarl 同行時會降低。降至 0 = 易主。每場大型慶典把基線拉到 +25（共 125），這就是為什麼鐵砧主動辦慶典的原因。"
+          en="Every village has a loyalty value, defaulting to 100. It drops when attacked by an army containing a chief unit (Senator/Chief/Chieftain/Nomarch/Logades/Ephor/Jarl). At 0 the village changes hands. A great celebration raises the baseline to 125 — that's why anvils proactively run them."
+        />
+      </p>
+      <DataTable
+        caption={{ zh: '單一 chief 攻擊降忠誠度範圍（依攻方士氣）', en: 'Loyalty drop per chief-led attack (varies by attacker morale)' }}
+        headers={[
+          { zh: '族別 / 單位', en: 'Tribe / unit' },
+          { zh: '降幅範圍', en: 'Drop range' },
+          { zh: '備註', en: 'Note' },
+        ]}
+        rows={[
+          ['Senator (Roman)', '20–30%', 'Most expensive, balanced'],
+          ['Chieftain (Gaul)', '20–25%', 'Slightly cheaper, slightly weaker'],
+          ['Chief (Teuton)', '20–25%', 'Trains fastest of all chiefs (70,500s)'],
+          ['Nomarch (Egyptian)', '20–25%', '—'],
+          ['Logades (Hun)', '20–25%', '—'],
+          ['Ephor (Spartan)', '20–25%', 'Unique passive (smaller drops but cheaper recovery)'],
+          ['Jarl (Viking)', '15–30%', 'Wider range; useful with hero present'],
+        ]}
+      />
+      <p>
+        <Bi
+          zh="實戰：拿一個 100 忠誠的村大概要 4–5 波 chief 攻擊。對方若維持 125（大慶典），則需 5–6 波。把 chief 集中在一個錘子（3-chief）= 一次出兵就完成征服 (solo chiefing)。"
+          en="Practical: capturing a 100-loyalty village typically needs 4–5 chief-led waves. If the defender holds at 125 (great celeb running), 5–6 waves. Stacking 3 chiefs in one hammer = solo chiefing in a single send."
+        />
+      </p>
+      <Callout kind="warn" titleZh="防守忠誠度的工具" titleEn="Defending loyalty">
+        <p>
+          <Bi
+            zh="忠誠藥水（Tablet of Law，從冒險取得）：每用 1 個恢復 1% 忠誠。被精準連擊（.00 / .01 兩波）時，要在 .00 之前喝。可同時計時建造居所/宮殿，等它們在 wave 中間完工 → 立刻把忠誠度回滿。"
+            en="Loyalty Tablets (from adventures) restore 1% loyalty per use. Against tightly-timed waves (e.g., .00 + .01), drink BEFORE .00. You can also time a Residence/Palace upgrade to finish in the gap between waves — completion instantly restores loyalty."
+          />
+        </p>
+      </Callout>
     </Section>
 
     <Section id="hero" titleZh="英雄系統" titleEn="Hero system" eyebrow="Hero">
@@ -216,6 +304,70 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           />
         </p>
       </Callout>
+
+      <h3><Bi zh="冒險系統 (Adventures)" en="Adventures" /></h3>
+      <p>
+        <Bi
+          zh="英雄莊園（Hero's Mansion）會在地圖上 spawn 冒險點：所有點都離 HM 最近的村莊不超過 30 格。每完成一次冒險可拿經驗值、銀幣或物品。"
+          en="The Hero's Mansion spawns adventures on the map within 30 fields of the village holding it. Each completed adventure rewards XP, silver, or an item."
+        />
+      </p>
+      <DataTable
+        headers={[
+          { zh: '難度', en: 'Difficulty' },
+          { zh: 'HP 損失', en: 'HP loss' },
+          { zh: '獎勵', en: 'Reward' },
+        ]}
+        rows={[
+          ['Normal', '0–30%', 'Resources / silver / common item'],
+          ['Difficult', '30–60%', 'Better items, more silver'],
+          ['Very difficult', '60%+ (death risk)', 'Top-tier items + cages'],
+        ]}
+      />
+      <Callout kind="tip" titleZh="冒險前必模擬" titleEn="Always simulate before adventuring">
+        <p>
+          <Bi
+            zh="點冒險按鈕後右鍵看戰鬥模擬。若 HP 損失預估 >30%，先補藥水（ointment / bandage）或讓英雄帶幾隻肉盾（埃及奴隸民兵最便宜）。"
+            en="Click the adventure → right-click to see the battle simulation. If predicted HP loss is >30%, use ointments / bandages first or bring cheap meat-shield troops (Egyptian Slave Militia is cheapest)."
+          />
+        </p>
+      </Callout>
+
+      <h3><Bi zh="英雄裝備 (Equipment)" en="Hero equipment" /></h3>
+      <p>
+        <Bi
+          zh="英雄有 7 個裝備槽：頭盔、武器、左手、盔甲、靴子、馬匹、袋子。冒險獲得物品或拍賣場（Auctions）競標銀幣購買。"
+          en="The hero has 7 equipment slots: helmet, weapon, left hand, armor, boots, horse, bag. Items come from adventures or via the silver auction house."
+        />
+      </p>
+      <DataTable
+        caption={{ zh: '常用物品類型（精選）', en: 'Common item types (selected)' }}
+        headers={[
+          { zh: '類型', en: 'Type' },
+          { zh: '範例效果', en: 'Example effect' },
+        ]}
+        rows={[
+          ['Helmet', '+25% / +50% troop training speed | +20% XP'],
+          ['Weapon (per tribe)', '+50% attack to 1 chosen unit (Spartans: all units of category)'],
+          ['Boots', '+25% / +50% / +75% hero speed'],
+          ['Armor', '+10% / +20% hero HP'],
+          ['Horse', '+5–14 speed when riding'],
+          ['Bag', '+200/400/800 carrying capacity'],
+          ['Ointment', '+5 HP per use (consumable)'],
+          ['Bandage', '+10–15 HP after battle (consumable)'],
+          ['Bucket', '+25 HP instantly (rare)'],
+          ['Cage', 'Capture an oasis animal (use to clear oases without combat)'],
+          ['Book of Wisdom', 'Reset all hero skill points (consumable)'],
+          ['Tablet of Law', 'Restore village loyalty by 1% per use (defensive)'],
+          ['Ointment large', '+10 HP per use'],
+        ]}
+      />
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="拍賣場（需主府 Lv 5）讓你用銀幣競標他人賣出的裝備。後期 +50% 訓練頭盔 / +50% 攻擊武器 / +75% 速度靴會競到 100k+ 銀幣。"
+          en="Auctions (requires Main Building Lv 5) let you bid silver on items posted by other players. Late-game +50% training helmets / +50% attack weapons / +75% boots routinely sell for 100k+ silver."
+        />
+      </p>
     </Section>
 
     <Section id="cranny" titleZh="秘密倉庫 & 保護" titleEn="Cranny & protection" eyebrow="Defense">
