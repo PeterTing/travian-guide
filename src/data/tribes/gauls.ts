@@ -24,7 +24,7 @@ export const gauls: Tribe = {
   specials: [
     { zh: '獵人陷阱（Trapper）：捕捉來襲部隊', en: 'Trapper building catches incoming raiders' },
     { zh: '山洞容量 ×1.5（其他族 ×1.0）', en: 'Cranny holds 1.5× resources (other tribes 1.0×)' },
-    { zh: '柵欄（Palisade）每級 +2.5% 防禦', en: 'Palisade: +2.5% defense per level' },
+    { zh: '木牆（Palisade）每級 +2.5% 防禦', en: 'Palisade: +2.5% defense per level' },
   ],
 
   strengths: [
@@ -38,7 +38,7 @@ export const gauls: Tribe = {
     { zh: '攻城器較貴（Trebuchet）', en: 'Siege weapons are expensive (Trebuchet)' },
   ],
 
-  wallType: { name: { zh: '柵欄 (Palisade)', en: 'Palisade' }, bonusPerLevel: 0.025 },
+  wallType: { name: { zh: '木牆 (Palisade)', en: 'Palisade' }, bonusPerLevel: 0.025 },
   merchant: { capacity: 750, speed: 24 },
   defenseMix: { zh: '60% 方陣兵 / 40% 德魯伊騎兵', en: '60% Phalanx / 40% Druidrider' },
 
@@ -60,7 +60,7 @@ export const gauls: Tribe = {
       role: { zh: '快速偵察', en: 'Fast scout' } },
     { id: 'theutatesThunder', category: 'cavalry',
       name: { zh: '雷法師', en: 'Theutates Thunder' },
-      attack: 90, defInfantry: 25, defCavalry: 40, speed: 19, carry: 75, upkeep: 2,
+      attack: 100, defInfantry: 25, defCavalry: 40, speed: 19, carry: 75, upkeep: 2,
       cost: { wood: 350, clay: 450, iron: 230, crop: 60 }, trainTime: 3100,
       role: { zh: '全遊戲最快騎兵，farm / 突襲利器', en: 'Fastest cavalry in the game; raiding / fast-strike' } },
     { id: 'druidrider', category: 'cavalry',
@@ -70,7 +70,7 @@ export const gauls: Tribe = {
       role: { zh: '高機動防禦騎兵', en: 'Mobile defensive cavalry' } },
     { id: 'haeduan', category: 'cavalry',
       name: { zh: '海頓聖騎', en: '海頓聖騎' },
-      attack: 140, defInfantry: 50, defCavalry: 165, speed: 13, carry: 65, upkeep: 3,
+      attack: 140, defInfantry: 60, defCavalry: 165, speed: 13, carry: 65, upkeep: 3,
       cost: { wood: 500, clay: 620, iron: 675, crop: 170 }, trainTime: 3900,
       role: { zh: '高盧人主力攻擊騎兵', en: 'Main Gaul offensive cavalry' } },
     { id: 'ram', category: 'siege',

@@ -224,9 +224,9 @@ describe('Gauls unit stats', () => {
     });
   });
 
-  it('Theutates Thunder: atk 90 / defInf 25 / defCav 40 / speed 19 / carry 75 / upkeep 2', () => {
+  it('Theutates Thunder: atk 100 / defInf 25 / defCav 40 / speed 19 / carry 75 / upkeep 2', () => {
     pin(find(gauls.units, 'theutatesThunder'), {
-      attack: 90, defInfantry: 25, defCavalry: 40, speed: 19, carry: 75, upkeep: 2,
+      attack: 100, defInfantry: 25, defCavalry: 40, speed: 19, carry: 75, upkeep: 2,
       cost: [350, 450, 230, 60], trainTime: 3100,
     });
   });
@@ -238,9 +238,9 @@ describe('Gauls unit stats', () => {
     });
   });
 
-  it('Haeduan: atk 140 / defInf 50 / defCav 165 / speed 13 / carry 65 / upkeep 3', () => {
+  it('Haeduan: atk 140 / defInf 60 / defCav 165 / speed 13 / carry 65 / upkeep 3', () => {
     pin(find(gauls.units, 'haeduan'), {
-      attack: 140, defInfantry: 50, defCavalry: 165, speed: 13, carry: 65, upkeep: 3,
+      attack: 140, defInfantry: 60, defCavalry: 165, speed: 13, carry: 65, upkeep: 3,
       cost: [500, 620, 675, 170], trainTime: 3900,
     });
   });
@@ -286,16 +286,16 @@ describe('Egyptians unit stats', () => {
     });
   });
 
-  it('Ash Warden: atk 30 / defInf 55 / defCav 40 / speed 6 / carry 60 / upkeep 1', () => {
+  it('Ash Warden: atk 30 / defInf 55 / defCav 40 / speed 6 / carry 50 / upkeep 1', () => {
     pin(find(egyptians.units, 'ashWarden'), {
-      attack: 30, defInfantry: 55, defCavalry: 40, speed: 6, carry: 60, upkeep: 1,
+      attack: 30, defInfantry: 55, defCavalry: 40, speed: 6, carry: 50, upkeep: 1,
       cost: [115, 100, 145, 60], trainTime: 1320,
     });
   });
 
-  it('Khopesh Warrior: atk 65 / defInf 50 / defCav 20 / speed 7 / carry 50 / upkeep 1', () => {
+  it('Khopesh Warrior: atk 65 / defInf 50 / defCav 20 / speed 7 / carry 45 / upkeep 1', () => {
     pin(find(egyptians.units, 'khopesh'), {
-      attack: 65, defInfantry: 50, defCavalry: 20, speed: 7, carry: 50, upkeep: 1,
+      attack: 65, defInfantry: 50, defCavalry: 20, speed: 7, carry: 45, upkeep: 1,
       cost: [170, 180, 220, 80], trainTime: 1440,
     });
   });
@@ -345,7 +345,7 @@ describe('Egyptians unit stats', () => {
   it('Settler: atk 0 / defInf 80 / defCav 80 / speed 5 / carry 3000 / upkeep 1', () => {
     pin(find(egyptians.units, 'settler'), {
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
-      cost: [4560, 5890, 4370, 4180], trainTime: 24800,
+      cost: [5040, 6510, 4830, 4620], trainTime: 24800,
     });
   });
 });
@@ -376,16 +376,16 @@ describe('Huns unit stats', () => {
     });
   });
 
-  it('Steppe Rider: atk 120 / defInf 30 / defCav 15 / speed 16 / carry 115 / upkeep 2', () => {
+  it('Steppe Rider: atk 120 / defInf 30 / defCav 15 / speed 16 / carry 75 / upkeep 2', () => {
     pin(find(huns.units, 'steppeRider'), {
-      attack: 120, defInfantry: 30, defCavalry: 15, speed: 16, carry: 115, upkeep: 2,
+      attack: 120, defInfantry: 30, defCavalry: 15, speed: 16, carry: 75, upkeep: 2,
       cost: [290, 370, 190, 45], trainTime: 2400,
     });
   });
 
-  it('Marksman: atk 115 / defInf 80 / defCav 70 / speed 16 / carry 105 / upkeep 2', () => {
+  it('Marksman: atk 110 / defInf 80 / defCav 70 / speed 15 / carry 105 / upkeep 2', () => {
     pin(find(huns.units, 'marksman'), {
-      attack: 115, defInfantry: 80, defCavalry: 70, speed: 16, carry: 105, upkeep: 2,
+      attack: 110, defInfantry: 80, defCavalry: 70, speed: 15, carry: 105, upkeep: 2,
       cost: [320, 350, 330, 50], trainTime: 2480,
     });
   });
@@ -420,7 +420,7 @@ describe('Huns unit stats', () => {
 
   it('Settler: atk 0 / defInf 80 / defCav 80 / speed 5 / carry 3000 / upkeep 1', () => {
     pin(find(huns.units, 'settler'), {
-      attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
+      attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: [6100, 4600, 4800, 5400], trainTime: 28950,
     });
   });

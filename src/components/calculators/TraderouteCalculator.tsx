@@ -48,7 +48,7 @@ export default function TraderouteCalculator() {
         <h2>{lang === 'en' ? 'Trade Route / Feeder Calculator' : '商路 / 糧商計算器'}</h2>
         <p>{lang === 'en'
           ? "How many merchants are needed to haul a feeder's hourly surplus? Tribe sets base capacity & speed; Trade Office adds +10% capacity per level (max +200% at Lv 20). Roman exception: +20%/lv (max +400% at Lv 20). Lumi rule of thumb: within 60 fields, 1–2 merchants should suffice."
-          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；商路辦公室每級 +10% 容量（Lv 20 最高 +200%）。羅馬人例外：+20%/級（Lv 20 最高 +400%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
+          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；交易所每級 +10% 容量（Lv 20 最高 +200%）。羅馬人例外：+20%/級（Lv 20 最高 +400%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -72,7 +72,7 @@ export default function TraderouteCalculator() {
           </div>
 
           <div className={s.field}>
-            <label>{lang === 'en' ? 'Trade Office level (0–20)' : '商路辦公室等級 (0–20)'}</label>
+            <label>{lang === 'en' ? 'Trade Office level (0–20)' : '交易所等級 (0–20)'}</label>
             <input type="number" min={0} max={20} value={office} onChange={e => setOffice(+e.target.value)} />
           </div>
 

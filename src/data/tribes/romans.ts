@@ -23,7 +23,7 @@ export const romans: Tribe = {
 
   specials: [
     { zh: '雙建築佇列（資源田 + 其他建築可同時建）', en: 'Dual building queue (resource fields + other buildings simultaneously)' },
-    { zh: '馬飲水槽：降低騎兵穀物消耗', en: 'Horse Drinking Trough: reduces cavalry crop upkeep' },
+    { zh: '放牧水槽：降低騎兵穀物消耗', en: 'Horse Drinking Trough: reduces cavalry crop upkeep' },
     { zh: '城牆（City Wall）每級 +3% 防禦，但血量最低', en: 'City Wall: +3% defense per level (highest of all walls), but lowest HP' },
   ],
 

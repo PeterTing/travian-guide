@@ -22,7 +22,7 @@ export const teutons: Tribe = {
   },
 
   specials: [
-    { zh: '酒館（Brewery）：全球 +20% 攻擊（代價是 +10% upkeep）', en: 'Brewery: global +20% attack (cost: +10% upkeep)' },
+    { zh: '釀酒廠（Brewery）：全球 +20% 攻擊（代價是 +10% upkeep）', en: 'Brewery: global +20% attack (cost: +10% upkeep)' },
     { zh: '商人容量 1000（最高）', en: 'Merchant capacity 1000 — highest of any tribe' },
     { zh: '土牆（Earth Wall）血量最高但每級 +2% 防禦（較弱）', en: 'Earth Wall has the highest HP but only +2% defense per level' },
   ],

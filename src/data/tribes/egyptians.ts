@@ -8,11 +8,11 @@ export const egyptians: Tribe = {
   color: 'var(--tribe-egyptians)',
   icon: '🐪',
   tagline: {
-    zh: '水利強化綠洲 · 奴隸民兵護英雄',
+    zh: '供水系統強化綠洲 · 奴隸民兵護英雄',
     en: 'Waterworks supercharge oases · Slave Militia shield the hero',
   },
   summary: {
-    zh: '經濟型巔峰：水利（Waterworks）讓糧食綠洲加成多 +5%（Lumi Table 1 的基準）；奴隸民兵便宜到可當英雄肉盾；石牆（Stone Wall）血量最高、防禦 2.5%/級。慢熱但後期巨人。',
+    zh: '經濟型巔峰：供水系統（Waterworks）讓糧食綠洲加成多 +5%（Lumi Table 1 的基準）；奴隸民兵便宜到可當英雄肉盾；石牆（Stone Wall）血量最高、防禦 2.5%/級。慢熱但後期巨人。',
     en: 'Economic powerhouse. Waterworks boosts crop-oasis bonus by +5% per level (baseline of Lumi Table 1). Slave Militia are cheap enough to soak hero-adventure damage. Stone Wall has the highest HP + 2.5%/lv defense. Slow start, massive late-game.',
   },
 
@@ -22,13 +22,13 @@ export const egyptians: Tribe = {
   },
 
   specials: [
-    { zh: '水利（Waterworks）：每級 +5% 糧綠洲加成（Lv20 = +100%）', en: 'Waterworks: +5% crop-oasis bonus per level (Lv20 = +100%)' },
+    { zh: '供水系統（Waterworks）：每級 +5% 糧綠洲加成（Lv20 = +100%）', en: 'Waterworks: +5% crop-oasis bonus per level (Lv20 = +100%)' },
     { zh: '奴隸民兵（Slave Militia）：全遊戲最便宜單位（無法訓練 off）', en: 'Slave Militia: cheapest unit in the game (cannot train in standard Off)' },
     { zh: '石牆（Stone Wall）：血量最高 + 2.5%/級防禦', en: 'Stone Wall: highest HP + 2.5%/lv defense' },
   ],
 
   strengths: [
-    { zh: '水利 + 糧綠洲 = 首都糧食產量超群', en: 'Waterworks + crop oasis = unmatched capital crop production' },
+    { zh: '供水系統 + 糧綠洲 = 首都糧食產量超群', en: 'Waterworks + crop oasis = unmatched capital crop production' },
     { zh: '看守人艾什 是高 CP / 價格比的防禦步兵', en: '看守人艾什 is a high CP/value defensive infantry' },
     { zh: 'Stone Wall 的血量讓 cata 打得很慢', en: 'Stone Wall HP slows cata progress significantly' },
   ],
@@ -50,12 +50,12 @@ export const egyptians: Tribe = {
       role: { zh: '全遊戲最便宜兵，當英雄肉盾', en: 'Cheapest unit in the game; hero-adventure shield' } },
     { id: 'ashWarden', category: 'infantry',
       name: { zh: '看守人艾什', en: '看守人艾什' },
-      attack: 30, defInfantry: 55, defCavalry: 40, speed: 6, carry: 60, upkeep: 1,
+      attack: 30, defInfantry: 55, defCavalry: 40, speed: 6, carry: 50, upkeep: 1,
       cost: { wood: 115, clay: 100, iron: 145, crop: 60 }, trainTime: 1320,
       role: { zh: '全能防守步兵', en: 'All-round defensive infantry' } },
     { id: 'khopesh', category: 'infantry',
       name: { zh: '斧刀勇士', en: 'Khopesh Warrior' },
-      attack: 65, defInfantry: 50, defCavalry: 20, speed: 7, carry: 50, upkeep: 1,
+      attack: 65, defInfantry: 50, defCavalry: 20, speed: 7, carry: 45, upkeep: 1,
       cost: { wood: 170, clay: 180, iron: 220, crop: 80 }, trainTime: 1440,
       role: { zh: '攻擊步兵', en: 'Attacking infantry' } },
     { id: 'sopdu', category: 'scout',
@@ -91,13 +91,13 @@ export const egyptians: Tribe = {
     { id: 'settler', category: 'settler',
       name: { zh: '開拓者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
-      cost: { wood: 4560, clay: 5890, iron: 4370, crop: 4180 }, trainTime: 24800,
+      cost: { wood: 5040, clay: 6510, iron: 4830, crop: 4620 }, trainTime: 24800,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },
   ],
 
   offTips: [
     { zh: '錘子主力：瑞舍夫戰車（150 防騎 + 110 攻，全能）', en: 'Hammer core: Resheph Chariot (150 def-cav + 110 atk, all-round)' },
-    { zh: '水利 Lv20 + 糧綠洲 → 首都糧產超出其他族 20%+', en: 'Waterworks Lv20 + crop oases → capital crop production beats other tribes by 20%+' },
+    { zh: '供水系統 Lv20 + 糧綠洲 → 首都糧產超出其他族 20%+', en: 'Waterworks Lv20 + crop oases → capital crop production beats other tribes by 20%+' },
   ],
   defTips: [
     { zh: '鐵砧：看守人艾什 + 守衛安赫', en: 'Anvil: 看守人艾什 + 守衛安赫' },
