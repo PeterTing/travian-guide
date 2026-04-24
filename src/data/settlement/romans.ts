@@ -3,7 +3,7 @@ import type { SettlementTimeline } from '../settlement-types';
 export const romans: SettlementTimeline = {
   tribe: 'romans',
   approach: {
-    zh: '善用「雙建築佇列」：資源田跟其他建築可以同時建。前期把非糧資源田推到 Lv 5-7 的同時升主建築 + 研究院 + 行宮，效率遠超他族。',
+    zh: '善用「雙建築佇列」：資源田跟其他建築可以同時建。前期把非糧資源田推到 Lv 5-7 的同時升村莊大樓 + 研究院 + 行宮，效率遠超他族。',
     en: 'Leverage the dual building queue: resource fields and other buildings build simultaneously. Push non-crop fields to Lv 5–7 while MB + Academy + Residence go up in parallel — significantly faster than other tribes.',
   },
   keyTips: [

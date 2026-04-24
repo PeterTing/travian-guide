@@ -47,7 +47,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 44,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 10,
     tier: 4,
     cost: 3430,
@@ -90,7 +90,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 48,
-    building: { zh: '秘密倉庫 x 8(全部升到 3)', en: '8x Crannies to 3' },
+    building: { zh: '山洞 x 8(全部升到 3)', en: '8x Crannies to 3' },
     targetLevel: 3,
     tier: null,
     cost: 4080,
@@ -107,7 +107,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 50,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 8,
     tier: null,
     cost: 1075,
@@ -172,7 +172,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 57,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 12,
     tier: 4,
     cost: 8235,
@@ -242,7 +242,7 @@ const branchSteps: BuildStep[] = [
     cost: null,
     phase: 'pre-party-1',
     notes: {
-      zh: '這裡是最關鍵的判斷點,特別注意!\n如果你 farm 得很好,第 1 場派對在 48 小時內辦完,代表你每小時 CP 產量不夠,必須補回來。補的方法是把秘密倉庫升到 7。關鍵是要算出你差多少 CP、再決定要升多少秘密倉庫。記住:你還有至少 3 場派對和大約 60 小時的產出時間可以補 CP。另外:最少要 1 個秘密倉庫才能衝到 250 人口。',
+      zh: '這裡是最關鍵的判斷點,特別注意!\n如果你 farm 得很好,第 1 場派對在 48 小時內辦完,代表你每小時 CP 產量不夠,必須補回來。補的方法是把山洞升到 7。關鍵是要算出你差多少 CP、再決定要升多少山洞。記住:你還有至少 3 場派對和大約 60 小時的產出時間可以補 CP。另外:最少要 1 個山洞才能衝到 250 人口。',
       en: "So here comes the tricky part! I've designed the build-up to have one decisive moment and that's here. Pay attention!\nIf you have farmed well and you have done party 1 faster than 48h you've too less CP generated out of the regular production/ hour. This needs to be compensated and this is done by upgrading crannies to 7. It is critical to calculate how much CP you need and therewith know how much you lack. Determine how much CP you need to compensate and use the crannies to fix it. Remember you have at least 3 parties and about 60h of production to compensate the missed CP. Be aware; 1 is neccessary for getting 250 pop.",
     },
   },
@@ -296,7 +296,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 69,
-    building: { zh: '秘密倉庫(依需求升到 7)', en: 'Crannies TBD to 7' },
+    building: { zh: '山洞(依需求升到 7)', en: 'Crannies TBD to 7' },
     targetLevel: 7,
     tier: null,
     cost: 1635,
@@ -326,7 +326,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 72,
-    building: { zh: '拆除 1 個秘密倉庫', en: 'Remove 1 Cranny' },
+    building: { zh: '拆除 1 個山洞', en: 'Remove 1 Cranny' },
     targetLevel: 0,
     tier: null,
     cost: null,
@@ -335,7 +335,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 73,
-    building: { zh: '馬廄', en: 'Stable' },
+    building: { zh: '馬房', en: 'Stable' },
     targetLevel: 3,
     tier: null,
     cost: 2825,
@@ -445,7 +445,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 85,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 14,
     tier: null,
     cost: 8380,
@@ -465,7 +465,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 87,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 15,
     tier: null,
     cost: 6025,
@@ -529,7 +529,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 93,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 16,
     tier: null,
     cost: 7710,
@@ -557,7 +557,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 96,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 18,
     tier: null,
     cost: 22495,
@@ -577,7 +577,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 98,
-    building: { zh: '秘密倉庫(所有村一起升到 10)', en: 'Cranny sims all to 10' },
+    building: { zh: '山洞(所有村一起升到 10)', en: 'Cranny sims all to 10' },
     targetLevel: 10,
     tier: null,
     cost: 28600,

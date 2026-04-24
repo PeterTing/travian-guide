@@ -44,7 +44,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 44,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 10,
     tier: 4,
     cost: 3430,
@@ -74,7 +74,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 47,
-    building: { zh: '秘密倉庫 x 7(全部升到 3)', en: '7x Crannies to 3' },
+    building: { zh: '山洞 x 7(全部升到 3)', en: '7x Crannies to 3' },
     targetLevel: 3,
     tier: null,
     cost: 3570,
@@ -127,7 +127,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 53,
-    building: { zh: '馬廄', en: 'Stable' },
+    building: { zh: '馬房', en: 'Stable' },
     targetLevel: 1,
     tier: 1,
     cost: 720,
@@ -137,7 +137,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 54,
-    building: { zh: '馬廄', en: 'Stable' },
+    building: { zh: '馬房', en: 'Stable' },
     targetLevel: 3,
     tier: 2,
     cost: 2105,
@@ -204,7 +204,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 61,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 12,
     tier: 4,
     cost: 9310,
@@ -212,7 +212,7 @@ const branchSteps: BuildStep[] = [
     popGain: 10,
     phase: 'pre-party-1',
     notes: {
-      zh: '橘色標示的人口與 CP 獎勵會依賴馬廄升到 3 或 5。請注意,馬廄還沒升到對應等級之前不要提前預期這些加成。',
+      zh: '橘色標示的人口與 CP 獎勵會依賴馬房升到 3 或 5。請注意,馬房還沒升到對應等級之前不要提前預期這些加成。',
       en: "Pop & CP rewards in orange are dependable on stable to 3 or 5. Please be aware of this and don't expect it prematurely.",
     },
   },
@@ -357,7 +357,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 76,
-    building: { zh: '秘密倉庫 x 7(全部升到 7)', en: '7x Crannies to 7' },
+    building: { zh: '山洞 x 7(全部升到 7)', en: '7x Crannies to 7' },
     targetLevel: 7,
     tier: null,
     cost: 11445,
@@ -467,7 +467,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 88,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 14,
     tier: null,
     cost: 8380,
@@ -487,7 +487,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 90,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 15,
     tier: null,
     cost: 6025,
@@ -551,7 +551,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 96,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 16,
     tier: null,
     cost: 7710,
@@ -579,7 +579,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 99,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 18,
     tier: null,
     cost: 22495,
@@ -599,7 +599,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 101,
-    building: { zh: '秘密倉庫(所有村一起升到 10)', en: 'Cranny sims all to 10' },
+    building: { zh: '山洞(所有村一起升到 10)', en: 'Cranny sims all to 10' },
     targetLevel: 10,
     tier: null,
     cost: 28600,

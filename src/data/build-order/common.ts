@@ -13,7 +13,7 @@ import type { BuildStep } from './types';
 export const common: BuildStep[] = [
   {
     step: 1,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 1,
     tier: 1,
     cost: null,
@@ -112,7 +112,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 10,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 3,
     tier: 2,
     cost: 555,
@@ -171,7 +171,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 16,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 1,
     tier: 1,
     cost: 130,
@@ -180,7 +180,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 17,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 3,
     tier: 2,
     cost: 380,
@@ -267,7 +267,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 26,
-    building: { zh: '兵營', en: 'Barracks' },
+    building: { zh: '軍營', en: 'Barracks' },
     targetLevel: 1,
     tier: 1,
     cost: 730,
@@ -328,7 +328,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 32,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 6,
     tier: 3,
     cost: 1065,
@@ -338,7 +338,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 33,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 7,
     tier: 3,
     cost: 2395,
@@ -356,7 +356,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 35,
-    building: { zh: '兵營', en: 'Barracks' },
+    building: { zh: '軍營', en: 'Barracks' },
     targetLevel: 3,
     tier: 2,
     cost: 2135,

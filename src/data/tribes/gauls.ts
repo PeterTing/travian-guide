@@ -12,7 +12,7 @@ export const gauls: Tribe = {
     en: 'Fastest cavalry · Rock-solid defense',
   },
   summary: {
-    zh: '速度與防禦並重：Theutates Thunder 是全遊戲最快的騎兵（速度 19），秘密倉庫容量 ×1.5，陷阱可以抓敵軍。防守首選，同時也能快速支援友軍。',
+    zh: '速度與防禦並重：Theutates Thunder 是全遊戲最快的騎兵（速度 19），山洞容量 ×1.5，陷阱可以抓敵軍。防守首選，同時也能快速支援友軍。',
     en: 'Speed and defense. Theutates Thunder is the fastest cavalry in the game (speed 19). Crannies hold 1.5× more, and traps can catch attackers. Top defensive pick and still able to reinforce allies quickly.',
   },
 
@@ -23,7 +23,7 @@ export const gauls: Tribe = {
 
   specials: [
     { zh: '獵人陷阱（Trapper）：捕捉來襲部隊', en: 'Trapper building catches incoming raiders' },
-    { zh: '秘密倉庫容量 ×1.5（其他族 ×1.0）', en: 'Cranny holds 1.5× resources (other tribes 1.0×)' },
+    { zh: '山洞容量 ×1.5（其他族 ×1.0）', en: 'Cranny holds 1.5× resources (other tribes 1.0×)' },
     { zh: '柵欄（Palisade）每級 +2.5% 防禦', en: 'Palisade: +2.5% defense per level' },
   ],
 

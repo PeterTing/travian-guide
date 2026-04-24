@@ -5,7 +5,7 @@ describe('build-order types', () => {
   it('BuildStep has required fields', () => {
     const step: BuildStep = {
       step: 1,
-      building: { zh: '主建築', en: 'Main Building' },
+      building: { zh: '村莊大樓', en: 'Main Building' },
       targetLevel: 1,
       tier: 1,
       cost: 0,

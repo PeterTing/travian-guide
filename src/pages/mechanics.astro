@@ -94,21 +94,21 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         />
       </p>
 
-      <h3><Bi zh="主建築加速公式" en="Main Building speed-up" /></h3>
+      <h3><Bi zh="村莊大樓加速公式" en="Main Building speed-up" /></h3>
       <pre>build_time(L) = base_time × 0.964 ^ (MB_level − 1)</pre>
       <p>
         <Bi
-          zh="主建築每升一級，後續建築時間減少約 3.6%（複利）。Lv 10 ≈ 72% 時間；Lv 20 ≈ 50%（約加倍速度）。"
+          zh="村莊大樓每升一級，後續建築時間減少約 3.6%（複利）。Lv 10 ≈ 72% 時間；Lv 20 ≈ 50%（約加倍速度）。"
           en="Each Main Building level shaves ~3.6% off build time (compounded). Lv 10 ≈ 72% of base, Lv 20 ≈ 50% (roughly 2× speed)."
         />
       </p>
 
       <h3><Bi zh="加成建築（每級 +5%，滿 Lv5 = +25%）" en="Bonus buildings (+5%/lv, max +25% at Lv5)" /></h3>
       <ul>
-        <li>Sawmill → Wood · <Bi zh="需 Woodcutter Lv10 + 主建築 Lv5" en="needs Woodcutter Lv10 + MB Lv5" /></li>
-        <li>Brickyard → Clay · <Bi zh="需 Clay Pit Lv10 + 主建築 Lv5" en="needs Clay Pit Lv10 + MB Lv5" /></li>
-        <li>Iron Foundry → Iron · <Bi zh="需 Iron Mine Lv10 + 主建築 Lv5" en="needs Iron Mine Lv10 + MB Lv5" /></li>
-        <li>Grain Mill → Crop · <Bi zh="需 Cropland Lv5 + 主建築 Lv5" en="needs Cropland Lv5 + MB Lv5" /></li>
+        <li>Sawmill → Wood · <Bi zh="需 Woodcutter Lv10 + 村莊大樓 Lv5" en="needs Woodcutter Lv10 + MB Lv5" /></li>
+        <li>Brickyard → Clay · <Bi zh="需 Clay Pit Lv10 + 村莊大樓 Lv5" en="needs Clay Pit Lv10 + MB Lv5" /></li>
+        <li>Iron Foundry → Iron · <Bi zh="需 Iron Mine Lv10 + 村莊大樓 Lv5" en="needs Iron Mine Lv10 + MB Lv5" /></li>
+        <li>Grain Mill → Crop · <Bi zh="需 Cropland Lv5 + 村莊大樓 Lv5" en="needs Cropland Lv5 + MB Lv5" /></li>
         <li>Bakery → Crop · <Bi zh="需 Cropland Lv10 + Grain Mill Lv5" en="needs Cropland Lv10 + Grain Mill Lv5" /></li>
       </ul>
       <p>
@@ -122,7 +122,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
       <p>
         <Bi
-          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +24–29%（取決於糧消耗；高糧消耗兵種加成較大）。"
+          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（軍營 / 馬房）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +24–29%（取決於糧消耗；高糧消耗兵種加成較大）。"
           en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+24–29% (varies by upkeep; higher-upkeep units gain more)."
         />
       </p>
@@ -322,7 +322,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <pre>CP_at_level(L) = round(base × 1.2 ^ L)</pre>
       <p>
         <Bi
-          zh="每棟建築有一個基礎 CP 值（主建築 = 2，市場 = 3，大使 / 研究院 = 4，城鎮廳 / 皇宮 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
+          zh="每棟建築有一個基礎 CP 值（村莊大樓 = 2，市場 = 3，大使 / 研究院 = 4，城鎮廳 / 皇宮 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
           en="Each building has a base CP (Main Building = 2, Marketplace = 3, Embassy / Academy = 4, Town Hall / Palace = 5, Treasury = 6, most others 1 or 2). Higher levels give exponentially more CP."
         />
       </p>
@@ -330,7 +330,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="Lumi 建議：每村 CP 配方" en="Lumi baseline: CP per village" /></h3>
       <p>
         <Bi
-          zh="主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天。這是每個村的「最低被動 CP」基線。"
+          zh="村莊大樓 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天。這是每個村的「最低被動 CP」基線。"
           en="Main Building 20 + Marketplace 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day. This is the minimum-passive-CP baseline every village should reach."
         />
       </p>
@@ -473,14 +473,14 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       />
       <p style="font-size: var(--fs-sm); color: var(--text-2);">
         <Bi
-          zh="拍賣場（需主建築 Lv 5）讓你用銀幣競標他人賣出的裝備。後期 +50% 訓練頭盔 / +50% 攻擊武器 / +75% 速度靴會競到 100k+ 銀幣。"
+          zh="拍賣場（需村莊大樓 Lv 5）讓你用銀幣競標他人賣出的裝備。後期 +50% 訓練頭盔 / +50% 攻擊武器 / +75% 速度靴會競到 100k+ 銀幣。"
           en="Auctions (requires Main Building Lv 5) let you bid silver on items posted by other players. Late-game +50% training helmets / +50% attack weapons / +75% boots routinely sell for 100k+ silver."
         />
       </p>
     </Section>
 
-    <Section id="cranny" titleZh="秘密倉庫 & 保護" titleEn="Cranny & protection" eyebrow="Defense">
-      <h3><Bi zh="秘密倉庫容量" en="Cranny capacity" /></h3>
+    <Section id="cranny" titleZh="山洞 & 保護" titleEn="Cranny & protection" eyebrow="Defense">
+      <h3><Bi zh="山洞容量" en="Cranny capacity" /></h3>
       <p>
         <Bi
           zh="Lv1 每種資源藏 200（四項共 800；高盧 ×1.5 = 每種 300 / 共 1,200）；Lv10 最高每種 2,000（共 8,000）。高盧享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"

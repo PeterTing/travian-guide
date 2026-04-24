@@ -60,7 +60,7 @@ export default function PassiveCpCalculator() {
             (round(base×1.2^L) per building; Lumi's "529" rounds the components individually differently) */}
         <p>{lang === 'en'
           ? 'CP per day from a single village. Lumi recommends MB 20 + Market 20 + Embassy 20 + Academy 20 + Town Hall 10 = 531 CP/day per village (77 + 115 + 153 + 153 + 31 + 2 baseline). The 2,000-CP baseline includes a small constant +2 for an empty village.'
-          : '單村每天能產多少被動 CP。Lumi 建議：主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 531 CP/天（77+115+153+153+31+2 基線）。基線含 +2（空村產量）。'}</p>
+          : '單村每天能產多少被動 CP。Lumi 建議：村莊大樓 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 531 CP/天（77+115+153+153+31+2 基線）。基線含 +2（空村產量）。'}</p>
       </div>
 
       <div className={s.wrapper}>

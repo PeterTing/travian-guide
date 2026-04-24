@@ -64,7 +64,7 @@ export const concepts: LumiSection = {
           en: 'CP is the only "resource" in Travian that can\'t be stolen. It gates how many villages you can have, and village count = total production = military power. So CP isn\'t a side effect — you plan for it.',
         }},
         { type: 'paragraph', text: {
-          zh: 'Lumi 強烈建議：每個村至少做到 主建築 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天 的被動基線。慶典補足另外 50%。',
+          zh: 'Lumi 強烈建議：每個村至少做到 村莊大樓 20 + 市場 20 + 大使 20 + 研究院 20 + 城鎮廳 10 = 529 CP/天 的被動基線。慶典補足另外 50%。',
           en: 'Lumi strongly recommends every village should reach a passive baseline of: Main Building 20 + Marketplace 20 + Embassy 20 + Academy 20 + Town Hall 10 = 529 CP/day. Celebrations cover the other ~50%.',
         }},
         // Source: official CP-per-level values published on Travian Legends support
@@ -81,7 +81,7 @@ export const concepts: LumiSection = {
           { zh: '城鎮廳 Lv 10 解鎖大慶典 = 每次完成 +2,000 CP（冷卻時間依 Town Hall 等級與伺服器速度而異），連續開大慶典配合被動 CP 才是擴張的真正引擎', en: 'Town Hall Lv 10 unlocks great celebrations = +2,000 CP per completion (cooldown depends on Town Hall level and server speed). Back-to-back great celebrations plus passive CP are the real expansion engine.' },
         ]},
         { type: 'callout', variant: 'info', title: { zh: '被動 CP 效率表（Lumi 推薦）', en: 'Passive CP efficiency sheet (Lumi-recommended)' }, text: {
-          zh: 'Lumi 指的這份表列出每個建築「每等級投入資源 → 提供多少被動 CP」的效率排名。結論呼應上面的建議：主建築、市場、研究院、大使館是被動 CP 的四大 goat（不計 cranny）。原始表格：https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
+          zh: 'Lumi 指的這份表列出每個建築「每等級投入資源 → 提供多少被動 CP」的效率排名。結論呼應上面的建議：村莊大樓、市場、研究院、大使館是被動 CP 的四大 goat（不計 cranny）。原始表格：https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
           en: 'Lumi\'s recommended sheet ranks every building by "resource cost per level → passive CP generated". The verdict matches the baseline above: main building, marketplace, academy, and embassy are the four goats of passive CP (not counting cranny). Original: https://docs.google.com/spreadsheets/d/1JTh_3alICJ1xw1pq-oijRglen85BdqeIPn2D703GJfc/edit',
         }},
       ],

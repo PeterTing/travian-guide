@@ -23,13 +23,13 @@ export const egyptians: SettlementTimeline = {
 export const huns: SettlementTimeline = {
   tribe: 'huns',
   approach: {
-    zh: '匈人以騎兵為核心，開局蓋馬廄而非兵營。Steppe Rider（2,400 秒、速 16、carry 115）是全遊戲最好的早期農場單位。司令部取代行宮。',
+    zh: '匈人以騎兵為核心，開局蓋馬房而非軍營。Steppe Rider（2,400 秒、速 16、carry 115）是全遊戲最好的早期農場單位。司令部取代行宮。',
     en: 'Cavalry-first tribe: build Stable instead of Barracks. Steppe Rider (2,400s train, speed 16, carry 115) is one of the best early farming units. Command Center replaces Residence.',
   },
   keyTips: [
     { zh: 'Steppe Rider 的速度 16 + carry 115 讓你早期掠奪收入超越他族', en: 'Steppe Rider speed 16 + carry 115 yields higher early raiding income than other tribes' },
     { zh: '司令部（Command Center）是匈人獨有的，解鎖後可支援遠距 Op', en: 'Command Center is Hun-exclusive, enabling long-range operations when unlocked' },
-    { zh: 'Steppe Rider 是早期最強的 farming 機器 — 蓋馬廄的優先序高於兵營', en: 'Steppe Rider is the best early farming unit — prioritise Stable over Barracks' },
+    { zh: 'Steppe Rider 是早期最強的 farming 機器 — 蓋馬房的優先序高於軍營', en: 'Steppe Rider is the best early farming unit — prioritise Stable over Barracks' },
     { zh: '司令部取代行宮/皇宮：同樣 Lv10 才能訓 settler、Lv20 才能放 3 chiefs', en: 'Command Center replaces Residence/Palace: Lv10 unlocks Settler training, Lv20 unlocks the 3-chief slot' },
   ],
 };

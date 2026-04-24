@@ -50,7 +50,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 44,
-    building: { zh: '秘密倉庫', en: 'Cranny' },
+    building: { zh: '山洞', en: 'Cranny' },
     targetLevel: 10,
     tier: 4,
     cost: 3430,
@@ -80,7 +80,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 47,
-    building: { zh: '秘密倉庫 x 8(全部升到 3)', en: '8x Crannies to 3' },
+    building: { zh: '山洞 x 8(全部升到 3)', en: '8x Crannies to 3' },
     targetLevel: 3,
     tier: null,
     cost: 4080,
@@ -159,7 +159,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 56,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 12,
     tier: 4,
     cost: 9310,
@@ -236,7 +236,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 64,
-    building: { zh: '秘密倉庫 x 8(全部升到 7)', en: '8x Crannies to 7' },
+    building: { zh: '山洞 x 8(全部升到 7)', en: '8x Crannies to 7' },
     targetLevel: 7,
     tier: null,
     cost: 13080,
@@ -285,7 +285,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 69,
-    building: { zh: '主建築', en: 'Main Building' },
+    building: { zh: '村莊大樓', en: 'Main Building' },
     targetLevel: 13,
     tier: null,
     cost: 3675,
