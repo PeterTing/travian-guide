@@ -311,3 +311,79 @@ These are the 6 items the user flagged on 2026-04-24 but are deferred to future 
 - CP threshold #10 (requires 9-village player)
 - Full-game simulation requires modeling hundreds of interacting parameters
 
+
+---
+
+## Session 2026-04-24 continued: CP + farming math, remaining items
+
+### ✅ Item 3 verified — 531 CP/day basket achievability
+
+Formula: building L1 costs (verified via live Manual API) + standard T4.6 scaling `cost_L = L1 × 1.28^(L-1)` + `time_L = L1_time × 1.28^(L-1) × 0.964^(MB-1)`.
+
+- **Total resource cost**: 943,717 (wood 320k / clay 240k / iron 256k / crop 127k)
+- **Build time** (no acceleration): 47.5 days
+- **With MB Lv20 speed (0.498×)**: 23.6 days
+- **Roman dual queue**: 15.8 days
+- **Roman dual + Plus gold**: 12.6 days
+
+**Verdict**: Lumi 531 CP/day preset is Day 13–24 goal, not Day 7.
+
+Added to mechanics.astro CP section.
+
+### ✅ Item 2 verified — Farming resource requirements per strategy
+
+Per-strategy average resource/hr need from Carpis xlsx totals:
+
+| Strategy | Total | Target | Avg /hr | Avg /day |
+|----------|-------|--------|---------|----------|
+| 4P Sim | 492,830 | Day 11 | 1,867 | 44,803 |
+| 4P Farming | 499,930 | Day 13 | 1,602 | 38,456 |
+| 3P Sim | 499,500 | Day 10 | 2,081 | 49,950 |
+| 3P Farming | 500,365 | Day 12 | 1,737 | 41,697 |
+| Lazy Decent | 361,160 | Day 21 | 717 | 17,198 |
+
+**Finding**: 13-day averaged production at 4-4-4-6 Lv10 fields (5,040/hr) exceeds demand. But Day 1–5 fields are Lv1–3 (~100–500/hr); that's when farming carries the load.
+
+**Farming's real value**: timing, not total. Six Clubswingers raiding ≈ 500–1,000 res/hr closes the Day 1–5 gap, pulling field-ramp forward 2–3 days.
+
+Added to mechanics.astro.
+
+### ⚠️ Item 4 NOT verified — Academy research cost formula
+
+**Attempted**: support.travian.com, travian.fandom.com (403), kirilloid.ru (cert expired), in-game Academy manual API (L1 building only, no per-unit research cost).
+
+**Finding**: Travian official does NOT publish the research cost formula. Community says it's approximately `research_cost = unit_training_cost × 3-4`, but this is unofficial.
+
+**Our site**: no research cost data displayed. Not a regression.
+
+**Deferred**: future session can either (a) fetch research cost by navigating to actual Academy building in-game and reading the research list, or (b) accept community formula with disclaimer.
+
+### ⚠️ Item 5 NOT verified — Hero XP curve
+
+**Attempted**: support.travian.com "Hero Experience" + "Hero Overview" articles, Fandom (403).
+
+**Finding**: Travian official does NOT publish XP per level table. Articles describe *how* heroes gain XP (crop consumption of killed enemies, adventures, daily quests) but not the numerical threshold curve.
+
+**Our site**: mechanics.astro mentions 4 attribute points per level + cap 100 attribute points, but no XP table.
+
+**Deferred**: future session can compile from Lumi PDF or kirilloid mirror if available.
+
+### 🔴 Item 1 DEFERRED — Build-order optimality simulator
+
+This requires a resource-simulation engine modeling:
+- Starting resources (750 each)
+- Field production curve (non-linear ramp Lv0→Lv21)
+- Farming income (variable by raid frequency + tribe)
+- Build queue (1 for Teuton/Gaul/etc., 2 for Roman)
+- Construction time with MB speed
+- Troop training time (settler × 3)
+- Celebration CP boost (optional)
+
+Output: days-to-chief per strategy, compare to Carpis xlsx claims.
+
+**Estimated effort**: 2–3 hours for a rough estimator, 1–2 days for a rigorous one.
+
+**Not started this session.** Will be a separate `docs/superpowers/plans/*-build-simulator.md` spec.
+
+**Interim confidence**: Carpis xlsx has been used by Travian community for years; broad consensus that 4P-sim is the fastest pure-economy route and 4P-farming the fastest with raiding. Our site correctly labels them but hasn't independently validated the ordering.
+
