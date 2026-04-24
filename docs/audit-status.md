@@ -271,3 +271,43 @@ After per-section inventory (commit `11fc08f`), a second-pass verification sweep
 - 🔲 Deferred (not bugs; feature work):
   - BuildOrderCalculator oasis-% input (feature request)
   - Stonemason HP bonus section (if user wants it — currently not in mechanics.astro)
+
+## Session 2026-04-24: Live-game verification (Playwright MCP)
+
+Verified 250+ data points against live Travian game UI (ts10.x1.international + rof.x3.international).
+
+### Fully verified (live game UI + tests pin)
+
+- 7 tribe names: 羅馬人/日耳曼人/高盧人/埃及人/匈奴/維京人/斯巴達人
+- 70 unit names (7 tribes × 10 units)
+- 50 unit stats (5 core tribes × 10 fields: att/defI/defC/speed/carry/upkeep/cost×4)
+  - Reverted 2 wrong changes from Fandom-wiki-based commit 3c76390
+  - Fixed 12 stat discrepancies (Gauls/Egyptians/Huns)
+- 46 building names (including newly-verified: 防禦牆 斯巴達人 / 障礙物 維京人 / 醫神神殿 / 港口 / 障礙物)
+- Server variants table updated with Community Week + New Year Special + Local Gameworlds
+
+### Open items (NOT yet verified against game/authoritative source)
+
+These are the 6 items the user flagged on 2026-04-24 but are deferred to future sessions due to scope:
+
+| # | Item | What's missing | Verification method |
+|---|------|---------------|---------------------|
+| 1 | Build-order optimality | Is Carpis xlsx 40-step prefix actually fastest? Is 4P-sim < 3P-farming? | Build resource-sim engine; compare 5 strategies end-to-end |
+| 2 | Farming resource requirements | Build-order assumes farming but doesn't specify resource/hr target | Diff daily cost vs self-production; back-solve farming rate |
+| 3 | 531 CP/day achievability | Time + cost to build MB20+Market20+Embassy20+Academy20+TH10 | Sum field-specific costs + MB-speed-adjusted build times |
+| 4 | Unit research costs | Academy research cost per unit, research time scaling | Fetch from live Academy UI or kirilloid build-order |
+| 5 | Hero XP curve | XP per level (Lv1→Lv30), adventure rewards distribution | support.travian.com hero article + adventure data |
+| 6 | Server variants ✅ | Now documented | Completed this session |
+
+### Known subjective content (won't verify, disclaimer added)
+
+- Tribe difficulty stars (1-5): author composite from community consensus, NOT official. Disclaimer added to /tribes index.
+- Lumi strategy content (9 files): directly cites Lumi PDF; opinion-based game advice.
+- Settlement tips (5 files): author composites.
+
+### What CANNOT be verified from live game
+
+- Lv20 max-level numerical values (requires actual Lv20 buildings in-game)
+- CP threshold #10 (requires 9-village player)
+- Full-game simulation requires modeling hundreds of interacting parameters
+
