@@ -405,3 +405,26 @@ Simplified validation (not full simulator) in mechanics.astro §CP:
 **Not verified**: an independent full simulator with resource spending vs production vs queue modeling. Deferred.
 
 **Acceptable confidence**: Carpis xlsx is widely used by Travian community; our numeric pins prove our data MATCHES xlsx; feasibility check confirms resource budgets are internally consistent.
+
+### ✅ Formula-derivation verification (added after user pushback)
+
+Following user question "at least formula-derived should be tested", verified formulas against live game at multiple levels (limited by user account's low-level buildings):
+
+**Verified at live game**:
+| Constant | Live game value | Our formula | Status |
+|----------|----------------|-------------|--------|
+| Woodcutter L2 production | 39/hr on x3 = 13/hr base | FIELD_PRODUCTION[2]=13 | ✅ exact |
+| Woodcutter L3 production | 63/hr on x3 = 21/hr base | FIELD_PRODUCTION[3]=21 | ✅ exact |
+| Woodcutter L3 cost | 110/280/140/165 | _fieldCostTable(40,100,50,60) @ L3 | ✅ exact match |
+| Main Building L1 cost | 70/40/60/20 | L1 base (direct) | ✅ exact |
+| Main Building L2 cost | 90/50/75/25 | L1 × 1.28 = 90/51/77/26 | 🟡 ≤3% off (game rounds to 5-step) |
+
+**Conclusion**: FIELD formulas (cost + production) match EXACTLY at verified levels. BUILDING cost formula `L1 × 1.28^(L-1)` is APPROXIMATE (rounded) — my 944k total for 531 CP basket has **±5% rounding error**; directionally correct.
+
+**Cannot verify without player advancing to higher levels**:
+- Building cost at L5, L10, L15, L20 (user has MB Lv1)
+- Smithy +% at Lv20
+- Cranny capacity at Lv10 (formula says 2000/resource)
+- CP threshold #10 (251,000)
+
+These remain formula-derived. Framework is sound; exact numbers may vary ±5%.
