@@ -38,8 +38,8 @@ export const concepts: LumiSection = {
       title: { zh: '一般村建築順序（非首都）', en: 'Non-capital build order (Lumi)' },
       blocks: [
         { type: 'paragraph', text: {
-          zh: 'Lumi 公式化的非首都資源田升級順序，背後就是 ROI 排序。記住一個關鍵：加成建築（Sawmill / Brickyard / Iron Foundry）需要該類型田 Lv 10，所以順序很重要。',
-          en: "Lumi's formulaic non-capital field-upgrade sequence — under the hood it's pure ROI ordering. Key constraint: bonus buildings (Sawmill / Brickyard / Iron Foundry) need their resource field at Lv 10, so order matters.",
+          zh: 'Lumi 公式化的非首都資源田升級順序，背後就是 ROI 排序。記住一個關鍵：加成建築（鋸木廠/磚廠/鋼鐵鑄造廠 (Sawmill/Brickyard/Iron Foundry)）需要該類型田 Lv 10，所以順序很重要。',
+          en: "Lumi's formulaic non-capital field-upgrade sequence — under the hood it's pure ROI ordering. Key constraint: bonus buildings (鋸木廠/磚廠/鋼鐵鑄造廠 (Sawmill/Brickyard/Iron Foundry)) need their resource field at Lv 10, so order matters.",
         }},
         { type: 'callout', variant: 'info', title: { zh: '木 / 土 / 鐵的標準順序', en: 'Wood / Clay / Iron standard sequence' }, text: {
           zh: '全部到 Lv 7 → 一個到 Lv 10 → 加成建築 Lv 3 → 1 個到 Lv 9 → 加成建築 Lv 4 → 全部到 Lv 10 → 加成建築 Lv 5。等於是「把投資攤開到對的時間點」。',

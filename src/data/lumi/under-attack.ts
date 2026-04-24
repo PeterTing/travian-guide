@@ -21,7 +21,7 @@ export const underAttack: LumiSection = {
         { type: 'list', items: [
           { zh: '隨時保留至少 300 個 scouts + 部隊', en: 'Always keep at least 300 scouts + troops in the cap' },
           { zh: 'Stone Mason 提升建築 HP（抗 cata），是首都抵抗拆村的關鍵建築', en: 'Stone Mason increases building HP (vs catapults) — a key cap-survival building when resisting demolition' },
-          { zh: '徹底拆村通常需要多波 cata 連打；所需數量受目標等級、Stonemason、Architect artefact 影響很大', en: 'Fully demolishing a village takes multiple cata waves; the exact count scales strongly with target level, Stonemason, and Architect artefact modifiers' },
+          { zh: '徹底拆村通常需要多波 cata 連打；所需數量受目標等級、石匠鋪 (Stonemason)、Architect artefact 影響很大', en: 'Fully demolishing a village takes multiple cata waves; the exact count scales strongly with target level, Stonemason, and Architect artefact modifiers' },
         ]},
       ],
     },

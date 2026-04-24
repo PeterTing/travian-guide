@@ -30,7 +30,7 @@ export const teutons: Tribe = {
   strengths: [
     { zh: 'Clubswinger 便宜、訓練最快，早期掠奪無人能敵', en: 'Cheap, fast-training Clubswingers dominate early raiding' },
     { zh: '英雄被動讓早期掠奪收入遠超他族', en: 'Hero passive makes early plunder income significantly higher' },
-    { zh: 'Brewery + TK 組合是後期純 OFF 王者', en: 'Brewery + Teutonic Knight late-game is a top pure-offense combo' },
+    { zh: '釀酒廠 (Brewery) + TK 組合是後期純 OFF 王者', en: 'Brewery + Teutonic Knight late-game is a top pure-offense combo' },
   ],
 
   weaknesses: [
@@ -97,7 +97,7 @@ export const teutons: Tribe = {
 
   offTips: [
     { zh: '早期目標：訓 30–50 棍棒兵，開始掠奪 inactives', en: 'Early goal: 30–50 Clubswingers for farming inactives' },
-    { zh: '錘子主力：斧頭兵 + 條頓騎士 + Brewery', en: 'Hammer core: Axeman + TK + Brewery' },
+    { zh: '錘子主力：斧頭兵 + 條頓騎士 + 釀酒廠 (Brewery)', en: 'Hammer core: Axeman + TK + Brewery' },
   ],
   defTips: [
     { zh: '鐵砧：矛兵 70% + 遊俠 30%', en: 'Anvil: 70% Spearman + 30% Paladin' },

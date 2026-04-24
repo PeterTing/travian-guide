@@ -27,7 +27,7 @@ export const villages: LumiSection = {
           en: 'A village has only 20 building slots. Higher crop levels need matching storage: crop Lv 17 needs 5 warehouses + 1 granary (6 slots); crop 18 needs 7 wh + 2 gr (9 slots); crop 19 needs 12 wh + 3 gr (15 slots). Without early planning you\'ll stall at Lv 16.',
         }},
         { type: 'paragraph', text: {
-          zh: '首都必備建築（佔 6 槽）：村莊大樓 + Mill + Bakery + Market + Trade Office + (Stone Mason)。剩下的槽位主要給倉庫、穀倉、CP 建築。其他建築之後可以拆掉換成倉儲。',
+          zh: '首都必備建築（佔 6 槽）：村莊大樓 + 麵粉廠 + 麵包店 + 市場 + 交易所 + (石匠鋪)。剩下的槽位主要給倉庫、穀倉、CP 建築。其他建築之後可以拆掉換成倉儲。',
           en: 'Mandatory capital buildings (6 slots): Main Building + Mill + Bakery + Market + Trade Office + (Stone Mason). Remaining slots go mostly to warehouses, granaries, and CP buildings. Anything else can be demolished later to make room for storage.',
         }},
         { type: 'callout', variant: 'warn', title: { zh: '不要在首都養兵', en: "Don't train troops in the capital" }, text: {
@@ -41,7 +41,7 @@ export const villages: LumiSection = {
       title: { zh: '錘子 (Hammer / OFF Village)', en: 'Hammer (OFF village)' },
       blocks: [
         { type: 'paragraph', text: {
-          zh: '錘子是你的進攻主力 — 訓練 OFF 兵 + 攻城 + 3 chiefs。需要的建築：兵營、馬廄、工場、醫院、TS、城鎮廳、市場 + 商路、皇宮（為了 3 chiefs）、5–6 個倉儲。',
+          zh: '錘子是你的進攻主力 — 訓練 OFF 兵 + 攻城 + 3 chiefs。需要的建築：兵營、馬廄、工場、醫院、錦標場（TS）、城鎮廳、市場 + 商路、皇宮（為了 3 chiefs）、5–6 個倉儲。',
           en: 'Your offensive main force — produces OFF troops + siege + 3 chiefs. Buildings: barracks, stable, workshop, hospital, TS, town hall, market + trade office, palace (for the 3-chief slot), 5–6 storage.',
         }},
         { type: 'list', items: [
@@ -79,7 +79,7 @@ export const villages: LumiSection = {
           en: 'Feeders are the backbone of your account: 8–15k resources/hr shipped back to your main cluster. Enemies usually don\'t waste resources hitting feeders. Once finished, all you do is click parties daily — trade routes do the rest.',
         }},
         { type: 'paragraph', text: {
-          zh: 'Feeder 標準的 13 個基本建築（佔大部分槽位）：村莊大樓、市場、研究院、大使館、城鎮廳、Mill、Bakery、Sawmill、Brickyard、Iron Foundry、Trade Office、倉庫、穀倉。這 13 個是 CP + 產量雙重最佳化。',
+          zh: 'Feeder 標準的 13 個基本建築（佔大部分槽位）：村莊大樓、市場、研究院、大使館、城鎮廳、麵粉廠、麵包店、鋸木廠、磚廠、鋼鐵鑄造廠、交易所、倉庫、穀倉。這 13 個是 CP + 產量雙重最佳化。',
           en: 'A standard feeder uses these 13 core buildings (filling most slots): Main Building, Marketplace, Academy, Embassy, Town Hall, Mill, Bakery, Sawmill, Brickyard, Iron Foundry, Trade Office, Warehouse, Granary. These 13 maximize both CP and production efficiency.',
         }},
         { type: 'list', items: [
