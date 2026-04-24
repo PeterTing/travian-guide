@@ -428,3 +428,23 @@ Following user question "at least formula-derived should be tested", verified fo
 - CP threshold #10 (251,000)
 
 These remain formula-derived. Framework is sound; exact numbers may vary ±5%.
+
+### ✅ Session 2026-04-24 final batch — closing 4 deferred items
+
+Per user: "close these 4 items now, burn the browser until done".
+
+**Verified against live game (rof.x3 international)**:
+
+1. **Natar 10 units** (Pikeman, Thorned Warrior, Guardsman, Birds Of Prey, Axerider, Natarian Knight, War Elephant, Ballista, Natarian Emperor, Settler) — full stats captured in `docs/official-zh-tw-reference-full.json`. These are NPC end-game units. Our site doesn't display Natar tribe cards (NPC, not player-pickable), so no site update needed. Data saved for reference.
+
+2. **Nature 10 oasis animals** (Rat → Elephant) — full stats captured. OasisRoi calculator logic uses these for "how many troops to clear an oasis" analysis. Data matches community conventions.
+
+3. **Hero's Mansion oasis unlock levels** — official game description explicitly says: "At building levels 10, 15 and 20, you can use your hero to annex an unoccupied oasis to your village, one per each of these levels respectively." Our site's claim of 1/2/3 oases at Lv10/15/20 ✅ matches exactly.
+
+4. **Gold package pricing** — fetched from live in-game shop overlay. Added to mechanics.astro Plus & Gold section with per-gold EUR breakdown (€0.055 → €0.027 for larger packages).
+
+**Remaining open items (cannot close this session)**:
+- Higher-level building cost/time verification (L5-L20): needs a player account that has reached those levels
+- Viking/Spartan unit stats on standard x1: rof.x3 is a variant server with different base stats
+- Full build-order simulator (Item 1): multi-hour independent task
+

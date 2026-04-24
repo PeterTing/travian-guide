@@ -1,0 +1,44 @@
+{
+  "_meta": "Consolidated reference: Natar 10, Nature 10, Gold pricing (rof.x3 English variant)",
+  "natar": {
+    "41": {"en": "Pikeman", "zh": "賴達矛兵", "att": 20, "defI": 35, "defC": 50, "speed_base": 4, "cost": [100,100,100,50], "carry": 10, "upkeep": 1, "train_base_s": 80},
+    "42": {"en": "Thorned Warrior", "zh": "賴達戰士", "att": 65, "defI": 30, "defC": 10, "speed_base": 14/3, "cost": [100,100,100,50]},
+    "43": {"en": "Guardsman", "zh": "賴達守衛者", "att": 100, "defI": 90, "defC": 75, "speed_base": 4, "cost": [150,150,150,150]},
+    "44": {"en": "Birds Of Prey", "zh": "賴達獵鷹", "att": 0, "defI": 10, "defC": 10, "speed_base": 50/3, "cost": [50,50,50,75]},
+    "45": {"en": "Axerider", "zh": "賴達斧騎", "att": 155, "defI": 80, "defC": 50, "speed_base": 28/3, "cost": [300,150,150,100]},
+    "46": {"en": "Natarian Knight", "zh": "賴達聖騎", "att": 170, "defI": 140, "defC": 80, "speed_base": 8, "cost": [250,250,400,150]},
+    "47": {"en": "War Elephant", "zh": "賴達戰象", "att": 250, "defI": 120, "defC": 150, "speed_base": 10/3, "cost": [400,300,300,400]},
+    "48": {"en": "Ballista", "zh": "賴達投石機", "att": 60, "defI": 45, "defC": 10, "speed_base": 2, "cost": [200,200,200,100]},
+    "49": {"en": "Natarian Emperor", "zh": "賴達酋長", "att": 80, "defI": 50, "defC": 50, "speed_base": 10/3, "cost": [1000,1000,1000,1000]},
+    "50": {"en": "Settler", "zh": "開拓者", "att": 30, "defI": 40, "defC": 40, "speed_base": 10/3, "cost": [200,200,200,200]}
+  },
+  "nature_oasis_animals": {
+    "31": {"en": "Rat", "zh": "鼠", "att": 10, "defI": 25, "defC": 20},
+    "32": {"en": "Spider", "zh": "蜘蛛", "att": 20, "defI": 35, "defC": 40},
+    "33": {"en": "Snake", "zh": "毒蛇", "att": 60, "defI": 40, "defC": 60},
+    "34": {"en": "Bat", "zh": "蝙蝠", "att": 80, "defI": 66, "defC": 50},
+    "35": {"en": "Wild Boar", "zh": "野豬", "att": 50, "defI": 70, "defC": 33},
+    "36": {"en": "Wolf", "zh": "野狼", "att": 100, "defI": 80, "defC": 70},
+    "37": {"en": "Bear", "zh": "灰熊", "att": 250, "defI": 140, "defC": 200},
+    "38": {"en": "Crocodile", "zh": "鱷魚", "att": 450, "defI": 380, "defC": 240},
+    "39": {"en": "Tiger", "zh": "老虎", "att": 200, "defI": 170, "defC": 250},
+    "40": {"en": "Elephant", "zh": "大象", "att": 600, "defI": 440, "defC": 520}
+  },
+  "hero_mansion": {
+    "l1_cost": [700, 670, 700, 240],
+    "l1_pop": 2,
+    "l1_time_s_x1": 12510/3,
+    "prerequisites": "Main Building L3, Rally Point L1",
+    "oasis_unlock": {"L10": 1, "L15": 2, "L20": 3},
+    "source": "live game Manual API"
+  },
+  "gold_pricing_int_eur": {
+    "36_gold": 1.99,
+    "114_gold": 4.99,
+    "280_gold_bestseller": 9.99,
+    "680_gold": 19.99,
+    "1815_gold_bestvalue": 49.99,
+    "3750_gold_excellent": 99.99,
+    "_note": "Special-offer gold is server+avatar locked. Only transferable gold is from regular packages."
+  }
+}

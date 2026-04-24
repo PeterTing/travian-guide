@@ -727,6 +727,32 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           en="Free-to-play is viable but requires: (1) accepting a 1–2 day pacing gap; (2) heavier hero resource-production allocation; (3) joining a more active alliance for mutual def coverage."
         />
       </p>
+
+      <h3><Bi zh="Gold 套餐價格（2026-04 國際伺服器 EUR）" en="Gold package prices (2026-04 International EUR)" /></h3>
+      <DataTable
+        caption={{ zh: '驗證自遊戲內商店 (rof.x3 international, 2026-04-24)', en: 'Verified from in-game shop (rof.x3 international, 2026-04-24)' }}
+        headers={[
+          { zh: '金幣數', en: 'Gold' },
+          { zh: '價格 EUR', en: 'Price EUR' },
+          { zh: '單價 EUR/金幣', en: 'Per-gold EUR' },
+          { zh: '標記', en: 'Tag' },
+        ]}
+        rows={[
+          ['36',   '€1.99',  '€0.055', '—'],
+          ['114',  '€4.99',  '€0.044', '—'],
+          ['280',  '€9.99',  '€0.036', { zh: 'Best seller', en: 'Best seller' }],
+          ['680',  '€19.99', '€0.029', '—'],
+          ['1815', '€49.99', '€0.028', { zh: 'Best value', en: 'Best value' }],
+          ['3750', '€99.99', '€0.027', { zh: 'Excellent choice', en: 'Excellent choice' }],
+        ]}
+      />
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="※ 特價活動購買的 Gold 限當伺服器當角色，不可轉移；定期套餐可跨世界使用。"
+          en="※ Gold from special offers is world + avatar locked. Regular packages are transferable across game worlds."
+        />
+      </p>
+      </p>
     </Section>
 
     <Section id="references" titleZh="延伸閱讀" titleEn="Further reading" eyebrow="Links">
