@@ -22,7 +22,7 @@ const diff = '★'.repeat(tribe.difficulty) + '☆'.repeat(5 - tribe.difficulty)
       <span class={styles.name}><Bi zh={tribe.name.zh} en={tribe.name.en} /></span>
       <span class={styles.arch}><Bi zh={tribe.archetype.zh} en={tribe.archetype.en} /></span>
     </div>
-    <span class={styles.diff} aria-label={`Difficulty ${tribe.difficulty} of 5`}>{diff}</span>
+    <span class={styles.diff} aria-label={`Difficulty ${tribe.difficulty} of 5 (non-official)`} title="作者綜合社群共識評等，非官方官方無星等">{diff}</span>
   </div>
   {!compact && (
     <>

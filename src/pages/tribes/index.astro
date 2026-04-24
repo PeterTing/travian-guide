@@ -19,6 +19,12 @@ import { TRIBE_LIST } from '../../data/tribes/index';
           en="T4.6 offers seven playable tribes, each with a distinct rhythm and strength. Difficulty stars reflect prior knowledge required — not tribe power. Newcomers should pick among Romans / Gauls / Teutons first."
         />
       </p>
+      <p style="color: var(--text-2); font-size: var(--fs-sm); margin-top: var(--space-3); font-style: italic;">
+        <Bi
+          zh="※ 難度星等為本站作者綜合社群共識評定，非官方評分。官方僅以散文描述（如 Romans 為「beginner-friendly」、Spartans 為「for advanced players」）。"
+          en="※ Difficulty stars are a non-official composite rating from the author based on community consensus. Travian's official site uses only prose descriptions (e.g., Romans as 'beginner-friendly', Spartans as 'for advanced players')."
+        />
+      </p>
     </header>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);">
       {TRIBE_LIST.map(tribe => <TribeCard tribe={tribe} />)}
