@@ -34,8 +34,8 @@ export const endgame: LumiSection = {
           { zh: "Eagle Eyes — 來犯情資更詳細（可看單位類型，高階可看數量）", en: 'Eagle Eyes — more detail on incoming attacks (unit type; unique tier can also reveal count)' },
           { zh: "Rival's Confusion — 反向 Eyes：敵方 scout 看你資訊變得更模糊", en: "Rival's Confusion — opposite of Eyes: enemy scouts learn less about your villages" },
           { zh: 'Diet Control — 部隊糧食消耗減少（OP 最強 buff 之一，可以養更多兵）', en: "Diet Control — troop crop upkeep reduced (one of the strongest OP buffs, lets you field many more troops)" },
-          { zh: 'Storage Masterplan — 倉庫 / 糧倉容量大幅提升', en: 'Storage Masterplan — warehouse/granary capacity boost' },
-          { zh: "Trainer's Talent — 軍營 / 馬房 / 工廠訓練速度提升", en: "Trainer's Talent — Barracks/Stable/Workshop training speed boost" },
+          { zh: 'Storage Masterplan — 倉庫 / 穀倉容量大幅提升', en: 'Storage Masterplan — warehouse/granary capacity boost' },
+          { zh: "Trainer's Talent — 兵營 / 馬廄 / 工場訓練速度提升", en: "Trainer's Talent — Barracks/Stable/Workshop training speed boost" },
           { zh: "The Fool — 隨機效果，會在其他 artefact 類型之間輪換", en: "The Fool — random effect that rotates through other artefact types" },
         ]},
         { type: 'callout', variant: 'info', title: { zh: '規模差異', en: 'Size differences' }, text: {

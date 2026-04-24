@@ -91,7 +91,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 49,
-    building: { zh: '鐵匠鋪', en: 'Smithy' },
+    building: { zh: '盔甲廠', en: 'Smithy' },
     targetLevel: 3,
     tier: null,
     cost: 2570,
@@ -127,7 +127,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 53,
-    building: { zh: '馬房', en: 'Stable' },
+    building: { zh: '馬廄', en: 'Stable' },
     targetLevel: 1,
     tier: 1,
     cost: 720,
@@ -137,7 +137,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 54,
-    building: { zh: '馬房', en: 'Stable' },
+    building: { zh: '馬廄', en: 'Stable' },
     targetLevel: 3,
     tier: 2,
     cost: 2105,
@@ -161,7 +161,7 @@ const branchSteps: BuildStep[] = [
     cost: null,
     phase: 'pre-party-1',
     notes: {
-      zh: '重要提醒：條頓（TT）和埃及重步兵（EI）可以單獨派去清空綠洲！',
+      zh: '重要提醒：日耳曼人（TT）和埃及人重步兵（EI）可以單獨派去清空綠洲！',
       en: 'Important reminder: TT & EI can be sent solo to an empty oasis!',
     },
   },
@@ -212,7 +212,7 @@ const branchSteps: BuildStep[] = [
     popGain: 10,
     phase: 'pre-party-1',
     notes: {
-      zh: '橘色標示的人口與 CP 獎勵會依賴馬房升到 3 或 5。請注意,馬房還沒升到對應等級之前不要提前預期這些加成。',
+      zh: '橘色標示的人口與 CP 獎勵會依賴馬廄升到 3 或 5。請注意,馬廄還沒升到對應等級之前不要提前預期這些加成。',
       en: "Pop & CP rewards in orange are dependable on stable to 3 or 5. Please be aware of this and don't expect it prematurely.",
     },
   },
@@ -228,7 +228,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 63,
-    building: { zh: '工廠', en: 'Workshop' },
+    building: { zh: '工場', en: 'Workshop' },
     targetLevel: 1,
     tier: null,
     cost: 1895,
@@ -347,7 +347,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 75,
-    building: { zh: '糧倉', en: 'Granary' },
+    building: { zh: '穀倉', en: 'Granary' },
     targetLevel: 7,
     tier: 3,
     cost: 3415,
@@ -414,7 +414,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 82,
-    building: { zh: '訓練拓荒者 x 1', en: 'Train 1 settler' },
+    building: { zh: '訓練開拓者 x 1', en: 'Train 1 settler' },
     targetLevel: null,
     tier: null,
     cost: 18100,
@@ -431,7 +431,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 84,
-    building: { zh: '訓練拓荒者 x 2', en: 'Train 2 settlers' },
+    building: { zh: '訓練開拓者 x 2', en: 'Train 2 settlers' },
     targetLevel: null,
     tier: null,
     cost: 36200,

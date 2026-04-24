@@ -42,9 +42,9 @@ export const midgame: LumiSection = {
           en: 'The closer you get to Day 90 artifacts, the more storage dominates planning. Not just "stash resources" — you need capacity to: receive alliance pushes, pay hospital bills, construct great storage buildings once you hold artifacts, and keep trainer artifacts from wasting their speed on empty queues.',
         }},
         { type: 'list', items: [
-          { zh: 'Feeder 的空閒建築槽位 → 全部填成倉庫 / 糧倉，不要蓋其他花俏建築', en: 'Vacant slots in feeders → fill them with warehouses / granaries, NOT fancy buildings' },
+          { zh: 'Feeder 的空閒建築槽位 → 全部填成倉庫 / 穀倉，不要蓋其他花俏建築', en: 'Vacant slots in feeders → fill them with warehouses / granaries, NOT fancy buildings' },
           { zh: '帳號儲存量目標：足以吃下 1 個聯盟 push + 1 次大型醫療單 + 接住 trainer artifact 的 24hr 產能', en: 'Target storage: enough to absorb 1 alliance push + 1 large hospital bill + 24hr of trainer-artifact output' },
-          { zh: 'Lumi 明確說：「這階段絕對該蓋 NPC 村了」— 純倉庫 + 糧倉村，配 NPC 商人把資源自由換成糧食餵錘子 / 鐵砧', en: 'Lumi is explicit: "you should definitely build an NPC village at this point" — pure warehouse + granary village, NPC merchant to swap surplus into crop and feed hammers / anvils' },
+          { zh: 'Lumi 明確說：「這階段絕對該蓋 NPC 村了」— 純倉庫 + 穀倉村，配 NPC 商人把資源自由換成糧食餵錘子 / 鐵砧', en: 'Lumi is explicit: "you should definitely build an NPC village at this point" — pure warehouse + granary village, NPC merchant to swap surplus into crop and feed hammers / anvils' },
         ]},
         { type: 'callout', variant: 'tip', title: { zh: '為什麼現在蓋 NPC 村？', en: 'Why NPC village NOW?' }, text: {
           zh: 'NPC 村不是「多蓋一個村」而已 — 它是你整個後期資源循環的關鍵節點。Feeder 的多餘木 / 土 / 鐵用 trade route 送進 NPC 村 → NPC 換成糧 → 送錘子 / 鐵砧。沒 NPC 村你就得手動 NPC 換資，後期完全扛不住。',

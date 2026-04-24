@@ -2,7 +2,7 @@ import type { Tribe } from '../tribes-types';
 
 export const romans: Tribe = {
   id: 'romans',
-  name: { zh: '羅馬', en: 'Romans' },
+  name: { zh: '羅馬人', en: 'Romans' },
   archetype: { zh: '平衡型', en: 'Balanced' },
   difficulty: 1,
   color: 'var(--tribe-romans)',
@@ -12,7 +12,7 @@ export const romans: Tribe = {
     en: 'Dual queue · Disciplined legions',
   },
   summary: {
-    zh: '羅馬以均衡著稱：雙建築佇列可同時升資源田與其他建築，禁衛兵是全遊戲最強步兵防禦，將軍騎士是平衡型重騎兵。最適合第一次玩的人。',
+    zh: '羅馬人以均衡著稱：雙建築佇列可同時升資源田與其他建築，禁衛兵是全遊戲最強步兵防禦，將軍騎士是平衡型重騎兵。最適合第一次玩的人。',
     en: 'Classic balanced tribe. The dual building queue lets you upgrade resource fields and other buildings simultaneously; Praetorians are the best infantry defenders in the game; Caesaris Riders are balanced heavy cavalry. Best pick for first-timers.',
   },
 
@@ -59,7 +59,7 @@ export const romans: Tribe = {
       cost: { wood: 150, clay: 160, iron: 210, crop: 80 }, trainTime: 2400,
       role: { zh: '高攻擊步兵，主要 Off 單位', en: 'High-attack infantry, primary offensive unit' } },
     { id: 'equitesLegati', category: 'scout',
-      name: { zh: '公路騎士', en: 'Equites Legati' },
+      name: { zh: '使者騎士', en: 'Equites Legati' },
       attack: 0, defInfantry: 20, defCavalry: 10, speed: 16, carry: 0, upkeep: 2,
       cost: { wood: 140, clay: 160, iron: 20, crop: 40 }, trainTime: 1700,
       role: { zh: '最快偵察單位', en: 'Fastest scout unit' } },
@@ -74,7 +74,7 @@ export const romans: Tribe = {
       cost: { wood: 550, clay: 640, iron: 800, crop: 180 }, trainTime: 4400,
       role: { zh: '主要重錘騎兵，攻守兼備', en: 'Main hammer cavalry, attack + defense' } },
     { id: 'ram', category: 'siege',
-      name: { zh: '攻城槌', en: 'Battering Ram' },
+      name: { zh: '衝撞車', en: 'Battering Ram' },
       attack: 60, defInfantry: 30, defCavalry: 75, speed: 4, carry: 0, upkeep: 3,
       cost: { wood: 900, clay: 360, iron: 500, crop: 70 }, trainTime: 4600,
       role: { zh: '破牆必備', en: 'Wall breaker' } },
@@ -89,18 +89,18 @@ export const romans: Tribe = {
       cost: { wood: 30750, clay: 27200, iron: 45000, crop: 37500 }, trainTime: 90700,
       role: { zh: '降敵忠誠、征服村莊', en: 'Reduces loyalty, conquers villages' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '拓荒者', en: 'Settler' },
+      name: { zh: '開拓者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 4600, clay: 4200, iron: 5800, crop: 4400 }, trainTime: 26900,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },
   ],
 
   offTips: [
-    { zh: '首都建議不放 OFF — 羅馬 cap 以發展為主，錘子放次級城（Palace/CC 村）', en: 'Keep OFF out of the capital — Roman cap should focus on production; hammer in a secondary village' },
+    { zh: '首都建議不放 OFF — 羅馬人 cap 以發展為主，錘子放次級城（Palace/CC 村）', en: 'Keep OFF out of the capital — Roman cap should focus on production; hammer in a secondary village' },
     { zh: '錘子主力：帝國兵 + 將軍騎士（Imperian + EC）', en: 'Hammer core: Imperian + Equites Caesaris' },
   ],
   defTips: [
-    { zh: '鐵砧：禁衛兵為主幹，搭配少量公路騎士作反偵察', en: 'Anvil: Praetorians as core + a few Legati for counter-scouting' },
+    { zh: '鐵砧：禁衛兵為主幹，搭配少量使者騎士作反偵察', en: 'Anvil: Praetorians as core + a few Legati for counter-scouting' },
     { zh: '城牆優先升到 Lv 10 以上（每級 +3% 防禦，效果最好）', en: 'Wall to Lv 10+ (City Wall is the best per-level wall at +3%)' },
   ],
 };

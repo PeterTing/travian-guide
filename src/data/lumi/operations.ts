@@ -52,7 +52,7 @@ export const operations: LumiSection = {
         { type: 'list', items: [
           { zh: 'Spawn 村：拿所有 task bonus，CP 性價比超高', en: 'Spawn village: grab every task bonus (best CP per cost ratio in the game)' },
           { zh: 'Cap：糧食田 Lv 17–18 為主；可選擇是否養兵（建議不養）', en: 'Cap: focus crop fields to Lv 17–18; choose whether to train troops (recommendation: don\'t)' },
-          { zh: 'V3：從 cap 開出去，當錘子村 — 必有 Palace 20、Great Barracks/Stable、TS、TH 10、Treasury 10、醫院、糧倉備用。⚠️ 不要佔任何綠洲（綠洲會讓敵方 scout 能估算糧田等級 / crop scouting，hammer 洩漏資訊非常危險）', en: 'V3: settled from cap, becomes the hammer — Palace 20, Great Barracks/Stable, high TS, TH 10, Treasury 10, hospital, spare granary. ⚠️ Do NOT capture any oasis (oases let enemies crop-scout your fields; hammer leakage is dangerous)' },
+          { zh: 'V3：從 cap 開出去，當錘子村 — 必有 Palace 20、Great Barracks/Stable、TS、TH 10、Treasury 10、醫院、穀倉備用。⚠️ 不要佔任何綠洲（綠洲會讓敵方 scout 能估算糧田等級 / crop scouting，hammer 洩漏資訊非常危險）', en: 'V3: settled from cap, becomes the hammer — Palace 20, Great Barracks/Stable, high TS, TH 10, Treasury 10, hospital, spare granary. ⚠️ Do NOT capture any oasis (oases let enemies crop-scout your fields; hammer leakage is dangerous)' },
           { zh: 'V4：feeder / 支援村。若能 access 2 塊 50% 糧綠洲 → HM 15（吃 2 塊）；只能 access 1 塊 → HM 10 就夠（別盲目升 HM 15 浪費資源）', en: 'V4: feeder / support. If 2× 50% crop oases reachable → push HM to Lv 15 (2-oasis capacity); if only 1 reachable → HM 10 is enough (don\'t over-build)' },
           { zh: 'V5：從 V4 開出去；硬核玩家可在這裡放 2nd 3-chief 組（與 V3 距離 1 格內）', en: 'V5: settled from V4; hardcore players plant a 2nd 3-chief set here (within 1 tile of V3)' },
           { zh: '替代方案：V5 改為 NPC 村，緊鄰 cap 與 V3', en: 'Alternative: V5 becomes the NPC village, adjacent to cap + V3' },

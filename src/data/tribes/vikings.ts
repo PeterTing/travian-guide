@@ -9,7 +9,7 @@ import type { Tribe } from '../tribes-types';
 
 export const vikings: Tribe = {
   id: 'vikings',
-  name: { zh: '維京', en: 'Vikings' },
+  name: { zh: '維京人', en: 'Vikings' },
   archetype: { zh: '海陸兩棲 · 掠奪強化', en: 'Amphibious raider' },
   difficulty: 4,
   color: 'var(--tribe-vikings)',
@@ -80,7 +80,7 @@ export const vikings: Tribe = {
       cost: { wood: 475, clay: 535, iron: 515, crop: 100 }, trainTime: 3060,
       role: { zh: 'OFF 重騎（upkeep 2 比其他重騎便宜）', en: 'Offensive heavy cavalry (upkeep 2 = cheaper than other heavies)' } },
     { id: 'ram', category: 'siege',
-      name: { zh: '攻城槌', en: 'Ram' },
+      name: { zh: '破城槌', en: 'Ram' },
       attack: 65, defInfantry: 30, defCavalry: 80, speed: 4, carry: 0, upkeep: 3,
       cost: { wood: 950, clay: 325, iron: 375, crop: 70 }, trainTime: 4200,
       role: { zh: '破牆', en: 'Wall breaker' } },
@@ -95,7 +95,7 @@ export const vikings: Tribe = {
       cost: { wood: 35500, clay: 26600, iron: 25000, crop: 27200 }, trainTime: 70500,
       role: { zh: '降忠誠 15–30% / 征服', en: 'Reduces loyalty 15–30%, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '拓荒者', en: 'Settler' },
+      name: { zh: '開拓者', en: 'Settler' },
       attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 5800, clay: 4600, iron: 4800, crop: 4800 }, trainTime: 31000,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

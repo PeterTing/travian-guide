@@ -48,7 +48,7 @@ export default function TraderouteCalculator() {
         <h2>{lang === 'en' ? 'Trade Route / Feeder Calculator' : '商路 / 糧商計算器'}</h2>
         <p>{lang === 'en'
           ? "How many merchants are needed to haul a feeder's hourly surplus? Tribe sets base capacity & speed; Trade Office adds +10% capacity per level (max +200% at Lv 20). Roman exception: +20%/lv (max +400% at Lv 20). Lumi rule of thumb: within 60 fields, 1–2 merchants should suffice."
-          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；商路辦公室每級 +10% 容量（Lv 20 最高 +200%）。羅馬例外：+20%/級（Lv 20 最高 +400%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
+          : '一個 feeder 每小時 surplus 要幾個商人才能搬完？部族決定基礎容量與速度；商路辦公室每級 +10% 容量（Lv 20 最高 +200%）。羅馬人例外：+20%/級（Lv 20 最高 +400%）。Lumi 經驗法則：60 格內 1–2 個商人就夠。'}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -60,8 +60,8 @@ export default function TraderouteCalculator() {
             <select value={tribe} onChange={e => setTribe(e.target.value as TribeId)}>
               {Object.entries(MERCHANTS).map(([id, m]) => {
                 const zhNames: Record<string, string> = {
-                  romans: '羅馬', gauls: '高盧', teutons: '條頓',
-                  egyptians: '埃及', huns: '匈人', spartans: '斯巴達', vikings: '維京',
+                  romans: '羅馬人', gauls: '高盧人', teutons: '日耳曼人',
+                  egyptians: '埃及人', huns: '匈奴', spartans: '斯巴達人', vikings: '維京人',
                 };
                 const display = lang === 'en'
                   ? `${id.charAt(0).toUpperCase() + id.slice(1)} (${m.capacity}/${m.speed})`

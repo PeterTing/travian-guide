@@ -14,7 +14,7 @@ const CAT_LABEL: Record<UnitCategory, { zh: string; en: string }> = {
   scout: { zh: '偵察', en: 'Scout' },
   siege: { zh: '攻城', en: 'Siege' },
   chief: { zh: '酋長', en: 'Chief' },
-  settler: { zh: '拓荒者', en: 'Settler' },
+  settler: { zh: '開拓者', en: 'Settler' },
 };
 
 interface Props { tribe: Tribe }

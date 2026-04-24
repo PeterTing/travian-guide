@@ -18,7 +18,7 @@ import type { Tribe } from '../tribes-types';
 
 export const spartans: Tribe = {
   id: 'spartans',
-  name: { zh: '斯巴達', en: 'Spartans' },
+  name: { zh: '斯巴達人', en: 'Spartans' },
   archetype: { zh: '精兵 / 軍事型', en: 'Elite military' },
   difficulty: 5,
   color: 'var(--tribe-spartans)',
@@ -28,12 +28,12 @@ export const spartans: Tribe = {
     en: 'Asclepeion revives 60% of fallen · Hero weapons grant +50% to all Spartan units',
   },
   summary: {
-    zh: '昂貴但效率極高：Asclepeion 戰後可復活 60% 陣亡單位，Ephor 獨特降忠誠機制，英雄武器對所有斯巴達兵加成 +50%（其他族只給自己）。需要玩家了解深入機制。',
+    zh: '昂貴但效率極高：Asclepeion 戰後可復活 60% 陣亡單位，Ephor 獨特降忠誠機制，英雄武器對所有斯巴達人兵加成 +50%（其他族只給自己）。需要玩家了解深入機制。',
     en: 'Expensive but extremely efficient. Asclepeion revives 60% of fallen troops post-battle. Ephor has a unique loyalty-reduction mechanic. Hero weapons apply a +50% bonus to ALL Spartan units of the matching category (other tribes benefit only the wearer). Requires a deeper grasp of mechanics.',
   },
 
   heroPassive: {
-    zh: '英雄武器加成適用於所有斯巴達同類兵種 +50%',
+    zh: '英雄武器加成適用於所有斯巴達人同類兵種 +50%',
     en: 'Hero weapon bonus applies to all Spartan units of the matching category (+50%)',
   },
 
@@ -91,7 +91,7 @@ export const spartans: Tribe = {
       cost: { wood: 660, clay: 495, iron: 995, crop: 165 }, trainTime: 3432,
       role: { zh: 'OFF 主力重騎（攻擊 195 頂級）', en: 'Main OFF heavy cavalry (195 attack, top tier)' } },
     { id: 'ram', category: 'siege',
-      name: { zh: '攻城槌', en: 'Ram' },
+      name: { zh: '破城槌', en: 'Ram' },
       attack: 65, defInfantry: 30, defCavalry: 80, speed: 4, carry: 0, upkeep: 3,
       cost: { wood: 525, clay: 260, iron: 790, crop: 130 }, trainTime: 4620,
       role: { zh: '破牆', en: 'Wall breaker' } },
@@ -106,7 +106,7 @@ export const spartans: Tribe = {
       cost: { wood: 33450, clay: 30665, iron: 36240, crop: 13935 }, trainTime: 77550,
       role: { zh: '獨特降忠誠 20–25%', en: 'Unique 20–25% loyalty reduction' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '拓荒者', en: 'Settler' },
+      name: { zh: '開拓者', en: 'Settler' },
       attack: 10, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 5115, clay: 5580, iron: 6045, crop: 3255 }, trainTime: 34100,
       role: { zh: '建立新村莊', en: 'Establishes new villages' } },

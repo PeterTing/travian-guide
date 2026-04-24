@@ -52,7 +52,7 @@ export default function CropSimCalculator() {
         <h2>{lang === 'en' ? 'Capital Crop / Total Production Simulator' : '首都糧食 / 總產量模擬器'}</h2>
         <p>{lang === 'en'
           ? "Reproduces Lumi's Table 1: total capital production /hr (all 4 resources) with every bonus applied. Compare 15c / 9c / 7c / 6c. Egyptian Waterworks toggle scales crop oasis bonus by ×1.35. Validated against Lumi Table 1 (15c @ Lv 18 + Lv 5 BBs + 150% crop oasis + Plus gold + Egyptian): calculator Total /hr ≈ 136,920 vs Lumi 136,500 (+0.3%). Crop-only row at that cell is ≈126,840/hr; the remaining ≈10,080/hr comes from the three non-crop fields (1 each) at +50% (Plus+BBs)."
-          : '複現 Lumi Table 1：首都全資源（木土鐵糧）總和每小時產量。可比較 15c / 9c / 7c / 6c。埃及水利會把糧綠洲加成 ×1.35。驗證對照 Lumi Table 1（15c Lv 18 + Lv 5 加成建築 + 150% 糧綠洲 + Plus 金 + 埃及）：計算器 Total /hr ≈ 136,920，Lumi 136,500（誤差 +0.3%）。該格糧食列約 126,840/hr，剩下約 10,080/hr 來自三塊非糧田（各 1 塊，+50% 加成）。'}</p>
+          : '複現 Lumi Table 1：首都全資源（木土鐵糧）總和每小時產量。可比較 15c / 9c / 7c / 6c。埃及人水利會把糧綠洲加成 ×1.35。驗證對照 Lumi Table 1（15c Lv 18 + Lv 5 加成建築 + 150% 糧綠洲 + Plus 金 + 埃及人）：計算器 Total /hr ≈ 136,920，Lumi 136,500（誤差 +0.3%）。該格糧食列約 126,840/hr，剩下約 10,080/hr 來自三塊非糧田（各 1 塊，+50% 加成）。'}</p>
       </div>
 
       <div className={s.wrapper}>
@@ -96,7 +96,7 @@ export default function CropSimCalculator() {
           </div>
 
           <label className={s.check}><input type="checkbox" checked={gold} onChange={e => setGold(e.target.checked)} /> Plus +25% gold</label>
-          <label className={s.check}><input type="checkbox" checked={egypt} onChange={e => setEgypt(e.target.checked)} /> {lang === 'en' ? 'Egyptian (Waterworks ×1.35)' : '埃及（水利 ×1.35）'}</label>
+          <label className={s.check}><input type="checkbox" checked={egypt} onChange={e => setEgypt(e.target.checked)} /> {lang === 'en' ? 'Egyptian (Waterworks ×1.35)' : '埃及人（水利 ×1.35）'}</label>
         </div>
 
         <div className={s.output}>
@@ -151,7 +151,7 @@ export default function CropSimCalculator() {
           <div className={s.note}>
             {lang === 'en'
               ? 'All cells assume Lv 18 fields + all bonus buildings (Lv 5) + Plus +25% + Egyptian Waterworks. Columns = crop-oasis bonus tier: 150% = 3× 50% crop oases, 125% / 100% = fewer oases (or Waterworks inactive), 75% = minimal. Numbers are 1x-speed crop /hr. Toggle "Egyptian" + pick layout + set crop oasis in the calculator to reproduce any cell.'
-              : '所有儲存格：Lv 18 田 + 全加成建築（Lv 5）+ Plus +25% + 埃及水利（Waterworks）。欄位 = 糧綠洲加成層級：150% = 3 塊 50% 糧綠洲、125% / 100% = 綠洲較少（或水利未啟動）、75% = 最少。數字為 1x 速每小時糧產。計算器打開「埃及」+ 選配置 + 設定糧綠洲加成即可重現任一格。'}
+              : '所有儲存格：Lv 18 田 + 全加成建築（Lv 5）+ Plus +25% + 埃及人水利（Waterworks）。欄位 = 糧綠洲加成層級：150% = 3 塊 50% 糧綠洲、125% / 100% = 綠洲較少（或水利未啟動）、75% = 最少。數字為 1x 速每小時糧產。計算器打開「埃及人」+ 選配置 + 設定糧綠洲加成即可重現任一格。'}
           </div>
         </div>
       </div>

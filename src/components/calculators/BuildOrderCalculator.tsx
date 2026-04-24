@@ -217,7 +217,7 @@ export default function BuildOrderCalculator() {
           <div className={s.note}>
             {lang === 'en'
               ? 'Time uses MB speed-up (0.964^(MB Lv − 1)) but does not model dual queues, Roman-dual, gold instant-5m, or celebration speed-ups. Reality will be a bit faster.'
-              : '時間已套用村莊大樓加速（0.964^(MB Lv − 1)），但未計入單/雙佇列、羅馬雙隊、金幣 5 分鐘補時、慶典加速。實際略快。'}
+              : '時間已套用村莊大樓加速（0.964^(MB Lv − 1)），但未計入單/雙佇列、羅馬人雙隊、金幣 5 分鐘補時、慶典加速。實際略快。'}
           </div>
         </div>
       </div>

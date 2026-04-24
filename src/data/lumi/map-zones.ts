@@ -51,7 +51,7 @@ export const mapZones: LumiSection = {
         { type: 'list', items: [
           { zh: '優點：鄰居少、feeder 可散布、simmer 壓力小', en: 'Pros: few neighbors, feeders can spread, low pressure for simmers' },
           { zh: '缺點：趕不到 def call（尤其 Roman def）、micro-farm 太遠', en: 'Cons: far from def calls (Roman def hit hard), micro-farm too distant' },
-          { zh: '適合：simmer、晚期出兵派、進攻型斯巴達（配合快速單位）', en: 'Fits: simmers, late-troop builders, fast-unit offensive Spartans' },
+          { zh: '適合：simmer、晚期出兵派、進攻型斯巴達人（配合快速單位）', en: 'Fits: simmers, late-troop builders, fast-unit offensive Spartans' },
           { zh: '不適合：Roman def、需早期兵力的帳號', en: "Don't: Roman def, accounts needing early troops" },
         ]},
         { type: 'callout', variant: 'tip', title: { zh: '沒有唯一答案', en: 'No single right answer' }, text: {

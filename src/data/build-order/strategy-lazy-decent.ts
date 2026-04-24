@@ -179,7 +179,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 58,
-    building: { zh: '工廠', en: 'Workshop' },
+    building: { zh: '工場', en: 'Workshop' },
     targetLevel: 1,
     tier: null,
     cost: 1895,
@@ -265,7 +265,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 67,
-    building: { zh: '糧倉', en: 'Granary' },
+    building: { zh: '穀倉', en: 'Granary' },
     targetLevel: 7,
     tier: 3,
     cost: 3415,
@@ -370,7 +370,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 78,
-    building: { zh: '訓練拓荒者 x 3', en: 'Train 3 settlers' },
+    building: { zh: '訓練開拓者 x 3', en: 'Train 3 settlers' },
     targetLevel: null,
     tier: null,
     cost: 54330,

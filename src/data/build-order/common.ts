@@ -92,7 +92,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 8,
-    building: { zh: '糧倉', en: 'Granary' },
+    building: { zh: '穀倉', en: 'Granary' },
     targetLevel: 1,
     tier: 1,
     cost: 270,
@@ -122,7 +122,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 11,
-    building: { zh: '糧倉', en: 'Granary' },
+    building: { zh: '穀倉', en: 'Granary' },
     targetLevel: 3,
     tier: 2,
     cost: 790,
@@ -267,7 +267,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 26,
-    building: { zh: '軍營', en: 'Barracks' },
+    building: { zh: '兵營', en: 'Barracks' },
     targetLevel: 1,
     tier: 1,
     cost: 730,
@@ -356,7 +356,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 35,
-    building: { zh: '軍營', en: 'Barracks' },
+    building: { zh: '兵營', en: 'Barracks' },
     targetLevel: 3,
     tier: 2,
     cost: 2135,
@@ -385,7 +385,7 @@ export const common: BuildStep[] = [
   },
   {
     step: 38,
-    building: { zh: '鐵匠鋪', en: 'Smithy' },
+    building: { zh: '盔甲廠', en: 'Smithy' },
     targetLevel: 1,
     tier: 1,
     cost: 1090,

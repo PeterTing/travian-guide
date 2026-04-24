@@ -73,7 +73,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 46,
-    building: { zh: '鐵匠鋪', en: 'Smithy' },
+    building: { zh: '盔甲廠', en: 'Smithy' },
     targetLevel: 3,
     tier: null,
     cost: 2570,
@@ -93,7 +93,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 48,
-    building: { zh: '馬房', en: 'Stable' },
+    building: { zh: '馬廄', en: 'Stable' },
     targetLevel: 1,
     tier: 1,
     cost: 720,
@@ -103,7 +103,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 49,
-    building: { zh: '馬房', en: 'Stable' },
+    building: { zh: '馬廄', en: 'Stable' },
     targetLevel: 3,
     tier: 2,
     cost: 2105,
@@ -119,7 +119,7 @@ const branchSteps: BuildStep[] = [
     cost: null,
     phase: 'pre-party-1',
     notes: {
-      zh: '重要提醒：條頓（TT）和埃及重步兵（EI）可以單獨派去清空綠洲！',
+      zh: '重要提醒：日耳曼人（TT）和埃及人重步兵（EI）可以單獨派去清空綠洲！',
       en: 'Important reminder: TT & EI can be sent solo to an empty oasis!',
     },
   },
@@ -276,7 +276,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 67,
-    building: { zh: '工廠', en: 'Workshop' },
+    building: { zh: '工場', en: 'Workshop' },
     targetLevel: 1,
     tier: null,
     cost: 1895,
@@ -364,7 +364,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 76,
-    building: { zh: '糧倉', en: 'Granary' },
+    building: { zh: '穀倉', en: 'Granary' },
     targetLevel: 7,
     tier: 3,
     cost: 3415,
@@ -434,7 +434,7 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 83,
-    building: { zh: '暫不訓拓荒者(等下次派對)', en: 'Hold on settler training (wait for next party)' },
+    building: { zh: '暫不訓開拓者(等下次派對)', en: 'Hold on settler training (wait for next party)' },
     targetLevel: null,
     tier: null,
     cost: 0,
@@ -459,13 +459,13 @@ const branchSteps: BuildStep[] = [
   },
   {
     step: 85,
-    building: { zh: '訓練拓荒者 x 3', en: 'Train 3 settlers' },
+    building: { zh: '訓練開拓者 x 3', en: 'Train 3 settlers' },
     targetLevel: null,
     tier: null,
     cost: 54300,
     phase: 'post-party-2',
     notes: {
-      zh: '若你有其他規劃,可以調整拓荒者數量!請依部族選擇正確的成本。',
+      zh: '若你有其他規劃,可以調整開拓者數量!請依部族選擇正確的成本。',
       en: 'You can adjust the amount of settlers here if you have other plans! Select tribe above for correct costs.',
     },
   },

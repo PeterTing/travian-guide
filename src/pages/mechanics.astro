@@ -66,13 +66,13 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <DataTable
         headers={[{ zh: '部族', en: 'Tribe' }, { zh: '牆壁', en: 'Wall' }, { zh: '每級加成', en: 'Per level' }]}
         rows={[
-          [{ zh: '羅馬 (Romans)', en: 'Romans' }, { zh: '城牆 (City Wall)', en: 'City Wall' }, '+3.0 %'],
-          [{ zh: '高盧 (Gauls)', en: 'Gauls' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
-          [{ zh: '條頓 (Teutons)', en: 'Teutons' }, { zh: '土牆 (Earth Wall)', en: 'Earth Wall' }, '+2.0 %'],
-          [{ zh: '埃及 (Egyptians)', en: 'Egyptians' }, { zh: '石牆 (Stone Wall)', en: 'Stone Wall' }, '+2.5 %'],
-          [{ zh: '匈人 (Huns)', en: 'Huns' }, { zh: '簡易牆 (Makeshift Wall)', en: 'Makeshift Wall' }, '+1.5 %'],
-          [{ zh: '維京 (Vikings)', en: 'Vikings' }, { zh: '柵欄 (Barricade)', en: 'Barricade' }, '+1.5 %'],
-          [{ zh: '斯巴達 (Spartans)', en: 'Spartans' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
+          [{ zh: '羅馬人 (Romans)', en: 'Romans' }, { zh: '城牆 (City Wall)', en: 'City Wall' }, '+3.0 %'],
+          [{ zh: '高盧人 (Gauls)', en: 'Gauls' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
+          [{ zh: '日耳曼人 (Teutons)', en: 'Teutons' }, { zh: '土牆 (Earth Wall)', en: 'Earth Wall' }, '+2.0 %'],
+          [{ zh: '埃及人 (Egyptians)', en: 'Egyptians' }, { zh: '石牆 (Stone Wall)', en: 'Stone Wall' }, '+2.5 %'],
+          [{ zh: '匈奴 (Huns)', en: 'Huns' }, { zh: '簡易牆 (Makeshift Wall)', en: 'Makeshift Wall' }, '+1.5 %'],
+          [{ zh: '維京人 (Vikings)', en: 'Vikings' }, { zh: '柵欄 (Barricade)', en: 'Barricade' }, '+1.5 %'],
+          [{ zh: '斯巴達人 (Spartans)', en: 'Spartans' }, { zh: '柵欄 (Palisade)', en: 'Palisade' }, '+2.5 %'],
         ]}
       />
 
@@ -122,7 +122,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="smithy" titleZh="兵種升級 (Smithy)" titleEn="Troop upgrades (Smithy)" eyebrow="Combat">
       <p>
         <Bi
-          zh="鐵匠鋪（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（軍營 / 馬房）+ 鐵匠鋪達對應等級。每隻兵可以升 20 次，總加成約 +24–29%（取決於糧消耗；高糧消耗兵種加成較大）。"
+          zh="盔甲廠（Smithy）可以升級每隻兵種的攻擊力 + 防禦力。每次升級需要該兵種的研發完成（兵營 / 馬廄）+ 盔甲廠達對應等級。每隻兵可以升 20 次，總加成約 +24–29%（取決於糧消耗；高糧消耗兵種加成較大）。"
           en="The Smithy upgrades each troop type's attack and defense. Each upgrade requires the unit researched (Barracks / Stable) + Smithy at matching level. Each unit can be upgraded up to 20 times for a total bonus of ~+24–29% (varies by upkeep; higher-upkeep units gain more)."
         />
       </p>
@@ -144,12 +144,12 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '提升', en: 'Gain' },
         ]}
         rows={[
-          [{ zh: '帝國兵 (Imperian, 羅馬)', en: 'Imperian (Roman)' }, '70', '~87', '+24%'],
-          [{ zh: '將軍騎士 (EC, 羅馬)', en: 'EC (Roman)' }, '180', '~233', '+29%'],
-          [{ zh: 'Haeduan (高盧)', en: 'Haeduan (Gaul)' }, '140', '~180', '+29%'],
-          [{ zh: '條頓騎士 (TK, 條頓)', en: 'Teutonic Knight' }, '150', '~192', '+28%'],
-          [{ zh: '掠奪者 (Marauder, 匈)', en: 'Marauder (Hun)' }, '180', '~226', '+26%'],
-          [{ zh: 'Corinthian Crusher (斯巴達)', en: 'Corinthian (Spartan)' }, '195', '~250', '+28%'],
+          [{ zh: '帝國兵 (Imperian, 羅馬人)', en: 'Imperian (Roman)' }, '70', '~87', '+24%'],
+          [{ zh: '將軍騎士 (EC, 羅馬人)', en: 'EC (Roman)' }, '180', '~233', '+29%'],
+          [{ zh: '海頓聖騎 (Haeduan, 高盧人)', en: 'Haeduan (Gaul)' }, '140', '~180', '+29%'],
+          [{ zh: '條頓騎士 (TK, 日耳曼人)', en: 'Teutonic Knight' }, '150', '~192', '+28%'],
+          [{ zh: '掠奪者 (Marauder, 匈奴)', en: 'Marauder (Hun)' }, '180', '~226', '+26%'],
+          [{ zh: 'Corinthian Crusher (斯巴達人)', en: 'Corinthian (Spartan)' }, '195', '~250', '+28%'],
         ]}
       />
       <Callout kind="tip" titleZh="升幾級 vs 多訓兵？" titleEn="Upgrade vs more troops?">
@@ -322,7 +322,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <pre>CP_at_level(L) = round(base × 1.2 ^ L)</pre>
       <p>
         <Bi
-          zh="每棟建築有一個基礎 CP 值（村莊大樓 = 2，市場 = 3，大使 / 研究院 = 4，城鎮廳 / 皇宮 = 5，金庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
+          zh="每棟建築有一個基礎 CP 值（村莊大樓 = 2，市場 = 3，大使 / 研究院 = 4，城鎮廳 / 皇宮 = 5，寶物庫 = 6，其他多為 1 或 2）。等級越高 CP 增速越快。"
           en="Each building has a base CP (Main Building = 2, Marketplace = 3, Embassy / Academy = 4, Town Hall / Palace = 5, Treasury = 6, most others 1 or 2). Higher levels give exponentially more CP."
         />
       </p>
@@ -360,7 +360,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="忠誠度與征服（Chiefing）" en="Loyalty & chiefing" /></h3>
       <p>
         <Bi
-          zh="每個村莊有忠誠度（loyalty）值。預設 100，被攻擊+ Senator/Chief/Chieftain/Nomarch/Logades/Ephor/Jarl 同行時會降低。降至 0 = 易主。每場大型慶典把基線拉到 +25（共 125），這就是為什麼鐵砧主動辦慶典的原因。"
+          zh="每個村莊有忠誠度（loyalty）值。預設 100，被攻擊 + 參議員/司令官/族長/州長/重步兵/Ephor/Jarl 同行時會降低。降至 0 = 易主。每場大型慶典把基線拉到 +25（共 125），這就是為什麼鐵砧主動辦慶典的原因。"
           en="Every village has a loyalty value, defaulting to 100. It drops when attacked by an army containing a chief unit (Senator/Chief/Chieftain/Nomarch/Logades/Ephor/Jarl). At 0 the village changes hands. A great celebration raises the baseline to 125 — that's why anvils proactively run them."
         />
       </p>
@@ -372,13 +372,13 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           { zh: '備註', en: 'Note' },
         ]}
         rows={[
-          [{ zh: '參議員 (Senator, 羅馬)', en: 'Senator (Roman)' }, '20–30%', { zh: '成本最高、平衡型', en: 'Most expensive, balanced' }],
-          [{ zh: '酋長 (Chieftain, 高盧)', en: 'Chieftain (Gaul)' }, '20–25%', { zh: '稍便宜、稍弱', en: 'Slightly cheaper, slightly weaker' }],
-          [{ zh: '首領 (Chief, 條頓)', en: 'Chief (Teuton)' }, '20–25%', { zh: '所有 chief 訓練最快（70,500s）', en: 'Trains fastest of all chiefs (70,500s)' }],
-          [{ zh: 'Nomarch (埃及)', en: 'Nomarch (Egyptian)' }, '20–25%', '—'],
-          [{ zh: 'Logades (匈)', en: 'Logades (Hun)' }, '20–25%', '—'],
-          [{ zh: 'Ephor (斯巴達)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '標準 chief 單位降忠誠度', en: 'Standard chief-unit loyalty reduction' }],
-          [{ zh: 'Jarl (維京)', en: 'Jarl (Viking)' }, '15–30%', { zh: '維京英雄的 raid 忠誠傷害是獨立機制，不計入 Jarl 的擲骰', en: "Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll" }],
+          [{ zh: '參議員 (Senator, 羅馬人)', en: 'Senator (Roman)' }, '20–30%', { zh: '成本最高、平衡型', en: 'Most expensive, balanced' }],
+          [{ zh: '族長 (Chieftain, 高盧人)', en: 'Chieftain (Gaul)' }, '20–25%', { zh: '稍便宜、稍弱', en: 'Slightly cheaper, slightly weaker' }],
+          [{ zh: '司令官 (Chief, 日耳曼人)', en: 'Chief (Teuton)' }, '20–25%', { zh: '所有 chief 訓練最快（70,500s）', en: 'Trains fastest of all chiefs (70,500s)' }],
+          [{ zh: '州長 (Nomarch, 埃及人)', en: 'Nomarch (Egyptian)' }, '20–25%', '—'],
+          [{ zh: '重步兵 (Logades, 匈奴)', en: 'Logades (Hun)' }, '20–25%', '—'],
+          [{ zh: 'Ephor (斯巴達人)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '標準 chief 單位降忠誠度', en: 'Standard chief-unit loyalty reduction' }],
+          [{ zh: 'Jarl (維京人)', en: 'Jarl (Viking)' }, '15–30%', { zh: '維京人英雄的 raid 忠誠傷害是獨立機制，不計入 Jarl 的擲骰', en: "Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll" }],
         ]}
       />
       <p>
@@ -400,7 +400,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="hero" titleZh="英雄系統" titleEn="Hero system" eyebrow="Hero">
       <h3><Bi zh="屬性點分配" en="Attribute points" /></h3>
       <ul>
-        <li><strong><Bi zh="戰鬥力" en="Fighting strength" /></strong>: <Bi zh="羅馬 +100/點；其他族 +80/點" en="Romans +100/pt, other tribes +80/pt" /></li>
+        <li><strong><Bi zh="戰鬥力" en="Fighting strength" /></strong>: <Bi zh="羅馬人 +100/點；其他族 +80/點" en="Romans +100/pt, other tribes +80/pt" /></li>
         <li><strong><Bi zh="進攻加成" en="Off bonus" /></strong>: <Bi zh="+0.2% 同伍部隊攻擊/點，上限 +20%（100 點）" en="+0.2% attack per pt to the army this hero is in (max +20% at 100 pts)" /></li>
         <li><strong><Bi zh="防禦加成" en="Def bonus" /></strong>: <Bi zh="+0.2% 同伍部隊防禦/點，上限 +20%" en="+0.2% defense per pt, max +20%" /></li>
         <li><strong><Bi zh="資源採集" en="Resource production" /></strong>: <Bi zh="平均分四資源：+6/點/小時（每種 +1.5）；集中單一：+6/點/小時全入該資源" en="Split: +6/pt/hr (≈+1.5 each); focused on one resource: +6/pt/hr into that type" /></li>
@@ -437,7 +437,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <Callout kind="tip" titleZh="冒險前必模擬" titleEn="Always simulate before adventuring">
         <p>
           <Bi
-            zh="點冒險按鈕後右鍵看戰鬥模擬。若 HP 損失預估 >30%，先補藥水（ointment / bandage）或讓英雄帶幾隻肉盾（埃及奴隸民兵最便宜）。"
+            zh="點冒險按鈕後右鍵看戰鬥模擬。若 HP 損失預估 >30%，先補藥水（ointment / bandage）或讓英雄帶幾隻肉盾（埃及人奴隸民兵最便宜）。"
             en="Click the adventure → right-click to see the battle simulation. If predicted HP loss is >30%, use ointments / bandages first or bring cheap meat-shield troops (Egyptian Slave Militia is cheapest)."
           />
         </p>
@@ -458,7 +458,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         ]}
         rows={[
           [{ zh: '頭盔 (Helmet)', en: 'Helmet' }, { zh: '+25% / +50% 兵種訓練速度 | +20% 經驗值', en: '+25% / +50% troop training speed | +20% XP' }],
-          [{ zh: '武器 (Weapon, 各族不同)', en: 'Weapon (per tribe)' }, { zh: '對選定的 1 種兵 +50% 攻擊（斯巴達：對該類別所有兵）', en: '+50% attack to 1 chosen unit (Spartans: all units of category)' }],
+          [{ zh: '武器 (Weapon, 各族不同)', en: 'Weapon (per tribe)' }, { zh: '對選定的 1 種兵 +50% 攻擊（斯巴達人：對該類別所有兵）', en: '+50% attack to 1 chosen unit (Spartans: all units of category)' }],
           [{ zh: '靴子 (Boots)', en: 'Boots' }, { zh: '+25% / +50% / +75% 英雄速度', en: '+25% / +50% / +75% hero speed' }],
           [{ zh: '盔甲 (Armor)', en: 'Armor' }, { zh: '+10% / +20% 英雄生命', en: '+10% / +20% hero HP' }],
           [{ zh: '坐騎 (Horse)', en: 'Horse' }, { zh: '騎乘時加速：T1 馬 +14 格/時、T2 馬（Pferd）+17、T3 馬（訓練馬 / 阿拉伯馬）+20', en: 'Riding speed bonus: T1 Horse +14 fields/hr, T2 Horse (Pferd) +17, T3 Horse (Training/Arabian) +20' }],
@@ -483,7 +483,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="山洞容量" en="Cranny capacity" /></h3>
       <p>
         <Bi
-          zh="Lv1 每種資源藏 200（四項共 800；高盧 ×1.5 = 每種 300 / 共 1,200）；Lv10 最高每種 2,000（共 8,000）。高盧享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"
+          zh="Lv1 每種資源藏 200（四項共 800；高盧人 ×1.5 = 每種 300 / 共 1,200）；Lv10 最高每種 2,000（共 8,000）。高盧人享 ×1.5（Lv10 = 每種 3,000）。攻擊者先搶倉庫外資源，倉庫內的看不到。"
           en="Lv1 hides 200 per resource (800 total; Gauls ×1.5 = 300 per resource / 1,200 total). Lv10 (MAX) hides 2,000 per resource (8,000 total). Gauls get ×1.5 (Lv10 = 3,000 per resource). Raiders take resources above the cranny threshold first."
         />
       </p>
@@ -499,16 +499,16 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       />
       <p>
         <Bi
-          zh="商路辦公室（Trade Office）每級加成：羅馬 +20%（Lv 20 = +400% / 5×）；其他族 +10%（Lv 20 = +200% / 3×）。羅馬人的容量基礎是 500 但 Lv20 變 2,500，超過所有其他族。"
+          zh="商路辦公室（Trade Office）每級加成：羅馬人 +20%（Lv 20 = +400% / 5×）；其他族 +10%（Lv 20 = +200% / 3×）。羅馬人的容量基礎是 500 但 Lv20 變 2,500，超過所有其他族。"
           en="Trade Office bonus is tribe-dependent: Romans +20%/lv (Lv 20 = +400% / 5×); all other tribes +10%/lv (Lv 20 = +200% / 3×). Roman base capacity 500 grows to 2,500 at Lv 20 — surpassing every other tribe."
         />
       </p>
     </Section>
 
-    <Section id="tournament-square" titleZh="競技廣場 (Tournament Square)" titleEn="Tournament Square" eyebrow="Long-distance speed">
+    <Section id="tournament-square" titleZh="競技場 (Tournament Square)" titleEn="Tournament Square" eyebrow="Long-distance speed">
       <p>
         <Bi
-          zh="競技廣場是遠程攻擊加速建築。前 20 格速度不變；超過 20 格的部分，每升一級增加 10% 速度。Lv 20 最高 +200%（三倍速度）。"
+          zh="競技場是遠程攻擊加速建築。前 20 格速度不變；超過 20 格的部分，每升一級增加 10% 速度。Lv 20 最高 +200%（三倍速度）。"
           en="Tournament Square (TS) speeds up long-distance attacks. Trips ≤20 fields get no bonus; beyond 20 fields, each TS level adds +10% speed. Lv 20 maxes at +200% (3× speed)."
         />
       </p>
@@ -543,7 +543,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
     <Section id="alliance" titleZh="聯盟系統" titleEn="Alliance system" eyebrow="Multiplayer">
       <p>
         <Bi
-          zh="加入聯盟需要 Embassy（大使館）。Embassy Lv 1 = 加入；Lv 3 = 創立。聯盟最多 60 名成員（大部分伺服器）。聯盟內可內部聊天、協同作戰、共享報告、設置聯盟金庫等。"
+          zh="加入聯盟需要 Embassy（大使館）。Embassy Lv 1 = 加入；Lv 3 = 創立。聯盟最多 60 名成員（大部分伺服器）。聯盟內可內部聊天、協同作戰、共享報告、設置聯盟寶物庫等。"
           en="Joining an alliance requires an Embassy. Embassy Lv 1 = join, Lv 3 = create. Most servers cap alliances at 60 members. Alliance grants internal chat, coordinated attack planning, shared reports, and alliance treasury slots."
         />
       </p>
@@ -590,7 +590,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         rows={[
           [{ zh: '+25% 木 / 土 / 鐵 / 糧 產量', en: '+25% Wood / Clay / Iron / Crop production' }, { zh: '啟用期間永久加成', en: 'Permanent boost while active' }, { zh: '每資源 5 金幣/天 或 全部 10/天', en: '5 gold/day per resource OR 10/day for all 4' }],
           [{ zh: '+25% 糧食產量（獨立購買）', en: '+25% Crop production (separately)' }, { zh: '獨立購買', en: 'Standalone purchase' }, '5 金幣/天'],
-          [{ zh: '+25% 倉庫 / 糧倉容量', en: '+25% Warehouse / Granary capacity' }, { zh: '不用蓋建築就有更多儲存', en: 'More storage without building' }, '~3 金幣/天'],
+          [{ zh: '+25% 倉庫 / 穀倉容量', en: '+25% Warehouse / Granary capacity' }, { zh: '不用蓋建築就有更多儲存', en: 'More storage without building' }, '~3 金幣/天'],
           [{ zh: 'Plus 帳號', en: 'Plus Account' }, { zh: '更好的 UI、建築佇列加長、進階統計、列表檢視', en: 'Better UI, build-queue extender, advanced stats, list views' }, { zh: '10 金幣 / 7 天（1x 伺服器）', en: '10 gold / 7 days (1x server)' }],
           [{ zh: 'NPC 商人', en: 'NPC Trader' }, { zh: '在市場以 1:1 比例交換資源', en: 'Swap resources at marketplace at 1:1 ratio' }, '每次 3 金幣'],
           [{ zh: '拍賣場（用銀幣競標）', en: 'Auctions (silver bidding)' }, { zh: '從冒險取得銀幣，不需金幣', en: 'Earned via adventures, no gold needed' }, '—'],

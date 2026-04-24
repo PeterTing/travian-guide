@@ -34,7 +34,7 @@ export const farming: LumiSection = {
           en: 'Clay / iron oases are soft against cavalry; crop oases are brutal. Oasis raiding only pays off with high activity. Some players settle dedicated oasis-farming villages spread across the map.',
         }},
         { type: 'list', items: [
-          { zh: 'Rainbow farm（永久占用）：羅 1 EC + 1-2 EI / 高盧 1 Hedu + 1-2 TT / 匈 1 Marauder + 1 Marksman + 1-2 Steppe，每 8 分鐘送一次', en: 'Rainbow farm (permanent occupation): 1 EC + 1–2 EI (Roman), 1 Hedu + 1–2 TT (Gaul), 1 Marauder + 1 Marksman + 1–2 Steppe (Hun); send every 8 min' },
+          { zh: 'Rainbow farm（永久占用）：羅 1 EC + 1-2 EI / 高盧人 1 Hedu + 1-2 TT / 匈 1 Marauder + 1 Marksman + 1-2 Steppe，每 8 分鐘送一次', en: 'Rainbow farm (permanent occupation): 1 EC + 1–2 EI (Roman), 1 Hedu + 1–2 TT (Gaul), 1 Marauder + 1 Marksman + 1–2 Steppe (Hun); send every 8 min' },
           { zh: '20 馬或混合：每 15–20 分鐘一次，戰損較大但仍獲利', en: '20 horses or mixed: every 15–20 min, losses higher but still profitable' },
           { zh: '100 馬 / 200 棍棒兵：每 5 小時一次，戰損會多但仍有利潤', en: '100 horses / 200 clubs: every 5 hours, losses higher but still profit' },
           { zh: '若 oasis 已被別人 permanent farm，再去打就不會有利潤', en: 'If someone already permanent-farms an oasis, you\'ll get zero profit by hitting it' },

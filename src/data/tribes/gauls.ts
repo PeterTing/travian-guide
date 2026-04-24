@@ -2,7 +2,7 @@ import type { Tribe } from '../tribes-types';
 
 export const gauls: Tribe = {
   id: 'gauls',
-  name: { zh: '高盧', en: 'Gauls' },
+  name: { zh: '高盧人', en: 'Gauls' },
   archetype: { zh: '速度 / 防禦型', en: 'Speed / Defense' },
   difficulty: 2,
   color: 'var(--tribe-gauls)',
@@ -28,7 +28,7 @@ export const gauls: Tribe = {
   ],
 
   strengths: [
-    { zh: '最快的騎兵（TT 19、Haeduan 13）', en: 'Fastest cavalry (TT 19, Haeduan 13)' },
+    { zh: '最快的騎兵（TT 19、海頓聖騎 13）', en: 'Fastest cavalry (TT 19, 海頓聖騎 13)' },
     { zh: '最便宜的 settler，開村最快', en: 'Cheapest settlers, fastest expansion' },
     { zh: '陷阱 + 1.5× cranny 讓早期極難被掠奪', en: 'Trapper + 1.5× cranny makes early raiding nearly useless against Gauls' },
   ],
@@ -40,7 +40,7 @@ export const gauls: Tribe = {
 
   wallType: { name: { zh: '柵欄 (Palisade)', en: 'Palisade' }, bonusPerLevel: 0.025 },
   merchant: { capacity: 750, speed: 24 },
-  defenseMix: { zh: '60% 方陣兵 / 40% 德魯伊騎士', en: '60% Phalanx / 40% Druidrider' },
+  defenseMix: { zh: '60% 方陣兵 / 40% 德魯伊騎兵', en: '60% Phalanx / 40% Druidrider' },
 
   units: [
     { id: 'phalanx', category: 'infantry',
@@ -59,22 +59,22 @@ export const gauls: Tribe = {
       cost: { wood: 170, clay: 150, iron: 20, crop: 40 }, trainTime: 1700,
       role: { zh: '快速偵察', en: 'Fast scout' } },
     { id: 'theutatesThunder', category: 'cavalry',
-      name: { zh: 'Theutates 雷騎', en: 'Theutates Thunder' },
+      name: { zh: '雷法師', en: 'Theutates Thunder' },
       attack: 90, defInfantry: 25, defCavalry: 40, speed: 19, carry: 75, upkeep: 2,
       cost: { wood: 350, clay: 450, iron: 230, crop: 60 }, trainTime: 3100,
       role: { zh: '全遊戲最快騎兵，farm / 突襲利器', en: 'Fastest cavalry in the game; raiding / fast-strike' } },
     { id: 'druidrider', category: 'cavalry',
-      name: { zh: '德魯伊騎士', en: 'Druidrider' },
+      name: { zh: '德魯伊騎兵', en: 'Druidrider' },
       attack: 45, defInfantry: 115, defCavalry: 55, speed: 16, carry: 35, upkeep: 2,
       cost: { wood: 360, clay: 330, iron: 280, crop: 120 }, trainTime: 3200,
       role: { zh: '高機動防禦騎兵', en: 'Mobile defensive cavalry' } },
     { id: 'haeduan', category: 'cavalry',
-      name: { zh: 'Haeduan', en: 'Haeduan' },
+      name: { zh: '海頓聖騎', en: '海頓聖騎' },
       attack: 140, defInfantry: 50, defCavalry: 165, speed: 13, carry: 65, upkeep: 3,
       cost: { wood: 500, clay: 620, iron: 675, crop: 170 }, trainTime: 3900,
-      role: { zh: '高盧主力攻擊騎兵', en: 'Main Gaul offensive cavalry' } },
+      role: { zh: '高盧人主力攻擊騎兵', en: 'Main Gaul offensive cavalry' } },
     { id: 'ram', category: 'siege',
-      name: { zh: '攻城槌', en: 'Ram' },
+      name: { zh: '破城槌', en: 'Ram' },
       attack: 50, defInfantry: 30, defCavalry: 105, speed: 4, carry: 0, upkeep: 3,
       cost: { wood: 950, clay: 555, iron: 330, crop: 75 }, trainTime: 5000,
       role: { zh: '破牆', en: 'Wall breaker' } },
@@ -84,23 +84,23 @@ export const gauls: Tribe = {
       cost: { wood: 960, clay: 1450, iron: 630, crop: 90 }, trainTime: 9000,
       role: { zh: '摧毀建築', en: 'Destroys buildings' } },
     { id: 'chieftain', category: 'chief',
-      name: { zh: '酋長', en: 'Chieftain' },
+      name: { zh: '族長', en: 'Chieftain' },
       attack: 40, defInfantry: 50, defCavalry: 50, speed: 5, carry: 0, upkeep: 4,
       cost: { wood: 30750, clay: 45400, iron: 31000, crop: 37500 }, trainTime: 90700,
       role: { zh: '降忠誠 / 征服', en: 'Reduces loyalty, conquers' } },
     { id: 'settler', category: 'settler',
-      name: { zh: '拓荒者', en: 'Settler' },
+      name: { zh: '開拓者', en: 'Settler' },
       attack: 0, defInfantry: 80, defCavalry: 80, speed: 5, carry: 3000, upkeep: 1,
       cost: { wood: 4400, clay: 5600, iron: 4200, crop: 3900 }, trainTime: 22700,
-      role: { zh: '最便宜拓荒者', en: 'Cheapest settler — fastest expansion' } },
+      role: { zh: '最便宜開拓者', en: 'Cheapest settler — fastest expansion' } },
   ],
 
   offTips: [
-    { zh: '錘子主力：Haeduan + 劍士', en: 'Hammer core: Haeduan + Swordsman' },
+    { zh: '錘子主力：海頓聖騎 + 劍士', en: 'Hammer core: 海頓聖騎 + Swordsman' },
     { zh: '早期 TT 農場效率超群（速度 19 + 75 搬運）', en: 'Early raiding is incredible with TTs (speed 19, 75 carry)' },
   ],
   defTips: [
-    { zh: '鐵砧最常見配置：方陣 + 德魯伊騎士', en: 'Standard anvil: Phalanx + Druidrider' },
+    { zh: '鐵砧最常見配置：方陣 + 德魯伊騎兵', en: 'Standard anvil: Phalanx + Druidrider' },
     { zh: '首都早期可靠陷阱 + 1.5× cranny 渡過真空期', en: 'Early cap survives raids with Trappers + 1.5× cranny' },
   ],
 };
