@@ -149,7 +149,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           [{ zh: '海頓聖騎 (Haeduan, 高盧人)', en: 'Haeduan (Gaul)' }, '140', '~180', '+29%'],
           [{ zh: '條頓騎士 (TK, 日耳曼人)', en: 'Teutonic Knight' }, '150', '~192', '+28%'],
           [{ zh: '掠奪者 (Marauder, 匈奴)', en: 'Marauder (Hun)' }, '180', '~226', '+26%'],
-          [{ zh: 'Corinthian Crusher (斯巴達人)', en: 'Corinthian (Spartan)' }, '195', '~250', '+28%'],
+          [{ zh: '科林斯破壞者 (Corinthian Crusher, 斯巴達人)', en: 'Corinthian (Spartan)' }, '195', '~250', '+28%'],
         ]}
       />
       <Callout kind="tip" titleZh="升幾級 vs 多訓兵？" titleEn="Upgrade vs more troops?">
@@ -360,7 +360,7 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
       <h3><Bi zh="忠誠度與征服（Chiefing）" en="Loyalty & chiefing" /></h3>
       <p>
         <Bi
-          zh="每個村莊有忠誠度（loyalty）值。預設 100，被攻擊 + 參議員/司令官/族長/州長/重步兵/Ephor/Jarl 同行時會降低。降至 0 = 易主。每場大型慶典把基線拉到 +25（共 125），這就是為什麼鐵砧主動辦慶典的原因。"
+          zh="每個村莊有忠誠度（loyalty）值。預設 100，被攻擊 + 參議員/司令官/族長/州長/重步兵/五長官/首領 同行時會降低。降至 0 = 易主。每場大型慶典把基線拉到 +25（共 125），這就是為什麼鐵砧主動辦慶典的原因。"
           en="Every village has a loyalty value, defaulting to 100. It drops when attacked by an army containing a chief unit (Senator/Chief/Chieftain/Nomarch/Logades/Ephor/Jarl). At 0 the village changes hands. A great celebration raises the baseline to 125 — that's why anvils proactively run them."
         />
       </p>
@@ -377,8 +377,8 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           [{ zh: '司令官 (Chief, 日耳曼人)', en: 'Chief (Teuton)' }, '20–25%', { zh: '所有 chief 訓練最快（70,500s）', en: 'Trains fastest of all chiefs (70,500s)' }],
           [{ zh: '州長 (Nomarch, 埃及人)', en: 'Nomarch (Egyptian)' }, '20–25%', '—'],
           [{ zh: '重步兵 (Logades, 匈奴)', en: 'Logades (Hun)' }, '20–25%', '—'],
-          [{ zh: 'Ephor (斯巴達人)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '標準 chief 單位降忠誠度', en: 'Standard chief-unit loyalty reduction' }],
-          [{ zh: 'Jarl (維京人)', en: 'Jarl (Viking)' }, '15–30%', { zh: '維京人英雄的 raid 忠誠傷害是獨立機制，不計入 Jarl 的擲骰', en: "Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll" }],
+          [{ zh: '五長官 (Ephor, 斯巴達人)', en: 'Ephor (Spartan)' }, '20–25%', { zh: '標準 chief 單位降忠誠度', en: 'Standard chief-unit loyalty reduction' }],
+          [{ zh: '首領 (Jarl, 維京人)', en: 'Jarl (Viking)' }, '15–30%', { zh: '維京人英雄的 raid 忠誠傷害是獨立機制，不計入首領（Jarl）的擲骰', en: "Viking hero's raid loyalty damage is a separate mechanic, not part of Jarl's roll" }],
         ]}
       />
       <p>
