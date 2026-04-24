@@ -7,9 +7,9 @@ import {
 import { useLang } from '../../i18n/LangContext';
 import s from './calc.module.css';
 
-type BB = 'sawmill' | 'brickyard' | 'ironFoundry' | 'grainMill' | 'bakery';
+export type BB = 'sawmill' | 'brickyard' | 'ironFoundry' | 'grainMill' | 'bakery';
 
-const BB_REQ: Record<BB, { res: ResourceType; field: number; alsoMill?: number }> = {
+export const BB_REQ: Record<BB, { res: ResourceType; field: number; alsoMill?: number }> = {
   sawmill:     { res: 'wood', field: 10 },
   brickyard:   { res: 'clay', field: 10 },
   ironFoundry: { res: 'iron', field: 10 },
@@ -17,11 +17,122 @@ const BB_REQ: Record<BB, { res: ResourceType; field: number; alsoMill?: number }
   bakery:      { res: 'crop', field: 10, alsoMill: 5 },
 };
 
-interface Step {
+export interface Step {
   label: string;
   cost: number;
   time: number;
   roi: number;
+  kind: 'field' | 'bb';
+  type?: ResourceType;  // populated when kind === 'field'
+  bb?: BB;              // populated when kind === 'bb'
+  from: number;
+  to: number;
+}
+
+export interface PlanInput {
+  cropperId: CropperId;
+  isCap: boolean;
+  start: Record<ResourceType, number>;
+  bonus: Record<BB, number>;
+  mb: number;
+  gold: boolean;
+  oasisPct?: Partial<Record<ResourceType, number>>;
+  maxSteps?: number;
+}
+
+export interface PlanResult {
+  steps: Step[];
+  totalCost: number;
+  totalTime: number;
+}
+
+/**
+ * Pure greedy ROI planner. At each of N steps, picks the candidate upgrade
+ * (lowest-level field of each resource type, or next bonus-building level
+ * whose prerequisites are met) with the shortest ROI (cost / daily delta).
+ *
+ * Exported for algorithm-correctness tests. The React component wraps this
+ * in useMemo with its current input state.
+ */
+export function planGreedy(input: PlanInput): PlanResult {
+  const { cropperId, isCap, start, bonus, mb, gold } = input;
+  const MAX = input.maxSteps ?? 20;
+  const layout = CROPPER_LAYOUTS.find(l => l.id === cropperId)!;
+  const counts: Record<ResourceType, number> = {
+    wood: layout.wood, clay: layout.clay, iron: layout.iron, crop: layout.crop,
+  };
+  const fields: Record<ResourceType, number[]> = {
+    wood: Array(counts.wood).fill(start.wood),
+    clay: Array(counts.clay).fill(start.clay),
+    iron: Array(counts.iron).fill(start.iron),
+    crop: Array(counts.crop).fill(start.crop),
+  };
+  const bb: Record<BB, number> = { ...bonus };
+  const maxLv = isCap ? 20 : 10;
+  const goldPct = gold ? 0.25 : 0;
+  const oasisPct = input.oasisPct ?? {};
+
+  const bonusFor = (t: ResourceType): number =>
+    t === 'wood' ? bb.sawmill * 0.05
+    : t === 'clay' ? bb.brickyard * 0.05
+    : t === 'iron' ? bb.ironFoundry * 0.05
+    : (bb.grainMill + bb.bakery) * 0.05;
+
+  const steps: Step[] = [];
+
+  for (let i = 0; i < MAX; i++) {
+    const cands: Step[] = [];
+
+    // Field upgrade candidates: lowest field of each type below cap
+    (['wood', 'clay', 'iron', 'crop'] as ResourceType[]).forEach(t => {
+      let lowestIdx = -1, lowest = Infinity;
+      fields[t].forEach((lv, idx) => { if (lv < lowest && lv < maxLv) { lowest = lv; lowestIdx = idx; } });
+      if (lowestIdx < 0) return;
+      const to = lowest + 1;
+      const cost = fieldTotalCost(t, to);
+      const baseDelta = (FIELD_PRODUCTION[to] ?? 0) - (to === 1 ? 0 : (FIELD_PRODUCTION[lowest] ?? 0));
+      const delta = baseDelta * (1 + bonusFor(t) + goldPct + (oasisPct[t] ?? 0));
+      const perDay = delta * 24;
+      const roi = perDay > 0 ? cost / perDay : Infinity;
+      cands.push({ kind: 'field', type: t, from: lowest, to, cost, roi,
+        time: fieldBuildTime(t, to, mb),
+        label: `${t[0]!.toUpperCase() + t.slice(1)} #${lowestIdx + 1} → Lv ${to}` });
+    });
+
+    // Bonus-building candidates (prerequisites must be met)
+    (Object.keys(BB_REQ) as BB[]).forEach(b => {
+      const cur = bb[b];
+      if (cur >= 5) return;
+      const req = BB_REQ[b];
+      const minField = Math.min(...fields[req.res]);
+      if (minField < req.field) return;
+      if (b === 'bakery' && bb.grainMill < (req.alsoMill ?? 0)) return;
+      const to = cur + 1;
+      const cost = bbTotalCost(b, to);
+      const totalProdHr = fields[req.res].reduce((sum, lv) => sum + (FIELD_PRODUCTION[lv] ?? 0), 0);
+      const delta = totalProdHr * 0.05;
+      const perDay = delta * 24;
+      const roi = perDay > 0 ? cost / perDay : Infinity;
+      cands.push({ kind: 'bb', bb: b, from: cur, to, cost, roi, time: 0,
+        label: `${b[0]!.toUpperCase() + b.slice(1)} → Lv ${to} (+5% ${req.res})` });
+    });
+
+    if (!cands.length) break;
+    cands.sort((a, b) => a.roi - b.roi);
+    const best = cands[0]!;
+    steps.push(best);
+    if (best.kind === 'field' && best.type) {
+      // apply the upgrade to the lowest field of that type
+      let lowestIdx = -1, lowest = Infinity;
+      fields[best.type].forEach((lv, idx) => { if (lv < lowest) { lowest = lv; lowestIdx = idx; } });
+      if (lowestIdx >= 0) fields[best.type][lowestIdx] = best.to;
+    }
+    if (best.kind === 'bb' && best.bb) bb[best.bb] = best.to;
+  }
+
+  const totalCost = steps.reduce((acc, x) => acc + x.cost, 0);
+  const totalTime = steps.reduce((acc, x) => acc + x.time, 0);
+  return { steps, totalCost, totalTime };
 }
 
 export default function BuildOrderCalculator() {
@@ -33,77 +144,10 @@ export default function BuildOrderCalculator() {
   const [mb, setMb] = useState(10);
   const [gold, setGold] = useState(true);
 
-  const plan = useMemo(() => {
-    const layout = CROPPER_LAYOUTS.find(l => l.id === cropperId)!;
-    const counts: Record<ResourceType, number> = { wood: layout.wood, clay: layout.clay, iron: layout.iron, crop: layout.crop };
-    const fields: Record<ResourceType, number[]> = {
-      wood: Array(counts.wood).fill(start.wood),
-      clay: Array(counts.clay).fill(start.clay),
-      iron: Array(counts.iron).fill(start.iron),
-      crop: Array(counts.crop).fill(start.crop),
-    };
-    const bb = { ...bonus };
-    const maxLv = isCap ? 20 : 10;
-    const goldPct = gold ? 0.25 : 0;
-
-    const bonusFor = (t: ResourceType) =>
-      t === 'wood' ? bb.sawmill * 0.05
-      : t === 'clay' ? bb.brickyard * 0.05
-      : t === 'iron' ? bb.ironFoundry * 0.05
-      : (bb.grainMill + bb.bakery) * 0.05;
-
-    const steps: Step[] = [];
-    const MAX = 20;
-
-    for (let i = 0; i < MAX; i++) {
-      const cands: { kind: 'field' | 'bb'; type?: ResourceType; idx?: number; bb?: BB; from: number; to: number; cost: number; roi: number; time: number; label: string }[] = [];
-
-      // Field upgrade candidates: lowest field of each type
-      (['wood', 'clay', 'iron', 'crop'] as ResourceType[]).forEach(t => {
-        let lowestIdx = -1, lowest = Infinity;
-        fields[t].forEach((lv, idx) => { if (lv < lowest && lv < maxLv) { lowest = lv; lowestIdx = idx; } });
-        if (lowestIdx < 0) return;
-        const to = lowest + 1;
-        const cost = fieldTotalCost(t, to);
-        const baseDelta = (FIELD_PRODUCTION[to] ?? 0) - (to === 1 ? 0 : (FIELD_PRODUCTION[lowest] ?? 0));
-        const delta = baseDelta * (1 + bonusFor(t) + goldPct);
-        const perDay = delta * 24;
-        const roi = perDay > 0 ? cost / perDay : Infinity;
-        cands.push({ kind: 'field', type: t, idx: lowestIdx, from: lowest, to, cost, roi,
-          time: fieldBuildTime(t, to, mb),
-          label: `${t[0].toUpperCase() + t.slice(1)} #${lowestIdx + 1} → Lv ${to}` });
-      });
-
-      // Bonus building candidates
-      (Object.keys(BB_REQ) as BB[]).forEach(b => {
-        const cur = bb[b];
-        if (cur >= 5) return;
-        const req = BB_REQ[b];
-        const minField = Math.min(...fields[req.res]);
-        if (minField < req.field) return;
-        if (b === 'bakery' && bb.grainMill < (req.alsoMill ?? 0)) return;
-        const to = cur + 1;
-        const cost = bbTotalCost(b, to);
-        const totalProdHr = fields[req.res].reduce((sum, lv) => sum + (FIELD_PRODUCTION[lv] ?? 0), 0);
-        const delta = totalProdHr * 0.05;
-        const perDay = delta * 24;
-        const roi = perDay > 0 ? cost / perDay : Infinity;
-        cands.push({ kind: 'bb', bb: b, from: cur, to, cost, roi, time: 0,
-          label: `${b[0].toUpperCase() + b.slice(1)} → Lv ${to} (+5% ${req.res})` });
-      });
-
-      if (!cands.length) break;
-      cands.sort((a, b) => a.roi - b.roi);
-      const best = cands[0]!;
-      steps.push({ label: best.label, cost: best.cost, time: best.time, roi: best.roi });
-      if (best.kind === 'field' && best.type && best.idx != null) fields[best.type][best.idx] = best.to;
-      if (best.kind === 'bb' && best.bb) bb[best.bb] = best.to;
-    }
-
-    const totalCost = steps.reduce((s, x) => s + x.cost, 0);
-    const totalTime = steps.reduce((s, x) => s + x.time, 0);
-    return { steps, totalCost, totalTime };
-  }, [cropperId, isCap, start, bonus, mb, gold]);
+  const plan = useMemo(
+    () => planGreedy({ cropperId, isCap, start, bonus, mb, gold }),
+    [cropperId, isCap, start, bonus, mb, gold],
+  );
 
   return (
     <>
