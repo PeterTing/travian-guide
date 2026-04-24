@@ -410,6 +410,45 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
         </p>
       </Callout>
 
+      <h3><Bi zh="策略可行性驗證" en="Strategy feasibility check" /></h3>
+      <p>
+        <Bi
+          zh="用 14 天 Lv0→Lv10 田自然升級曲線，估每小時平均產量 ≈ 890/hr。對照策略需求："
+          en="Assuming fields ramp Lv0→Lv10 over 14 days (typical xlsx path), average production is ~890/hr. Checked against each strategy's demand:"
+        />
+      </p>
+      <DataTable
+        caption={{ zh: 'Gap = 需求 − 自產；正值表示需要 farming / 冒險 / 任務補資源', en: 'Gap = demand − self-production; positive means raids/adventures/tasks must cover' }}
+        headers={[
+          { zh: '策略', en: 'Strategy' },
+          { zh: '需求 /hr', en: 'Need /hr' },
+          { zh: '自產 /hr', en: 'Self /hr' },
+          { zh: 'Gap /hr', en: 'Gap /hr' },
+          { zh: '結論', en: 'Verdict' },
+        ]}
+        rows={[
+          ['4P Sim',     '1,867', '890', '+977',  { zh: '需外部資源（冒險/任務/綠洲）', en: 'Needs external (adventures/tasks/oasis)' }],
+          ['4P Farming', '1,602', '890', '+712',  { zh: '需 farming ~700/hr', en: 'Needs farming ~700/hr' }],
+          ['3P Sim',     '2,081', '890', '+1,192',{ zh: '需更多外部資源（最快但壓力最大）', en: 'Heavy external demand (fastest but highest stress)' }],
+          ['3P Farming', '1,737', '890', '+848',  { zh: '需 farming ~850/hr', en: 'Needs farming ~850/hr' }],
+          ['Lazy Decent','717',   '891', '−174',  { zh: '自產即可（慢但穩）', en: 'Self-sufficient (slow but safe)' }],
+        ]}
+      />
+      <Callout kind="warn" titleZh="「Sim」不等於「完全不 farm」" titleEn="'Sim' does not mean 'zero farming'">
+        <p>
+          <Bi
+            zh="Sim 策略 Gap 還是 +977 ~ +1,192/hr — 這份資源靠英雄打綠洲、每日任務、鄰居 raid 空 inactives、保護期獎勵補。真正「純 sim」只有 Lazy Decent。Carpis xlsx 的「Sim」是指「不訓專屬 farm 兵」，不是「完全不搶資源」。"
+            en="The Sim path still has a +977–1,192/hr gap — covered by hero oasis raids, daily tasks, sniping inactive neighbors, and beginner-protection rewards. The only truly self-sufficient path is Lazy Decent. xlsx's 'Sim' means 'no dedicated farming troops', not 'no resource grabbing'."
+          />
+        </p>
+      </Callout>
+      <p>
+        <Bi
+          zh="社群已知 xlsx 外的替代路線：(1) 2-party rush Day 8-9 chief，但需大量 gold/farming；(2) Hero-farm path（Lv10 Mansion + 綠洲）— 未嚴格證明最優；(3) Gold-instant 5min 免費規則已被移除，目前均需金幣。Carpis xlsx 5 條算涵蓋主流無金幣免費打法。"
+          en="Community alternatives NOT in xlsx: (1) 2-party rush → Day 8–9 chief but requires heavy gold/farming; (2) Hero-farm path (Lv10 Mansion + oases) — not rigorously proven optimal; (3) Gold-instant 5-min free rule was removed — all instant completions now cost gold. xlsx's 5 strategies reasonably cover mainstream no-gold free play."
+        />
+      </p>
+
       <h3><Bi zh="開村所需 CP" en="CP required per village" /></h3>
       <DataTable
         headers={[

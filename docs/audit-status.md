@@ -387,3 +387,21 @@ Output: days-to-chief per strategy, compare to Carpis xlsx claims.
 
 **Interim confidence**: Carpis xlsx has been used by Travian community for years; broad consensus that 4P-sim is the fastest pure-economy route and 4P-farming the fastest with raiding. Our site correctly labels them but hasn't independently validated the ordering.
 
+
+### ✅ Item 1 partially verified — Build-order feasibility check
+
+Simplified validation (not full simulator) in mechanics.astro §CP:
+
+- 4P Sim (Day 11) needs 1,867/hr, self-prod ~890/hr → gap +977/hr must come from hero/tasks/adventures
+- 4P Farming (Day 13) needs 1,602/hr → gap +712/hr from raiding troops
+- 3P Sim (Day 10) needs 2,081/hr → gap +1,192/hr (fastest but highest external-resource pressure)
+- 3P Farming (Day 12) needs 1,737/hr → gap +848/hr from raids
+- Lazy Decent (Day 21) needs 717/hr → self-sufficient
+
+**Finding**: xlsx's "Sim" label does NOT mean "zero raiding" — only "no dedicated farming troops". Sim strategies still need hero oasis farming + task rewards. Only Lazy Decent is truly self-sufficient.
+
+**Ordering matches community consensus**: 3P < 4P (fewer parties = earlier chief), Sim < Farm (Sim lacks Barracks+troops overhead).
+
+**Not verified**: an independent full simulator with resource spending vs production vs queue modeling. Deferred.
+
+**Acceptable confidence**: Carpis xlsx is widely used by Travian community; our numeric pins prove our data MATCHES xlsx; feasibility check confirms resource budgets are internally consistent.
