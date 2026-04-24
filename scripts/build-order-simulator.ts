@@ -17,7 +17,7 @@
  * - Bottleneck steps
  */
 
-import { FIELD_PRODUCTION, FIELD_COSTS, MAIN_BUILDING_SPEED_MULTIPLIER } from '../src/data/travian';
+import { FIELD_PRODUCTION } from '../src/data/travian';
 import { common } from '../src/data/build-order/common';
 import { strategy4pSim } from '../src/data/build-order/strategy-4p-sim';
 import { strategy4pFarming } from '../src/data/build-order/strategy-4p-farming';
@@ -117,11 +117,12 @@ function totalCropUpkeep(state: SimState): number {
 
 function applyStep(state: SimState, step: BuildStep) {
   const bldg = step.building.en.toLowerCase();
-  if (bldg.includes('woodcutter')) upgrade(state.fields.wood, step.targetLevel);
-  else if (bldg.includes('clay pit')) upgrade(state.fields.clay, step.targetLevel);
-  else if (bldg.includes('iron mine')) upgrade(state.fields.iron, step.targetLevel);
-  else if (bldg.includes('cropland') || bldg.includes('crop field')) upgrade(state.fields.crop, step.targetLevel);
-  else if (bldg.includes('main building')) state.mbLevel = Math.max(state.mbLevel, step.targetLevel);
+  const target = step.targetLevel ?? 0;
+  if (bldg.includes('woodcutter')) upgrade(state.fields.wood, target);
+  else if (bldg.includes('clay pit')) upgrade(state.fields.clay, target);
+  else if (bldg.includes('iron mine')) upgrade(state.fields.iron, target);
+  else if (bldg.includes('cropland') || bldg.includes('crop field')) upgrade(state.fields.crop, target);
+  else if (bldg.includes('main building')) state.mbLevel = Math.max(state.mbLevel, target);
 }
 
 function upgrade(fields: number[], targetLevel: number) {
