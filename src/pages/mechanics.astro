@@ -166,6 +166,38 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           en="T4 Travian Legends merged the old Blacksmith (attack) + Armoury (defense) into a single Smithy that upgrades both at once."
         />
       </p>
+
+      <h3><Bi zh="Academy 研發成本" en="Academy research cost" /></h3>
+      <p>
+        <Bi
+          zh="官方未公布正式公式。社群共識（kirilloid 驗證）：研發單位的資源成本 ≈ 該單位訓練成本（木+土+鐵+糧）相關係數，並隨 Academy 等級調整。Academy 等級需求依兵種 tier："
+          en="No official formula is published. Community consensus (kirilloid-verified): a unit's research cost scales from the unit's training cost × tier-specific factor, with Academy-level adjustments. Academy level required per unit tier:"
+        />
+      </p>
+      <DataTable
+        caption={{ zh: '各兵種 tier 所需 Academy 等級（社群資料）', en: 'Academy level required per unit tier (community)' }}
+        headers={[
+          { zh: 'Tier', en: 'Tier' },
+          { zh: '例子', en: 'Example' },
+          { zh: '需 Academy Lv', en: 'Academy Lv needed' },
+        ]}
+        rows={[
+          ['T1', { zh: 'Clubswinger / Phalanx（羅馬 Legionnaire 預設解鎖）', en: 'Clubswinger / Phalanx (Roman Legionnaire default-unlocked)' }, '1'],
+          ['T2-T3', { zh: '矛兵 / 劍士 / 斧頭兵', en: 'Spearman / Swordsman / Axeman' }, '3'],
+          ['T4 Scout', { zh: '偵察兵 / 探子', en: 'Scout / Spotter' }, '3'],
+          ['T5-T6 Cavalry', { zh: '條頓騎士 / 帝國騎士', en: 'Teutonic Knight / Equites Imperatoris' }, '5-10'],
+          ['T7 Ram', { zh: '破城槌', en: 'Battering Ram' }, '10'],
+          ['T8 Catapult', { zh: '火焰投石機 / 弩炮', en: 'Fire Catapult / Catapult' }, '15'],
+          ['T9 Chief', { zh: '參議員 / 司令官 / 族長', en: 'Senator / Chief / Chieftain' }, '20'],
+          ['T10 Settler', { zh: '開拓者', en: 'Settler' }, { zh: '不需研發（行宮 / 皇宮 Lv10/15/20 訓練）', en: 'No research (trained at Residence/Palace Lv10/15/20)' }],
+        ]}
+      />
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="※ 單位實際研發成本數值可在遊戲內 Academy 介面查看；官方未發布靜態表。"
+          en="※ Exact research costs appear in the in-game Academy UI; Travian has not published a static cost table."
+        />
+      </p>
     </Section>
 
     <Section id="resources" titleZh="資源產量 & 綠洲" titleEn="Resource production & oases" eyebrow="Resources">
@@ -528,6 +560,38 @@ const merchantRows = Object.entries(MERCHANTS).map(([tribe, m]) => [
           />
         </p>
       </Callout>
+
+      <h3><Bi zh="英雄升級 XP 表" en="Hero XP per level" /></h3>
+      <p>
+        <Bi
+          zh="英雄最高 Lv 100（=400 屬性點）。升級所需累計 XP 公式："
+          en="Hero max level is 100 (= 400 attribute points). Cumulative XP needed:"
+        />
+      </p>
+      <pre>XP(L) = 50 × L × (L + 1)</pre>
+      <DataTable
+        caption={{ zh: '關鍵等級 XP 門檻（驗證自 kirilloid hero table）', en: 'Key-level XP thresholds (verified via kirilloid hero table)' }}
+        headers={[
+          { zh: '等級', en: 'Level' },
+          { zh: '累計 XP', en: 'Cumulative XP' },
+          { zh: '等級→下一級需 XP', en: 'XP to next level' },
+        ]}
+        rows={[
+          ['5', '1,500', '500'],
+          ['10', '5,500', '1,000'],
+          ['20', '21,000', '2,000'],
+          ['30', '46,500', '3,000'],
+          ['50', '127,500', '5,000'],
+          ['75', '285,000', '7,500'],
+          ['100', '505,000', { zh: '（滿等）', en: '(max)' }],
+        ]}
+      />
+      <p style="font-size: var(--fs-sm); color: var(--text-2);">
+        <Bi
+          zh="※ 每 1 單位敵軍糧消耗 = 1 XP（例：殺 Haeduan upkeep 3 = 3 XP）。冒險 + 每日任務 + 打綠洲動物效率最高。"
+          en="※ 1 enemy unit upkeep = 1 XP (e.g., killing a Haeduan with upkeep 3 = 3 XP). Adventures + daily quests + oasis nature kills are highest-efficiency sources."
+        />
+      </p>
 
       <h3><Bi zh="冒險系統 (Adventures)" en="Adventures" /></h3>
       <p>
