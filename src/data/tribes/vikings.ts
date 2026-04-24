@@ -44,7 +44,7 @@ export const vikings: Tribe = {
     { zh: '主力攻擊步兵（Berserker）速度僅 5 格/小時', en: 'Main offensive infantry (Berserker) only 5 fields/hr' },
   ],
 
-  wallType: { name: { zh: '防禦牆 (Barricade)', en: 'Barricade' }, bonusPerLevel: 0.015 },
+  wallType: { name: { zh: '障礙物 (Barricade)', en: 'Barricade' }, bonusPerLevel: 0.015 },
   merchant: { capacity: 750, speed: 18 },
   defenseMix: { zh: 'Shield Maiden + Huskarl Rider 為主', en: 'Shield Maiden + Huskarl Rider focus' },
 

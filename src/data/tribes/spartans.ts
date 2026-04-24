@@ -39,7 +39,7 @@ export const spartans: Tribe = {
 
   specials: [
     { zh: 'Asclepeion：戰鬥後可復活 60% 陣亡單位', en: 'Asclepeion: revives 60% of fallen troops after battle' },
-    { zh: 'Stone Wall 柵欄版：每級 +2.5% 防禦', en: 'Palisade-style wall: +2.5% per level' },
+    { zh: '防禦牆：每級 +2.5% 防禦', en: 'Palisade-style wall: +2.5% per level' },
     { zh: 'Ephor 降忠誠 20–25%', en: 'Ephor: reduces loyalty 20–25%' },
   ],
 
@@ -55,7 +55,7 @@ export const spartans: Tribe = {
     { zh: '非主流族，資料與範本比較少', en: 'Non-mainstream tribe, less community tooling' },
   ],
 
-  wallType: { name: { zh: '柵欄 (Palisade)', en: 'Palisade' }, bonusPerLevel: 0.025 },
+  wallType: { name: { zh: '防禦牆 (Defensive Wall)', en: 'Defensive Wall' }, bonusPerLevel: 0.025 },
   merchant: { capacity: 500, speed: 14 },
   defenseMix: { zh: 'Shieldsman + Elpida Rider (60/40)', en: 'Shieldsman + Elpida Rider (60/40)' },
 
